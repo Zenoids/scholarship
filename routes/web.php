@@ -1,5 +1,7 @@
 <?php
 
+use App\Livewire\ScholarshipForm;
+use App\Livewire\Terms;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,5 +24,8 @@ Route::view('dashboard', 'dashboard')
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
+
+Route::get('/apply', ScholarshipForm::class);
+Route::get('/terms', Terms::class);
 
 require __DIR__.'/auth.php';
