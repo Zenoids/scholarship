@@ -135,7 +135,7 @@
                             <hr class="my-12">
                             <div class="flex flex-col md:flex-row ">
                                 <div class="md:w-1/5 w-full flex-col">
-                                    <h3 class="{{ $sideheadstyle }}">Operations and management</h3>
+                                    <h3 class="{{ $sideheadstyle }}">Operations and Management</h3>
                                     <p class="{{ $mainsubstyle }}"> </p>
                                 </div>
                                 <div class="md:w-4/5 w-full  flex flex-wrap ">
