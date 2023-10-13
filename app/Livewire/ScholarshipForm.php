@@ -22,58 +22,58 @@ class ScholarshipForm extends Component
     public $user_id,
     $bank_name,
     $confirm_ac_number,
-     $fathers_name,
-     $first_name,
-     $last_name,
-       $d_o_b,
-     $gender,
-     $religion,
-     $mobile,
-     $adhaar,
-     $orphan_disability,
-     $house_number,
-     $village_area,
-     $tahsil,
-     $house_type,
-     $district,
-     $state,
-     $pincode,
-     $institute_state,
-     $institute_district,
-     $institute_locality,
-     $institute_name,
-     $rank_entrance,
-     $course_period,
-     $branch_name,
-     $course_id,
-     $course_year,
-     $course_name,
-     $previous_course_name,
-     $previous_course_subjects,
-     $previous_hallticket,
-     $previous_course_institution,
-     $previous_course_marks,
-     $tenth_course_subjects,
-     $tenth_hallticket,
-     $tenth_course_institution,
-     $tenth_course_marks,
-     $inter_course_subjects,
-     $inter_hallticket,
-     $inter_course_institution,
-     $inter_course_marks,
-     $name_ac_holder,
-     $ac_number,
-     $ac_branch,
-     $ifsc,
-     $fathers_occupation,
-     $fathers_monthly_income,
-     $expense_bearer,
-     $expense_bearer_monthly_income,
-     $unit_admin_id,
-     $district_id,
-     $state_admin_id;
+    $fathers_name,
+    $first_name,
+    $last_name,
+    $d_o_b,
+    $gender,
+    $religion,
+    $mobile,
+    $adhaar,
+    $orphan_disability,
+    $house_number,
+    $village_area,
+    $tahsil,
+    $house_type,
+    $district,
+    $state,
+    $pincode,
+    $institute_state,
+    $institute_district,
+    $institute_locality,
+    $institute_name,
+    $rank_entrance,
+    $course_period,
+    $branch_name,
+    $course_id,
+    $course_year,
+    $course_name,
+    $previous_course_name,
+    $previous_course_subjects,
+    $previous_hallticket,
+    $previous_course_institution,
+    $previous_course_marks,
+    $tenth_course_subjects,
+    $tenth_hallticket,
+    $tenth_course_institution,
+    $tenth_course_marks,
+    $inter_course_subjects,
+    $inter_hallticket,
+    $inter_course_institution,
+    $inter_course_marks,
+    $name_ac_holder,
+    $ac_number,
+    $ac_branch,
+    $ifsc,
+    $fathers_occupation,
+    $fathers_monthly_income,
+    $expense_bearer,
+    $expense_bearer_monthly_income,
+    $unit_admin_id,
+    $district_id,
+    $state_admin_id;
 
-    public $currentPage=1;
+    public $currentPage = 1;
 
     #[Rule('required|file|mimes:jpg,jpeg,png,webp,pdf|max:2048')]
     public $photofile;
@@ -90,7 +90,8 @@ class ScholarshipForm extends Component
     #[Rule('required|file|mimes:jpg,jpeg,png,webp,pdf|max:2048')]
     public $passbookfile;
 
-    public function addressvalidate() {
+    public function addressvalidate()
+    {
 
         $this->validate([
             'adhaar' => 'required|min:12|unique:students,adhaar',
@@ -108,36 +109,27 @@ class ScholarshipForm extends Component
             'state' => 'required',
             'pincode' => 'required|min:3',
             'village_area' => 'required',
-            ]);
-
-            $student=Student::create([
-                'user_id' => auth()->user()->id,
-                    'adhaar' =>$this->adhaar,
-                    'first_name' =>$this->first_name,
-                    'last_name' =>$this->last_name,
-                    'fathers_name' =>$this->fathers_name,
-                    'mobile' =>$this->mobile,
-                    'd_o_b' =>$this->d_o_b,
-                    'gender' =>$this->gender,
-                    'religion' =>$this->religion,
-                    'orphan_disability' =>$this->orphan_disability,
-
-            ]);
-
-            $student->addresses()->create([
-
-                'house_number' =>$this->house_number,
-                'house_type' =>$this->house_type,
-                'district' =>$this->district,
-                'state' =>$this->state,
-                'pincode' =>$this->pincode,
-                'village_area' =>$this->village_area,
         ]);
+
+        // $student = Student::create([
+        //     'user_id' => auth()->user()->id,
+        //     'adhaar' => $this->adhaar,
+        //     'first_name' => $this->first_name,
+        //     'last_name' => $this->last_name,
+        //     'fathers_name' => $this->fathers_name,
+        //     'mobile' => $this->mobile,
+        //     'd_o_b' => $this->d_o_b,
+        //     'gender' => $this->gender,
+        //     'religion' => $this->religion,
+        //     'orphan_disability' => $this->orphan_disability,
+
+        // ]);
 
         $this->currentPage++;
 
     }
-    public function educationvalidate(){
+    public function educationvalidate()
+    {
 
         $this->validate([
             'course_id' => 'required',
@@ -157,43 +149,16 @@ class ScholarshipForm extends Component
         ]);
         // @dd('working');
 
-        $student = Student::where('user_id', auth()->user()->id)->first();
+        // $student = Student::where('user_id', auth()->user()->id)->first();
 
         // dd($student);
 
-$student->educations()->create([
-    'course_id'=>$this->course_id,
-    'course_year'=>$this->course_year,
-    'branch_name'=>$this->branch_name,
-    'course_period'=>$this->course_period,
-    'rank_entrance'=>$this->rank_entrance,
-    'institute_name'=>$this->institute_name,
-    'institute_locality'=>$this->institute_locality,
-    'institute_district'=>$this->institute_district,
-    'institute_state'=>$this->institute_state,
 
-]);
-$student->previous()->create([
-    'previous_course_name'=>$this->previous_course_name,
-    'previous_course_subjects'=>$this->previous_course_subjects,
-    'previous_hallticket'=>$this->previous_hallticket,
-    'previous_course_institution'=>$this->previous_course_institution,
-    'previous_course_marks'=>$this->previous_course_marks,
-    'tenth_course_subjects'=>$this->tenth_course_subjects,
-    'tenth_hallticket'=>$this->tenth_hallticket,
-    'tenth_course_institution'=>$this->tenth_course_institution,
-    'tenth_course_marks'=>$this->tenth_course_marks,
-    'inter_course_subjects'=>$this->inter_course_subjects,
-    'inter_hallticket'=>$this->inter_hallticket,
-    'inter_course_institution'=>$this->inter_course_institution,
-    'inter_course_marks'=>$this->inter_course_marks,
-
-
-   ]);
         $this->currentPage++;
     }
-    public function incomevalidate(){
-          $this->validate([
+    public function incomevalidate()
+    {
+        $this->validate([
             'fathers_occupation' => 'required',
             'fathers_monthly_income' => 'required|min:2',
             'expense_bearer' => 'required',
@@ -204,25 +169,104 @@ $student->previous()->create([
             'ac_branch' => 'required',
             'ifsc' => 'required',
 
-            ]);
-            $student = Student::where('user_id', auth()->user()->id)->first();
-            $student->incomes()->create([
-                'name_ac_holder'=>$this->name_ac_holder,
-                'ac_number'=>$this->ac_number,
-                'bank_name'=>$this->bank_name,
-                'ac_branch'=>$this->ac_branch,
-                'ifsc'=>$this->ifsc,
-                'fathers_monthly_income'=>$this->fathers_monthly_income,
-                'fathers_occupation'=>$this->fathers_occupation,
-                'expense_bearer'=>$this->expense_bearer,
-                'expense_bearer_monthly_income'=>$this->expense_bearer_monthly_income,
-               ]);
+        ]);
+        // $student = Student::where('user_id', auth()->user()->id)->first();
+
         $this->currentPage++;
     }
-    public function filevalidate(){
+    public function filevalidate()
+    {
 
         $this->validate();
 
+
+        // $student = Student::where('user_id', auth()->user()->id)->first();
+
+
+
+
+        $this->currentPage++;
+    }
+
+    public function addressreset()
+    {
+        $this->reset('adhaar', 'fathers_name', 'tahsil', 'mobile', 'd_o_b', 'gender', 'religion', 'orphan_disability', 'house_number', 'house_type', 'district', 'state', 'pincode', 'village_area');
+    }
+    public function educationreset()
+    {
+        $this->reset(
+            'course_id',
+            'course_year',
+            'branch_name',
+            'course_period',
+            'rank_entrance',
+            'institute_name',
+            'institute_locality',
+            'institute_district',
+            'institute_state',
+            'previous_course_name',
+            'previous_course_subjects',
+            'previous_course_institution',
+            'previous_course_marks',
+            'tenth_course_subjects',
+            'tenth_hallticket',
+            'tenth_course_institution',
+            'tenth_course_marks',
+            'inter_course_subjects',
+            'inter_hallticket',
+            'inter_course_institution',
+            'inter_course_marks',
+        );
+    }
+    public function incomereset()
+    {
+        $this->reset(
+            'fathers_occupation',
+            'fathers_monthly_income',
+            'expense_bearer',
+            'expense_bearer_monthly_income',
+            'name_ac_holder',
+            'ac_number',
+            'bank_name',
+            'ac_branch',
+            'ifsc'
+        );
+    }
+    public function filerest()
+    {
+        $this->reset('marksfile', 'feesfile', 'adhaarfile', 'photofile', 'passbookfile');
+    }
+    public function goToPage1()
+    {
+        $this->currentPage = 1;
+    }
+
+    public function goToPage2()
+    {
+        $this->currentPage = 2;
+    }
+
+    public function goToPage3()
+    {
+        $this->currentPage = 3;
+    }
+
+    public function goToPage4()
+    {
+        $this->currentPage = 4;
+    }
+
+    public function backonepage()
+    {
+        $this->currentPage--;
+    }
+    public function finalsubmit()
+    {
+
+        $this->validate([
+            'state_admin_id' => 'required',
+            'unit_admin_id' => 'required',
+        ]);
         $image_file_path = null;
         $adhaar_file_path = null;
         $fees_file_path = null;
@@ -248,98 +292,90 @@ $student->previous()->create([
         }
 
 
-        $student = Student::where('user_id', auth()->user()->id)->first();
 
+        $student = Student::create([
+            'user_id' => auth()->user()->id,
+            'adhaar' => $this->adhaar,
+            'first_name' => $this->first_name,
+            'last_name' => $this->last_name,
+            'fathers_name' => $this->fathers_name,
+            'mobile' => $this->mobile,
+            'd_o_b' => $this->d_o_b,
+            'gender' => $this->gender,
+            'religion' => $this->religion,
+            'orphan_disability' => $this->orphan_disability,
 
-        $student->uploads()->create([
-            'image_file_path' =>$image_file_path,
-                'fees_file_path' =>$fees_file_path,
-                'adhaar_file_path' =>$adhaar_file_path,
-                'marks_file_path' =>$marks_file_path,
-                'passbook_file_path' =>$passbook_file_path,
         ]);
 
-        $this->currentPage++;
-    }
+        $student->addresses()->create([
 
-    public function addressreset(){
-        $this->reset('adhaar','fathers_name','tahsil','mobile','d_o_b','gender','religion','orphan_disability','house_number','house_type','district','state','pincode','village_area');
-    }
-    public function educationreset(){
-        $this->reset(
-        'course_id',
-        'course_year',
-        'branch_name',
-        'course_period',
-        'rank_entrance',
-        'institute_name',
-        'institute_locality',
-        'institute_district',
-        'institute_state',
-        'previous_course_name',
-        'previous_course_subjects',
-        'previous_course_institution',
-        'previous_course_marks',
-       'tenth_course_subjects',
-       'tenth_hallticket',
-       'tenth_course_institution',
-       'tenth_course_marks',
-       'inter_course_subjects',
-       'inter_hallticket',
-       'inter_course_institution',
-       'inter_course_marks',
-    );
-    }
-    public function incomereset(){
-        $this->reset(      'fathers_occupation',
-        'fathers_monthly_income',
-        'expense_bearer',
-        'expense_bearer_monthly_income',
-        'name_ac_holder',
-        'ac_number',
-        'bank_name',
-        'ac_branch',
-        'ifsc' );
-    }
-    public function filerest(){
-        $this->reset('marksfile','feesfile','adhaarfile','photofile','passbookfile');
-    }
-    public function goToPage1() {
-        $this->currentPage = 1;
-    }
-
-    public function goToPage2() {
-        $this->currentPage = 2;
-    }
-
-    public function goToPage3() {
-        $this->currentPage = 3;
-    }
-
-    public function goToPage4() {
-        $this->currentPage = 4;
-    }
-
-    public function backonepage() {
-        $this->currentPage--;
-    }
-    public function finalsubmit(){
-
-$this->validate([
-    'state_admin_id'=>'required',
-    'unit_admin_id'=>'required',
-]);
-
-        $student = Student::where('user_id', auth()->user()->id)->first();
+            'house_number' => $this->house_number,
+            'house_type' => $this->house_type,
+            'district' => $this->district,
+            'state' => $this->state,
+            'pincode' => $this->pincode,
+            'village_area' => $this->village_area,
+        ]);
+        // $student = Student::where('user_id', auth()->user()->id)->first();
 
 
 
-           $student->offices()->create([
-            'state_admin_id'=>$this->state_admin_id,
-            'unit_admin_id'=>$this->unit_admin_id,
-           ]);
+        $student->offices()->create([
+            'state_admin_id' => $this->state_admin_id,
+            'unit_admin_id' => $this->unit_admin_id,
+        ]);
 
-           $this->redirect(
+        $student->educations()->create([
+            'course_id' => $this->course_id,
+            'course_year' => $this->course_year,
+            'branch_name' => $this->branch_name,
+            'course_period' => $this->course_period,
+            'rank_entrance' => $this->rank_entrance,
+            'institute_name' => $this->institute_name,
+            'institute_locality' => $this->institute_locality,
+            'institute_district' => $this->institute_district,
+            'institute_state' => $this->institute_state,
+
+        ]);
+
+        $student->previous()->create([
+            'previous_course_name' => $this->previous_course_name,
+            'previous_course_subjects' => $this->previous_course_subjects,
+            'previous_hallticket' => $this->previous_hallticket,
+            'previous_course_institution' => $this->previous_course_institution,
+            'previous_course_marks' => $this->previous_course_marks,
+            'tenth_course_subjects' => $this->tenth_course_subjects,
+            'tenth_hallticket' => $this->tenth_hallticket,
+            'tenth_course_institution' => $this->tenth_course_institution,
+            'tenth_course_marks' => $this->tenth_course_marks,
+            'inter_course_subjects' => $this->inter_course_subjects,
+            'inter_hallticket' => $this->inter_hallticket,
+            'inter_course_institution' => $this->inter_course_institution,
+            'inter_course_marks' => $this->inter_course_marks,
+
+
+        ]);
+        $student->incomes()->create([
+            'name_ac_holder' => $this->name_ac_holder,
+            'ac_number' => $this->ac_number,
+            'bank_name' => $this->bank_name,
+            'ac_branch' => $this->ac_branch,
+            'ifsc' => $this->ifsc,
+            'fathers_monthly_income' => $this->fathers_monthly_income,
+            'fathers_occupation' => $this->fathers_occupation,
+            'expense_bearer' => $this->expense_bearer,
+            'expense_bearer_monthly_income' => $this->expense_bearer_monthly_income,
+        ]);
+        $student->uploads()->create([
+            'image_file_path' => $image_file_path,
+            'fees_file_path' => $fees_file_path,
+            'adhaar_file_path' => $adhaar_file_path,
+            'marks_file_path' => $marks_file_path,
+            'passbook_file_path' => $passbook_file_path,
+        ]);
+
+        dd('success');
+        $this->redirect(
             '/'
         );
 
@@ -348,14 +384,13 @@ $this->validate([
 
     public function render()
     {
-        $courses=Course::all();
-        $states=StateAdmin::all();
+        $courses = Course::all();
+        $states = StateAdmin::all();
         // $districts=District::all();
-        $units=UnitAdmin::all();
+        $units = UnitAdmin::all();
         // dd($states,$units);
 
         // dd($this->currentPage);
-        return view('livewire.scholarship-form',['courses'=>$courses,'states'=>$states,'units'=>$units]);
+        return view('livewire.scholarship-form', ['courses' => $courses, 'states' => $states, 'units' => $units]);
     }
 }
-

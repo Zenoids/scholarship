@@ -6,6 +6,8 @@ use App\Filament\Resources\StudentResource\Pages;
 use App\Filament\Resources\StudentResource\RelationManagers;
 use App\Models\Student;
 use Filament\Forms;
+use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -23,7 +25,10 @@ class StudentResource extends Resource
     {
         return $form
             ->schema([
-                //
+                // Forms\Components\Select::make('approval_status')->relationship('approvals','approval_status'),
+                // RichEditor::make('approval_status')->relationship('approvals','comment'),
+                // TextInput::make('approval_amounts')->relationship('amounts','amount'),
+                // RichEditor::make('approval_amounts')->relationship('amounts','comment'),
             ]);
     }
 
