@@ -6,12 +6,13 @@
     $forminputstyle = 'block ps-3 w-11/12   rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6';
 @endphp
 <section>
+    {{-- <livewire:header/> --}}
 
     {{-- <livewire:form-top-header /> --}}
     <livewire:second-header-form />
 
     <div class="bg-[#F2F4F7]">
-        <div class="flex w-full pt-5">
+        {{-- <div class="flex w-full pt-5">
             <div class="flex fixed md:w-2/12 md:ms-32 my-5 flex-col">
 
 
@@ -19,15 +20,15 @@
                 <a
                     class="block text-lg font-medium leading-6  border-l-2 py-2 px-2 border-gray-300
                     {{-- @if ($currentPage == 5) --}}
-                     text-indigo-950
+                     {{-- text-indigo-950 --}}
                       {{-- @else --}}
-                       text-gray-400
-                        {{-- @endif --}}
+                       {{-- text-gray-400 --}}
+                        {{-- @endif
                          hover:border-indigo-950">
                     Terms and conditions for Scholarship</a>
 
-            </div>
-            <form class="flex md:ms-[20%] md:w-8/12 w-full flex-col" enctype="multipart/form-data" wire:submit="register">
+            </div> --}}
+            <form class="flex py-5 md:ms-[20%] md:w-8/12 w-full flex-col" enctype="multipart/form-data" wire:submit="register">
 
                 {{-- @if ($currentPage == 1) --}}
 
