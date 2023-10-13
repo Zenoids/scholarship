@@ -52,7 +52,7 @@ class Student extends Model
         return $this->belongsTo(User::class);
     }
     public function offices(){
-        return $this->belongsTo(Office::class);
+        return $this->hasOne(Office::class);
     }
     //
 }

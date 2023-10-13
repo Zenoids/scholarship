@@ -26,7 +26,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('students_address', function (Blueprint $table) {
+        Schema::create('student_addresses', function (Blueprint $table) {
             $table->id();
             $table->foreignId("student_id")->constrained();
             $table->string("house_number");
@@ -36,14 +36,18 @@ return new class extends Migration
             $table->string("district");
             $table->string("state");
             $table->string("pincode");
+            $table->timestamps();
         });
 
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
+
             $table->string("name");
+            $table->timestamps();
+
         });
 
-        Schema::create('students_education', function (Blueprint $table) {
+        Schema::create('student_education', function (Blueprint $table) {
             $table->id();
             $table->foreignId("student_id")->constrained();
             $table->foreignId("course_id")->constrained();
@@ -55,11 +59,13 @@ return new class extends Migration
             $table->string("institute_locality")->nullable();
             $table->string("institute_district");
             $table->string("institute_state");
+            $table->timestamps();
+
 
 
         });
 
-        Schema::create('students_previous_education', function (Blueprint $table) {
+        Schema::create('student_previous_education', function (Blueprint $table) {
             $table->id();
             $table->foreignId('student_id')->constrained()->cascadeOnDelete();
 
@@ -81,10 +87,12 @@ return new class extends Migration
             $table->string('previous_course_subjects');
             $table->string('previous_course_institution');
             $table->string('previous_course_marks');
+            $table->timestamps();
+
 
         });
 
-        Schema::create('students_income', function (Blueprint $table) {
+        Schema::create('student_incomes', function (Blueprint $table) {
             $table->id();
             $table->foreignId("student_id")->constrained()->cascadeOnDelete();
 
@@ -100,10 +108,12 @@ return new class extends Migration
             $table->string("fathers_monthly_income");
             $table->string("expense_bearer");
             $table->string("expense_bearer_monthly_income");
+            $table->timestamps();
+
 
         });
 
-        Schema::create('students_uploads', function (Blueprint $table) {
+        Schema::create('student_uploads', function (Blueprint $table) {
             $table->id();
             $table->foreignId("student_id")->constrained()->cascadeOnDelete();
 
@@ -112,15 +122,19 @@ return new class extends Migration
             $table->string("adhaar_file_path");
             $table->string("marks_file_path");
             $table->string("passbook_file_path");
+            $table->timestamps();
+
         });
 
 
 
-        Schema::create('nearest_jamat_office', function (Blueprint $table) {
+        Schema::create('offices', function (Blueprint $table) {
             $table->id();
             $table->foreignId("student_id")->constrained()->cascadeOnDelete();
             $table->foreignId("unit_admin_id")->constrained();
             $table->foreignId("state_admin_id")->constrained();
+            $table->timestamps();
+
 
         });
     }
@@ -138,5 +152,7 @@ return new class extends Migration
         Schema::dropIfExists('students_income');
         Schema::dropIfExists('students_uploads');
         Schema::dropIfExists('nearest_jamat_office');
+
+
     }
 };

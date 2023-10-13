@@ -9,7 +9,7 @@ class StudentEducation extends Model
 {
     protected $fillable = [
         'student_id',
-        'course_name',
+        'course_id',
         'course_year',
         'branch_name',
         'course_period',

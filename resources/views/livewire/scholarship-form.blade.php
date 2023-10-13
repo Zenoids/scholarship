@@ -231,15 +231,15 @@
                             <div class="md:w-1/2 w-full mt-2 md:mt-3">
                                 <label class="{{ $formlabelstyle }}">Course Name</label>
 
-                                <select name="course_name" id="course_name" class="{{ $forminputstyle }}"
-                                    wire:model="course_name">
+                                <select name="course_id" id="course_id" class="{{ $forminputstyle }}"
+                                    wire:model="course_id">
                                     @foreach ($courses as $course)
-                                        <option wire:key="{{ $post->id }}" value="{{ $course->id }}">
+                                        <option wire:key="{{ $course->id }}" value="{{ $course->id }}">
                                             {{ $course->name }}</option>
                                     @endforeach
 
                                 </select>
-                                @error($course_name)
+                                @error('course_id')
                                     <div class="text-red-800 text-sm">
                                         {{ $message }} </div>
                                 @enderror
@@ -721,12 +721,12 @@
                             <div class="md:w-1/3 w-full mt-2 md:mt-3">
                                 <label class="{{ $formlabelstyle }}">Select State</label>
 
-                                <select name="state_id" id="state_id" class="{{ $forminputstyle }}"
-                                    wire:model="state_id">
+                                <select name="state_admin_id" id="state_admin_id" class="{{ $forminputstyle }}"
+                                    wire:model="state_admin_id">
 
                                     @foreach ($states as $state)
                                         <option wire:key="{{ $state->id }}" value="{{ $state->id }}">
-                                            {{ $state->state_name }}
+                                            {{ $state->name }}
                                         </option>
                                     @endforeach
                                 </select>
@@ -747,12 +747,12 @@
                             <div class="md:w-1/3 w-full mt-2 md:mt-3">
                                 <label class="{{ $formlabelstyle }}">Select Unit office</label>
 
-                                <select name="unit_id" id="unit_id" class="{{ $forminputstyle }}"
-                                    wire:model="unit_id">
+                                <select name="unit_admin_id" id="unit_admin_id" class="{{ $forminputstyle }}"
+                                    wire:model="unit_admin_id">
 
                                     @foreach ($units as $unit)
                                         <option wire:key="{{ $unit->id }}" value="{{ $unit->id }}">
-                                            {{ $unit->unit_name }}
+                                            {{ $unit->name }}
                                         </option>
                                     @endforeach
                                 </select>

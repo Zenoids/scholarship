@@ -69,9 +69,9 @@ class ScholarshipForm extends Component
      $fathers_monthly_income,
      $expense_bearer,
      $expense_bearer_monthly_income,
-     $unit_id,
+     $unit_admin_id,
      $district_id,
-     $state_id;
+     $state_admin_id;
 
     public $currentPage=1;
 
@@ -110,13 +110,37 @@ class ScholarshipForm extends Component
             'village_area' => 'required',
             ]);
 
+            $student=Student::create([
+                'user_id' => auth()->user()->id,
+                    'adhaar' =>$this->adhaar,
+                    'first_name' =>$this->first_name,
+                    'last_name' =>$this->last_name,
+                    'fathers_name' =>$this->fathers_name,
+                    'mobile' =>$this->mobile,
+                    'd_o_b' =>$this->d_o_b,
+                    'gender' =>$this->gender,
+                    'religion' =>$this->religion,
+                    'orphan_disability' =>$this->orphan_disability,
+
+            ]);
+
+            $student->addresses()->create([
+
+                'house_number' =>$this->house_number,
+                'house_type' =>$this->house_type,
+                'district' =>$this->district,
+                'state' =>$this->state,
+                'pincode' =>$this->pincode,
+                'village_area' =>$this->village_area,
+        ]);
+
         $this->currentPage++;
 
     }
     public function educationvalidate(){
 
-          $this->validate([
-            // 'course_id' => 'required',
+        $this->validate([
+            'course_id' => 'required',
             'course_year' => 'required|min:2',
             'branch_name' => 'required|min:2',
             'course_period' => 'required',
@@ -130,7 +154,42 @@ class ScholarshipForm extends Component
             'previous_course_subjects' => 'required',
             'previous_course_institution' => 'required|min:3',
             'previous_course_marks' => 'required',
+        ]);
+        // @dd('working');
+
+        $student = Student::where('user_id', auth()->user()->id)->first();
+
+        // dd($student);
+
+$student->educations()->create([
+    'course_id'=>$this->course_id,
+    'course_year'=>$this->course_year,
+    'branch_name'=>$this->branch_name,
+    'course_period'=>$this->course_period,
+    'rank_entrance'=>$this->rank_entrance,
+    'institute_name'=>$this->institute_name,
+    'institute_locality'=>$this->institute_locality,
+    'institute_district'=>$this->institute_district,
+    'institute_state'=>$this->institute_state,
+
 ]);
+$student->previous()->create([
+    'previous_course_name'=>$this->previous_course_name,
+    'previous_course_subjects'=>$this->previous_course_subjects,
+    'previous_hallticket'=>$this->previous_hallticket,
+    'previous_course_institution'=>$this->previous_course_institution,
+    'previous_course_marks'=>$this->previous_course_marks,
+    'tenth_course_subjects'=>$this->tenth_course_subjects,
+    'tenth_hallticket'=>$this->tenth_hallticket,
+    'tenth_course_institution'=>$this->tenth_course_institution,
+    'tenth_course_marks'=>$this->tenth_course_marks,
+    'inter_course_subjects'=>$this->inter_course_subjects,
+    'inter_hallticket'=>$this->inter_hallticket,
+    'inter_course_institution'=>$this->inter_course_institution,
+    'inter_course_marks'=>$this->inter_course_marks,
+
+
+   ]);
         $this->currentPage++;
     }
     public function incomevalidate(){
@@ -146,11 +205,59 @@ class ScholarshipForm extends Component
             'ifsc' => 'required',
 
             ]);
+            $student = Student::where('user_id', auth()->user()->id)->first();
+            $student->incomes()->create([
+                'name_ac_holder'=>$this->name_ac_holder,
+                'ac_number'=>$this->ac_number,
+                'bank_name'=>$this->bank_name,
+                'ac_branch'=>$this->ac_branch,
+                'ifsc'=>$this->ifsc,
+                'fathers_monthly_income'=>$this->fathers_monthly_income,
+                'fathers_occupation'=>$this->fathers_occupation,
+                'expense_bearer'=>$this->expense_bearer,
+                'expense_bearer_monthly_income'=>$this->expense_bearer_monthly_income,
+               ]);
         $this->currentPage++;
     }
     public function filevalidate(){
 
         $this->validate();
+
+        $image_file_path = null;
+        $adhaar_file_path = null;
+        $fees_file_path = null;
+        $marks_file_path = null;
+        $passbook_file_path = null;
+        if ($this->photofile) {
+            $image_file_path = $this->photofile->store('photos');
+        }
+
+        if ($this->adhaarfile) {
+            $adhaar_file_path = $this->adhaarfile->store('adhaar');
+        }
+
+        if ($this->feesfile) {
+            $fees_file_path = $this->feesfile->store('fees');
+        }
+
+        if ($this->marksfile) {
+            $marks_file_path = $this->marksfile->store('marks');
+        }
+        if ($this->passbookfile) {
+            $passbook_file_path = $this->passbookfile->store('passbook');
+        }
+
+
+        $student = Student::where('user_id', auth()->user()->id)->first();
+
+
+        $student->uploads()->create([
+            'image_file_path' =>$image_file_path,
+                'fees_file_path' =>$fees_file_path,
+                'adhaar_file_path' =>$adhaar_file_path,
+                'marks_file_path' =>$marks_file_path,
+                'passbook_file_path' =>$passbook_file_path,
+        ]);
 
         $this->currentPage++;
     }
@@ -217,107 +324,20 @@ class ScholarshipForm extends Component
         $this->currentPage--;
     }
     public function finalsubmit(){
-        $image_file_path = null;
-        $adhaar_file_path = null;
-        $fees_file_path = null;
-        $marks_file_path = null;
-        $passbook_file_path = null;
-        if ($this->photofile) {
-            $image_file_path = $this->photofile->store('photos');
-        }
 
-        if ($this->adhaarfile) {
-            $adhaar_file_path = $this->adhaarfile->store('adhaar');
-        }
+$this->validate([
+    'state_admin_id'=>'required',
+    'unit_admin_id'=>'required',
+]);
 
-        if ($this->feesfile) {
-            $fees_file_path = $this->feesfile->store('fees');
-        }
-
-        if ($this->marksfile) {
-            $marks_file_path = $this->marksfile->store('marks');
-        }
-        if ($this->passbookfile) {
-            $passbook_file_path = $this->passbookfile->store('passbook');
-        }
+        $student = Student::where('user_id', auth()->user()->id)->first();
 
 
 
-        $student=Student::create([
-            'user_id' => auth()->user()->id,
-                'adhaar' =>$this->adhaar,
-                'first_name' =>$this->first_name,
-                'last_name' =>$this->last_name,
-                'fathers_name' =>$this->fathers_name,
-                'mobile' =>$this->mobile,
-                'd_o_b' =>$this->d_o_b,
-                'gender' =>$this->gender,
-                'religion' =>$this->religion,
-                'orphan_disability' =>$this->orphan_disability,
-
-        ]);
-
-        $student->uploads()->create([
-            'image_file_path' =>$image_file_path,
-                'fees_file_path' =>$fees_file_path,
-                'adhaar_file_path' =>$adhaar_file_path,
-                'marks_file_path' =>$marks_file_path,
-                'passbook_file_path' =>$passbook_file_path,
-        ]);
-
-        $student->addresses()->create([
-
-                'house_number' =>$this->house_number,
-                'house_type' =>$this->house_type,
-                'district' =>$this->district,
-                'state' =>$this->state,
-                'pincode' =>$this->pincode,
-                'village_area' =>$this->village_area,
-        ]);
-        $student->educations()->create([
-            // 'course_id'=>$this->course_id,
-            'course_year'=>$this->course_year,
-            'branch_name'=>$this->branch_name,
-            'course_period'=>$this->course_period,
-            'rank_entrance'=>$this->rank_entrance,
-            'institute_name'=>$this->institute_name,
-            'institute_locality'=>$this->institute_locality,
-            'institute_district'=>$this->institute_district,
-            'institute_state'=>$this->institute_state,
-
-        ]);
-        $student->previous()->create([
-            'previous_course_name'=>$this->previous_course_name,
-            'previous_course_subjects'=>$this->previous_course_subjects,
-            'previous_hallticket'=>$this->previous_hallticket,
-            'previous_course_institution'=>$this->previous_course_institution,
-            'previous_course_marks'=>$this->previous_course_marks,
-            'tenth_course_subjects'=>$this->tenth_course_subjects,
-            'tenth_hallticket'=>$this->tenth_hallticket,
-            'tenth_course_institution'=>$this->tenth_course_institution,
-            'tenth_course_marks'=>$this->tenth_course_marks,
-            'inter_course_subjects'=>$this->inter_course_subjects,
-            'inter_hallticket'=>$this->inter_hallticket,
-            'inter_course_institution'=>$this->inter_course_institution,
-            'inter_course_marks'=>$this->inter_course_marks,
-
-
+           $student->offices()->create([
+            'state_admin_id'=>$this->state_admin_id,
+            'unit_admin_id'=>$this->unit_admin_id,
            ]);
-        $student->incomes()->create([
-            'name_ac_holder'=>$this->name_ac_holder,
-            'ac_number'=>$this->ac_number,
-            'bank_name'=>$this->bank_name,
-            'ac_branch'=>$this->ac_branch,
-            'ifsc'=>$this->ifsc,
-            'fathers_monthly_income'=>$this->fathers_monthly_income,
-            'fathers_occupation'=>$this->fathers_occupation,
-            'expense_bearer'=>$this->expense_bearer,
-            'expense_bearer_monthly_income'=>$this->expense_bearer_monthly_income,
-           ]);
-        //    $student->offices()->create([
-        //     'state_admin_id'=>$this->state_admin_id,
-        //     'unit_admin_id'=>$this->unit_admin_id,
-        //    ]);
 
            $this->redirect(
             '/'
@@ -332,6 +352,7 @@ class ScholarshipForm extends Component
         $states=StateAdmin::all();
         // $districts=District::all();
         $units=UnitAdmin::all();
+        // dd($states,$units);
 
         // dd($this->currentPage);
         return view('livewire.scholarship-form',['courses'=>$courses,'states'=>$states,'units'=>$units]);
