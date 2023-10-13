@@ -2,23 +2,38 @@
 
 namespace App\Filament\Pages;
 
+use Filament\Actions\Action;
 use Filament\Pages\Page;
+use Filament\Tables;
+use Filament\Tables\Table;
+use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Form;
 
 class Settings extends Page
 {
-//     public static function shouldRegisterNavigation(): bool
-// {
-//     $user = auth()->user();
-//     return $user->role === 'SuperAdmin' && $user->canManageSettings();
-// }
-// public function mount(): void
-// {
-//     $user = auth()->user();
-//     abort_unless($user->role === 'SuperAdmin' && $user->canManageSettings(), 403);
-// }
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static ?string $navigationIcon = 'heroicon-o-cog-6-tooth';
 
     protected static string $view = 'filament.pages.settings';
 
+protected function getHeaderActions(): array
+{
+    return [
+        // Action::make('edit')
+        //     ->url(route('posts.edit', ['post' => $this->post])),
+        Action::make('delete')
+            ->requiresConfirmation()
+            ->action(fn () => $this->course->delete()),
+    ];
+
+}
+public function form(Form $form): Form
+{
+    return $form
+        ->schema([
+            TextInput::make('name')
+        ]);
 }
 
+
+}
