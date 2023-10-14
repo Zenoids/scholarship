@@ -1,11 +1,11 @@
 <footer>
-    <div class="bg-[#f7f7f7] py-10">
+    <div class=" py-10" style="background-image: url('{{asset('white-pattern.png')}}')">
         <div class="container mx-auto flex md:flex-row  justify-between flex-col">
-            <div class="d1 flex flex-col">
+            <div class="d1  flex flex-col">
                 <h3 class="font-semibold text-xl">Quick Links</h3>
-                <a href="" class="">Apply Now</a>
-                <a href="" class="">Contact Us</a>
-                <a href="" class="">Terms and Condition</a>
+                <a href="" class=" font-medium mt-2">Apply Now</a>
+                <a href="" class=" font-medium mt-2">Contact Us</a>
+                <a href="" class=" font-medium mt-2">Terms and Condition</a>
             </div>
             <div class="d1 flex flex-col">
                 {{-- <h3 class="font-semibold text-xl">Quick Links</h3>
@@ -21,14 +21,14 @@
             </div>
             <div class="d1 flex flex-col">
                 <h3 class="font-semibold text-xl">Location</h3>
-              <p>
+              <p class='font-medium mt-2'>
                 Abul Fazal Enclave
                 New Delhi
 
               </p>
-              <p>Pin :500029</p>
-              <p>Tel: 900000000</p>
-              <p>Email: scholarship@jih.org</p>
+              <p class='font-medium mt-2'>Pin :500029</p>
+              <p class='font-medium mt-2'>Tel: 900000000</p>
+              <p class='font-medium mt-2'>Email: scholarship@jih.org</p>
             </div>
         </div>
     </div>
