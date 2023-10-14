@@ -33,6 +33,6 @@ Route::get('/apply', ScholarshipForm::class)->middleware(['auth']);
 //         $student = Student::where('user_id', auth()->user()->id)->first();
 
 // dd(empty($student));
-Route::get('/terms', Terms::class);
+Route::get('/terms', Terms::class)->name('terms');
 
 require __DIR__.'/auth.php';

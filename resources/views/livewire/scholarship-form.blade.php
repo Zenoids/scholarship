@@ -730,6 +730,10 @@
                                         </option>
                                     @endforeach
                                 </select>
+                                @error("state_admin_id")
+                                <div class="text-red-800 text-sm">
+                                    {{ $message }} </div>
+                            @enderror
                             </div>
                             {{-- <div class="md:w-1/3 w-full mt-2 md:mt-3">
                                 <label class="{{ $formlabelstyle }}">Select District</label>
@@ -756,6 +760,10 @@
                                         </option>
                                     @endforeach
                                 </select>
+                                @error("unit_admin_id")
+                                <div class="text-red-800 text-sm">
+                                    {{ $message }} </div>
+                            @enderror
                             </div>
                             {{-- </div> --}}
 
