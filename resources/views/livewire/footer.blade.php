@@ -1,5 +1,5 @@
 <footer>
-    <div class=" py-10" style="background-image: url('{{asset('white-pattern.png')}}')">
+    {{-- <div class=" py-10" style="background-image: url('{{asset('white-pattern.png')}}')">
         <div class="container mx-auto flex md:flex-row  justify-between flex-col">
             <div class="d1  flex flex-col">
                 <h3 class="font-semibold text-xl">Quick Links</h3>
@@ -11,13 +11,13 @@
                 {{-- <h3 class="font-semibold text-xl">Quick Links</h3>
                 <a href="" class="">Apply Now</a>
                 <a href="" class="">Contact Us</a>
-                <a href="" class="">Terms and Condition</a> --}}
+                <a href="" class="">Terms and Condition</a>
             </div>
             <div class="d1 flex flex-col">
                 {{-- <h3 class="font-semibold text-xl">Quick Links</h3>
                 <a href="" class="">Apply Now</a>
                 <a href="" class="">Contact Us</a>
-                <a href="" class="">Terms and Condition</a> --}}
+                <a href="" class="">Terms and Condition</a>
             </div>
             <div class="d1 flex flex-col">
                 <h3 class="font-semibold text-xl">Location</h3>
@@ -31,7 +31,7 @@
               <p class='font-medium mt-2'>Email: scholarship@jih.org</p>
             </div>
         </div>
-    </div>
+    </div> --}}
     <div class="bg-[#4A51A3]">
         <div class="container flex font-semibold text-lg mx-auto h-8 justify-between text-white text-center">
             <div class="">Copyright @2023
