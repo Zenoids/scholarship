@@ -12,7 +12,7 @@ class District extends Model
     public function units(){
         return $this->hasMany(UnitAdmin::class);
     }
-    public function states(){
+    public function state(){
         return $this->belongsTo(StateAdmin::class);
     }
 }

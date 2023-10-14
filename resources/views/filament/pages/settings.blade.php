@@ -2,4 +2,5 @@
     <livewire:add-course-form />
     <livewire:add-user-form />
     <livewire:add-state />
+    <livewire:add-district />
 </x-filament-panels::page>
