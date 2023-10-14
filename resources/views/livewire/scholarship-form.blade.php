@@ -735,10 +735,10 @@
                                     {{ $message }} </div>
                             @enderror
                             </div>
-                            {{-- <div class="md:w-1/3 w-full mt-2 md:mt-3">
+                            <div class="md:w-1/3 w-full mt-2 md:mt-3">
                                 <label class="{{ $formlabelstyle }}">Select District</label>
 
-                                <select name="district_id" id="district_id" class="{{ $forminputstyle }}"
+                                <select name="district_id" id="s" class="{{ $forminputstyle }}"
                                     wire:model="district_id">
 
                                     @foreach ($districts as $district)
@@ -747,7 +747,11 @@
                                         </option>
                                     @endforeach
                                 </select>
-                            </div> --}}
+                                @error("district_id")
+                                <div class="text-red-800 text-sm">
+                                    {{ $message }} </div>
+                            @enderror
+                            </div>
                             <div class="md:w-1/3 w-full mt-2 md:mt-3">
                                 <label class="{{ $formlabelstyle }}">Select Unit office</label>
 

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->enum('role',['Student','Unit','State','MazkazAdmin','SuperAdmin'])->default('Student');
-            $table->integer('number')->nullable();
+            $table->bigInteger('number')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

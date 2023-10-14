@@ -82,7 +82,8 @@ Action::make('delete')
                         'State' => 'State',
                         'MazkazAdmin' => 'MazkazAdmin',
                         'SuperAdmin' => 'SuperAdmin'
-                    ])->required()
+                    ])->required(),
+                    TextInput::make('number')->tel(),
 
                 // ...
             ])

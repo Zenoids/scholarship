@@ -265,6 +265,7 @@ class ScholarshipForm extends Component
 
         $this->validate([
             'state_admin_id' => 'required',
+            'district_id' => 'required',
             'unit_admin_id' => 'required',
         ]);
         $image_file_path = null;
@@ -312,6 +313,7 @@ class ScholarshipForm extends Component
             'house_number' => $this->house_number,
             'house_type' => $this->house_type,
             'district' => $this->district,
+            'tahsil' => $this->tahsil,
             'state' => $this->state,
             'pincode' => $this->pincode,
             'village_area' => $this->village_area,
@@ -322,6 +324,7 @@ class ScholarshipForm extends Component
 
         $student->offices()->create([
             'state_admin_id' => $this->state_admin_id,
+            'district_id' => $this->district_id,
             'unit_admin_id' => $this->unit_admin_id,
         ]);
 
@@ -344,7 +347,7 @@ class ScholarshipForm extends Component
             'previous_hallticket' => $this->previous_hallticket,
             'previous_course_institution' => $this->previous_course_institution,
             'previous_course_marks' => $this->previous_course_marks,
-            'tenth_course_subjects' => $this->tenth_course_subjects,
+            'tenth_subjects' => $this->tenth_subjects,
             'tenth_hallticket' => $this->tenth_hallticket,
             'tenth_institution' => $this->tenth_institution,
             'tenth_marks' => $this->tenth_marks,
@@ -374,7 +377,7 @@ class ScholarshipForm extends Component
             'passbook_file_path' => $passbook_file_path,
         ]);
 
-        dd('success');
+        // dd('success');
         $this->redirect(
             '/'
         );
@@ -386,11 +389,13 @@ class ScholarshipForm extends Component
     {
         $courses = Course::all();
         $states = StateAdmin::all();
-        // $districts=District::all();
+        $districts=District::all();
         $units = UnitAdmin::all();
         // dd($states,$units);
 
         // dd($this->currentPage);
-        return view('livewire.scholarship-form', ['courses' => $courses, 'states' => $states, 'units' => $units]);
+        return view('livewire.scholarship-form', ['courses' => $courses, 'states' => $states,'districts'=>$districts, 'units' => $units]);
     }
 }
+
+

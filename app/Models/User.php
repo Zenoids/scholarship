@@ -44,4 +44,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    public function stateadmins(){
+        return $this->hasMany(StateAdmin::class);
+    }
+    public function students(){
+        return $this->hasMany(Student::class);
+    }
+    public function unitadmins(){
+        return $this->hasMany(UnitAdmin::class);
+    }
 }

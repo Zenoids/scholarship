@@ -15,4 +15,10 @@ class StateAdmin extends Model
     public function students(){
         return $this->hasMany(Student::class);
     }
+    public function districts(){
+        return $this->hasMany(District::class);
+    }
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

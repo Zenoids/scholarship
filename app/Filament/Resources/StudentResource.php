@@ -37,7 +37,74 @@ class StudentResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('first_name')->label('name'),
-                Tables\Columns\TextColumn::make('mobile'),
+                Tables\Columns\TextColumn::make('user_id'),
+     Tables\Columns\TextColumn::make('adhaar'),
+     Tables\Columns\TextColumn::make('first_name'),
+     Tables\Columns\TextColumn::make('last_name'),
+     Tables\Columns\TextColumn::make('fathers_name'),
+     Tables\Columns\TextColumn::make('mobile'),
+     Tables\Columns\TextColumn::make('d_o_b'),
+     Tables\Columns\TextColumn::make('gender'),
+     Tables\Columns\TextColumn::make('religion'),
+     Tables\Columns\TextColumn::make('orphan_disability'),
+
+
+
+     Tables\Columns\TextColumn::make('house_number')->relationship('addresses','student_addresses'),
+    //  Tables\Columns\TextColumn::make('house_type'),
+    //  Tables\Columns\TextColumn::make('district'),
+    //  Tables\Columns\TextColumn::make('tahsil'),
+    //  Tables\Columns\TextColumn::make('state'),
+    //  Tables\Columns\TextColumn::make('pincode'),
+    //  Tables\Columns\TextColumn::make('village_area'),
+
+    //  Tables\Columns\TextColumn::make('state_admin_id'),
+    //  Tables\Columns\TextColumn::make('unit_admin_id'),
+
+    //  Tables\Columns\TextColumn::make('course_id'),
+    //  Tables\Columns\TextColumn::make('course_year'),
+    //  Tables\Columns\TextColumn::make('branch_name'),
+    //  Tables\Columns\TextColumn::make('course_period'),
+    //  Tables\Columns\TextColumn::make('rank_entrance'),
+    //  Tables\Columns\TextColumn::make('institute_name'),
+    //  Tables\Columns\TextColumn::make('institute_locality'),
+    //  Tables\Columns\TextColumn::make('institute_district'),
+    //  Tables\Columns\TextColumn::make('institute_state'),
+
+
+    //  Tables\Columns\TextColumn::make('previous_course_name'),
+    //  Tables\Columns\TextColumn::make('previous_course_subjects'),
+    //  Tables\Columns\TextColumn::make('previous_hallticket'),
+    //  Tables\Columns\TextColumn::make('previous_course_institution'),
+    //  Tables\Columns\TextColumn::make('previous_course_marks'),
+    //  Tables\Columns\TextColumn::make('tenth_subjects'),
+    //  Tables\Columns\TextColumn::make('tenth_hallticket'),
+    //  Tables\Columns\TextColumn::make('tenth_institution'),
+    //  Tables\Columns\TextColumn::make('tenth_marks'),
+    //  Tables\Columns\TextColumn::make('inter_subjects'),
+    //  Tables\Columns\TextColumn::make('inter_hallticket'),
+    //  Tables\Columns\TextColumn::make('inter_institution'),
+    //  Tables\Columns\TextColumn::make('inter_marks'),
+
+
+
+    //  Tables\Columns\TextColumn::make('name_ac_holder'),
+    //  Tables\Columns\TextColumn::make('ac_number'),
+    //  Tables\Columns\TextColumn::make('bank_name'),
+    //  Tables\Columns\TextColumn::make('ac_branch'),
+    //  Tables\Columns\TextColumn::make('ifsc'),
+    //  Tables\Columns\TextColumn::make('fathers_monthly_income'),
+    //  Tables\Columns\TextColumn::make('fathers_occupation'),
+    //  Tables\Columns\TextColumn::make('expense_bearer'),
+    //  Tables\Columns\TextColumn::make('expense_bearer_monthly_income'),
+
+    //  Tables\Columns\TextColumn::make('image_file_path'),
+    //  Tables\Columns\TextColumn::make('fees_file_path'),
+    //  Tables\Columns\TextColumn::make('adhaar_file_path'),
+    //  Tables\Columns\TextColumn::make('marks_file_path'),
+    //  Tables\Columns\TextColumn::make('passbook_file_path'),
+
+
             ])
             ->filters([
                 //
