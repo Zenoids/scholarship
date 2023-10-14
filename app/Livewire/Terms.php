@@ -39,6 +39,12 @@ class Terms extends Component
             '/apply'
         );
     }
+    public function proceed():void
+    {
+        $this->redirect(
+            '/apply'
+        );
+    }
     public function render()
     {
         return view('livewire.terms');

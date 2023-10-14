@@ -28,7 +28,12 @@
                     Terms and conditions for Scholarship</a>
 
             </div> --}}
-            <form class="flex py-5 md:ms-[20%] md:w-8/12 w-full flex-col" enctype="multipart/form-data" wire:submit="register">
+            <form class="flex py-5 md:ms-[20%] md:w-8/12 w-full flex-col" @guest
+            wire:submit="register"
+            @endguest
+            @auth
+            wire:submit="proceed"
+            @endauth >
 
                 {{-- @if ($currentPage == 1) --}}
 
@@ -211,6 +216,7 @@
 
 
                             </div>
+@guest
 
                             <hr class="my-12">
                             <div class="flex flex-col md:flex-row ">
@@ -277,11 +283,21 @@
 
 
                         </div>
+                        @endguest
                         <hr class="my-12">
                         <div class="flex justify-end">
+                            @guest
                             <x-primary-button class="ml-4">
                                 {{ __('Register') }}
                             </x-primary-button>
+                            @endguest
+
+                            @auth
+                            <x-primary-button class="ml-4">
+                                {{ __('Proceed') }}
+                            </x-primary-button>
+                            @endauth
+
                             {{-- <button wire:click="addressvalidate" type="button"
                                 class="mx-4 inline-block rounded bg-green-500 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#14a44d] transition duration-150 ease-in-out hover:bg-success-600 hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:bg-success-600 focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:outline-none focus:ring-0 active:bg-success-700 active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(20,164,77,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)]">
                                 Next
