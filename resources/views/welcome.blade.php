@@ -15,7 +15,9 @@
     <link rel="stylesheet" href="{{asset('owlcarousel/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('owlcarousel/owl.theme.default.min.css')}}">
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+<script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 
 <body class="antialiased">
