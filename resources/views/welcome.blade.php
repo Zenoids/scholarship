@@ -14,7 +14,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="{{asset('owlcarousel/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('owlcarousel/owl.theme.default.min.css')}}">
+    <link rel="icon" type="image/x-icon" href="{{asset('favicon.png')}}">
+
     <!-- Scripts -->
+
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 <script src="{{ asset('js/app.js') }}" defer></script>
