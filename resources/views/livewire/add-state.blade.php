@@ -2,7 +2,7 @@
     <h2 class="text-6xl font-bold">State Admins</h2>
     <div class="flex">
 
-        <div class="w-1/2">{{ $this->table }}</div>
+        <div class="w-full md:w-1/2">{{ $this->table }}</div>
         <form class="mx-auto" wire:submit="create">
             {{ $this->form }}
 
@@ -10,7 +10,7 @@
                 Submit
             </button>
         </form>
-    </div>
+    </div>s
 
 
 </div>

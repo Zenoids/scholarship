@@ -50,7 +50,7 @@ class StudentResource extends Resource
 
 
 
-     Tables\Columns\TextColumn::make('house_number')->relationship('addresses','student_addresses'),
+    //  Tables\Columns\TextColumn::make('house_number')->relationship('addresses','student_addresses'),
     //  Tables\Columns\TextColumn::make('house_type'),
     //  Tables\Columns\TextColumn::make('district'),
     //  Tables\Columns\TextColumn::make('tahsil'),

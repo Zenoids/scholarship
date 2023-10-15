@@ -32,7 +32,7 @@ class AddDistrict extends Component implements HasForms, HasTable
         ->columns([
             TextColumn::make('name')->searchable()->sortable(),
             TextColumn::make('state.name')->label('State Name')->searchable(),
-            // TextColumn::make('user_name')->relationship('users','user_id'),
+
 
             ])
             ->filters([
