@@ -1,16 +1,16 @@
 <div>
     <h2 class="text-6xl font-bold">State Admins</h2>
-    <div class="flex">
+    <div class="flex flex-col md:flex-row">
 
-        <div class="w-full md:w-1/2">{{ $this->table }}</div>
-        <form class="mx-auto" wire:submit="create">
+        <div class="w-full ">{{ $this->table }}</div>
+        <form class="mx-auto md:w-1/3" wire:submit="create">
             {{ $this->form }}
 
-            <button class="" type="submit">
+            <button class="bg-white rounded-xl" type="submit">
                 Submit
             </button>
         </form>
-    </div>s
+    </div>
 
 
 </div>

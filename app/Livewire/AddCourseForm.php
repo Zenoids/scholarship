@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 use App\Models\Course;
+use Filament\Forms\Components\Section;
 use Livewire\Component;
 
 // use App\Models\Shop\Product;
@@ -61,13 +62,13 @@ Action::make('delete')
     public function form(Form $form): Form
     {
         return $form
-            ->schema([
+        ->schema([Section::make('Create state admins')->schema([
                 TextInput::make('name')
                     ->required()
                     ->label('Add Course'),
 
                 // ...
-            ])
+            ])])
             ->statePath('data');
     }
 

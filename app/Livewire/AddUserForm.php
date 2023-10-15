@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 use App\Models\User;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Livewire\Component;
 
@@ -66,7 +67,7 @@ Action::make('delete')
     {
         return $form
 
-            ->schema([
+        ->schema([Section::make('Create state admins') ->schema([
                 TextInput::make('name')
                     ->required()
                     ,
@@ -86,7 +87,8 @@ Action::make('delete')
                     TextInput::make('number')->tel(),
 
                 // ...
-            ])
+            ])])
+
             ->statePath('data');
     }
 
