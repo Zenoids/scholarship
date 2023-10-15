@@ -29,12 +29,7 @@
                     Terms and conditions for Scholarship</a>
 
             </div> --}}
-            <form class="flex py-5 md:ms-[20%] md:w-8/12 w-full flex-col" @guest
-            wire:submit="register"
-            @endguest
-            @auth
-            wire:submit="proceed"
-            @endauth >
+            <div class="flex py-5 md:ms-[20%] md:w-8/12 w-full flex-col"  >
 
                 {{-- @if ($currentPage == 1) --}}
 
@@ -217,6 +212,8 @@
 
 
                             </div>
+                            @if ($currentPage == 2)
+
 @guest
 
                             <hr class="my-12">
@@ -225,10 +222,12 @@
                                     <h3 class="{{ $sideheadstyle }}">Please Register to Fill the Application form</h3>
                                     <p class="{{ $mainsubstyle }}"> </p>
                                 </div>
-                                <div class="md:w-4/5 w-full ms-5 flex flex-wrap ">
+                                <div >
 
                                     {{-- <livewire:pages.auth.register /> --}}
 
+                                    <form class=" " wire:submit="register" >
+                                        <div class="md:w-4/5 w-full ms-5 flex flex-wrap">
                                     <!-- Name -->
                                     <div class="md:w-1/2 w-full mt-2 md:mt-3">
                                         <x-input-label for="name" :value="__('Name')" />
@@ -274,9 +273,14 @@
 
 
                                     </div>
-
-
                                 </div>
+                                    <hr class="my-12">
+                                    <div class="flex justify-end">
+                                        <x-primary-button class="ml-4">
+                                            {{ __('Register') }}
+                                        </x-primary-button>
+                                    </form>
+                                    </div>
 
 
                             </div>
@@ -285,16 +289,19 @@
 
                         </div>
                         @endguest
-                        <hr class="my-12">
-                        <div class="flex justify-end">
-                            @guest
-                            <x-primary-button class="ml-4">
-                                {{ __('Register') }}
-                            </x-primary-button>
-                            @endguest
+
+@endif
+                        @if ($currentPage==1)
+                        @guest
+                        <x-primary-button wire:click="registrationpage" class="ml-4 float-right">
+                            {{ __('Register') }}
+                        </x-primary-button>
+                        @endguest
+                        @endif
+
 
                             @auth
-                            <x-primary-button class="ml-4">
+                            <x-primary-button wire:click="proceed" class="ml-4">
                                 {{ __('Proceed') }}
                             </x-primary-button>
                             @endauth
@@ -317,7 +324,7 @@
 
         </div>
 
-        </form>
+        <div>
     </div>
     </div>
 

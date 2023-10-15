@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>JIH Scholarship</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -15,6 +14,7 @@
     <link rel="stylesheet" href="{{asset('owlcarousel/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('owlcarousel/owl.theme.default.min.css')}}">
     <link rel="icon" type="image/x-icon" href="{{asset('favicon.png')}}">
+    <title>JIH Scholarship</title>
 
     <!-- Scripts -->
 

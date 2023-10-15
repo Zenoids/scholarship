@@ -18,6 +18,7 @@ class Terms extends Component
 
     public string $password = '';
 
+    public $currentPage = 1;
     public string $password_confirmation = '';
 
     public function register(): void
@@ -41,9 +42,17 @@ class Terms extends Component
     }
     public function proceed():void
     {
+        // $this->currentPage++;
         $this->redirect(
             '/apply'
         );
+    }
+    public function registrationpage():void
+    {
+        $this->currentPage++;
+        // $this->redirect(
+        //     '/apply'
+        // );
     }
     public function render()
     {

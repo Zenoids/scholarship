@@ -7,7 +7,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <link rel="stylesheet" href="{{asset('owlcarousel/owl.carousel.min.css')}}">
 <link rel="stylesheet" href="{{asset('owlcarousel/owl.theme.default.min.css')}}">
-        <title>{{ $title ?? 'Page Title' }}</title>
+<link rel="icon" type="image/x-icon" href="{{asset('favicon.png')}}">
+        <title>{{ $title ?? 'JIH Scholarship' }}</title>
     </head>
     <body>
         {{ $slot }}
