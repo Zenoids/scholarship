@@ -1,3 +1,4 @@
+
 @php
     $mainheadingstyle = 'block text-xl  font-medium leading-6  text-gray-900';
     $mainsubstyle = 'block text-sm font-medium leading-6  text-gray-500';
@@ -224,7 +225,7 @@
                                     <h3 class="{{ $sideheadstyle }}">Please Register to Fill the Application form</h3>
                                     <p class="{{ $mainsubstyle }}"> </p>
                                 </div>
-                                <div class="md:w-4/5 w-full  flex flex-wrap ">
+                                <div class="md:w-4/5 w-full ms-5 flex flex-wrap ">
 
                                     {{-- <livewire:pages.auth.register /> --}}
 

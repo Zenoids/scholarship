@@ -36,7 +36,7 @@
         <div class="container flex font-semibold text-lg mx-auto h-8 justify-between text-white text-center">
             <div class="">Copyright @2023
             </div>
-            <div class="">Developed by: <a href="https://intelspire.net/">Intelispire</a>
+            <div class="">Powered By: <a>JIH IT Department</a>
             </div>
 
         </div>

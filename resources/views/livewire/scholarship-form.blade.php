@@ -46,7 +46,7 @@
                                     accurately, this information will be used for verification purpose</p>
                                 <hr class="my-12">
                                 <div class="flex flex-col md:flex-row ">
-                                    <div class="md:w-1/5 w-full flex-col">
+                                    <div class="md:w-1/5 w-full flex-col me-8">
                                         <h3 class="{{ $sideheadstyle }}">General Information</h3>
                                         <p class="{{ $mainsubstyle }}">please provide the
                                             personal detials</p>
@@ -125,7 +125,7 @@
                             </div>
                             <hr class="my-12">
                             <div class="flex flex-col md:flex-row">
-                                <div class="md:w-1/5 w-full flex-col">
+                                <div class="md:w-1/5 w-full flex-col me-8">
                                     <h3 class="{{ $sideheadstyle }}">Address Details</h3>
                                     <p class="{{ $mainsubstyle }}">please provide the
                                         Accurate Address details we may have a verification with address</p>
@@ -220,7 +220,7 @@
                         accurately, this information will be used for verification purpose</p>
                     <hr class="my-12">
                     <div class="flex flex-col md:flex-row ">
-                        <div class="md:w-1/5 w-full flex-col">
+                        <div class="md:w-1/5 w-full flex-col me-8">
                             <h3 class="{{ $sideheadstyle }}">Current Education
                                 Information</h3>
                             <p class="{{ $mainsubstyle }}">please provide the
@@ -322,7 +322,7 @@
                     </div>
                     <hr class="my-12">
                     <div class="flex flex-col md:flex-row">
-                        <div class="md:w-1/5 w-full flex-col">
+                        <div class="md:w-1/5 w-full flex-col me-8">
                             <h3 class="{{ $sideheadstyle }}">Previous Education Details
                             </h3>
                             <p class="{{ $mainsubstyle }}">please provide the
@@ -365,7 +365,7 @@
                                         </div></div></div>
                                         <hr class="my-12">
                                         <div class="flex flex-col md:flex-row">
-                                            <div class="md:w-1/5 w-full flex-col">
+                                            <div class="md:w-1/5 w-full flex-col me-8">
                                                 <h3 class="{{ $sideheadstyle }}">10th Class Details
                                                 </h3>
                                                 <p class="{{ $mainsubstyle }}">please enter the 10 class details accurately</p>
@@ -401,7 +401,7 @@
                                         </div></div>
                                         <hr class="my-12">
                                         <div class="flex flex-col md:flex-row">
-                                            <div class="md:w-1/5 w-full flex-col">
+                                            <div class="md:w-1/5 w-full flex-col me-8">
                                                 <h3 class="{{ $sideheadstyle }}">Intermediate or 11 and 12th class details
                                                 </h3>
                                                 <p class="{{ $mainsubstyle }}">please provide the
@@ -479,7 +479,7 @@
                         information will be used for verification purpose</p>
                     <hr class="my-12">
                     <div class="flex flex-col md:flex-row ">
-                        <div class="md:w-1/5 w-full flex-col">
+                        <div class="md:w-1/5 w-full flex-col me-8">
                             <h3 class="{{ $sideheadstyle }}">Income Details</h3>
                             <p class="{{ $mainsubstyle }}">please provide the
                                 detials of your household income</p>
@@ -518,7 +518,7 @@
                     </div>
                     <hr class="my-12">
                     <div class="flex flex-col md:flex-row">
-                        <div class="md:w-1/5 w-full flex-col">
+                        <div class="md:w-1/5 w-full flex-col me-8">
                             <h3 class="{{ $sideheadstyle }}">Bank Account Details
                             </h3>
                             <p class="{{ $mainsubstyle }}">please provide the
@@ -613,7 +613,7 @@
                         to upload compressed image of max size 2mb</p>
                     <hr class="my-12">
                     <div class="flex flex-col md:flex-row">
-                        <div class="md:w-1/5 w-full flex-col">
+                        <div class="md:w-1/5 w-full flex-col me-8">
                             <h3 class="{{ $sideheadstyle }}">Upload files</h3>
                             <p class="{{ $mainsubstyle }}">Make sure to upload latest files of minimum size</p>
                         </div>
@@ -710,7 +710,7 @@
                         office, As your scholarship will be verified and approved by the nearest office</p>
                     <hr class="my-12">
                     <div class="flex flex-col md:flex-row">
-                        <div class="md:w-1/5 w-full flex-col">
+                        <div class="md:w-1/5 w-full flex-col me-8">
                             <h3 class="{{ $sideheadstyle }}">Choose the JIH office</h3>
                             <p class="{{ $mainsubstyle }}">Try to select the office as near to your
                                 address as
