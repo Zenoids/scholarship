@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             StateAdminSeeder::class,
             DistrictSeeder::class,
+            UnitAdminSeeder::class,
             // ... other seeders
         ]);
     }

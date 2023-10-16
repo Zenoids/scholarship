@@ -14,32 +14,8 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::create([
-        //     'name' => 'SuperAdmin',
-        //     'email' => 'superadmin@scholarship.jih.org',
-        //     'password' => Hash::make('jih@2023'),
-        //     'role'=>'SuperAdmin'
-        // ]);
-        // User::create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        //     'password' => Hash::make('test@example.com'),
-        //     'role'=>'State'
-        // ]);
-        // User::create([
-        //     'name' => '1 User',
-        //     'email' => 'test1@example.com',
-        //     'password' => Hash::make('test@example.com'),
-        //     'role'=>'Unit'
-        // ]);
-        // User::create([
-        //     'name' => 'Testqe User',
-        //     'email' => 'test2@example.com',
-        //     'password' => Hash::make('dommel'),
-        //     'role'=>'MarkazAdmin'
-        // ]);
 
-//states
+
         User::create(['email'=>'jihjamaatap@gmail.com',	'number'=>'8309049542'	,'name'=>'ap-admin'	,'password'=>Hash::make('123456'), 'role'=>'State']);
         User::create(['email'=>'jihassamnorth100@gmail.com',	'number'=>'8812967294'	,'name'=>'an-admin'	,'password'=>Hash::make('123456'), 'role'=>'State']);
         User::create(['email'=>'jihassamsouth@gmail.com',	'number'=>'7002436710'	,'name'=>'as-admin'	,'password'=>Hash::make('123456'), 'role'=>'State']);
@@ -63,716 +39,751 @@ class UserSeeder extends Seeder
         User::create(['email'=>'upwestjih@yahoo.in','number'=>'7417449612	','name'=>'upw-admin'	,'password'=>Hash::make('123456'), 'role'=>'State']);
         User::create(['email'=>'jamaatwb@gmail.com',	'number'=>'9836024416'	,'name'=>'wb-admin'	,'password'=>Hash::make('123456'), 'role'=>'State']);
 //units
-User::create(['email'=>'nrasheed5504@gmail.com',	'number'=>'9474210842',	'name'=>'an-np', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'nayeemfuad@gmail.com',	'number'=>'9933260681',	'name'=>'an-sg', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'tarique.bk68@gmail.com',	'number'=>'9774216629',	'name'=>'mn-imp', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'akadirsanthel@gmail.com',	'number'=>'7005399355',	'name'=>'mn-st', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mikcuttack@gmail.com',	'number'=>'9861040402',	'name'=>'od-ctk', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mohdsajid_2001@yahoo.com',	'number'=>'8130126859',	'name'=>'uk-hw', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'naansari932@gmail.com',	'number'=>'9411622614',	'name'=>'uk-rn', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'rashidulkherchem1984@gmail.com',	'number'=>'7533876623',	'name'=>'uk-rk', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'azmathpasha@gmail.com',	'number'=>'9247257003',	'name'=>'ap-yetapaka', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'connectnawaz@gmail.com',	'number'=>'9642040237',	'name'=>'ap-anantapur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mfazululla@gmail.com',	'number'=>'9963221200',	'name'=>'ap-gooty', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'pms.shareef@gmail.com',	'number'=>'9866866520',	'name'=>'ap-guntakal', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'md.abdullah.sio@gmail.com',	'number'=>'9701473027',	'name'=>'ap-grmknda', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Khaleelullahbapatla@gmail.com',	'number'=>'9292256527',	'name'=>'ap-bapatla', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'k.hafeez.khan.zm@gmail.com',	'number'=>'9985057828',	'name'=>'ap-punganur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'shaikvali7919@gmail.com',	'number'=>'9346373073',	'name'=>'ap-bommuru', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'farooq011@gmail.com',	'number'=>'8977269564',	'name'=>'ap-goplprm', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'md.dadashar1623@gmail.com',	'number'=>'9704331622',	'name'=>'ap-kadiem', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Iliassharief90436@gmail.com',	'number'=>'9885953739',	'name'=>'ap-nallajarla', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ansarjihrjy@gmail.com',	'number'=>'9440323486',	'name'=>'ap-Rjmndry', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ibrahimcocoa123@gmail.com',	'number'=>'9440133997',	'name'=>'ap-eluru', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'adilshaik8116@gmail.com',	'number'=>'9989380350',	'name'=>'ap-jngrdygdm', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'c@8gmail.com',	'number'=>'9246335499',	'name'=>'ap-gunturcity', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'arasheedmngl@gmail.com',	'number'=>'9392792999',	'name'=>'ap-mangalgiri', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'subbu.buddu@gmail.com',	'number'=>'9705246868',	'name'=>'ap-palkalur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'sk.ibm78@gmail.com',	'number'=>'9908078619',	'name'=>'ap-kakinada', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'nabidhar@gmail.com',	'number'=>'9848752500',	'name'=>'ap-repur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'amusavvir969@gmail.com',	'number'=>'9849034739',	'name'=>'ap-mandapeta', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'meera.sheik509@gmail.com',	'number'=>'9866058751',	'name'=>'ap-raulapalem', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'sknaseer1972@gmail.com',	'number'=>'9441747565',	'name'=>'ap-Hjunction', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'jihpmarru@gmail.com',	'number'=>'9292655929',	'name'=>'ap-pamaru', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'iliyasmsc117@gmail.com',	'number'=>'8008006818',	'name'=>'ap-vuyyuru', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'muqtharwork@gmail.com',	'number'=>'7075867516',	'name'=>'ap-kurnoolN', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'jih4chand@gmail.com',	'number'=>'9908746741',	'name'=>'ap-kurnoolS', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Chandanna1973@gmail.com',	'number'=>'9963606154',	'name'=>'ap-yemmiganur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'baigm870@gmail.com',	'number'=>'9052115939',	'name'=>'ap-banaganapalli', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'samadawaz@gmail.com',	'number'=>'9440655753',	'name'=>'ap-nandyal', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'fmd446936@gmail.com',	'number'=>'9703271815',	'name'=>'ap-kondapalli', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'skabdulhameed0797@gmail.com',	'number'=>'9848249611',	'name'=>'ap-tiruvur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'pkhasimkhan47@gmail.com',	'number'=>'9985253492',	'name'=>'ap-peddakrpd', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abdulkabirruksana@gmail.com',	'number'=>'9000458033',	'name'=>'ap-donakonda', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'rasool.jih@gmail.com',	'number'=>'8328120044',	'name'=>'ap-yerragndpLm', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'khajaahamad911@gmail.com',	'number'=>'9492578117',	'name'=>'ap-kaligiri', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mahaboob.mba@gmail.com',	'number'=>'7730073139',	'name'=>'ap-kavali', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mdanwarbaig123@gmail.com',	'number'=>'9492334549',	'name'=>'ap-nellore', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mohammedsiddiqshaik842@gmai.com',	'number'=>'9440493432',	'name'=>'ap-udaygiri', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'chandbabushaik@gmail.com',	'number'=>'7997948648',	'name'=>'ap-kotavkd', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'arshdoct@gmail.com',	'number'=>'8919427136',	'name'=>'ap-kadiri', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'habeebmd25@gmail.com',	'number'=>'9703430057',	'name'=>'ap-vijayangrm', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'a.karim.jihvyr123@gmail.com',	'number'=>'9393920635',	'name'=>'ap-gangur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'syedgouse9957@gmail.com',	'number'=>'7207079957',	'name'=>'ap-VJbhavaniprm', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'rizwaneluru6787@gmail.com',	'number'=>'9553093452',	'name'=>'ap-VJc', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'hussain.advt@gmail.com',	'number'=>'9703454103',	'name'=>'ap-VJe', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'shoaibsameer@gmail.com',	'number'=>'9908366537',	'name'=>'ap-VJN', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'shabbirahmed786b@gmail.com',	'number'=>'7569412306',	'name'=>'ap-vijayawadaw', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ziaalikhankhan@gmail.com',	'number'=>'9550191861',	'name'=>'ap-visakhapatname', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'bajinrt@gmail.com',	'number'=>'9985036980',	'name'=>'ap-visakhapatnamw', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'syedfarooqroyalautomobiles@gmail.com',	'number'=>'9848252318',	'name'=>'ap-akiveedu', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'farhaan505@gmail.com',	'number'=>'9703124568',	'name'=>'ap-bhimavaram', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'fareedshaik953@gmail.com',	'number'=>'9705488558',	'name'=>'ap-koyyalagudem', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'hussainmeerjapur@gmail.com',	'number'=>'7893434186',	'name'=>'ap-meerzapur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Shareef818@gmail.com',	'number'=>'9908320965',	'name'=>'ap-sanivarpet', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'gulfadstpg@gmail.com',	'number'=>'8790079767',	'name'=>'ap-tadepallegudem', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'rehanali123.md@gmail.com',	'number'=>'9866073164',	'name'=>'ap-tanuku', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ismailshariffmd06@gmail.com',	'number'=>'9440184782',	'name'=>'ap-venkatapuram', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'khalid85@gmail.com',	'number'=>'9490136886',	'name'=>'ap-kadapa', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'d.m.shareef2@gmail.com',	'number'=>'9866267649',	'name'=>'ap-proddatur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'haidarali90946@gmail.com',	'number'=>'9859836520',	'name'=>'an-majgaon', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'sifalahi@gmail.com',	'number'=>'9394355953',	'name'=>'an-howly', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'sadullahoque11@gmail.com',	'number'=>'9101655137',	'name'=>'an-howlyw', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'adbussattar@gmail.com',	'number'=>'6001724750',	'name'=>'an-kadong', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'aksed@gmail.com',	'number'=>'6900655105',	'name'=>'an-salabila', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'aliibrahim121975@gmail.com',	'number'=>'7002135834',	'name'=>'an-dhula', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'johirulislam114@gmail.com',	'number'=>'8011874046',	'name'=>'an-mangaldoi', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mollahzohurul2014@gmail.com',	'number'=>'9707841846',	'name'=>'an-lakhipur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'hanif@gmail.com',	'number'=>'6002189359',	'name'=>'an-rahmatnagar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'wahidurrahaman1997@gmail.com',	'number'=>'9101016684',	'name'=>'an-dispur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'faiyaz@gmail.com',	'number'=>'9864691885',	'name'=>'an-hedayetpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abdussamad9401@gmail.com',	'number'=>'8473931227',	'name'=>'an-rampur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'dilwar@gmail.com',	'number'=>'9101401090',	'name'=>'an-bhojkhuwa', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mdsabb786@gmail.com',	'number'=>'7002059384',	'name'=>'an-tezpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mustafa@gmail.com',	'number'=>'9957176880',	'name'=>'an-dewkandiT', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'c21@gmail.com',	'number'=>'9435314706',	'name'=>'as-gumra', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'bphjalapur@gmail.com',	'number'=>'9859163922',	'name'=>'as-jalalpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'977453@gmail.com',	'number'=>'9774539966',	'name'=>'as-udaipur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abdusalehmazumdar32@gmail.com',	'number'=>'8133047221',	'name'=>'as-nhailakandi', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'khalid523.1960@gmail.com',	'number'=>'9401860606',	'name'=>'as-karimganj', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'jasim4124@gmail.com',	'number'=>'7005222426',	'name'=>'as-dharmanagar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'azizurrahman4226@gmail.com',	'number'=>'8974338899',	'name'=>'as-baburbazar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'malambihar@gmail.com',	'number'=>'9304007748',	'name'=>'br-araria', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mdfarooquebgp16@gmail.com',	'number'=>'9955787848',	'name'=>'br-dehti', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'msali84@gmail.com',	'number'=>'9155162916',	'name'=>'br-hayatpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abidfarooqui9@gmail.com',	'number'=>'9661975846',	'name'=>'br-rajokhar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mdshakilbihar@gmail.com',	'number'=>'9934948622',	'name'=>'br-babura', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'asharhamidilkn@gmail.com',	'number'=>'9631222110',	'name'=>'br-lakhminia', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ghazalarisha2@gmail.com',	'number'=>'8292147655',	'name'=>'br-bhagalpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'zeyauddinzeya2260@gmail.com',	'number'=>'9934018182',	'name'=>'br-piro', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'irs003@yahoo.com',	'number'=>'8789954588',	'name'=>'br-dumraon', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ahmadrazambm@gmail.com',	'number'=>'8969165760',	'name'=>'br-darbhanga', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'barque.rashid@gmail.com',	'number'=>'9801406742',	'name'=>'br-motihari', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mdyusuf160476@gmail.com',	'number'=>'8409675511',	'name'=>'br-siswa', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'masroormehar@gmail.com',	'number'=>'9934672778',	'name'=>'br-gaya', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ahsantarique56@gmail.com',	'number'=>'9470446749',	'name'=>'br-khandail', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Jamiatulsadeqat@gmail.com',	'number'=>'9934990798',	'name'=>'br-kothi', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'quamrulhasan786k@gmail.com',	'number'=>'9473307925',	'name'=>'br-katihar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abdulahad6040@gmail.com',	'number'=>'9570353009',	'name'=>'br-patninarainpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'gilman331@gmail.com',	'number'=>'9122647481',	'name'=>'br-bardaha', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'intikhab.falahi@gmail.com',	'number'=>'8709455859',	'name'=>'br-khajuri', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'irs003@hotmail.com',	'number'=>'9391312153',	'name'=>'br-malmal', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'rizwanmungeri786@gmail.com',	'number'=>'9934613831',	'name'=>'br-munger', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'hashsham.tarique58@gmail.com',	'number'=>'9431613012',	'name'=>'br-muzaffarpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'khalidanwar961@gmail.com',	'number'=>'8209567121',	'name'=>'br-biharsharif', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'hamidhasan4493@gmail.com',	'number'=>'8083156094',	'name'=>'br-islampur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'parwaktasayeed@gmail.com',	'number'=>'7250309939',	'name'=>'br-hissua', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'jawaidakhterjp@gmail.com',	'number'=>'9771570010',	'name'=>'br-nawada', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'md_shahzad64@yahoo.com',	'number'=>'7091976763',	'name'=>'br-patnac', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'dr_imran_ulhaque@hotmail.com',	'number'=>'9693425376',	'name'=>'br-patnaw', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mdmugleazamansari@gmail.com',	'number'=>'7903406072',	'name'=>'br-sadhweli', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abdulkadiransari1966@gmail.com',	'number'=>'9835821048',	'name'=>'br-bikramganj', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abdullahssrm@gmail.com',	'number'=>'9472413042',	'name'=>'br-sasaram', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'shahidjalal7@gmail.com',	'number'=>'9470289516',	'name'=>'br-saharsa', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'takhtarradchem@gmail.com',	'number'=>'9835289255',	'name'=>'br-samastipur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Jameelparwaz331@gmai.com',	'number'=>'8877827440',	'name'=>'br-tajpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'raisuzzaman841403@gmail.com',	'number'=>'9931861680',	'name'=>'br-chhapra', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'amiriqbal9622@gmail.com',	'number'=>'9155148598',	'name'=>'br-sitamarhi', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mquasim731@gmail.com',	'number'=>'9934946731',	'name'=>'br-barharia', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'naseemkauser50@gmail.com',	'number'=>'9572908003',	'name'=>'br-siwan', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ayazanwar98@gmail.com',	'number'=>'9973331598',	'name'=>'br-balbhadarpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ahaque1979@gmail.com',	'number'=>'9934293926',	'name'=>'br-chiknauta', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mdkhurshidalamhjp123@gmail.com',	'number'=>'8434707543',	'name'=>'br-hajipur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'akhtar.arafat786@gmail.com',	'number'=>'8294877942',	'name'=>'br-betia', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'nesarahnad01@gmail.com',	'number'=>'9931737461',	'name'=>'br-mathiamehwal', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mdshoaibalam48@gmail.com',	'number'=>'9162661747',	'name'=>'br-raibarimahua', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'f1980ahmad@gmail.com',	'number'=>'8969962433',	'name'=>'br-ramnagar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Ansari.ra@gmail.com',	'number'=>'9425549228',	'name'=>'cg-bilaspur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'azazahmadstar@gmail.com',	'number'=>'8109195211',	'name'=>'cg-bhilainagar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Gkhan7031@gmail.com',	'number'=>'9329870133',	'name'=>'cg-durg', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Kaifruman801@gmail.com',	'number'=>'8770727783',	'name'=>'cg-korba', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Ubaidsio269@gmail.com',	'number'=>'9425211181',	'name'=>'cg-raipur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Shamim.akhtar0789@gmail.com',	'number'=>'7999745886',	'name'=>'cg-ambikapur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'javedasila@gmail.com',	'number'=>'9871202888',	'name'=>'dl-jamamasjid', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'psiddiqui33@gmail.com',	'number'=>'7982085712',	'name'=>'dl-mustafabad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Masood314@gmail.com',	'number'=>'9953101197',	'name'=>'dl-jafarabad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'khursheedalamjih17@gmail.com',	'number'=>'8130229717',	'name'=>'dl-loni', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'afsarmasood65@gmail.com',	'number'=>'9716391309',	'name'=>'dl-seemapuri', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'irfankhan2k7@gmail.com',	'number'=>'9717355725',	'name'=>'dl-abulfazaleN', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'1jihafesouth@gmail.com',	'number'=>'9899552928',	'name'=>'dl-abulfazaleS', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'umairkoti@gmail.com',	'number'=>'9718164334',	'name'=>'dl-jaitpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'x33@gmail.com',	'number'=>'9971946787',	'name'=>'dl-okhlagaon', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'nadviarif@gmail.com',	'number'=>'9953681592',	'name'=>'dl-shaheenbagh', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'musharrafjih@gmail.com',	'number'=>'9718907400',	'name'=>'dl-zakirnagar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'rasheedfarooqui367@gmail.com',	'number'=>'9211567527',	'name'=>'dl-uttamnagar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'umardarazbeg@gmail.com',	'number'=>'8368072064',	'name'=>'dl-vikasnagar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'1iyaz.j75@gmail.com',	'number'=>'8888801906',	'name'=>'ga-bicholim', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Jihmapusa@gmail.com',	'number'=>'9822101361',	'name'=>'ga-mapusa', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'armaan318484@gmail.com',	'number'=>'9822318484',	'name'=>'ga-panaji', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Akbarkhan7887@gmail.com',	'number'=>'9822497700',	'name'=>'ga-ponda', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'aneesonly@gmail.com',	'number'=>'8380019116',	'name'=>'ga-margao', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'altafshahgoa@gmail.com',	'number'=>'9420767269',	'name'=>'ga-vascodagama', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ikram121963@gmail.com',	'number'=>'9898629941',	'name'=>'gj-ahmedabadc', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'rashid.sio@gmail.com',	'number'=>'7016857542',	'name'=>'gj-ahmedabade', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'kalim.madina@gmail.com',	'number'=>'9723003500',	'name'=>'gj-ahmedabadw', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'1Safwanzx2@gmail.com',	'number'=>'9825586798',	'name'=>'gj-danilimda', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'gayasuddenshaikh82@gmail.com',	'number'=>'8401681446',	'name'=>'gj-narodapatiya', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'sachora@gmail.com',	'number'=>'9327088062',	'name'=>'gj-sarkhej', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'drifti.sio@gmail.com',	'number'=>'9898785814',	'name'=>'gj-modasa', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'anwarindori123456@gmail.com',	'number'=>'9727122718',	'name'=>'gj-baroda', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'a_mshaikh@rediffmail.com',	'number'=>'9898922350',	'name'=>'gj-junagadh', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mgvgetco@yahoo.co.in',	'number'=>'9925212453',	'name'=>'gj-vijapur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'aiyyubmemonaiyyub@gmail.com',	'number'=>'9427079331',	'name'=>'gj-himatnagar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'parvezsachora989898@gmail.com',	'number'=>'9427594390',	'name'=>'gj-lambadiya', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ahs.sio@gmail.com',	'number'=>'9157469647',	'name'=>'gj-surat', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Anvarmalik0987@gmail.com',	'number'=>'9724396111',	'name'=>'gj-vapi', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abdulmalik10063@gmail.com',	'number'=>'8586821101',	'name'=>'hr-ballabgarh', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Jakir7503@gmail.com',	'number'=>'7503083382',	'name'=>'hr-vinaynagar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mohdyunushkhan@gmail.com',	'number'=>'9654805672',	'name'=>'hr-gurugram', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'aquilahmed51@gmail.com',	'number'=>'9813411956',	'name'=>'hr-nuh', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'sdn19921@gmail.com',	'number'=>'9813419921',	'name'=>'hr-shikrawa', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Imrafikahmed@gmail.com',	'number'=>'9466940971',	'name'=>'hr-palwal', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'asrafansari999183@gmail.com',	'number'=>'9729443874',	'name'=>'hr-panipat', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'alammdmushtaque786@gmail.com',	'number'=>'9471302244',	'name'=>'jh-bokaro', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'nazarneyazi@gmail.com',	'number'=>'9334775365',	'name'=>'jh-kumardhubi', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'hadis03031952@gmail.com',	'number'=>'9431731619',	'name'=>'jh-dhanbad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'azmatalam408@gmail.com',	'number'=>'7870603866',	'name'=>'jh-jharia', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mohammad69shahid@gmail.com',	'number'=>'9304693268',	'name'=>'jh-jamshedpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'shafiquegodda@gmail.com',	'number'=>'9430322353',	'name'=>'jh-godda', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'strocare@gmail.com',	'number'=>'7991109751',	'name'=>'jh-gridih', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mumtazsafiurrahman@gmail.com',	'number'=>'8757778715',	'name'=>'jh-azadnagarkajri', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'hanzala9031@gmail.com',	'number'=>'9031381195',	'name'=>'jh-banha', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'draafarooqui@gmail.com',	'number'=>'9431140972',	'name'=>'jh-hazaribagh', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'alimuddinmd047@gmail.com',	'number'=>'9608755168',	'name'=>'jh-narottampur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'aliimmsiddique@gmail.com',	'number'=>'7903039832',	'name'=>'jh-daltonganj', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'shakilahmad9973@gmail.com',	'number'=>'9973739111',	'name'=>'jh-deorih', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Sawlatfahad@gmail.com',	'number'=>'9939476000',	'name'=>'jh-barkakana', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'tauqeerkhan1970@gmail.com',	'number'=>'9570162914',	'name'=>'jh-chitarpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'zn8663@gmail.com',	'number'=>'9835355299',	'name'=>'jh-ramgarh', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'nasimakhtarbhk@gmail.com',	'number'=>'9931532426',	'name'=>'jh-riverside', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mdshoaibalamnadvi@gmail.com',	'number'=>'9931129010',	'name'=>'jh-banapiri', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'md7657563@gmail.com',	'number'=>'9386940082',	'name'=>'jh-chakla', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'msskanke@gmail.com',	'number'=>'8757776599',	'name'=>'jh-kanke', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'moizakhtar3589@gmail.com',	'number'=>'7667622461',	'name'=>'jh-baragain', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'khalidsajjad3@gmail.com',	'number'=>'6203908962',	'name'=>'jh-bariatu', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'azizfalahi12@gmail.com',	'number'=>'9798901708',	'name'=>'jh-khijurtola', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'matloobmgs@gmail.com',	'number'=>'9835293957',	'name'=>'jh-ranchicity', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'maqasonakar@gmail.com',	'number'=>'8651852020',	'name'=>'jh-gumani', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mainuddinkampli70@gmail.com',	'number'=>'9986250736',	'name'=>'ka-badami', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'asifmudagal@gmail.com',	'number'=>'9164282872',	'name'=>'ka-bagalkot', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'meetsayeed223.k@gmail.com',	'number'=>'9035904939',	'name'=>'ka-ilkal', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'yousufsart@gmail.com',	'number'=>'8639735764',	'name'=>'ka-nawnagar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'szafrulhasan@yahoo.co.in',	'number'=>'9243447955',	'name'=>'ka-acroad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'iqbalahmedqsm@gmail.com',	'number'=>'9035463044',	'name'=>'ka-btm', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'wajidhus@yahoo.com',	'number'=>'9902643119',	'name'=>'ka-jaynagar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'vasimap@rocketmail.com',	'number'=>'9845628599',	'name'=>'ka-kormangla', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'iqbalgodiyal@gmail.com',	'number'=>'9945514697',	'name'=>'ka-mysoreroad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'syed.ehtishamuddin@gmail.com',	'number'=>'9886637232',	'name'=>'ka-rtnagar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mmkkhan@hotmail.com',	'number'=>'9886395172',	'name'=>'ka-saraipalya', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'munawwar60@gmail.com',	'number'=>'9972373311',	'name'=>'ka-shivajinagar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'suhailafsha@gmail.com',	'number'=>'9916437349',	'name'=>'ka-yeshvantpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'shahidmemon7891@gmail.com',	'number'=>'9845719927',	'name'=>'ka-belgaum', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'syednasserali@gmail.com',	'number'=>'9019865660',	'name'=>'ka-bellary', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'imranbagdal@gmail.com',	'number'=>'9591455616',	'name'=>'ka-bagdal', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mdaslam.j@gmail.com',	'number'=>'9019668306',	'name'=>'ka-basavakalyan', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mohammedmuazzam580@gmail.com',	'number'=>'9964895555',	'name'=>'ka-bidar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mdiftekharahmed57@gmail.com',	'number'=>'9449690898',	'name'=>'ka-humnabad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'jihbagewadi@gmail.com',	'number'=>'9880805186',	'name'=>'ka-basavanabagewadi', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'iqhulikatti.1786@gmail.com',	'number'=>'9731963495',	'name'=>'ka-bijapur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'sns144988@gmail.com',	'number'=>'8722451310',	'name'=>'ka-moratgi', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mujahidnamajkatti@gmail.com',	'number'=>'9663488384',	'name'=>'ka-talikot', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'rizwankhalid.ckm@gmail.com',	'number'=>'9483249580',	'name'=>'ka-chikmagalur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'shaikjaveed3677@gmail.com',	'number'=>'9886683677',	'name'=>'ka-tarikere', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Ansari.zubairm@gmail.com',	'number'=>'7259702271',	'name'=>'ka-chitradurga', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'deekeyibrahim1@gmail.com',	'number'=>'9591825768',	'name'=>'ka-kalladka', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'isaqkp@yahoo.com',	'number'=>'9448858476',	'name'=>'ka-mangalore', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mukhtarshab@gmail.com',	'number'=>'9449116765',	'name'=>'ka-panemangalore', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abdulkareemua3@gmail.com',	'number'=>'9591277828',	'name'=>'ka-ullal', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abuhamida80@gmail.com',	'number'=>'9632149521',	'name'=>'ka-uppinangady', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'khyder75@yahoo.com',	'number'=>'9535248886',	'name'=>'ka-vitla', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ayubkhanperfect@gmail.com',	'number'=>'9448028242',	'name'=>'ka-davangere', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abdulqayum221967@gmail.com',	'number'=>'9482512370',	'name'=>'ka-harihar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'aamirumri79@gmail.com',	'number'=>'9886232667',	'name'=>'ka-hosur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'jihkerebelchi12@gmail.com',	'number'=>'9019177209',	'name'=>'ka-kerebilchi', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mushtaquehaveripeth@gmail.com',	'number'=>'9845272970',	'name'=>'ka-dharwad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'arcbelagali9@gmail.com',	'number'=>'9845078872',	'name'=>'ka-hubli', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mukhtar.kotwal@gmail.com',	'number'=>'9916138979',	'name'=>'ka-navalgund', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abduljabbarkhawas48@gmail.com',	'number'=>'9141104345',	'name'=>'ka-gadag', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'jihglb@gmail.com',	'number'=>'8762353145',	'name'=>'ka-gulbarga', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'sajjadqasmi393@gmail.com',	'number'=>'9945941393',	'name'=>'ka-sedam', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ziaullahm67@gmail.com',	'number'=>'7406147025',	'name'=>'ka-shahbad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abdullaharehalli@gmail.com',	'number'=>'9449335795',	'name'=>'ka-arehalli', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'shabbir@alialnassarco.com',	'number'=>'9900258359',	'name'=>'ka-hassan', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'shamsheerpashafalahi@gmail.com',	'number'=>'9739580799',	'name'=>'ka-mansura', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'afsarch@gmail.com',	'number'=>'9844777171',	'name'=>'ka-madikeri', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'rehamanvirajpet@gamil.com',	'number'=>'9449982727',	'name'=>'ka-virajpet', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mubarakbagbanbpet@gmail.com',	'number'=>'9945942900',	'name'=>'ka-bangarpet', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ajmalkhadeer@gmail.com',	'number'=>'9036363182',	'name'=>'ka-kolar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'jihhanamasagar@gmail.com',	'number'=>'9901431684',	'name'=>'ka-hanumsagar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Syedhidayatali490@gmail.com',	'number'=>'9620460504',	'name'=>'ka-koppal', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'aslam.carepharma@gmail.com',	'number'=>'9741930041',	'name'=>'ka-mysore', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abdulraheman@gmail.com',	'number'=>'9945440872',	'name'=>'ka-manvi', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'syedbabarali441@gmail.com',	'number'=>'9886842108',	'name'=>'ka-maski', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'asimuddin.a@gmail.com',	'number'=>'9902847445',	'name'=>'ka-raichur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'jih.sind@gmail.com',	'number'=>'9480560666',	'name'=>'ka-sindhanur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'hafeezarts@gmail.com',	'number'=>'9036535385',	'name'=>'ka-bhadravathi', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'9902617422ps@gmail.com',	'number'=>'9902617422',	'name'=>'ka-sagar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'blueocean.nets@gmail.com',	'number'=>'9986456490',	'name'=>'ka-shimoga', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Abdulkhaderjih@gmail.com',	'number'=>'9480956892',	'name'=>'ka-thirthahalli', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'liyakhatalibaigbaig@gmail.com',	'number'=>'9740127403',	'name'=>'ka-tiptur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'asadullah30@gmail.com',	'number'=>'9686079809',	'name'=>'ka-tumkur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'zubairsm01@gmail.com',	'number'=>'9008113501',	'name'=>'ka-bhatkal', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abdulmannan34378@gmail.com',	'number'=>'8971915405',	'name'=>'ka-sirsi', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'aknifal20@gmail.com',	'number'=>'9611697629',	'name'=>'ka-hoode', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'anwarali.jih@gmail.com',	'number'=>'9449773786',	'name'=>'ka-kapu', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'imraanehsaan@gmail.com',	'number'=>'9731890627',	'name'=>'ka-malpe', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'nisarudupi@gmail.com',	'number'=>'9743580081',	'name'=>'ka-udupi', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'amjadhussain208@gmail.com',	'number'=>'9535398314',	'name'=>'ka-shahpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'gmkhayyat@gmail.com',	'number'=>'9741878390',	'name'=>'ka-yadgir', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'shekhchand74@gmail.com',	'number'=>'8982007548',	'name'=>'mp-bhaloomada', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'aqueelsiddiqui2017@gmail.com',	'number'=>'9407314044',	'name'=>'mp-balaghat', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'akhtarmohkhan@gmail.com',	'number'=>'6265455496',	'name'=>'mp-berasia', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'absarfalahi1984@gmail.com',	'number'=>'8770903970',	'name'=>'mp-baghdilkusha', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ilahianwar66@gmail.com',	'number'=>'9893416866',	'name'=>'mp-ibraheempura', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'jami.fa@gmail.com',	'number'=>'9868706144',	'name'=>'mp-shahjahanabad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Jameel0ahmed1975@gmail.Com',	'number'=>'9617567488',	'name'=>'mp-burhanpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ahkhancwa@rediffmail.com',	'number'=>'9424959988',	'name'=>'mp-chhindwara', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Abdulrajjakmastar@gmail.com',	'number'=>'9425434786',	'name'=>'mp-damoh', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'kalimqureshi976@gmail.com',	'number'=>'9826385766',	'name'=>'mp-dewas', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'kamranextrovert00@gmail.com',	'number'=>'7000059397',	'name'=>'mp-gwalior', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abdul.razzaque121@gmail.com',	'number'=>'9926644786',	'name'=>'mp-harda', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'a.aleem.huda@gmail.com',	'number'=>'9827233586',	'name'=>'mp-khajrana', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ashabulyameen1955@gmail.com',	'number'=>'7999852080',	'name'=>'mp-nayapura', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'iqrar@gmail.com',	'number'=>'8435401871',	'name'=>'mp-jabalpurc', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'jameelahmed7999927317@gmail.com',	'number'=>'7999927317',	'name'=>'mp-jabalpure', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'jmansari261946@gmail.com',	'number'=>'9039424505',	'name'=>'mp-jabalpurw', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'aijazqureshi1712@gmail.com',	'number'=>'7869731322',	'name'=>'mp-khandwa', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Afserbeg0512@gmail.com',	'number'=>'9039146392',	'name'=>'mp-khargone', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Mohmsalim01@gmail.com',	'number'=>'7724836912',	'name'=>'mp-mandla', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'rajqureshi82@gmail.com',	'number'=>'9755612165',	'name'=>'mp-kareli', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mohdrizwan125@gmail.com',	'number'=>'9229981853',	'name'=>'mp-rankai', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Sdhusain32@gmail.com',	'number'=>'9893875407',	'name'=>'mp-raisen', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'siddiquinaeem683@gmail.com',	'number'=>'8109065844',	'name'=>'mp-narsinghgarh', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abdul_yesh10@reditt.com',	'number'=>'8319868644',	'name'=>'mp-rewa', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Kamarrijwan2029@gmail.com',	'number'=>'8516070918',	'name'=>'mp-maihar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'gm8297227@gmail.com',	'number'=>'9827751743',	'name'=>'mp-satna', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'aliasim7252@gmail.com',	'number'=>'7987431905',	'name'=>'mp-ashta', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'navedazhar@gmail.com',	'number'=>'9893215966',	'name'=>'mp-sehore', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Ik9425175473@gmai.com',	'number'=>'9425175473',	'name'=>'mp-seoni', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'shafi.shahdol@gmail.com',	'number'=>'7566112788',	'name'=>'mp-shahdol', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Hamid316075@gmail.com',	'number'=>'9826362727',	'name'=>'mp-maksi', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'atharabdullah093@gmail.com',	'number'=>'9993371583',	'name'=>'mp-baroda', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'miansari955@gmail.com',	'number'=>'9926019841',	'name'=>'mp-sheopur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Shakeelshibani85651@gmail.com',	'number'=>'9893287980',	'name'=>'mp-shivpuri', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'najish.farooqui@gmail.com',	'number'=>'9753102730',	'name'=>'mp-mahidpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'anoormansuri@gmail.com',	'number'=>'8989450618',	'name'=>'mp-nagda', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'shuhood.sayyed@gmail.com',	'number'=>'9827010950',	'name'=>'mp-ujjain', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'sharifqureshi8048@gmail.com',	'number'=>'9993671758',	'name'=>'mp-unhel', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mushtaque161961@gmail.com',	'number'=>'9890919304',	'name'=>'mh-ahmednagar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'sayyadgg@gmail.com',	'number'=>'9423161501',	'name'=>'mh-parner', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'sajidhsayyad@gmail.com',	'number'=>'9975224541',	'name'=>'mh-shreerampur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mohmmadzafar8888@gmail.com',	'number'=>'9890618681',	'name'=>'mh-aalegaon', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'dr.uroojakola@gmail.com',	'number'=>'7875836830',	'name'=>'mh-akola', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abdularif1968@gmail.com',	'number'=>'9850363198',	'name'=>'mh-akot', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'dfsasd@gmail.com',	'number'=>'9172750136',	'name'=>'mh-balapur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mudassirullahkhanishtiaque@gmail.com',	'number'=>'8459239810',	'name'=>'mh-barsitakli', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'m83@gmail.com',	'number'=>'9579304010',	'name'=>'mh-hathroon', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abc@gmail.com',	'number'=>'9028824411',	'name'=>'mh-murtuzapur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'kareem1072@gmail.com',	'number'=>'9156534449',	'name'=>'mh-patur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'aejazrafique@gmail.com',	'number'=>'8007627343',	'name'=>'mh-anjangaonsurji', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'jmo9651@gmail.com',	'number'=>'9421743692',	'name'=>'mh-chikhaldara', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'yunusshaikh051@gmail.com',	'number'=>'9561335629',	'name'=>'mh-paratwada', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Pakiza.dukan@gmail.com',	'number'=>'9307405078',	'name'=>'mh-fardapur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'niaurangabad@gmail.com',	'number'=>'8625927661',	'name'=>'mh-gadhejalgaon', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'saleemyunus023@gmail.com',	'number'=>'9545190223',	'name'=>'mh-ghatnandra', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'x5@gmail.com',	'number'=>'8806968239',	'name'=>'mh-kannad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Ziauddinkgn@gmail.com',	'number'=>'7744849835',	'name'=>'mh-khuldabad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'zakir.msc@gmail.com',	'number'=>'9960580102',	'name'=>'mh-paithan', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'saeedquadri@gmail.com',	'number'=>'9860921042',	'name'=>'mh-sillod', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'71zain@gmail.com',	'number'=>'9423392312',	'name'=>'mh-cnaka', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'9dg@gmail.com',	'number'=>'9028106198',	'name'=>'mh-delhigate', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'2d@gmail.com',	'number'=>'9673787807',	'name'=>'mh-qadeemshaher', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'4rs@gmail.com',	'number'=>'9422290829',	'name'=>'mh-railwaystation', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mzafardesh@gmail.com',	'number'=>'8459116657',	'name'=>'mh-roshangate', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'shadabmoosa2@gmail.com',	'number'=>'8411928736',	'name'=>'mh-timescolony', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'shkhnaser@gmail.com',	'number'=>'9028536467',	'name'=>'mh-usmanpura', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'munir7334@gmail.com',	'number'=>'8275497334',	'name'=>'mh-ambajogai', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'javedali424@gmail.com',	'number'=>'9028041133',	'name'=>'mh-beed', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'amjadp101@gmail.com',	'number'=>'8530395498',	'name'=>'mh-majalgaon', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'syedanwar685@gmail.com',	'number'=>'9850552792',	'name'=>'mh-parli', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'krk@gmail.com',	'number'=>'9764865101',	'name'=>'mh-badnerabholji', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Saeeddeulghat@gmail.com',	'number'=>'9970307284',	'name'=>'mh-devalghat', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'umair_kgn@rediffmail.com',	'number'=>'9422449393',	'name'=>'mh-khamgaon', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'md9132349@gmail.com',	'number'=>'9028706254',	'name'=>'mh-mehkar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'zubair9970902409@gmail.com',	'number'=>'9970902409',	'name'=>'mh-pipalgaonraja', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Hafizmujahidqureshi313@gmail.com',	'number'=>'9175817323',	'name'=>'mh-buldhana', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'liyaqatali118@gmail.com',	'number'=>'9890995727',	'name'=>'mh-chikhli', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ahamid@gmail.com',	'number'=>'9767825927',	'name'=>'mh-dhamangaonbadhe', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'drmansaransar@gmail.com',	'number'=>'8087351697',	'name'=>'mh-shegaon', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abdulqadirs904@gmail.com',	'number'=>'9673513971',	'name'=>'mh-ballarpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'aakhtarazad@gamil.com',	'number'=>'8055267919',	'name'=>'mh-newmajri', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'jihrajura@gmail.com',	'number'=>'9561157086',	'name'=>'mh-rajura', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abrauf8750@gmail.com',	'number'=>'9850383037',	'name'=>'mh-basmath', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mdiqbal47351@gmail.com',	'number'=>'9975645187',	'name'=>'mh-hingoli', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Abdurraufjih@gmail.com',	'number'=>'9637694020',	'name'=>'mh-faizpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mushtaqueahd@gmail.com',	'number'=>'9923499777',	'name'=>'mh-jalgaon', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'waquarazeem1@gmail.com',	'number'=>'9422978817',	'name'=>'mh-pachora', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'skshafiuddin787@gmail.com',	'number'=>'7841957255',	'name'=>'mh-raver', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Pathanmukhtar4u@gmail.com',	'number'=>'9404694583',	'name'=>'mh-badnapur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ismailsk9420824445@gmail.com',	'number'=>'9420824445',	'name'=>'mh-jalna', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Mirzafarhat313@gmail.com',	'number'=>'9225951094',	'name'=>'mh-ranjani', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'aarifsirlatur@gmail.com',	'number'=>'9766805294',	'name'=>'mh-latur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Rgdaimi2228@gmail.com',	'number'=>'9673878786',	'name'=>'mh-udgir', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'shahkhalils@gmail.com',	'number'=>'8767675577',	'name'=>'mh-andheri', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'siddiqui.abuhurairah@gmail.com',	'number'=>'9870787090',	'name'=>'mh-charkopkandivali', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'orahman367@gmail.com',	'number'=>'9029168909',	'name'=>'mh-govandi', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'1anisairfan1967@gmail.com',	'number'=>'9821013640',	'name'=>'mh-kurla', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'azmathudai84@gmail.com',	'number'=>'7020741431',	'name'=>'mh-malad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'jihmillatnagar@gmail.com',	'number'=>'9930150181',	'name'=>'mh-millatnagar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Vasairotoplast@gmail.com',	'number'=>'9324390818',	'name'=>'mh-nalasoparae', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'anaazhar@gmail.com',	'number'=>'9029457754',	'name'=>'mh-nallasoparaw', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'parvez03121968@gmail.com',	'number'=>'9029687474',	'name'=>'mh-sakinaka', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Riyazbabu01@gmail.com',	'number'=>'9969131122',	'name'=>'mh-Vkrlparksite', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Jihkmpt@gmail.com',	'number'=>'9021972657',	'name'=>'mh-kampti', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'saajhi@gmail.com',	'number'=>'9822287353',	'name'=>'mh-nagpurn', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'nkkhwaja67@gmail.com',	'number'=>'9890976187',	'name'=>'mh-nagpurw', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Khanabdullah10444@gmail.com',	'number'=>'8552858373',	'name'=>'mh-ardhapur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abc14355@gmail.com',	'number'=>'9867368440',	'name'=>'mh-bhokar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ziauddinirfanzi@gmail.com',	'number'=>'7588427327',	'name'=>'mh-biloli', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'raissir7588@gmail.com',	'number'=>'9561536422',	'name'=>'mh-degloor', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Aamir.malegaon@gmail.com',	'number'=>'9371232961',	'name'=>'mh-malegaon', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'NA@gmail.com',	'number'=>'9822859504',	'name'=>'mh-yeola', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'khatikjamil111@gmail.com',	'number'=>'7387810039',	'name'=>'mh-nasik', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'akbarmyh@gmail.com',	'number'=>'9860264335',	'name'=>'mh-parbhani', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'saleemfarooqui.sf@gmail.com',	'number'=>'8983027880',	'name'=>'mh-pathri', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'yousufislahi@gmail.com',	'number'=>'9730391853',	'name'=>'mh-akurdi', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'shaikh.imtiyaz61@gmail.com',	'number'=>'8149059203',	'name'=>'mh-pimpri', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'skfreal@yahoo.com',	'number'=>'9822246955',	'name'=>'mh-punen', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ashdwh@gmail.com',	'number'=>'7709291887',	'name'=>'mh-punes', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'sdf@gmail.com',	'number'=>'9623970015',	'name'=>'mh-mahad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'imtiyaznakade2@gmail.com',	'number'=>'8879023042',	'name'=>'mh-ratnagiri', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'tdrthhh@gmail.com',	'number'=>'7798268045',	'name'=>'mh-miraj', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'drismail955@gmail.com',	'number'=>'8411901588',	'name'=>'mh-sholapur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'shaheen.kalokhe@gmail.com',	'number'=>'8097778998',	'name'=>'mh-bhiwandi', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'arfafarid@gmail.com',	'number'=>'9323813804',	'name'=>'mh-kalyan', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'shagafkhot@gmail.com',	'number'=>'9224394021',	'name'=>'mh-padgha', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'imransheikh886@gmail.com',	'number'=>'8275331441',	'name'=>'mh-shahpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'rizwansk195@gmail.com',	'number'=>'8381094909',	'name'=>'mh-risod', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mirzanaved632@gmail.com',	'number'=>'9921721904',	'name'=>'mh-pusad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ukdzaheer3@gmai.com',	'number'=>'9011930927',	'name'=>'mh-umarkhed', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Shahabytl@gmail.com',	'number'=>'9822377510',	'name'=>'mh-yavatmal', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'m22@gmail.com',	'number'=>'7011838453',	'name'=>'markaz-testunit', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'alimeharban180@gmail.com',	'number'=>'9478784676',	'name'=>'pb-kapurthala', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'irshadmohammad54@gmail.com',	'number'=>'9815483090',	'name'=>'pb-malerkotla', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Shehzadqasmi129@gmail.com',	'number'=>'9829468818',	'name'=>'rj-jhotwara', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'shariqahmad7737@gmail.com',	'number'=>'7737519604',	'name'=>'rj-karbala', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Tazaif@gmail.com',	'number'=>'9414300764',	'name'=>'rj-ramganj', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ghayasanwark746@gmail.com',	'number'=>'9079915294',	'name'=>'rj-sanganer', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mumtazali3000@gmail.com',	'number'=>'8058324101',	'name'=>'rj-jhunjhunu', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'shakir909@gmail.com',	'number'=>'9414920119',	'name'=>'rj-jodhpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mubarakswm@gmail.com',	'number'=>'9351856422',	'name'=>'rj-sawaimadhopur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'AbdulMateen761@gmail.com',	'number'=>'9413504346',	'name'=>'rj-wazeerpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'aarif_jatoo@yahoo.co.in',	'number'=>'7597208369',	'name'=>'rj-sikar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abdulnasser2005@gmail.com',	'number'=>'7812032872',	'name'=>'tn-medavakkam', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'gburansha@gmail.com',	'number'=>'9710543805',	'name'=>'tn-annanagar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'syed1959.sb@gmail.com',	'number'=>'9884053640',	'name'=>'tn-choolaimedu', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'sheikbasha250@gmail.com',	'number'=>'9543067600',	'name'=>'tn-ennore', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'saahilbinnizam@gmail.com',	'number'=>'9884737689',	'name'=>'tn-kaladipet', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'sharfelectrical@gmail.com',	'number'=>'8754083623',	'name'=>'tn-konimedu', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'luthfullah@gmail.com',	'number'=>'9444572786',	'name'=>'tn-perambur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'muzamilrafeek@gmail.com',	'number'=>'9443491705',	'name'=>'tn-poonamallee', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Rafiahmedappapillai@gmail.com',	'number'=>'9500690697',	'name'=>'tn-puzhal', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'nasersyed1956@gmail.com',	'number'=>'9444013786',	'name'=>'tn-royapettah', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abdulsamath351@gmail.com',	'number'=>'9840298729',	'name'=>'tn-royapuram', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'apmpeer81@gmai.com',	'number'=>'9843548488',	'name'=>'tn-coimbatorec', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'saleemkovai733@gmail.com',	'number'=>'9843622733',	'name'=>'tn-coimbatoree', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'kasyedibrahim@gmail.com',	'number'=>'9842813222',	'name'=>'tn-coimbatoren', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'bvmmadharsha@gmail.com',	'number'=>'9677887190',	'name'=>'tn-coimbatores', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'syedkabirahmed1971@gmail.com',	'number'=>'8098298003',	'name'=>'tn-dharmapuri', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'shabeer2001@yahoo.com',	'number'=>'7397517705',	'name'=>'tn-dindigul', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'husnaharoon2005@gmail.com',	'number'=>'9952636632',	'name'=>'tn-karur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'siba2511bf@Gmail.com',	'number'=>'9600850701',	'name'=>'tn-krishnagiri', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'basheerahahmed@gmail.com',	'number'=>'8220543770',	'name'=>'tn-madurai', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abdulhakkimjih@gmail.com',	'number'=>'9043495385',	'name'=>'tn-thirumangalam', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'sumaiyatrad@gmail.com',	'number'=>'9865847910',	'name'=>'tn-kadayanallur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'sumaiyabriyani88@gmail.com',	'number'=>'9443767527',	'name'=>'tn-kumbakonam', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'peermdappa@gmail.com',	'number'=>'9443474686',	'name'=>'tn-cumbum', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abudhahir61@gmail.com',	'number'=>'9994840040',	'name'=>'tn-theni', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'syedh09@gmail.com',	'number'=>'9442308501',	'name'=>'tn-cheyyar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'samitpt@gmail.com',	'number'=>'8870357037',	'name'=>'tn-tirupattur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abusumera@gmail.com',	'number'=>'9345328095',	'name'=>'tn-vaniyambadi', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'wadood_aa@rediffmail.com',	'number'=>'9442284071',	'name'=>'tn-mangalam', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'sahulsio@gmail.com',	'number'=>'9629325670',	'name'=>'tn-tirupur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'citymediaudt@gmail.com',	'number'=>'9786240804',	'name'=>'tn-udumalpet', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'jaffarulla26@gmail.com',	'number'=>'9976137875',	'name'=>'tn-manapparai', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'m88@gmail.com',	'number'=>'9629376639',	'name'=>'tn-thuvarankurichi', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'akm1246@gmail.com',	'number'=>'9445251755',	'name'=>'tn-trichy', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'niqbalgym602@gmail.com',	'number'=>'9943619048',	'name'=>'tn-gudiyatham', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'sagheer1972@gmail.com',	'number'=>'9362693417',	'name'=>'tn-pernambut', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abuauthif@rediffmail.com',	'number'=>'9843708538',	'name'=>'tn-vellore', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'azeemfalahi@gmail.com',	'number'=>'9493751221',	'name'=>'ts-adilabad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'shaikyousuf01733@gmail.com',	'number'=>'9493256883',	'name'=>'ts-echoda', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Jamaateislamiindervelly@gmail.com',	'number'=>'9491740785',	'name'=>'ts-indervelli', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'imumtazjih@gmail.com',	'number'=>'7396267607',	'name'=>'ts-amberpet', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Asifmohiuddin@gmail.com',	'number'=>'9542186688',	'name'=>'ts-bahadurpura', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'tooba93@yahoo.com',	'number'=>'9618366586',	'name'=>'ts-chandrayangutta', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'bariksa@yahoo.com',	'number'=>'9291335776',	'name'=>'ts-charminar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ssultanmohiuddin@gmail.com',	'number'=>'9052250001',	'name'=>'ts-golconda', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'si_hussaini@hotmail.com',	'number'=>'9642952575',	'name'=>'ts-goshamahal', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Rukma78@gmail.com',	'number'=>'9640742565',	'name'=>'ts-jublihills', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Hameed17452@gmail.com',	'number'=>'9966941992',	'name'=>'ts-kapra', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mohd.obaid.mo@gmail.com',	'number'=>'9849447683',	'name'=>'ts-khairtabad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'yak363@gmail.com',	'number'=>'8801538399',	'name'=>'ts-khilwat', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mushtaqathar@gmail.com',	'number'=>'9703510401',	'name'=>'ts-malakpet', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'najmuddinarshad@gmail.com',	'number'=>'9949448020',	'name'=>'ts-muradnagar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'farhanmk@hotmail.com',	'number'=>'8142619391',	'name'=>'ts-nampalli', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mdkhusro_pasha@ymail.com',	'number'=>'7095852396',	'name'=>'ts-nanalnagar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'rasheedsd1951@gmail.com',	'number'=>'9912081523',	'name'=>'ts-pathancheru', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'m.a.abdulrafay2012@gmail.com',	'number'=>'8686425130',	'name'=>'ts-rajendernagar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'sferozuddin@yahoo.com',	'number'=>'9866593414',	'name'=>'ts-secunderabad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'wakeel.mohd1989@gmail.com',	'number'=>'9866703653',	'name'=>'ts-serilingampalli', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'aleemuddinahmed742010@gmail.com',	'number'=>'9603143730',	'name'=>'ts-shaikpet', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'shujathussaini@gmail.com',	'number'=>'9014879013',	'name'=>'ts-tolichowki', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'masroorms786@gmail.com',	'number'=>'9573241384',	'name'=>'ts-wadiehuda', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'impex7766@gmail.com',	'number'=>'9490139259',	'name'=>'ts-yakutpura', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'miumair@yahoo.com',	'number'=>'9866068285',	'name'=>'ts-jagtiyal', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'masood4u99@gmail.com',	'number'=>'8328459145',	'name'=>'ts-kaghaznagar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'merajahmed12@gmail.com',	'number'=>'9494800116',	'name'=>'ts-godawarikhani', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'zahakkhan16@gmail.com',	'number'=>'9849798251',	'name'=>'ts-karkhanagadda', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'nayeemuddinahmed88@gmail.com',	'number'=>'9700605449',	'name'=>'ts-mukarrampura', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'shaikhasankmm@gmail.com',	'number'=>'9848758280',	'name'=>'ts-islampet', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ruknjihkmm@gmail.com',	'number'=>'9866556876',	'name'=>'ts-qilakhammam', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'sayedabdulmunaff12@gmail.com',	'number'=>'7780782004',	'name'=>'ts-bhadrachalam', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Shabbair07@gmail.com',	'number'=>'8897113432',	'name'=>'ts-chandrugunda', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'jahangeersharief@gmail.com',	'number'=>'9441507745',	'name'=>'ts-kothagudem', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abdulraheem10021993@gmail.com',	'number'=>'8008569980',	'name'=>'ts-monuguru', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'murtuzaak@gmail.com',	'number'=>'9704115454',	'name'=>'ts-palvancha', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abasith.sk@gmail.com',	'number'=>'9490788164',	'name'=>'ts-rudrampur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'issaqitc@gmail.com',	'number'=>'9908279017',	'name'=>'ts-sarapaka', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mohammadiqbal9989@gmail.com',	'number'=>'9989391302',	'name'=>'ts-mahaboobabad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'jihmbnr@gmail.com',	'number'=>'7386793982',	'name'=>'ts-mahbubnagar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mdyakubpasha2206@gmail.com',	'number'=>'9440732947',	'name'=>'ts-mandamarri', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Jihjpt@gmail.com',	'number'=>'9701901213',	'name'=>'ts-jogipet', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mdfazil6797@gmail.com',	'number'=>'9440370866',	'name'=>'ts-medak', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'muzakkirrafeeq7@gmail.com',	'number'=>'9177554285',	'name'=>'ts-singapurtownship', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'jeelani.md575@gmail.com',	'number'=>'9490567416',	'name'=>'ts-miryalguda', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mohdyousuf365365@gmail.com',	'number'=>'9848559773',	'name'=>'ts-nalgonda', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'hameedaliimami@gmail.com',	'number'=>'9701158970',	'name'=>'ts-gundmal', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'nrpt93@gmail.com',	'number'=>'9866556895',	'name'=>'ts-narayanpet', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mohdmansoorali7788@gmail.com',	'number'=>'7680998006',	'name'=>'ts-utkoor', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Mubeenahmedfirdousi@gmail.com',	'number'=>'9440625048',	'name'=>'ts-bhainsa', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mujahid8372@gmail.com',	'number'=>'6301847452',	'name'=>'ts-nirmal', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'aslambinmohsin@gmail.com',	'number'=>'9705479124',	'name'=>'ts-aarmoor', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ahqamer83xt@gmail.com',	'number'=>'9705005201',	'name'=>'ts-ahmadibazar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mohdghouse.1058@reddifmail.com',	'number'=>'9848045745',	'name'=>'ts-habeebnagar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'sattaramjad@gmail.com',	'number'=>'8125005335',	'name'=>'ts-yaqubpura', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'haijaveed@gmail.com',	'number'=>'9849607860',	'name'=>'ts-peddapalli', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mmakhter203@gmail.com',	'number'=>'7731929522',	'name'=>'ts-maheshwaram', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mdasifahmed777@gmail.com',	'number'=>'9491330724',	'name'=>'ts-narayankhed', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ashfaqlahuti@gmail.com',	'number'=>'9030401664',	'name'=>'ts-sadashivpet', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'hashmathsio@gmail.com',	'number'=>'7799517791',	'name'=>'ts-sangareddy', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'nazimghouri88@gmail.com',	'number'=>'9885213731',	'name'=>'ts-zaheerabad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abdul.quddus2010@gmail.com',	'number'=>'9704062041',	'name'=>'ts-siddipet', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'fayazmd040@gmail.com',	'number'=>'9966561856',	'name'=>'ts-viqarabad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Wahajulhaq428@gmail.com',	'number'=>'9052172788',	'name'=>'ts-hanamkonda', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mohammedabdulaleem99@gmail.com',	'number'=>'9849197785',	'name'=>'ts-kazipet', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mea-mai.39@gmail.com',	'number'=>'7386486872',	'name'=>'ts-warangalcity', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Abdulhafeezbagi1@gmail.com',	'number'=>'9956165560',	'name'=>'upe-baagi', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'shamimahmadansari.nnn@gmail.com',	'number'=>'8858088088',	'name'=>'upe-phoolpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'1rizwanzahoor2003@yahoo.com',	'number'=>'9870530045',	'name'=>'upe-atala', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'5almuzammil580@gmail.com',	'number'=>'8423565437',	'name'=>'upe-bamrauli', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mojubaid97323@gmail.com',	'number'=>'9519868744',	'name'=>'upe-jhunsi', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'farazkhan23078@gmail.com',	'number'=>'7452087178',	'name'=>'upe-kareli', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ahmadowais0021@gmail.com',	'number'=>'9838214694',	'name'=>'upe-naini', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abdulgffark812@gmail.com',	'number'=>'9721227575',	'name'=>'upe-baskhari', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'tmsiddiqui001@gmail.com',	'number'=>'8528618373',	'name'=>'upe-indaipur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ahmadkaleem45@gmail.com',	'number'=>'9506483309',	'name'=>'upe-azamgarhcity', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'atiqurrahmanislahi@gmail.com',	'number'=>'9794877819',	'name'=>'upe-badharia', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mmohsin67189@gmail.com',	'number'=>'9792304898',	'name'=>'upe-bilariaganj', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'asgharali555shaikh@gmail.com',	'number'=>'7507728144',	'name'=>'upe-chandpatti', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'maaribmaab331267@gmail.com',	'number'=>'9451331267',	'name'=>'upe-jairajpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mimranfalahi@gmail.com',	'number'=>'8960352868',	'name'=>'upe-jamiatulfalah', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'sufiyankohanda@gmail.com',	'number'=>'9793560677',	'name'=>'upe-kohanda', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'1atiqurrahmanislahi@gmail.com',	'number'=>'9453914725',	'name'=>'upe-mahul', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abrarahmad2658@gmail.com',	'number'=>'9794877893',	'name'=>'upe-agmohammadpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'jameelahmadfalahi@gmail.com',	'number'=>'9540663739',	'name'=>'upe-naseerpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'albadarbookcentre@gmail.com',	'number'=>'9839591434',	'name'=>'upe-saraimeer', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mdserajddin644wd3@gmail.com',	'number'=>'9838264525',	'name'=>'upe-zameenrasoolpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'walihafizullah12@gmail.com',	'number'=>'9838103230',	'name'=>'upe-amwajauhar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ka9593937@gmail.com',	'number'=>'9721256863',	'name'=>'upe-bahraich', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'aleemahmad0682@gmail.com',	'number'=>'9838511353',	'name'=>'upe-jarwal', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'aabidalia9@gmail.com',	'number'=>'7905564306',	'name'=>'upe-nanpara', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'atikurrahman6084@gmail.com',	'number'=>'9415658280',	'name'=>'upe-barwan', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abdulansari967@gmail.com',	'number'=>'8299173908',	'name'=>'upe-rasra', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ismailharis017@gmail.com',	'number'=>'9450945882',	'name'=>'upe-balrampurcity', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'faialsaud239@gmail.com',	'number'=>'8004190773',	'name'=>'upe-dhankharpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'r31@gmail.com',	'number'=>'9555975241',	'name'=>'upe-nagwa', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'rkhan@gmail.com',	'number'=>'8604690849',	'name'=>'upe-pachpedwa', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'irkhaavc741@gmail.com',	'number'=>'9696605046',	'name'=>'upe-sadullahnagar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mohdyakoobkhan123@gmail.com',	'number'=>'8960131785',	'name'=>'upe-tulsipur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mohdakbar0624@gmail.com',	'number'=>'9235517726',	'name'=>'upe-banarascity', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'israilansari121635@gmail.com',	'number'=>'8174800144',	'name'=>'upe-barabanki', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'shakeelsaljuki@gmail.com',	'number'=>'9935272421',	'name'=>'upe-dariyabad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'alauddeenhamza786@gmail.com',	'number'=>'8874992836',	'name'=>'upe-bbfatehpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'m.muneer119@gmail.com',	'number'=>'9935945612',	'name'=>'upe-husainmau', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'faizanhamad786@gmail.com',	'number'=>'9984430460',	'name'=>'upe-mohammadpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ahk9704@gmail.com',	'number'=>'9336784208',	'name'=>'upe-basti', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abdulhali196201@gmail.com',	'number'=>'9451428418',	'name'=>'upe-kusaurabazar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'r46@gmail.com',	'number'=>'9451720222',	'name'=>'upe-dharaon', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'arifalahi@gmail.com',	'number'=>'6388788130',	'name'=>'upe-katesar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'jokhanansari7@gmail.com',	'number'=>'8004340487',	'name'=>'upe-syedraja', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mohammadtalha473@gmail.com',	'number'=>'9935410349',	'name'=>'upe-manikpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'bdlari123@gmail.com',	'number'=>'9839753527',	'name'=>'upe-lar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'rehanahmadvic@gmail.com',	'number'=>'9559441351',	'name'=>'upe-salempur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abdulgffarr812@gmail.com',	'number'=>'8543063051',	'name'=>'upe-sonkhari', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'tayyebamaryam2003@gmail.com',	'number'=>'9307858327',	'name'=>'upe-fatehpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'dr.mnhaque1935@gmail.com',	'number'=>'7310331388',	'name'=>'upe-fakhanpura', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'afzal.hasan7777@gmail.com',	'number'=>'7524816258',	'name'=>'upe-sammanpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'jihgonda@gmail.com',	'number'=>'8858418155',	'name'=>'upe-gondacity', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'hakramul67@gmail.com',	'number'=>'9451039549',	'name'=>'upe-gurrah', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'msaeedahmed83@gmail.com',	'number'=>'9889961754',	'name'=>'upe-haldharmau', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'arasidshah@gmail.com',	'number'=>'9451034701',	'name'=>'upe-islampur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ummes8884@gmail.com',	'number'=>'9454853222',	'name'=>'upe-khuransa', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'noor001300@gmail.com',	'number'=>'9415139784',	'name'=>'upe-urwabazar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'usmanishamsuzzama38@gmail.com',	'number'=>'8957181586',	'name'=>'upe-gorakhpurn', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ahmadsameerair@gmail.com',	'number'=>'9336447338',	'name'=>'upe-gorakhpurs', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'farrukhsheakh@gmail.com',	'number'=>'8181974305',	'name'=>'upe-jaunpurcity', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'darsgahislamimaroofpur@gmail.com',	'number'=>'8400149558',	'name'=>'upe-maroofpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'rahmatata.in@gmail.com',	'number'=>'8960921865',	'name'=>'upe-shahganj', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'zahidalijhansi@gmail.com',	'number'=>'8317066456',	'name'=>'upe-jhansi', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ahai74651@gmail.com',	'number'=>'9415727220',	'name'=>'upe-babupurwa', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'darsequranbysalahuddin@gmail.com',	'number'=>'9336204098',	'name'=>'upe-chamanganj', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'shsriqm@gmail.com',	'number'=>'9305725534',	'name'=>'upe-jaajmau', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'khonpajih@gmail.com',	'number'=>'8960073100',	'name'=>'upe-saraiaaqil', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abdulhameed0190@gmail.com',	'number'=>'7905335317',	'name'=>'upe-badagawon', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'goodlmp97@gmail.com',	'number'=>'9792914293',	'name'=>'upe-lakhimpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'zaheerltp@gmail.com',	'number'=>'8960355835',	'name'=>'upe-lalitpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'asifsiddique706@gmail.com',	'number'=>'6388513042',	'name'=>'upe-campbellroad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'h.ahmad63@gmail.com',	'number'=>'9621564040',	'name'=>'upe-indiranagar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'nasirataurrahman@gmail.com',	'number'=>'7311100040',	'name'=>'upe-molviganj', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ha4156502@gmail.com',	'number'=>'7394929529',	'name'=>'upe-sherwaninagar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'fislamfalahi@gmail.com',	'number'=>'8960420345',	'name'=>'upe-malihabad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'iqbalaltamash024@gmail.com',	'number'=>'9598356802',	'name'=>'upe-rahimabad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'wajeehnusrat@gmail.com',	'number'=>'9935766263',	'name'=>'upe-sandeela', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'afzalomar251@gmail.com',	'number'=>'9598358358',	'name'=>'upe-mahoba', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'saifulla6531@gmail.com',	'number'=>'7607949680',	'name'=>'upe-dhelaifirozpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'khanmohdshakir@gmail.com',	'number'=>'9044347404',	'name'=>'upe-maucity', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'momaaz7388@gmail.com',	'number'=>'7388611518',	'name'=>'upe-mausultanpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'alimubarak58651@gmail.com',	'number'=>'7985548825',	'name'=>'upe-mirzapur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'abdullahkkhan9795@gmail.com',	'number'=>'9005145575',	'name'=>'upe-mahuwar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'sabihakhursheed70@gmail.com',	'number'=>'8081262410',	'name'=>'upe-pratapgarh', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'dr.aejazumaransari@gmail.com',	'number'=>'9450537351',	'name'=>'upe-salon', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'sabirfaran3@gmail.com',	'number'=>'9839894216',	'name'=>'upe-kaitholiya', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'hameedd99@gmail.com',	'number'=>'9839365161',	'name'=>'upe-khalilabad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ajazplaystore17@gmail.com',	'number'=>'9838508366',	'name'=>'upe-semariyawan', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mohammadshareeffalahi@gmail.com',	'number'=>'9984872462',	'name'=>'upe-bansi', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Srahmani8174@gmal.com',	'number'=>'9452065567',	'name'=>'upe-chaukoniya', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mohd.nnazeer@gmail.com',	'number'=>'9984056999',	'name'=>'upe-dumariyaganj', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mushtaqueahm72@gmail.com',	'number'=>'9335738963',	'name'=>'upe-itwabazar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ahmadalifalahi121336@gmail.com',	'number'=>'9792121336',	'name'=>'upe-khoriya', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ma8729362@gmail.com',	'number'=>'8853051552',	'name'=>'upe-mohammednagar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'akhtarfalahi136@gmail.com',	'number'=>'9415041167',	'name'=>'upe-nogarh', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'shamshulhasan6666@gmail.com',	'number'=>'9335506730',	'name'=>'upe-khairabad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'aftabahmad13.1970@gmail.com',	'number'=>'8601360545',	'name'=>'upe-mahmoodabad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'rahimuddinansari57@gmail.com',	'number'=>'9935972783',	'name'=>'upe-shekhwapur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mohdvakeel789@gmail.com',	'number'=>'7880782930',	'name'=>'upe-tambour', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'aliffaihemi@gmail.com',	'number'=>'9628700895',	'name'=>'upe-sultanpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'afsarahmad9794@gmail.com',	'number'=>'9794022561',	'name'=>'upe-aasat', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ghufranahmad44223@gmail.com',	'number'=>'9936293540',	'name'=>'upe-bangarmau', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'khanziankhan855@gmail.com',	'number'=>'9451000040',	'name'=>'upe-jhalotar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'hakeemmohdriyaz@gmail.com',	'number'=>'7905420705',	'name'=>'upe-madaarnagar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'zakiahmadzaki034@gmail.com',	'number'=>'9936828111',	'name'=>'upe-maurawan', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'moinuddinunnao@gmail.com',	'number'=>'9696320023',	'name'=>'upe-miyanganj', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'hafizmuhammadamin62@gmail.com',	'number'=>'8299745919',	'name'=>'upe-newtani', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'meraj.002@gmail.com',	'number'=>'9554442838',	'name'=>'upe-unnaocity', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'drwaqifhusain@gmail.com',	'number'=>'9058077229',	'name'=>'upw-agracity', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'junaidvision@gmail.com',	'number'=>'9760020700',	'name'=>'upw-amu', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'skirbabag@gmail.com',	'number'=>'9759671698',	'name'=>'upw-khekhra', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ahmedkhan.aziz@gmail.com',	'number'=>'7451928231',	'name'=>'upw-bareillye', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'er.mujahidkhan@gmail.com',	'number'=>'9758543660',	'name'=>'upw-thiryanijabatkhan', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'yunusjih995@gmail.com',	'number'=>'9837574622',	'name'=>'upw-badhapur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'hasanulbannaalirfan@gmail.com',	'number'=>'9917414230',	'name'=>'upw-basta', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Mohdfarooqbij@gmail.com',	'number'=>'9719135352',	'name'=>'upw-bijnorcity', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mfarooqazam1234@gmail.com',	'number'=>'9412013602',	'name'=>'upw-dhampur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'nomanijih@gmail.com',	'number'=>'9027923592',	'name'=>'upw-nagina', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'kafeeljih@gmail.com',	'number'=>'9149385189',	'name'=>'upw-najibabad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'syedhasan6366@gmail.com',	'number'=>'9457258545',	'name'=>'upw-nehtour', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Mohammadyusuf8551@gmail.com',	'number'=>'9997278551',	'name'=>'upw-rajakatajpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'sirajuddinnadwibijnor@gmail.com',	'number'=>'9897334419',	'name'=>'upw-sarkara', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'zrehman373@gmail.com',	'number'=>'9761066295',	'name'=>'upw-sherkot', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'falahisaquib@gmail.com',	'number'=>'6395195048',	'name'=>'upw-bilhari', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'nabbasi.sarfaraj@gmail.com',	'number'=>'9027966289',	'name'=>'upw-budauncity', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ansarimujahidali811@gmail.com',	'number'=>'8126644151',	'name'=>'upw-jagat', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'tayyab.k74@gmail.com',	'number'=>'8115068470',	'name'=>'upw-kakrala', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'misbauddinmaster@gmail.com',	'number'=>'9917455872',	'name'=>'upw-sedpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Mutiurrahmankhan18@gmail.com',	'number'=>'9720076628',	'name'=>'upw-uraulia', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'main9917uddin@gmail.com',	'number'=>'9917152424',	'name'=>'upw-gulaothi', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'aliahmed7213@gmail.com',	'number'=>'8171314490',	'name'=>'upw-jaswantnagar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'raeeskhan8791871915@gmail.com',	'number'=>'8791871915',	'name'=>'upw-firozabad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Abdul59rauf@gmail.com',	'number'=>'9560541090',	'name'=>'upw-chhajarsi', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'haroonmohd301@gmail.com',	'number'=>'9557359535',	'name'=>'upw-bajherakalan', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'amjadsadiq077@gmail.com',	'number'=>'7417550554',	'name'=>'upw-hapur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'gulzarahmad55954@gmail.com',	'number'=>'9936989730',	'name'=>'upw-shahbad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'quasim.jaan@gmail.com',	'number'=>'9045533074',	'name'=>'upw-karhal', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'msaleemmujahidkurawali@gmail.com',	'number'=>'9359912275',	'name'=>'upw-kurawali', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'akhan476175@gmail.com',	'number'=>'7500127334',	'name'=>'upw-lalyana', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'dralamgeer902@gmail.com',	'number'=>'8865084057',	'name'=>'upw-radhna', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mudassirrana2@gmail.com',	'number'=>'9759287383',	'name'=>'upw-sardhana', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'azharabdulla2@gmail.com',	'number'=>'9837816327',	'name'=>'upw-bilari', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mohdaslam110410@gmail.com',	'number'=>'9990110410',	'name'=>'upw-kanth', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mazharhusaim160@gmail.com',	'number'=>'9917749959',	'name'=>'upw-milakpallupura', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'nasirmbd72@gmail.com',	'number'=>'9568395786',	'name'=>'upw-moradabad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mohdshahid78868@gmail.com',	'number'=>'9639501735',	'name'=>'upw-bahedasadat', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Shahnawazahmadgori@gmail.com',	'number'=>'9719030623',	'name'=>'upw-budhana', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'salmansiddiqui118@gmail.com',	'number'=>'8057786700',	'name'=>'upw-muzaffarnagarcity', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mayyub116@gmail.com',	'number'=>'9837925627',	'name'=>'upw-daang', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'jameelahmadadab@gmail.com',	'number'=>'9837637095',	'name'=>'upw-kashipuranga', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'aknadwi@yahoo.in',	'number'=>'9897571908',	'name'=>'upw-rampur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Galibhssan@gmail.com',	'number'=>'8171778115',	'name'=>'upw-budhakhera', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'suhailquddusi@gmail.com',	'number'=>'9837678187',	'name'=>'upw-gangoh', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'Sirajhusain0001@gmail.com',	'number'=>'9897379233',	'name'=>'upw-saharanpurcity', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'iftisambhal4@gmail.com',	'number'=>'9837264881',	'name'=>'upw-sambhal', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'hmnabisambhal@gmail.com',	'number'=>'9639203465',	'name'=>'upw-saraitareen', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'salahuddinkhansk4592@gmail.com',	'number'=>'9646725816',	'name'=>'upw-miranpurkatra', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'fakp2006@gmail.com',	'number'=>'8953862627',	'name'=>'upw-shahjahanpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'1craftpassanger@gmail.com',	'number'=>'7818099521',	'name'=>'upw-jhinjhana', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'A@jihwb.org',	'number'=>'7431991920',	'name'=>'wb-bishia', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'c22@gmail.com',	'number'=>'9153514197',	'name'=>'wb-ekdala', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'asd@as.in',	'number'=>'8479807727',	'name'=>'wb-mejuti', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'rukhann@jihwb.org',	'number'=>'8617611067',	'name'=>'wb-belgachia', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'nadim.anw@gmail.com',	'number'=>'9339203383',	'name'=>'wb-shibpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ahmedfarooque@gmail.com',	'number'=>'9831272902',	'name'=>'wb-taltala', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'rukn100743@jihwb.org',	'number'=>'8697461299',	'name'=>'wb-tantibagh', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'khosburali@jihwb.org',	'number'=>'8373043239',	'name'=>'wb-tofi', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'bokharisio@gmail.com',	'number'=>'9775301301',	'name'=>'wb-aurangabad', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'rukn100636@jihwb.org',	'number'=>'8250604587',	'name'=>'wb-kamurdiar', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ruhulamin30011980@gmail.com',	'number'=>'8001049634',	'name'=>'wb-kasbagoas', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'rukn100647@jihwb.org',	'number'=>'9732852292',	'name'=>'wb-komnager', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'rukn100646@jihwb.org',	'number'=>'6289452727',	'name'=>'wb-nowda', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'marjanbiswas@gmail.com',	'number'=>'9734655183',	'name'=>'wb-sahabajpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'aktarikhatun631@gmail.com',	'number'=>'9732819070',	'name'=>'wb-saidapur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'rukn100684@jihwb.org',	'number'=>'7478798270',	'name'=>'wb-barbakpur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'c23@gmail.com',	'number'=>'9732312371',	'name'=>'wb-bagjola', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'rukn884@jihwb.org',	'number'=>'7003884952',	'name'=>'wb-gadpukuria', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'sahadulquddus@gmail.com',	'number'=>'9732758079',	'name'=>'wb-haroa', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'kahamed.jih@gmail.com',	'number'=>'9836693569',	'name'=>'wb-raigachi', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'ruk101122n@jihwb.org',	'number'=>'9143567624',	'name'=>'wb-asansole', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'mgr@jihwb.org',	'number'=>'9732999046',	'name'=>'wb-kharkusma', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'rukn101132@jihwb.org',	'number'=>'9126178473',	'name'=>'wb-louhajang', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'rukn@gmail.com',	'number'=>'9732874991',	'name'=>'wb-uttarsonamui', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'modrenfurtinurr@gmail.com',	'number'=>'8013291316',	'name'=>'wb-ashuti', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'jih100973@jihwb.org',	'number'=>'9836306854',	'name'=>'wb-kashirampur', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
-User::create(['email'=>'c@23gmail.com',	'number'=>'7047093564',	'name'=>'wb-kapasia', 'password'=>Hash::make('123123'), 'role'=>'Unit']);
+$units=[
+    ['email'=>'17rukn@jihwb.org','number'=>'9874290719','name'=>'wb-nabason'],
+['email'=>'1abcd@gmail.com','number'=>'8929978039','name'=>'dl-trilokpuri'],
+['email'=>'1anisairfan1967@gmail.com','number'=>'9821013640','name'=>'mh-kurla'],
+['email'=>'1atiqurrahmanislahi@gmail.com','number'=>'9453914725','name'=>'upe-mahul'],
+['email'=>'1craftpassanger@gmail.com','number'=>'7818099521','name'=>'upw-jhinjhana'],
+['email'=>'1iyaz.j75@gmail.com','number'=>'8888801906','name'=>'ga-bicholim'],
+['email'=>'1jihafesouth@gmail.com','number'=>'9899552928','name'=>'dl-abulfazaleS'],
+['email'=>'1rizwanzahoor2003@yahoo.com','number'=>'9870530045','name'=>'upe-atala'],
+['email'=>'1Safwanzx2@gmail.com','number'=>'9825586798','name'=>'gj-danilimda'],
+['email'=>'2d@gmail.com','number'=>'9673787807','name'=>'mh-qadeemshaher'],
+['email'=>'2tdrt@gmail.com','number'=>'9833811688','name'=>'mh-mumbra'],
+['email'=>'32@gh.i','number'=>'9763486342','name'=>'mh-uchgaon'],
+['email'=>'4rs@gmail.com','number'=>'9422290829','name'=>'mh-railwaystation'],
+['email'=>'5almuzammil580@gmail.com','number'=>'8423565437','name'=>'upe-bamrauli'],
+['email'=>'5ssd@gmail.com','number'=>'9975788196','name'=>'mh-padegaon'],
+['email'=>'71zain@gmail.com','number'=>'9423392312','name'=>'mh-cnaka'],
+['email'=>'7ssd@gmail.com','number'=>'9423455371','name'=>'mh-lalmasjid'],
+['email'=>'977453@gmail.com','number'=>'9774539966','name'=>'as-udaipur'],
+['email'=>'9902617422ps@gmail.com','number'=>'9902617422','name'=>'ka-sagar'],
+['email'=>'9dg@gmail.com','number'=>'9028106198','name'=>'mh-delhigate'],
+['email'=>'a_mshaikh@rediffmail.com','number'=>'9898922350','name'=>'gj-junagadh'],
+['email'=>'a.aleem.huda@gmail.com','number'=>'9827233586','name'=>'mp-khajrana'],
+['email'=>'a.karim.jihvyr123@gmail.com','number'=>'9393920635','name'=>'ap-gangur'],
+['email'=>'A@jihwb.org','number'=>'7431991920','name'=>'wb-bishia'],
+['email'=>'aabidalia9@gmail.com','number'=>'7905564306','name'=>'upe-nanpara'],
+['email'=>'aakhtarazad@gamil.com','number'=>'8055267919','name'=>'mh-newmajri'],
+['email'=>'Aamir.malegaon@gmail.com','number'=>'9371232961','name'=>'mh-malegaon'],
+['email'=>'aamirumri79@gmail.com','number'=>'9886232667','name'=>'ka-hosur'],
+['email'=>'aarif_jatoo@yahoo.co.in','number'=>'7597208369','name'=>'rj-sikar'],
+['email'=>'aarifsirlatur@gmail.com','number'=>'9766805294','name'=>'mh-latur'],
+['email'=>'abasith.sk@gmail.com','number'=>'9490788164','name'=>'ts-rudrampur'],
+['email'=>'abc@gmail.com','number'=>'9028824411','name'=>'mh-murtuzapur'],
+['email'=>'abc14355@gmail.com','number'=>'9867368440','name'=>'mh-bhokar'],
+['email'=>'abcd@gmail.com','number'=>'7011749434','name'=>'dl-nabikarim'],
+['email'=>'abdul_yesh10@reditt.com','number'=>'8319868644','name'=>'mp-rewa'],
+['email'=>'abdul.quddus2010@gmail.com','number'=>'9704062041','name'=>'ts-siddipet'],
+['email'=>'abdul.razzaque121@gmail.com','number'=>'9926644786','name'=>'mp-harda'],
+['email'=>'Abdul59rauf@gmail.com','number'=>'9560541090','name'=>'upw-chhajarsi'],
+['email'=>'abdulahad6040@gmail.com','number'=>'9570353009','name'=>'br-patninarainpur'],
+['email'=>'abdulansari967@gmail.com','number'=>'8299173908','name'=>'upe-rasra'],
+['email'=>'abdularif1968@gmail.com','number'=>'9850363198','name'=>'mh-akot'],
+['email'=>'abdulgffark812@gmail.com','number'=>'9721227575','name'=>'upe-baskhari'],
+['email'=>'abdulgffarr812@gmail.com','number'=>'8543063051','name'=>'upe-sonkhari'],
+['email'=>'Abdulhafeezbagi1@gmail.com','number'=>'9956165560','name'=>'upe-baagi'],
+['email'=>'abdulhakkimjih@gmail.com','number'=>'9043495385','name'=>'tn-thirumangalam'],
+['email'=>'abdulhali196201@gmail.com','number'=>'9451428418','name'=>'upe-kusaurabazar'],
+['email'=>'abdulhameed0190@gmail.com','number'=>'7905335317','name'=>'upe-badagawon'],
+['email'=>'abduljabbarkhawas48@gmail.com','number'=>'9141104345','name'=>'ka-gadag'],
+['email'=>'abdulkabirruksana@gmail.com','number'=>'9000458033','name'=>'ap-donakonda'],
+['email'=>'abdulkadiransari1966@gmail.com','number'=>'9835821048','name'=>'br-bikramganj'],
+['email'=>'abdulkareemua3@gmail.com','number'=>'9591277828','name'=>'ka-ullal'],
+['email'=>'Abdulkhaderjih@gmail.com','number'=>'9480956892','name'=>'ka-thirthahalli'],
+['email'=>'abdullaharehalli@gmail.com','number'=>'9449335795','name'=>'ka-arehalli'],
+['email'=>'abdullahkkhan9795@gmail.com','number'=>'9005145575','name'=>'upe-mahuwar'],
+['email'=>'abdullahssrm@gmail.com','number'=>'9472413042','name'=>'br-sasaram'],
+['email'=>'abdulmalik10063@gmail.com','number'=>'8586821101','name'=>'hr-ballabgarh'],
+['email'=>'abdulmannan34378@gmail.com','number'=>'8971915405','name'=>'ka-sirsi'],
+['email'=>'AbdulMateen761@gmail.com','number'=>'9413504346','name'=>'rj-wazeerpur'],
+['email'=>'abdulnasser2005@gmail.com','number'=>'7812032872','name'=>'tn-medavakkam'],
+['email'=>'abdulqadirs904@gmail.com','number'=>'9673513971','name'=>'mh-ballarpur'],
+['email'=>'abdulqayum221967@gmail.com','number'=>'9482512370','name'=>'ka-harihar'],
+['email'=>'abdulraheem10021993@gmail.com','number'=>'8008569980','name'=>'ts-monuguru'],
+['email'=>'abdulraheman@gmail.com','number'=>'9945440872','name'=>'ka-manvi'],
+['email'=>'Abdulrajjakmastar@gmail.com','number'=>'9425434786','name'=>'mp-damoh'],
+['email'=>'abdulsamath351@gmail.com','number'=>'9840298729','name'=>'tn-royapuram'],
+['email'=>'Abdurraufjih@gmail.com','number'=>'9637694020','name'=>'mh-faizpur'],
+['email'=>'abdusalehmazumdar32@gmail.com','number'=>'8133047221','name'=>'as-nhailakandi'],
+['email'=>'abdussamad9401@gmail.com','number'=>'8473931227','name'=>'an-rampur'],
+['email'=>'abidfarooqui9@gmail.com','number'=>'9661975846','name'=>'br-rajokhar'],
+['email'=>'abrarahmad2658@gmail.com','number'=>'9794877893','name'=>'upe-agmohammadpur'],
+['email'=>'abrauf8750@gmail.com','number'=>'9850383037','name'=>'mh-basmath'],
+['email'=>'absarfalahi1984@gmail.com','number'=>'8770903970','name'=>'mp-baghdilkusha'],
+['email'=>'abuauthif@rediffmail.com','number'=>'9843708538','name'=>'tn-vellore'],
+['email'=>'abudhahir61@gmail.com','number'=>'9994840040','name'=>'tn-theni'],
+['email'=>'abuhamida80@gmail.com','number'=>'9632149521','name'=>'ka-uppinangady'],
+['email'=>'abusumera@gmail.com','number'=>'9345328095','name'=>'tn-vaniyambadi'],
+['email'=>'adbussattar@gmail.com','number'=>'6001724750','name'=>'an-kadong'],
+['email'=>'adilshaik8116@gmail.com','number'=>'9989380350','name'=>'ap-jngrdygdm'],
+['email'=>'aejazrafique@gmail.com','number'=>'8007627343','name'=>'mh-anjangaonsurji'],
+['email'=>'afsarahmad9794@gmail.com','number'=>'9794022561','name'=>'upe-aasat'],
+['email'=>'afsarch@gmail.com','number'=>'9844777171','name'=>'ka-madikeri'],
+['email'=>'afsarmasood65@gmail.com','number'=>'9716391309','name'=>'dl-seemapuri'],
+['email'=>'Afserbeg0512@gmail.com','number'=>'9039146392','name'=>'mp-khargone'],
+['email'=>'aftabahmad13.1970@gmail.com','number'=>'8601360545','name'=>'upe-mahmoodabad'],
+['email'=>'afzal.hasan7777@gmail.com','number'=>'7524816258','name'=>'upe-sammanpur'],
+['email'=>'afzalomar251@gmail.com','number'=>'9598358358','name'=>'upe-mahoba'],
+['email'=>'ahai74651@gmail.com','number'=>'9415727220','name'=>'upe-babupurwa'],
+['email'=>'ahamid@gmail.com','number'=>'9767825927','name'=>'mh-dhamangaonbadhe'],
+['email'=>'ahaque1979@gmail.com','number'=>'9934293926','name'=>'br-chiknauta'],
+['email'=>'ahk9704@gmail.com','number'=>'9336784208','name'=>'upe-basti'],
+['email'=>'ahkhancwa@rediffmail.com','number'=>'9424959988','name'=>'mp-chhindwara'],
+['email'=>'ahmadalifalahi121336@gmail.com','number'=>'9792121336','name'=>'upe-khoriya'],
+['email'=>'ahmadkaleem45@gmail.com','number'=>'9506483309','name'=>'upe-azamgarhcity'],
+['email'=>'ahmadowais0021@gmail.com','number'=>'9838214694','name'=>'upe-naini'],
+['email'=>'ahmadrazambm@gmail.com','number'=>'8969165760','name'=>'br-darbhanga'],
+['email'=>'ahmadsameerair@gmail.com','number'=>'9336447338','name'=>'upe-gorakhpurs'],
+['email'=>'ahmedfarooque@gmail.com','number'=>'9831272902','name'=>'wb-taltala'],
+['email'=>'ahmedkhan.aziz@gmail.com','number'=>'7451928231','name'=>'upw-bareillye'],
+['email'=>'ahqamer83xt@gmail.com','number'=>'9705005201','name'=>'ts-ahmadibazar'],
+['email'=>'ahs.sio@gmail.com','number'=>'9157469647','name'=>'gj-surat'],
+['email'=>'ahsantarique56@gmail.com','number'=>'9470446749','name'=>'br-khandail'],
+['email'=>'aijazqureshi1712@gmail.com','number'=>'7869731322','name'=>'mp-khandwa'],
+['email'=>'aiyyubmemonaiyyub@gmail.com','number'=>'9427079331','name'=>'gj-himatnagar'],
+['email'=>'ajazplaystore17@gmail.com','number'=>'9838508366','name'=>'upe-semariyawan'],
+['email'=>'ajmalkhadeer@gmail.com','number'=>'9036363182','name'=>'ka-kolar'],
+['email'=>'akadirsanthel@gmail.com','number'=>'7005399355','name'=>'mn-st'],
+['email'=>'Akbarkhan7887@gmail.com','number'=>'9822497700','name'=>'ga-ponda'],
+['email'=>'akbarmyh@gmail.com','number'=>'9860264335','name'=>'mh-parbhani'],
+['email'=>'akhan476175@gmail.com','number'=>'7500127334','name'=>'upw-lalyana'],
+['email'=>'akhtar.arafat786@gmail.com','number'=>'8294877942','name'=>'br-betia'],
+['email'=>'akhtarfalahi136@gmail.com','number'=>'9415041167','name'=>'upe-nogarh'],
+['email'=>'akhtarmohkhan@gmail.com','number'=>'6265455496','name'=>'mp-berasia'],
+['email'=>'akm1246@gmail.com','number'=>'9445251755','name'=>'tn-trichy'],
+['email'=>'aknadwi@yahoo.in','number'=>'9897571908','name'=>'upw-rampur'],
+['email'=>'aknifal20@gmail.com','number'=>'9611697629','name'=>'ka-hoode'],
+['email'=>'aksed@gmail.com','number'=>'6900655105','name'=>'an-salabila'],
+['email'=>'aktarikhatun631@gmail.com','number'=>'9732819070','name'=>'wb-saidapur'],
+['email'=>'alammdmushtaque786@gmail.com','number'=>'9471302244','name'=>'jh-bokaro'],
+['email'=>'alauddeenhamza786@gmail.com','number'=>'8874992836','name'=>'upe-bbfatehpur'],
+['email'=>'albadarbookcentre@gmail.com','number'=>'9839591434','name'=>'upe-saraimeer'],
+['email'=>'aleemahmad0682@gmail.com','number'=>'9838511353','name'=>'upe-jarwal'],
+['email'=>'aleemuddinahmed742010@gmail.com','number'=>'9603143730','name'=>'ts-shaikpet'],
+['email'=>'aliahmed7213@gmail.com','number'=>'8171314490','name'=>'upw-jaswantnagar'],
+['email'=>'aliasim7252@gmail.com','number'=>'7987431905','name'=>'mp-ashta'],
+['email'=>'aliffaihemi@gmail.com','number'=>'9628700895','name'=>'upe-sultanpur'],
+['email'=>'aliibrahim121975@gmail.com','number'=>'7002135834','name'=>'an-dhula'],
+['email'=>'aliimmsiddique@gmail.com','number'=>'7903039832','name'=>'jh-daltonganj'],
+['email'=>'alimeharban180@gmail.com','number'=>'9478784676','name'=>'pb-kapurthala'],
+['email'=>'alimubarak58651@gmail.com','number'=>'7985548825','name'=>'upe-mirzapur'],
+['email'=>'alimuddinmd047@gmail.com','number'=>'9608755168','name'=>'jh-narottampur'],
+['email'=>'altafshahgoa@gmail.com','number'=>'9420767269','name'=>'ga-vascodagama'],
+['email'=>'amanullakhantke@gmail.com','number'=>'9141500811','name'=>'ka-b.croad'],
+['email'=>'amiriqbal9622@gmail.com','number'=>'9155148598','name'=>'br-sitamarhi'],
+['email'=>'amjadhussain208@gmail.com','number'=>'9535398314','name'=>'ka-shahpur'],
+['email'=>'amjadp101@gmail.com','number'=>'8530395498','name'=>'mh-majalgaon'],
+['email'=>'amjadsadiq077@gmail.com','number'=>'7417550554','name'=>'upw-hapur'],
+['email'=>'amusavvir969@gmail.com','number'=>'9849034739','name'=>'ap-mandapeta'],
+['email'=>'anaazhar@gmail.com','number'=>'9029457754','name'=>'mh-nallasoparaw'],
+['email'=>'aneesonly@gmail.com','number'=>'8380019116','name'=>'ga-margao'],
+['email'=>'anoormansuri@gmail.com','number'=>'8989450618','name'=>'mp-nagda'],
+['email'=>'Ansari.ra@gmail.com','number'=>'9425549228','name'=>'cg-bilaspur'],
+['email'=>'Ansari.zubairm@gmail.com','number'=>'7259702271','name'=>'ka-chitradurga'],
+['email'=>'ansarimujahidali811@gmail.com','number'=>'8126644151','name'=>'upw-jagat'],
+['email'=>'ansarjihrjy@gmail.com','number'=>'9440323486','name'=>'ap-Rjmndry'],
+['email'=>'Anvarmalik0987@gmail.com','number'=>'9724396111','name'=>'gj-vapi'],
+['email'=>'anwarali.jih@gmail.com','number'=>'9449773786','name'=>'ka-kapu'],
+['email'=>'anwarindori123456@gmail.com','number'=>'9727122718','name'=>'gj-baroda'],
+['email'=>'apmpeer81@gmai.com','number'=>'9843548488','name'=>'tn-coimbatorec'],
+['email'=>'aqueelsiddiqui2017@gmail.com','number'=>'9407314044','name'=>'mp-balaghat'],
+['email'=>'aquilahmed51@gmail.com','number'=>'9813411956','name'=>'hr-nuh'],
+['email'=>'arasheedmngl@gmail.com','number'=>'9392792999','name'=>'ap-mangalgiri'],
+['email'=>'arasidshah@gmail.com','number'=>'9451034701','name'=>'upe-islampur'],
+['email'=>'arcbelagali9@gmail.com','number'=>'9845078872','name'=>'ka-hubli'],
+['email'=>'arfafarid@gmail.com','number'=>'9323813804','name'=>'mh-kalyan'],
+['email'=>'arifalahi@gmail.com','number'=>'6388788130','name'=>'upe-katesar'],
+['email'=>'armaan318484@gmail.com','number'=>'9822318484','name'=>'ga-panaji'],
+['email'=>'arshdoct@gmail.com','number'=>'8919427136','name'=>'ap-kadiri'],
+['email'=>'asadullah30@gmail.com','number'=>'9686079809','name'=>'ka-tumkur'],
+['email'=>'asd@as.in','number'=>'8479807727','name'=>'wb-mejuti'],
+['email'=>'asgharali555shaikh@gmail.com','number'=>'7507728144','name'=>'upe-chandpatti'],
+['email'=>'ashabulyameen1955@gmail.com','number'=>'7999852080','name'=>'mp-nayapura'],
+['email'=>'asharhamidilkn@gmail.com','number'=>'9631222110','name'=>'br-lakhminia'],
+['email'=>'ashdwh@gmail.com','number'=>'7709291887','name'=>'mh-punes'],
+['email'=>'ashfaqlahuti@gmail.com','number'=>'9030401664','name'=>'ts-sadashivpet'],
+['email'=>'Asifmohiuddin@gmail.com','number'=>'9542186688','name'=>'ts-bahadurpura'],
+['email'=>'asifmudagal@gmail.com','number'=>'9164282872','name'=>'ka-bagalkot'],
+['email'=>'asifsiddique706@gmail.com','number'=>'6388513042','name'=>'upe-campbellroad'],
+['email'=>'asimuddin.a@gmail.com','number'=>'9902847445','name'=>'ka-raichur'],
+['email'=>'aslam.carepharma@gmail.com','number'=>'9741930041','name'=>'ka-mysore'],
+['email'=>'aslambinmohsin@gmail.com','number'=>'9705479124','name'=>'ts-aarmoor'],
+['email'=>'asrafansari999183@gmail.com','number'=>'9729443874','name'=>'hr-panipat'],
+['email'=>'atharabdullah093@gmail.com','number'=>'9993371583','name'=>'mp-baroda'],
+['email'=>'atikurrahman6084@gmail.com','number'=>'9415658280','name'=>'upe-barwan'],
+['email'=>'atiqurrahmanislahi@gmail.com','number'=>'9794877819','name'=>'upe-badharia'],
+['email'=>'ayazanwar98@gmail.com','number'=>'9973331598','name'=>'br-balbhadarpur'],
+['email'=>'ayubkhanperfect@gmail.com','number'=>'9448028242','name'=>'ka-davangere'],
+['email'=>'azazahmadstar@gmail.com','number'=>'8109195211','name'=>'cg-bhilainagar'],
+['email'=>'azeemfalahi@gmail.com','number'=>'9493751221','name'=>'ts-adilabad'],
+['email'=>'azharabdulla2@gmail.com','number'=>'9837816327','name'=>'upw-bilari'],
+['email'=>'azizfalahi12@gmail.com','number'=>'9798901708','name'=>'jh-khijurtola'],
+['email'=>'azizurrahman4226@gmail.com','number'=>'8974338899','name'=>'as-baburbazar'],
+['email'=>'azmatalam408@gmail.com','number'=>'7870603866','name'=>'jh-jharia'],
+['email'=>'azmathpasha@gmail.com','number'=>'9247257003','name'=>'ap-yetapaka'],
+['email'=>'azmathudai84@gmail.com','number'=>'7020741431','name'=>'mh-malad'],
+['email'=>'baigm870@gmail.com','number'=>'9052115939','name'=>'ap-banaganapalli'],
+['email'=>'bajinrt@gmail.com','number'=>'9985036980','name'=>'ap-visakhapatnamw'],
+['email'=>'bariksa@yahoo.com','number'=>'9291335776','name'=>'ts-charminar'],
+['email'=>'barque.rashid@gmail.com','number'=>'9801406742','name'=>'br-motihari'],
+['email'=>'basheerahahmed@gmail.com','number'=>'8220543770','name'=>'tn-madurai'],
+['email'=>'bdlari123@gmail.com','number'=>'9839753527','name'=>'upe-lar'],
+['email'=>'biharjih@gmail.com','number'=>'7033045975','name'=>'br-jogbani'],
+['email'=>'blueocean.nets@gmail.com','number'=>'9986456490','name'=>'ka-shimoga'],
+['email'=>'bokharisio@gmail.com','number'=>'9775301301','name'=>'wb-aurangabad'],
+['email'=>'bphjalapur@gmail.com','number'=>'9859163922','name'=>'as-jalalpur'],
+['email'=>'bvmmadharsha@gmail.com','number'=>'9677887190','name'=>'tn-coimbatores'],
+['email'=>'c@23gmail.com','number'=>'7047093564','name'=>'wb-kapasia'],
+['email'=>'c@8gmail.com','number'=>'9246335499','name'=>'ap-gunturcity'],
+['email'=>'c21@gmail.com','number'=>'9435314706','name'=>'as-gumra'],
+['email'=>'c22@gmail.com','number'=>'9153514197','name'=>'wb-ekdala'],
+['email'=>'c23@gmail.com','number'=>'9732312371','name'=>'wb-bagjola'],
+['email'=>'Chandanna1973@gmail.com','number'=>'9963606154','name'=>'ap-yemmiganur'],
+['email'=>'chandbabushaik@gmail.com','number'=>'7997948648','name'=>'ap-kotavkd'],
+['email'=>'citymediaudt@gmail.com','number'=>'9786240804','name'=>'tn-udumalpet'],
+['email'=>'connectnawaz@gmail.com','number'=>'9642040237','name'=>'ap-anantapur'],
+['email'=>'d.m.shareef2@gmail.com','number'=>'9866267649','name'=>'ap-proddatur'],
+['email'=>'darsequranbysalahuddin@gmail.com','number'=>'9336204098','name'=>'upe-chamanganj'],
+['email'=>'darsgahislamimaroofpur@gmail.com','number'=>'9721738376','name'=>'upe-karakat'],
+['email'=>'deekeyibrahim1@gmail.com','number'=>'9591825768','name'=>'ka-kalladka'],
+['email'=>'dfe@gmail.com','number'=>'8999861455','name'=>'mh-achalpur'],
+['email'=>'dfsasd@gmail.com','number'=>'9172750136','name'=>'mh-balapur'],
+['email'=>'dilwar@gmail.com','number'=>'9101401090','name'=>'an-bhojkhuwa'],
+['email'=>'dr_imran_ulhaque@hotmail.com','number'=>'9693425376','name'=>'br-patnaw'],
+['email'=>'dr.aejazumaransari@gmail.com','number'=>'9450537351','name'=>'upe-salon'],
+['email'=>'dr.mnhaque1935@gmail.com','number'=>'7310331388','name'=>'upe-fakhanpura'],
+['email'=>'dr.uroojakola@gmail.com','number'=>'7875836830','name'=>'mh-akola'],
+['email'=>'draafarooqui@gmail.com','number'=>'9431140972','name'=>'jh-hazaribagh'],
+['email'=>'dralamgeer902@gmail.com','number'=>'8865084057','name'=>'upw-radhna'],
+['email'=>'drifti.sio@gmail.com','number'=>'9898785814','name'=>'gj-modasa'],
+['email'=>'drismail955@gmail.com','number'=>'8411901588','name'=>'mh-sholapur'],
+['email'=>'drmansaransar@gmail.com','number'=>'8087351697','name'=>'mh-shegaon'],
+['email'=>'drrahmani.gzb@gmail.com','number'=>'9717441631','name'=>'upw-ghaziabadcity'],
+['email'=>'drwaqifhusain@gmail.com','number'=>'9058077229','name'=>'upw-agracity'],
+['email'=>'er.mujahidkhan@gmail.com','number'=>'9758543660','name'=>'upw-thiryanijabatkhan'],
+['email'=>'expansion.jihmarkaz@gmail.com','number'=>'9474267648','name'=>'an-wg'],
+['email'=>'f1980ahmad@gmail.com','number'=>'8969962433','name'=>'br-ramnagar'],
+['email'=>'faialsaud239@gmail.com','number'=>'8004190773','name'=>'upe-dhankharpur'],
+['email'=>'faiyaz@gmail.com','number'=>'9864691885','name'=>'an-hedayetpur'],
+['email'=>'faizanhamad786@gmail.com','number'=>'9984430460','name'=>'upe-mohammadpur'],
+['email'=>'fakp2006@gmail.com','number'=>'8953862627','name'=>'upw-shahjahanpur'],
+['email'=>'falahisaquib@gmail.com','number'=>'6395195048','name'=>'upw-bilhari'],
+['email'=>'farazkhan23078@gmail.com','number'=>'7452087178','name'=>'upe-kareli'],
+['email'=>'fareedshaik953@gmail.com','number'=>'9705488558','name'=>'ap-koyyalagudem'],
+['email'=>'farhaan505@gmail.com','number'=>'9703124568','name'=>'ap-bhimavaram'],
+['email'=>'farhanmk@hotmail.com','number'=>'8142619391','name'=>'ts-nampalli'],
+['email'=>'farooq011@gmail.com','number'=>'8977269564','name'=>'ap-goplprm'],
+['email'=>'farrukhsheakh@gmail.com','number'=>'8181974305','name'=>'upe-jaunpurcity'],
+['email'=>'fayazmd040@gmail.com','number'=>'9966561856','name'=>'ts-viqarabad'],
+['email'=>'fislamfalahi@gmail.com','number'=>'8960420345','name'=>'upe-malihabad'],
+['email'=>'fmd446936@gmail.com','number'=>'9703271815','name'=>'ap-kondapalli'],
+['email'=>'Galibhssan@gmail.com','number'=>'8171778115','name'=>'upw-budhakhera'],
+['email'=>'gayasuddenshaikh82@gmail.com','number'=>'8401681446','name'=>'gj-narodapatiya'],
+['email'=>'gburansha@gmail.com','number'=>'9710543805','name'=>'tn-annanagar'],
+['email'=>'gfy@gmail.com','number'=>'9421821739','name'=>'mh-amravati'],
+['email'=>'ghayasanwark746@gmail.com','number'=>'9079915294','name'=>'rj-sanganer'],
+['email'=>'ghazalarisha2@gmail.com','number'=>'8292147655','name'=>'br-bhagalpur'],
+['email'=>'ghufranahmad44223@gmail.com','number'=>'9936293540','name'=>'upe-bangarmau'],
+['email'=>'gilman331@gmail.com','number'=>'9122647481','name'=>'br-bardaha'],
+['email'=>'Gkhan7031@gmail.com','number'=>'9329870133','name'=>'cg-durg'],
+['email'=>'gm8297227@gmail.com','number'=>'9827751743','name'=>'mp-satna'],
+['email'=>'gmkhayyat@gmail.com','number'=>'9741878390','name'=>'ka-yadgir'],
+['email'=>'goodlmp97@gmail.com','number'=>'9792914293','name'=>'upe-lakhimpur'],
+['email'=>'gulfadstpg@gmail.com','number'=>'8790079767','name'=>'ap-tadepallegudem'],
+['email'=>'gulzarahmad55954@gmail.com','number'=>'9936989730','name'=>'upw-shahbad'],
+['email'=>'h.ahmad63@gmail.com','number'=>'9621564040','name'=>'upe-indiranagar'],
+['email'=>'ha4156502@gmail.com','number'=>'7394929529','name'=>'upe-sherwaninagar'],
+['email'=>'habeebmd25@gmail.com','number'=>'9703430057','name'=>'ap-vijayangrm'],
+['email'=>'hadis03031952@gmail.com','number'=>'9431731619','name'=>'jh-dhanbad'],
+['email'=>'hafeezarts@gmail.com','number'=>'9036535385','name'=>'ka-bhadravathi'],
+['email'=>'hafizmuhammadamin62@gmail.com','number'=>'8299745919','name'=>'upe-newtani'],
+['email'=>'Hafizmujahidqureshi313@gmail.com','number'=>'9175817323','name'=>'mh-buldhana'],
+['email'=>'haidarali90946@gmail.com','number'=>'9859836520','name'=>'an-majgaon'],
+['email'=>'haijaveed@gmail.com','number'=>'9849607860','name'=>'ts-peddapalli'],
+['email'=>'hakeemmohdriyaz@gmail.com','number'=>'7905420705','name'=>'upe-madaarnagar'],
+['email'=>'hakramul67@gmail.com','number'=>'9451039549','name'=>'upe-gurrah'],
+['email'=>'Hameed17452@gmail.com','number'=>'9966941992','name'=>'ts-kapra'],
+['email'=>'hameedaliimami@gmail.com','number'=>'9701158970','name'=>'ts-gundmal'],
+['email'=>'hameedd99@gmail.com','number'=>'9839365161','name'=>'upe-khalilabad'],
+['email'=>'Hamid316075@gmail.com','number'=>'9826362727','name'=>'mp-maksi'],
+['email'=>'hamidhasan4493@gmail.com','number'=>'8083156094','name'=>'br-islampur'],
+['email'=>'hanif@gmail.com','number'=>'6002189359','name'=>'an-rahmatnagar'],
+['email'=>'hanzala9031@gmail.com','number'=>'9031381195','name'=>'jh-banha'],
+['email'=>'haroonmohd301@gmail.com','number'=>'9557359535','name'=>'upw-bajherakalan'],
+['email'=>'hasanulbannaalirfan@gmail.com','number'=>'9917414230','name'=>'upw-basta'],
+['email'=>'hashmathsio@gmail.com','number'=>'7799517791','name'=>'ts-sangareddy'],
+['email'=>'hashsham.tarique58@gmail.com','number'=>'9431613012','name'=>'br-muzaffarpur'],
+['email'=>'hmnabisambhal@gmail.com','number'=>'9639203465','name'=>'upw-saraitareen'],
+['email'=>'husnaharoon2005@gmail.com','number'=>'9952636632','name'=>'tn-karur'],
+['email'=>'hussain.advt@gmail.com','number'=>'9703454103','name'=>'ap-VJe'],
+['email'=>'hussainmeerjapur@gmail.com','number'=>'7893434186','name'=>'ap-meerzapur'],
+['email'=>'ibrahimcocoa123@gmail.com','number'=>'9440133997','name'=>'ap-eluru'],
+['email'=>'iftisambhal4@gmail.com','number'=>'9837264881','name'=>'upw-sambhal'],
+['email'=>'Ik9425175473@gmai.com','number'=>'9425175473','name'=>'mp-seoni'],
+['email'=>'ikram121963@gmail.com','number'=>'9898629941','name'=>'gj-ahmedabadc'],
+['email'=>'ilahianwar66@gmail.com','number'=>'9893416866','name'=>'mp-ibraheempura'],
+['email'=>'Iliassharief90436@gmail.com','number'=>'9885953739','name'=>'ap-nallajarla'],
+['email'=>'iliyasmsc117@gmail.com','number'=>'8008006818','name'=>'ap-vuyyuru'],
+['email'=>'impex7766@gmail.com','number'=>'9490139259','name'=>'ts-yakutpura'],
+['email'=>'imraanehsaan@gmail.com','number'=>'9731890627','name'=>'ka-malpe'],
+['email'=>'Imrafikahmed@gmail.com','number'=>'9466940971','name'=>'hr-palwal'],
+['email'=>'imranbagdal@gmail.com','number'=>'9591455616','name'=>'ka-bagdal'],
+['email'=>'imransheikh886@gmail.com','number'=>'8275331441','name'=>'mh-shahpur'],
+['email'=>'imtiyaznakade2@gmail.com','number'=>'8879023042','name'=>'mh-ratnagiri'],
+['email'=>'imumtazjih@gmail.com','number'=>'7396267607','name'=>'ts-amberpet'],
+['email'=>'intikhab.falahi@gmail.com','number'=>'8709455859','name'=>'br-khajuri'],
+['email'=>'iqbalahmedqsm@gmail.com','number'=>'9035463044','name'=>'ka-btm'],
+['email'=>'iqbalaltamash024@gmail.com','number'=>'9598356802','name'=>'upe-rahimabad'],
+['email'=>'iqbalgodiyal@gmail.com','number'=>'9945514697','name'=>'ka-mysoreroad'],
+['email'=>'iqhulikatti.1786@gmail.com','number'=>'9731963495','name'=>'ka-bijapur'],
+['email'=>'iqrar@gmail.com','number'=>'8435401871','name'=>'mp-jabalpurc'],
+['email'=>'irfankhan2k7@gmail.com','number'=>'9717355725','name'=>'dl-abulfazaleN'],
+['email'=>'irkhaavc741@gmail.com','number'=>'9696605046','name'=>'upe-sadullahnagar'],
+['email'=>'irs003@hotmail.com','number'=>'9391312153','name'=>'br-malmal'],
+['email'=>'irs003@yahoo.com','number'=>'8789954588','name'=>'br-dumraon'],
+['email'=>'irshadmohammad54@gmail.com','number'=>'9815483090','name'=>'pb-malerkotla'],
+['email'=>'isaqkp@yahoo.com','number'=>'9448858476','name'=>'ka-mangalore'],
+['email'=>'ismailharis017@gmail.com','number'=>'9450945882','name'=>'upe-balrampurcity'],
+['email'=>'ismailshariffmd06@gmail.com','number'=>'9440184782','name'=>'ap-venkatapuram'],
+['email'=>'ismailsk9420824445@gmail.com','number'=>'9420824445','name'=>'mh-jalna'],
+['email'=>'israilansari121635@gmail.com','number'=>'8174800144','name'=>'upe-barabanki'],
+['email'=>'issaqitc@gmail.com','number'=>'9908279017','name'=>'ts-sarapaka'],
+['email'=>'jaffarulla26@gmail.com','number'=>'9976137875','name'=>'tn-manapparai'],
+['email'=>'jahangeersharief@gmail.com','number'=>'9441507745','name'=>'ts-kothagudem'],
+['email'=>'Jakir7503@gmail.com','number'=>'7503083382','name'=>'hr-vinaynagar'],
+['email'=>'Jamaateislamiindervelly@gmail.com','number'=>'9491740785','name'=>'ts-indervelli'],
+['email'=>'Jameel0ahmed1975@gmail.Com','number'=>'9617567488','name'=>'mp-burhanpur'],
+['email'=>'jameelahmadadab@gmail.com','number'=>'9837637095','name'=>'upw-kashipuranga'],
+['email'=>'jameelahmadfalahi@gmail.com','number'=>'9540663739','name'=>'upe-naseerpur'],
+['email'=>'jameelahmed7999927317@gmail.com','number'=>'7999927317','name'=>'mp-jabalpure'],
+['email'=>'Jameelparwaz331@gmai.com','number'=>'8877827440','name'=>'br-tajpur'],
+['email'=>'jami.fa@gmail.com','number'=>'9868706144','name'=>'mp-shahjahanabad'],
+['email'=>'Jamiatulsadeqat@gmail.com','number'=>'9934990798','name'=>'br-kothi'],
+['email'=>'jasim4124@gmail.com','number'=>'7005222426','name'=>'as-dharmanagar'],
+['email'=>'javedali424@gmail.com','number'=>'9028041133','name'=>'mh-beed'],
+['email'=>'javedasila@gmail.com','number'=>'9871202888','name'=>'dl-jamamasjid'],
+['email'=>'jawaidakhterjp@gmail.com','number'=>'9771570010','name'=>'br-nawada'],
+['email'=>'jeelani.md575@gmail.com','number'=>'9490567416','name'=>'ts-miryalguda'],
+['email'=>'jih.sind@gmail.com','number'=>'9480560666','name'=>'ka-sindhanur'],
+['email'=>'jih100973@jihwb.org','number'=>'9836306854','name'=>'wb-kashirampur'],
+['email'=>'jih4chand@gmail.com','number'=>'9908746741','name'=>'ap-kurnoolS'],
+['email'=>'jihbagewadi@gmail.com','number'=>'9880805186','name'=>'ka-basavanabagewadi'],
+['email'=>'jihglb@gmail.com','number'=>'8762353145','name'=>'ka-gulbarga'],
+['email'=>'jihgonda@gmail.com','number'=>'8858418155','name'=>'upe-gondacity'],
+['email'=>'jihhanamasagar@gmail.com','number'=>'9901431684','name'=>'ka-hanumsagar'],
+['email'=>'Jihjpt@gmail.com','number'=>'9701901213','name'=>'ts-jogipet'],
+['email'=>'jihkerebelchi12@gmail.com','number'=>'9019177209','name'=>'ka-kerebilchi'],
+['email'=>'Jihkmpt@gmail.com','number'=>'9021972657','name'=>'mh-kampti'],
+['email'=>'Jihmapusa@gmail.com','number'=>'9822101361','name'=>'ga-mapusa'],
+['email'=>'jihmbnr@gmail.com','number'=>'7386793982','name'=>'ts-mahbubnagar'],
+['email'=>'jihmillatnagar@gmail.com','number'=>'9930150181','name'=>'mh-millatnagar'],
+['email'=>'jihpmarru@gmail.com','number'=>'9292655929','name'=>'ap-pamaru'],
+['email'=>'jihrajura@gmail.com','number'=>'9561157086','name'=>'mh-rajura'],
+['email'=>'jmansari261946@gmail.com','number'=>'9039424505','name'=>'mp-jabalpurw'],
+['email'=>'jmo9651@gmail.com','number'=>'9421743692','name'=>'mh-chikhaldara'],
+['email'=>'johirulislam114@gmail.com','number'=>'8011874046','name'=>'an-mangaldoi'],
+['email'=>'jokhanansari7@gmail.com','number'=>'8004340487','name'=>'upe-syedraja'],
+['email'=>'junaidvision@gmail.com','number'=>'9760020700','name'=>'upw-amu'],
+['email'=>'k.hafeez.khan.zm@gmail.com','number'=>'9985057828','name'=>'ap-punganur'],
+['email'=>'ka9593937@gmail.com','number'=>'9721256863','name'=>'upe-bahraich'],
+['email'=>'kafeeljih@gmail.com','number'=>'9149385189','name'=>'upw-najibabad'],
+['email'=>'kahamed.jih@gmail.com','number'=>'9836693569','name'=>'wb-raigachi'],
+['email'=>'Kaifruman801@gmail.com','number'=>'8770727783','name'=>'cg-korba'],
+['email'=>'kalim.madina@gmail.com','number'=>'9723003500','name'=>'gj-ahmedabadw'],
+['email'=>'kalimqureshi976@gmail.com','number'=>'9826385766','name'=>'mp-dewas'],
+['email'=>'Kamarrijwan2029@gmail.com','number'=>'8516070918','name'=>'mp-maihar'],
+['email'=>'kamranextrovert00@gmail.com','number'=>'7000059397','name'=>'mp-gwalior'],
+['email'=>'kareem1072@gmail.com','number'=>'9156534449','name'=>'mh-patur'],
+['email'=>'kasyedibrahim@gmail.com','number'=>'9842813222','name'=>'tn-coimbatoren'],
+['email'=>'khajaahamad911@gmail.com','number'=>'9492578117','name'=>'ap-kaligiri'],
+['email'=>'Khaleelullahbapatla@gmail.com','number'=>'9292256527','name'=>'ap-bapatla'],
+['email'=>'khalid523.1960@gmail.com','number'=>'9401860606','name'=>'as-karimganj'],
+['email'=>'khalid85@gmail.com','number'=>'9490136886','name'=>'ap-kadapa'],
+['email'=>'khalidanwar961@gmail.com','number'=>'8209567121','name'=>'br-biharsharif'],
+['email'=>'khalidsajjad3@gmail.com','number'=>'6203908962','name'=>'jh-bariatu'],
+['email'=>'Khanabdullah10444@gmail.com','number'=>'8552858373','name'=>'mh-ardhapur'],
+['email'=>'khanmohdshakir@gmail.com','number'=>'9044347404','name'=>'upe-maucity'],
+['email'=>'khanziankhan855@gmail.com','number'=>'9451000040','name'=>'upe-jhalotar'],
+['email'=>'khatikjamil111@gmail.com','number'=>'7387810039','name'=>'mh-nasik'],
+['email'=>'khonpajih@gmail.com','number'=>'9389625247','name'=>'upe-khonpa'],
+['email'=>'khosburali@jihwb.org','number'=>'8373043239','name'=>'wb-tofi'],
+['email'=>'khursheedalamjih17@gmail.com','number'=>'8130229717','name'=>'dl-loni'],
+['email'=>'khyder75@yahoo.com','number'=>'9535248886','name'=>'ka-vitla'],
+['email'=>'krk@gmail.com','number'=>'9764865101','name'=>'mh-badnerabholji'],
+['email'=>'liyakhatalibaigbaig@gmail.com','number'=>'9740127403','name'=>'ka-tiptur'],
+['email'=>'liyaqatali118@gmail.com','number'=>'9890995727','name'=>'mh-chikhli'],
+['email'=>'luthfullah@gmail.com','number'=>'9444572786','name'=>'tn-perambur'],
+['email'=>'m.a.abdulrafay2012@gmail.com','number'=>'8686425130','name'=>'ts-rajendernagar'],
+['email'=>'m.muneer119@gmail.com','number'=>'9935945612','name'=>'upe-husainmau'],
+['email'=>'m22@gmail.com','number'=>'7011838453','name'=>'markaz-testunit'],
+['email'=>'m83@gmail.com','number'=>'9579304010','name'=>'mh-hathroon'],
+['email'=>'m88@gmail.com','number'=>'9629376639','name'=>'tn-thuvarankurichi'],
+['email'=>'ma8729362@gmail.com','number'=>'8853051552','name'=>'upe-mohammednagar'],
+['email'=>'maaribmaab331267@gmail.com','number'=>'9451331267','name'=>'upe-jairajpur'],
+['email'=>'mahaboob.mba@gmail.com','number'=>'7730073139','name'=>'ap-kavali'],
+['email'=>'main9917uddin@gmail.com','number'=>'9917152424','name'=>'upw-gulaothi'],
+['email'=>'mainuddinkampli70@gmail.com','number'=>'9986250736','name'=>'ka-badami'],
+['email'=>'malambihar@gmail.com','number'=>'9304007748','name'=>'br-araria'],
+['email'=>'maqasonakar@gmail.com','number'=>'8651852020','name'=>'jh-gumani'],
+['email'=>'marjanbiswas@gmail.com','number'=>'9734655183','name'=>'wb-sahabajpur'],
+['email'=>'Masood314@gmail.com','number'=>'9953101197','name'=>'dl-jafarabad'],
+['email'=>'masood4u99@gmail.com','number'=>'8328459145','name'=>'ts-kaghaznagar'],
+['email'=>'masroormehar@gmail.com','number'=>'9934672778','name'=>'br-gaya'],
+['email'=>'masroorms786@gmail.com','number'=>'9573241384','name'=>'ts-wadiehuda'],
+['email'=>'matloobmgs@gmail.com','number'=>'9835293957','name'=>'jh-ranchicity'],
+['email'=>'mayyub116@gmail.com','number'=>'9837925627','name'=>'upw-daang'],
+['email'=>'mazharhusaim160@gmail.com','number'=>'9917749959','name'=>'upw-milakpallupura'],
+['email'=>'md_shahzad64@yahoo.com','number'=>'7091976763','name'=>'br-patnac'],
+['email'=>'md.abdullah.sio@gmail.com','number'=>'9701473027','name'=>'ap-grmknda'],
+['email'=>'md.dadashar1623@gmail.com','number'=>'9704331622','name'=>'ap-kadiem'],
+['email'=>'md7657563@gmail.com','number'=>'9386940082','name'=>'jh-chakla'],
+['email'=>'md9132349@gmail.com','number'=>'9028706254','name'=>'mh-mehkar'],
+['email'=>'mdanwarbaig123@gmail.com','number'=>'9492334549','name'=>'ap-nellore'],
+['email'=>'mdasifahmed777@gmail.com','number'=>'9491330724','name'=>'ts-narayankhed'],
+['email'=>'mdaslam.j@gmail.com','number'=>'9019668306','name'=>'ka-basavakalyan'],
+['email'=>'mdfarooquebgp16@gmail.com','number'=>'9955787848','name'=>'br-dehti'],
+['email'=>'mdfazil6797@gmail.com','number'=>'9440370866','name'=>'ts-medak'],
+['email'=>'mdiftekharahmed57@gmail.com','number'=>'9449690898','name'=>'ka-humnabad'],
+['email'=>'mdiqbal47351@gmail.com','number'=>'9975645187','name'=>'mh-hingoli'],
+['email'=>'mdkhurshidalamhjp123@gmail.com','number'=>'8434707543','name'=>'br-hajipur'],
+['email'=>'mdkhusro_pasha@ymail.com','number'=>'7095852396','name'=>'ts-nanalnagar'],
+['email'=>'mdmugleazamansari@gmail.com','number'=>'7903406072','name'=>'br-sadhweli'],
+['email'=>'mdsabb786@gmail.com','number'=>'7002059384','name'=>'an-tezpur'],
+['email'=>'mdserajddin644wd3@gmail.com','number'=>'9838264525','name'=>'upe-zameenrasoolpur'],
+['email'=>'mdshakilbihar@gmail.com','number'=>'9934948622','name'=>'br-babura'],
+['email'=>'mdshoaibalam48@gmail.com','number'=>'9162661747','name'=>'br-raibarimahua'],
+['email'=>'mdshoaibalamnadvi@gmail.com','number'=>'9931129010','name'=>'jh-banapiri'],
+['email'=>'mdyakubpasha2206@gmail.com','number'=>'9440732947','name'=>'ts-mandamarri'],
+['email'=>'mdyusuf160476@gmail.com','number'=>'8409675511','name'=>'br-siswa'],
+['email'=>'mea-mai.39@gmail.com','number'=>'7386486872','name'=>'ts-warangalcity'],
+['email'=>'meera.sheik509@gmail.com','number'=>'9866058751','name'=>'ap-raulapalem'],
+['email'=>'meetsayeed223.k@gmail.com','number'=>'9035904939','name'=>'ka-ilkal'],
+['email'=>'meraj.002@gmail.com','number'=>'9554442838','name'=>'upe-unnaocity'],
+['email'=>'merajahmed12@gmail.com','number'=>'9494800116','name'=>'ts-godawarikhani'],
+['email'=>'mfarooqazam1234@gmail.com','number'=>'9412013602','name'=>'upw-dhampur'],
+['email'=>'mfazululla@gmail.com','number'=>'9963221200','name'=>'ap-gooty'],
+['email'=>'mgr@jihwb.org','number'=>'9732999046','name'=>'wb-kharkusma'],
+['email'=>'mgvgetco@yahoo.co.in','number'=>'9925212453','name'=>'gj-vijapur'],
+['email'=>'miansari955@gmail.com','number'=>'9926019841','name'=>'mp-sheopur'],
+['email'=>'mikcuttack@gmail.com','number'=>'9861040402','name'=>'od-ctk'],
+['email'=>'mimranfalahi@gmail.com','number'=>'8960352868','name'=>'upe-jamiatulfalah'],
+['email'=>'Mirzafarhat313@gmail.com','number'=>'9225951094','name'=>'mh-ranjani'],
+['email'=>'mirzanaved632@gmail.com','number'=>'9921721904','name'=>'mh-pusad'],
+['email'=>'misbauddinmaster@gmail.com','number'=>'9917455872','name'=>'upw-sedpur'],
+['email'=>'miumair@yahoo.com','number'=>'9866068285','name'=>'ts-jagtiyal'],
+['email'=>'mmakhter203@gmail.com','number'=>'7731929522','name'=>'ts-maheshwaram'],
+['email'=>'mmkkhan@hotmail.com','number'=>'9886395172','name'=>'ka-saraipalya'],
+['email'=>'mmohsin67189@gmail.com','number'=>'9792304898','name'=>'upe-bilariaganj'],
+['email'=>'modrenfurtinurr@gmail.com','number'=>'8013291316','name'=>'wb-ashuti'],
+['email'=>'mohammad69shahid@gmail.com','number'=>'9304693268','name'=>'jh-jamshedpur'],
+['email'=>'mohammadiqbal9989@gmail.com','number'=>'9989391302','name'=>'ts-mahaboobabad'],
+['email'=>'mohammadshareeffalahi@gmail.com','number'=>'9984872462','name'=>'upe-bansi'],
+['email'=>'mohammadtalha473@gmail.com','number'=>'9935410349','name'=>'upe-manikpur'],
+['email'=>'Mohammadyusuf8551@gmail.com','number'=>'9997278551','name'=>'upw-rajakatajpur'],
+['email'=>'mohammedabdulaleem99@gmail.com','number'=>'9849197785','name'=>'ts-kazipet'],
+['email'=>'mohammedmuazzam580@gmail.com','number'=>'9964895555','name'=>'ka-bidar'],
+['email'=>'mohammedsiddiqshaik842@gmai.com','number'=>'9440493432','name'=>'ap-udaygiri'],
+['email'=>'mohd.nnazeer@gmail.com','number'=>'9984056999','name'=>'upe-dumariyaganj'],
+['email'=>'mohd.obaid.mo@gmail.com','number'=>'9849447683','name'=>'ts-khairtabad'],
+['email'=>'mohdakbar0624@gmail.com','number'=>'9235517726','name'=>'upe-banarascity'],
+['email'=>'mohdaslam110410@gmail.com','number'=>'9990110410','name'=>'upw-kanth'],
+['email'=>'Mohdfarooqbij@gmail.com','number'=>'9719135352','name'=>'upw-bijnorcity'],
+['email'=>'mohdghouse.1058@reddifmail.com','number'=>'9848045745','name'=>'ts-habeebnagar'],
+['email'=>'mohdmansoorali7788@gmail.com','number'=>'7680998006','name'=>'ts-utkoor'],
+['email'=>'mohdrizwan125@gmail.com','number'=>'9229981853','name'=>'mp-rankai'],
+['email'=>'mohdsajid_2001@yahoo.com','number'=>'8130126859','name'=>'uk-hw'],
+['email'=>'mohdshahid78868@gmail.com','number'=>'9639501735','name'=>'upw-bahedasadat'],
+['email'=>'mohdvakeel789@gmail.com','number'=>'7880782930','name'=>'upe-tambour'],
+['email'=>'mohdyakoobkhan123@gmail.com','number'=>'8960131785','name'=>'upe-tulsipur'],
+['email'=>'mohdyaseen028@gmail.com','number'=>'9731631749','name'=>'ka-sorab'],
+['email'=>'mohdyousuf365365@gmail.com','number'=>'9848559773','name'=>'ts-nalgonda'],
+['email'=>'mohdyunushkhan@gmail.com','number'=>'9654805672','name'=>'hr-gurugram'],
+['email'=>'mohmmadzafar8888@gmail.com','number'=>'9890618681','name'=>'mh-aalegaon'],
+['email'=>'Mohmsalim01@gmail.com','number'=>'7724836912','name'=>'mp-mandla'],
+['email'=>'moinuddinunnao@gmail.com','number'=>'9696320023','name'=>'upe-miyanganj'],
+['email'=>'moizakhtar3589@gmail.com','number'=>'7667622461','name'=>'jh-baragain'],
+['email'=>'mojubaid97323@gmail.com','number'=>'9519868744','name'=>'upe-jhunsi'],
+['email'=>'mollahzohurul2014@gmail.com','number'=>'9707841846','name'=>'an-lakhipur'],
+['email'=>'momaaz7388@gmail.com','number'=>'7388611518','name'=>'upe-mausultanpur'],
+['email'=>'mquasim731@gmail.com','number'=>'9934946731','name'=>'br-barharia'],
+['email'=>'msaeedahmed83@gmail.com','number'=>'9889961754','name'=>'upe-haldharmau'],
+['email'=>'msaleemmujahidkurawali@gmail.com','number'=>'9359912275','name'=>'upw-kurawali'],
+['email'=>'msali84@gmail.com','number'=>'9155162916','name'=>'br-hayatpur'],
+['email'=>'msskanke@gmail.com','number'=>'8757776599','name'=>'jh-kanke'],
+['email'=>'mubarakbagbanbpet@gmail.com','number'=>'9945942900','name'=>'ka-bangarpet'],
+['email'=>'mubarakswm@gmail.com','number'=>'9351856422','name'=>'rj-sawaimadhopur'],
+['email'=>'Mubeenahmedfirdousi@gmail.com','number'=>'9440625048','name'=>'ts-bhainsa'],
+['email'=>'mudassirrana2@gmail.com','number'=>'9759287383','name'=>'upw-sardhana'],
+['email'=>'mudassirullahkhanishtiaque@gmail.com','number'=>'8459239810','name'=>'mh-barsitakli'],
+['email'=>'mujahid8372@gmail.com','number'=>'6301847452','name'=>'ts-nirmal'],
+['email'=>'mujahidnamajkatti@gmail.com','number'=>'9663488384','name'=>'ka-talikot'],
+['email'=>'mukhtar.kotwal@gmail.com','number'=>'9916138979','name'=>'ka-navalgund'],
+['email'=>'mukhtarshab@gmail.com','number'=>'9449116765','name'=>'ka-panemangalore'],
+['email'=>'mumtazali3000@gmail.com','number'=>'8058324101','name'=>'rj-jhunjhunu'],
+['email'=>'mumtazsafiurrahman@gmail.com','number'=>'8757778715','name'=>'jh-azadnagarkajri'],
+['email'=>'munawwar60@gmail.com','number'=>'9972373311','name'=>'ka-shivajinagar'],
+['email'=>'munir7334@gmail.com','number'=>'8275497334','name'=>'mh-ambajogai'],
+['email'=>'muqtharwork@gmail.com','number'=>'7075867516','name'=>'ap-kurnoolN'],
+['email'=>'murtuzaak@gmail.com','number'=>'9704115454','name'=>'ts-palvancha'],
+['email'=>'musharrafjih@gmail.com','number'=>'9718907400','name'=>'dl-zakirnagar'],
+['email'=>'mushtaqathar@gmail.com','number'=>'9703510401','name'=>'ts-malakpet'],
+['email'=>'mushtaque161961@gmail.com','number'=>'9890919304','name'=>'mh-ahmednagar'],
+['email'=>'mushtaqueahd@gmail.com','number'=>'9923499777','name'=>'mh-jalgaon'],
+['email'=>'mushtaqueahm72@gmail.com','number'=>'9335738963','name'=>'upe-itwabazar'],
+['email'=>'mushtaquehaveripeth@gmail.com','number'=>'9845272970','name'=>'ka-dharwad'],
+['email'=>'mustafa@gmail.com','number'=>'9957176880','name'=>'an-dewkandiT'],
+['email'=>'Mutiurrahmankhan18@gmail.com','number'=>'9720076628','name'=>'upw-uraulia'],
+['email'=>'muzakkirrafeeq7@gmail.com','number'=>'9177554285','name'=>'ts-singapurtownship'],
+['email'=>'muzamilrafeek@gmail.com','number'=>'9443491705','name'=>'tn-poonamallee'],
+['email'=>'mzafardesh@gmail.com','number'=>'8459116657','name'=>'mh-roshangate'],
+['email'=>'NA@gmail.com','number'=>'9822859504','name'=>'mh-yeola'],
+['email'=>'naansari932@gmail.com','number'=>'9411622614','name'=>'uk-rn'],
+['email'=>'nabbasi.sarfaraj@gmail.com','number'=>'9027966289','name'=>'upw-budauncity'],
+['email'=>'nabidhar@gmail.com','number'=>'9848752500','name'=>'ap-repur'],
+['email'=>'nadim.anw@gmail.com','number'=>'9339203383','name'=>'wb-shibpur'],
+['email'=>'nadviarif@gmail.com','number'=>'9953681592','name'=>'dl-shaheenbagh'],
+['email'=>'najish.farooqui@gmail.com','number'=>'9753102730','name'=>'mp-mahidpur'],
+['email'=>'najmuddinarshad@gmail.com','number'=>'9949448020','name'=>'ts-muradnagar'],
+['email'=>'naseemkauser50@gmail.com','number'=>'9572908003','name'=>'br-siwan'],
+['email'=>'nasersyed1956@gmail.com','number'=>'9444013786','name'=>'tn-royapettah'],
+['email'=>'nasimakhtarbhk@gmail.com','number'=>'9931532426','name'=>'jh-riverside'],
+['email'=>'nasirataurrahman@gmail.com','number'=>'7311100040','name'=>'upe-molviganj'],
+['email'=>'nasirmbd72@gmail.com','number'=>'9568395786','name'=>'upw-moradabad'],
+['email'=>'navedazhar@gmail.com','number'=>'9893215966','name'=>'mp-sehore'],
+['email'=>'nayeemfuad@gmail.com','number'=>'9933260681','name'=>'an-sg'],
+['email'=>'Nayeemsiraj6@gmail.com','number'=>'8105036563','name'=>'ka-k.g.f'],
+['email'=>'nayeemuddinahmed88@gmail.com','number'=>'9700605449','name'=>'ts-mukarrampura'],
+['email'=>'nazarneyazi@gmail.com','number'=>'9334775365','name'=>'jh-kumardhubi'],
+['email'=>'nazimghouri88@gmail.com','number'=>'9885213731','name'=>'ts-zaheerabad'],
+['email'=>'nesarahnad01@gmail.com','number'=>'9931737461','name'=>'br-mathiamehwal'],
+['email'=>'niaurangabad@gmail.com','number'=>'8625927661','name'=>'mh-gadhejalgaon'],
+['email'=>'niqbalgym602@gmail.com','number'=>'9943619048','name'=>'tn-gudiyatham'],
+['email'=>'nisarudupi@gmail.com','number'=>'9743580081','name'=>'ka-udupi'],
+['email'=>'nkkhwaja67@gmail.com','number'=>'9890976187','name'=>'mh-nagpurw'],
+['email'=>'nomanijih@gmail.com','number'=>'9027923592','name'=>'upw-nagina'],
+['email'=>'noor001300@gmail.com','number'=>'9415139784','name'=>'upe-urwabazar'],
+['email'=>'nrasheed5504@gmail.com','number'=>'9474210842','name'=>'an-np'],
+['email'=>'nrpt93@gmail.com','number'=>'9866556895','name'=>'ts-narayanpet'],
+['email'=>'oi@qw.ao','number'=>'7304120729','name'=>'mh-ajanta'],
+['email'=>'orahman367@gmail.com','number'=>'9029168909','name'=>'mh-govandi'],
+['email'=>'Pakiza.dukan@gmail.com','number'=>'9307405078','name'=>'mh-fardapur'],
+['email'=>'parvez03121968@gmail.com','number'=>'9029687474','name'=>'mh-sakinaka'],
+['email'=>'parvezsachora989898@gmail.com','number'=>'9427594390','name'=>'gj-lambadiya'],
+['email'=>'parwaktasayeed@gmail.com','number'=>'7250309939','name'=>'br-hissua'],
+['email'=>'Pathanmukhtar4u@gmail.com','number'=>'9404694583','name'=>'mh-badnapur'],
+['email'=>'peermdappa@gmail.com','number'=>'9443474686','name'=>'tn-cumbum'],
+['email'=>'pettrenmastersiddiq@gmail.com','number'=>'9997900987','name'=>'upw-muradnagar'],
+['email'=>'pkhasimkhan47@gmail.com','number'=>'9985253492','name'=>'ap-peddakrpd'],
+['email'=>'pms.shareef@gmail.com','number'=>'9866866520','name'=>'ap-guntakal'],
+['email'=>'psiddiqui33@gmail.com','number'=>'7982085712','name'=>'dl-mustafabad'],
+['email'=>'quamrulhasan786k@gmail.com','number'=>'9473307925','name'=>'br-katihar'],
+['email'=>'quasim.jaan@gmail.com','number'=>'9045533074','name'=>'upw-karhal'],
+['email'=>'r31@gmail.com','number'=>'9555975241','name'=>'upe-nagwa'],
+['email'=>'r46@gmail.com','number'=>'9451720222','name'=>'upe-dharaon'],
+['email'=>'raeeskhan8791871915@gmail.com','number'=>'8791871915','name'=>'upw-firozabad'],
+['email'=>'Rafiahmedappapillai@gmail.com','number'=>'9500690697','name'=>'tn-puzhal'],
+['email'=>'rahimuddinansari57@gmail.com','number'=>'9935972783','name'=>'upe-shekhwapur'],
+['email'=>'rahmatata.in@gmail.com','number'=>'8960921865','name'=>'upe-shahganj'],
+['email'=>'raissir7588@gmail.com','number'=>'9561536422','name'=>'mh-degloor'],
+['email'=>'raisuzzaman841403@gmail.com','number'=>'9931861680','name'=>'br-chhapra'],
+['email'=>'rajqureshi82@gmail.com','number'=>'9755612165','name'=>'mp-kareli'],
+['email'=>'rasheedfarooqui367@gmail.com','number'=>'9211567527','name'=>'dl-uttamnagar'],
+['email'=>'rasheedsd1951@gmail.com','number'=>'9912081523','name'=>'ts-pathancheru'],
+['email'=>'rashid.sio@gmail.com','number'=>'7016857542','name'=>'gj-ahmedabade'],
+['email'=>'rashidulkherchem1984@gmail.com','number'=>'7533876623','name'=>'uk-rk'],
+['email'=>'rasool.jih@gmail.com','number'=>'8328120044','name'=>'ap-yerragndpLm'],
+['email'=>'rehamanvirajpet@gamil.com','number'=>'9449982727','name'=>'ka-virajpet'],
+['email'=>'rehanahmadvic@gmail.com','number'=>'9559441351','name'=>'upe-salempur'],
+['email'=>'rehanali123.md@gmail.com','number'=>'9866073164','name'=>'ap-tanuku'],
+['email'=>'Rgdaimi2228@gmail.com','number'=>'9673878786','name'=>'mh-udgir'],
+['email'=>'Riyazbabu01@gmail.com','number'=>'9969131122','name'=>'mh-Vkrlparksite'],
+['email'=>'rizwaneluru6787@gmail.com','number'=>'9553093452','name'=>'ap-VJc'],
+['email'=>'rizwankhalid.ckm@gmail.com','number'=>'9483249580','name'=>'ka-chikmagalur'],
+['email'=>'rizwanmungeri786@gmail.com','number'=>'9934613831','name'=>'br-munger'],
+['email'=>'rizwansk195@gmail.com','number'=>'8381094909','name'=>'mh-risod'],
+['email'=>'rkhan@gmail.com','number'=>'8604690849','name'=>'upe-pachpedwa'],
+['email'=>'ruhulamin30011980@gmail.com','number'=>'8001049634','name'=>'wb-kasbagoas'],
+['email'=>'ruk101122n@jihwb.org','number'=>'9143567624','name'=>'wb-asansole'],
+['email'=>'rukh@jihwb.org','number'=>'8016384716','name'=>'wb-baniatari'],
+['email'=>'rukhann@jihwb.org','number'=>'8617611067','name'=>'wb-belgachia'],
+['email'=>'Rukma78@gmail.com','number'=>'9640742565','name'=>'ts-jublihills'],
+['email'=>'rukn@gmail.com','number'=>'9732874991','name'=>'wb-uttarsonamui'],
+['email'=>'rukn@jihwb.org','number'=>'7364900880','name'=>'wb-amgram'],
+['email'=>'rukn100636@jihwb.org','number'=>'8250604587','name'=>'wb-kamurdiar'],
+['email'=>'rukn100646@jihwb.org','number'=>'6289452727','name'=>'wb-nowda'],
+['email'=>'rukn100647@jihwb.org','number'=>'9732852292','name'=>'wb-komnager'],
+['email'=>'rukn100684@jihwb.org','number'=>'7478798270','name'=>'wb-barbakpur'],
+['email'=>'rukn100743@jihwb.org','number'=>'8697461299','name'=>'wb-tantibagh'],
+['email'=>'rukn101132@jihwb.org','number'=>'9126178473','name'=>'wb-louhajang'],
+['email'=>'rukn884@jihwb.org','number'=>'7003884952','name'=>'wb-gadpukuria'],
+['email'=>'ruknjihkmm@gmail.com','number'=>'9866556876','name'=>'ts-qilakhammam'],
+['email'=>'saahilbinnizam@gmail.com','number'=>'9884737689','name'=>'tn-kaladipet'],
+['email'=>'saajhi@gmail.com','number'=>'9822287353','name'=>'mh-nagpurn'],
+['email'=>'sabihakhursheed70@gmail.com','number'=>'8081262410','name'=>'upe-pratapgarh'],
+['email'=>'sabirfaran3@gmail.com','number'=>'9839894216','name'=>'upe-kaitholiya'],
+['email'=>'sachora@gmail.com','number'=>'9327088062','name'=>'gj-sarkhej'],
+['email'=>'sadullahoque11@gmail.com','number'=>'9101655137','name'=>'an-howlyw'],
+['email'=>'Saeeddeulghat@gmail.com','number'=>'9970307284','name'=>'mh-devalghat'],
+['email'=>'saeedquadri@gmail.com','number'=>'9860921042','name'=>'mh-sillod'],
+['email'=>'sagheer1972@gmail.com','number'=>'9362693417','name'=>'tn-pernambut'],
+['email'=>'sahadulquddus@gmail.com','number'=>'9732758079','name'=>'wb-haroa'],
+['email'=>'sahulsio@gmail.com','number'=>'9629325670','name'=>'tn-tirupur'],
+['email'=>'saifulla6531@gmail.com','number'=>'7607949680','name'=>'upe-dhelaifirozpur'],
+['email'=>'sajidhsayyad@gmail.com','number'=>'9975224541','name'=>'mh-shreerampur'],
+['email'=>'sajjadqasmi393@gmail.com','number'=>'9945941393','name'=>'ka-sedam'],
+['email'=>'salahuddinkhansk4592@gmail.com','number'=>'9646725816','name'=>'upw-miranpurkatra'],
+['email'=>'saleemfarooqui.sf@gmail.com','number'=>'8983027880','name'=>'mh-pathri'],
+['email'=>'saleemkovai733@gmail.com','number'=>'9843622733','name'=>'tn-coimbatoree'],
+['email'=>'saleemyunus023@gmail.com','number'=>'9545190223','name'=>'mh-ghatnandra'],
+['email'=>'salmansiddiqui118@gmail.com','number'=>'8057786700','name'=>'upw-muzaffarnagarcity'],
+['email'=>'samadawaz@gmail.com','number'=>'9440655753','name'=>'ap-nandyal'],
+['email'=>'samitpt@gmail.com','number'=>'8870357037','name'=>'tn-tirupattur'],
+['email'=>'sattaramjad@gmail.com','number'=>'8125005335','name'=>'ts-yaqubpura'],
+['email'=>'Sawlatfahad@gmail.com','number'=>'9939476000','name'=>'jh-barkakana'],
+['email'=>'sayedabdulmunaff12@gmail.com','number'=>'7780782004','name'=>'ts-bhadrachalam'],
+['email'=>'sayyadgg@gmail.com','number'=>'9423161501','name'=>'mh-parner'],
+['email'=>'sdf@gmail.com','number'=>'9623970015','name'=>'mh-mahad'],
+['email'=>'Sdhusain32@gmail.com','number'=>'9893875407','name'=>'mp-raisen'],
+['email'=>'sdn19921@gmail.com','number'=>'9813419921','name'=>'hr-shikrawa'],
+['email'=>'sferozuddin@yahoo.com','number'=>'9866593414','name'=>'ts-secunderabad'],
+['email'=>'Shabbair07@gmail.com','number'=>'8897113432','name'=>'ts-chandrugunda'],
+['email'=>'shabbir@alialnassarco.com','number'=>'9900258359','name'=>'ka-hassan'],
+['email'=>'shabbirahmed786b@gmail.com','number'=>'7569412306','name'=>'ap-vijayawadaw'],
+['email'=>'shabeer2001@yahoo.com','number'=>'7397517705','name'=>'tn-dindigul'],
+['email'=>'shadabmoosa2@gmail.com','number'=>'8411928736','name'=>'mh-timescolony'],
+['email'=>'shafi.shahdol@gmail.com','number'=>'7566112788','name'=>'mp-shahdol'],
+['email'=>'shafiquegodda@gmail.com','number'=>'9430322353','name'=>'jh-godda'],
+['email'=>'shagafkhot@gmail.com','number'=>'9224394021','name'=>'mh-padgha'],
+['email'=>'shahabuddeenssd@gmail.com','number'=>'7775820263','name'=>'upe-phoolbagh'],
+['email'=>'Shahabytl@gmail.com','number'=>'9822377510','name'=>'mh-yavatmal'],
+['email'=>'shaheen.kalokhe@gmail.com','number'=>'8097778998','name'=>'mh-bhiwandi'],
+['email'=>'shahidjalal7@gmail.com','number'=>'9470289516','name'=>'br-saharsa'],
+['email'=>'shahidmemon7891@gmail.com','number'=>'9845719927','name'=>'ka-belgaum'],
+['email'=>'shahkhalils@gmail.com','number'=>'8767675577','name'=>'mh-andheri'],
+['email'=>'Shahnawazahmadgori@gmail.com','number'=>'9719030623','name'=>'upw-budhana'],
+['email'=>'shaikh.imtiyaz61@gmail.com','number'=>'8149059203','name'=>'mh-pimpri'],
+['email'=>'shaikhasankmm@gmail.com','number'=>'9848758280','name'=>'ts-islampet'],
+['email'=>'shaikjaveed3677@gmail.com','number'=>'9886683677','name'=>'ka-tarikere'],
+['email'=>'shaikvali7919@gmail.com','number'=>'9346373073','name'=>'ap-bommuru'],
+['email'=>'shaikyousuf01733@gmail.com','number'=>'9493256883','name'=>'ts-echoda'],
+['email'=>'shakeelsaljuki@gmail.com','number'=>'9935272421','name'=>'upe-dariyabad'],
+['email'=>'Shakeelshibani85651@gmail.com','number'=>'9893287980','name'=>'mp-shivpuri'],
+['email'=>'shakilahmad9973@gmail.com','number'=>'9973739111','name'=>'jh-deorih'],
+['email'=>'shakir909@gmail.com','number'=>'9414920119','name'=>'rj-jodhpur'],
+['email'=>'Shamim.akhtar0789@gmail.com','number'=>'7999745886','name'=>'cg-ambikapur'],
+['email'=>'shamimahmadansari.nnn@gmail.com','number'=>'8858088088','name'=>'upe-phoolpur'],
+['email'=>'shamsheerpashafalahi@gmail.com','number'=>'9739580799','name'=>'ka-mansura'],
+['email'=>'shamshulhasan6666@gmail.com','number'=>'9335506730','name'=>'upe-khairabad'],
+['email'=>'Shareef818@gmail.com','number'=>'9908320965','name'=>'ap-sanivarpet'],
+['email'=>'sharfelectrical@gmail.com','number'=>'8754083623','name'=>'tn-konimedu'],
+['email'=>'sharifqureshi8048@gmail.com','number'=>'9993671758','name'=>'mp-unhel'],
+['email'=>'shariqahmad7737@gmail.com','number'=>'7737519604','name'=>'rj-karbala'],
+['email'=>'Shehzadqasmi129@gmail.com','number'=>'9829468818','name'=>'rj-jhotwara'],
+['email'=>'sheikbasha250@gmail.com','number'=>'9543067600','name'=>'tn-ennore'],
+['email'=>'sheikhharoon71@gmail.com','number'=>'8959791786','name'=>'cg-bhilai-3'],
+['email'=>'shekhchand74@gmail.com','number'=>'8982007548','name'=>'mp-bhaloomada'],
+['email'=>'shkhnaser@gmail.com','number'=>'9028536467','name'=>'mh-usmanpura'],
+['email'=>'shoaibsameer@gmail.com','number'=>'9908366537','name'=>'ap-VJN'],
+['email'=>'shsriqm@gmail.com','number'=>'9305725534','name'=>'upe-jaajmau'],
+['email'=>'shuhood.sayyed@gmail.com','number'=>'9827010950','name'=>'mp-ujjain'],
+['email'=>'shujathussaini@gmail.com','number'=>'9014879013','name'=>'ts-tolichowki'],
+['email'=>'si_hussaini@hotmail.com','number'=>'9642952575','name'=>'ts-goshamahal'],
+['email'=>'siba2511bf@Gmail.com','number'=>'9600850701','name'=>'tn-krishnagiri'],
+['email'=>'siddiqui.abuhurairah@gmail.com','number'=>'9870787090','name'=>'mh-charkopkandivali'],
+['email'=>'siddiquinaeem683@gmail.com','number'=>'8109065844','name'=>'mp-narsinghgarh'],
+['email'=>'sifalahi@gmail.com','number'=>'9394355953','name'=>'an-howly'],
+['email'=>'Sirajhusain0001@gmail.com','number'=>'9897379233','name'=>'upw-saharanpurcity'],
+['email'=>'sirajuddinnadwibijnor@gmail.com','number'=>'9897334419','name'=>'upw-sarkara'],
+['email'=>'sk.ibm78@gmail.com','number'=>'9908078619','name'=>'ap-kakinada'],
+['email'=>'skabdulhameed0797@gmail.com','number'=>'9848249611','name'=>'ap-tiruvur'],
+['email'=>'skfreal@yahoo.com','number'=>'9822246955','name'=>'mh-punen'],
+['email'=>'skirbabag@gmail.com','number'=>'9759671698','name'=>'upw-khekhra'],
+['email'=>'sknaseer1972@gmail.com','number'=>'9441747565','name'=>'ap-Hjunction'],
+['email'=>'skshafiuddin787@gmail.com','number'=>'7841957255','name'=>'mh-raver'],
+['email'=>'sns144988@gmail.com','number'=>'8722451310','name'=>'ka-moratgi'],
+['email'=>'Srahmani8174@gmal.com','number'=>'9452065567','name'=>'upe-chaukoniya'],
+['email'=>'ssd@gmail.com','number'=>'9763933095','name'=>'mh-malkapur'],
+['email'=>'ssultanmohiuddin@gmail.com','number'=>'9052250001','name'=>'ts-golconda'],
+['email'=>'strocare@gmail.com','number'=>'7991109751','name'=>'jh-gridih'],
+['email'=>'subbu.buddu@gmail.com','number'=>'9705246868','name'=>'ap-palkalur'],
+['email'=>'sufiyankohanda@gmail.com','number'=>'9793560677','name'=>'upe-kohanda'],
+['email'=>'suhailafsha@gmail.com','number'=>'9916437349','name'=>'ka-yeshvantpur'],
+['email'=>'suhailquddusi@gmail.com','number'=>'9837678187','name'=>'upw-gangoh'],
+['email'=>'sumaiyabriyani88@gmail.com','number'=>'9443767527','name'=>'tn-kumbakonam'],
+['email'=>'sumaiyatrad@gmail.com','number'=>'9865847910','name'=>'tn-kadayanallur'],
+['email'=>'syed.ehtishamuddin@gmail.com','number'=>'9886637232','name'=>'ka-rtnagar'],
+['email'=>'syed1959.sb@gmail.com','number'=>'9884053640','name'=>'tn-choolaimedu'],
+['email'=>'syedanwar685@gmail.com','number'=>'9850552792','name'=>'mh-parli'],
+['email'=>'syedbabarali441@gmail.com','number'=>'9886842108','name'=>'ka-maski'],
+['email'=>'syedfarooqroyalautomobiles@gmail.com','number'=>'9848252318','name'=>'ap-akiveedu'],
+['email'=>'syedgouse9957@gmail.com','number'=>'7207079957','name'=>'ap-VJbhavaniprm'],
+['email'=>'syedh09@gmail.com','number'=>'9442308501','name'=>'tn-cheyyar'],
+['email'=>'syedhasan6366@gmail.com','number'=>'9457258545','name'=>'upw-nehtour'],
+['email'=>'Syedhidayatali490@gmail.com','number'=>'9620460504','name'=>'ka-koppal'],
+['email'=>'syedkabirahmed1971@gmail.com','number'=>'8098298003','name'=>'tn-dharmapuri'],
+['email'=>'syednasserali@gmail.com','number'=>'9019865660','name'=>'ka-bellary'],
+['email'=>'szafrulhasan@yahoo.co.in','number'=>'9243447955','name'=>'ka-acroad'],
+['email'=>'takhtarradchem@gmail.com','number'=>'9835289255','name'=>'br-samastipur'],
+['email'=>'tarique.bk68@gmail.com','number'=>'9774216629','name'=>'mn-imp'],
+['email'=>'tauqeerkhan1970@gmail.com','number'=>'9570162914','name'=>'jh-chitarpur'],
+['email'=>'tayyab.k74@gmail.com','number'=>'8115068470','name'=>'upw-kakrala'],
+['email'=>'tayyebamaryam2003@gmail.com','number'=>'9307858327','name'=>'upe-fatehpur'],
+['email'=>'Tazaif@gmail.com','number'=>'9414300764','name'=>'rj-ramganj'],
+['email'=>'tdrt@gmail.com','number'=>'8433821364','name'=>'mh-cheetacamp'],
+['email'=>'tdrthhh@gmail.com','number'=>'7798268045','name'=>'mh-miraj'],
+['email'=>'tmsiddiqui001@gmail.com','number'=>'8528618373','name'=>'upe-indaipur'],
+['email'=>'tooba93@yahoo.com','number'=>'9618366586','name'=>'ts-chandrayangutta'],
+['email'=>'Ubaidsio269@gmail.com','number'=>'9425211181','name'=>'cg-raipur'],
+['email'=>'ukdzaheer3@gmai.com','number'=>'9011930927','name'=>'mh-umarkhed'],
+['email'=>'umair_kgn@rediffmail.com','number'=>'9422449393','name'=>'mh-khamgaon'],
+['email'=>'umairkoti@gmail.com','number'=>'9718164334','name'=>'dl-jaitpur'],
+['email'=>'umardarazbeg@gmail.com','number'=>'8368072064','name'=>'dl-vikasnagar'],
+['email'=>'ummes8884@gmail.com','number'=>'9454853222','name'=>'upe-khuransa'],
+['email'=>'usmanishamsuzzama38@gmail.com','number'=>'8957181586','name'=>'upe-gorakhpurn'],
+['email'=>'Vasairotoplast@gmail.com','number'=>'9324390818','name'=>'mh-nalasoparae'],
+['email'=>'vasimap@rocketmail.com','number'=>'9845628599','name'=>'ka-kormangla'],
+['email'=>'wadood_aa@rediffmail.com','number'=>'9442284071','name'=>'tn-mangalam'],
+['email'=>'Wahajulhaq428@gmail.com','number'=>'9052172788','name'=>'ts-hanamkonda'],
+['email'=>'wahidurrahaman1997@gmail.com','number'=>'9101016684','name'=>'an-dispur'],
+['email'=>'wajeehnusrat@gmail.com','number'=>'9935766263','name'=>'upe-sandeela'],
+['email'=>'wajidhus@yahoo.com','number'=>'9902643119','name'=>'ka-jaynagar'],
+['email'=>'wakeel.mohd1989@gmail.com','number'=>'9866703653','name'=>'ts-serilingampalli'],
+['email'=>'walihafizullah12@gmail.com','number'=>'9838103230','name'=>'upe-amwajauhar'],
+['email'=>'waquarazeem1@gmail.com','number'=>'9422978817','name'=>'mh-pachora'],
+['email'=>'x33@gmail.com','number'=>'9971946787','name'=>'dl-okhlagaon'],
+['email'=>'x5@gmail.com','number'=>'8806968239','name'=>'mh-kannad'],
+['email'=>'xyz@jh.hrd','number'=>'8534957794','name'=>'upw-aligarh'],
+['email'=>'yak363@gmail.com','number'=>'8801538399','name'=>'ts-khilwat'],
+['email'=>'yousufislahi@gmail.com','number'=>'9730391853','name'=>'mh-akurdi'],
+['email'=>'yousufsart@gmail.com','number'=>'8639735764','name'=>'ka-nawnagar'],
+['email'=>'yunusjih995@gmail.com','number'=>'9837574622','name'=>'upw-badhapur'],
+['email'=>'yunusshaikh051@gmail.com','number'=>'9561335629','name'=>'mh-paratwada'],
+['email'=>'zahakkhan16@gmail.com','number'=>'9849798251','name'=>'ts-karkhanagadda'],
+['email'=>'zaheerltp@gmail.com','number'=>'8960355835','name'=>'upe-lalitpur'],
+['email'=>'zahidalijhansi@gmail.com','number'=>'8317066456','name'=>'upe-jhansi'],
+['email'=>'zakiahmadzaki034@gmail.com','number'=>'9936828111','name'=>'upe-maurawan'],
+['email'=>'zakir.msc@gmail.com','number'=>'9960580102','name'=>'mh-paithan'],
+['email'=>'zeyauddinzeya2260@gmail.com','number'=>'9934018182','name'=>'br-piro'],
+['email'=>'ziaalikhankhan@gmail.com','number'=>'9550191861','name'=>'ap-visakhapatname'],
+['email'=>'ziauddinirfanzi@gmail.com','number'=>'7588427327','name'=>'mh-biloli'],
+['email'=>'Ziauddinkgn@gmail.com','number'=>'7744849835','name'=>'mh-khuldabad'],
+['email'=>'ziaullahm67@gmail.com','number'=>'7406147025','name'=>'ka-shahbad'],
+['email'=>'zn8663@gmail.com','number'=>'9835355299','name'=>'jh-ramgarh'],
+['email'=>'zrehman373@gmail.com','number'=>'9761066295','name'=>'upw-sherkot'],
+['email'=>'zubair9970902409@gmail.com','number'=>'9970902409','name'=>'mh-pipalgaonraja'],
+['email'=>'zubairsm01@gmail.com','number'=>'9008113501','name'=>'ka-bhatkal'],
+
+];
+foreach($units as $unit){
+User::create([
+    'email'=>$unit['email'],
+    'number'=>$unit['number'],
+    'name'=>$unit['name'],
+    'password'=>Hash::make('123123'),
+    'role'=>'Unit'
+]);}
 
 }
 }
