@@ -12,6 +12,7 @@
     </head>
     <body>
         {{ $slot }}
+
     </body>
     <script src={{asset('jquery.min.js')}} ></script>
 <script src={{asset('owlcarousel/owl.carousel.min.js')}}></script>

@@ -72,6 +72,11 @@ class ScholarshipForm extends Component
     $unit_admin_id,
     $district_id,
     $state_admin_id;
+    public $selectedState = null;
+    public $selectedDistrict = null;
+    public $states;
+    public $districts;
+    public $units;
 
     public $currentPage = 1;
 
@@ -89,6 +94,20 @@ class ScholarshipForm extends Component
 
     #[Rule('required|file|mimes:jpg,jpeg,png,webp,pdf|max:2048')]
     public $passbookfile;
+
+    //     public function mount()
+// {
+//     $this->state = StateAdmin::all();
+//     $this->district_id = null;
+//     $this->unit_id = null;
+// }
+    public function mount()
+    {
+        $this->states = StateAdmin::all();
+        $this->districts = collect();
+        $this->units = collect();
+        // dd($this->states);
+    }
 
     public function addressvalidate()
     {
@@ -110,20 +129,6 @@ class ScholarshipForm extends Component
             'pincode' => 'required|min:3',
             'village_area' => 'required',
         ]);
-
-        // $student = Student::create([
-        //     'user_id' => auth()->user()->id,
-        //     'adhaar' => $this->adhaar,
-        //     'first_name' => $this->first_name,
-        //     'last_name' => $this->last_name,
-        //     'fathers_name' => $this->fathers_name,
-        //     'mobile' => $this->mobile,
-        //     'd_o_b' => $this->d_o_b,
-        //     'gender' => $this->gender,
-        //     'religion' => $this->religion,
-        //     'orphan_disability' => $this->orphan_disability,
-
-        // ]);
 
         $this->currentPage++;
 
@@ -147,11 +152,7 @@ class ScholarshipForm extends Component
             'previous_course_institution' => 'required|min:3',
             'previous_course_marks' => 'required',
         ]);
-        // @dd('working');
 
-        // $student = Student::where('user_id', auth()->user()->id)->first();
-
-        // dd($student);
 
 
         $this->currentPage++;
@@ -170,21 +171,12 @@ class ScholarshipForm extends Component
             'ifsc' => 'required',
 
         ]);
-        // $student = Student::where('user_id', auth()->user()->id)->first();
 
         $this->currentPage++;
     }
     public function filevalidate()
     {
-
         $this->validate();
-
-
-        // $student = Student::where('user_id', auth()->user()->id)->first();
-
-
-
-
         $this->currentPage++;
     }
 
@@ -259,15 +251,19 @@ class ScholarshipForm extends Component
     public function backonepage()
     {
         $this->currentPage--;
+
     }
+
     public function finalsubmit()
     {
 
+
         $this->validate([
-            'state_admin_id' => 'required',
-            'district_id' => 'required',
+            'selectedState' => 'required',
+            'selectedDistrict' => 'required',
             'unit_admin_id' => 'required',
         ]);
+
         $image_file_path = null;
         $adhaar_file_path = null;
         $fees_file_path = null;
@@ -318,15 +314,14 @@ class ScholarshipForm extends Component
             'pincode' => $this->pincode,
             'village_area' => $this->village_area,
         ]);
-        // $student = Student::where('user_id', auth()->user()->id)->first();
-
-
 
         $student->offices()->create([
-            'state_admin_id' => $this->state_admin_id,
-            'district_id' => $this->district_id,
+            'state_admin_id' => $this->selectedState,
+            'district_id' => $this->selectedDistrict,
             'unit_admin_id' => $this->unit_admin_id,
         ]);
+
+
 
         $student->educations()->create([
             'course_id' => $this->course_id,
@@ -390,14 +385,25 @@ class ScholarshipForm extends Component
     public function render()
     {
         $courses = Course::all();
-        $states = StateAdmin::all();
-        $districts=District::all();
-        $units = UnitAdmin::all();
-        // dd($states,$units);
 
-        // dd($this->currentPage);
-        return view('livewire.scholarship-form', ['courses' => $courses, 'states' => $states,'districts'=>$districts, 'units' => $units]);
+        return view('livewire.scholarship-form', ['courses' => $courses]);
+    }
+
+    public function updatedSelectedState($state)
+    {
+        $this->selectedDistrict = null;
+
+        if (!is_null($state)) {
+            $this->districts = District::where('state_admin_id', $state)->get();
+        }
+
+    }
+
+    public function updatedSelectedDistrict($district)
+    {
+        $this->unit_admin_id = null;
+        if (!is_null($district)) {
+            $this->units = UnitAdmin::where('district_id', $district)->get();
+        }
     }
 }
-
-

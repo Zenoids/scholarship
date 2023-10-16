@@ -362,112 +362,115 @@
                                     type="text" wire:model="previous_hallticket" />
 
                             </div>
-                                        </div></div></div>
-                                        <hr class="my-12">
-                                        <div class="flex flex-col md:flex-row">
-                                            <div class="md:w-1/5 w-full flex-col me-8">
-                                                <h3 class="{{ $sideheadstyle }}">10th Class Details
-                                                </h3>
-                                                <p class="{{ $mainsubstyle }}">please enter the 10 class details accurately</p>
-                                            </div>
-                                            <div class="md:w-4/5 w-full  flex flex-wrap  mt-2 md:mt-3">
-
-                            <div class="md:w-1/2 w-full mt-2 md:mt-3">
-
-                                <x-forminput label="Subjects " name="tenth_subjects"
-                                    type="text" wire:model="tenth_subjects" />
-
-                            </div>
-                            {{-- </div>
-                                        <div class="flex flex-col md:flex-row mt-5"> --}}
-                            <div class="md:w-1/2 w-full mt-2 md:mt-3">
-
-                                <x-forminput label="Institute" name="tenth_institution"
-                                    type="text" wire:model="tenth_institution" />
-
-                            </div>
-                            <div class="md:w-1/2 w-full mt-2 md:mt-3">
-
-                                <x-forminput label="Marks Achived " name="tenth_marks"
-                                    type="text" wire:model="tenth_marks" />
-
-                            </div>
-                            <div class="md:w-1/2 w-full mt-2 md:mt-3">
-
-                                <x-forminput label="Hall ticket Number" name="tenth_hallticket"
-                                    type="text" wire:model="tenth_hallticket" />
-
-                            </div>
-                                        </div></div>
-                                        <hr class="my-12">
-                                        <div class="flex flex-col md:flex-row">
-                                            <div class="md:w-1/5 w-full flex-col me-8">
-                                                <h3 class="{{ $sideheadstyle }}">Intermediate or 11 and 12th class details
-                                                </h3>
-                                                <p class="{{ $mainsubstyle }}">please provide the
-                                                    intermediate educational or 11tha and 12th class details</p>
-                                            </div>
-                                            <div class="md:w-4/5 w-full  flex flex-wrap  mt-2 md:mt-3">
-
-
-                            <div class="md:w-1/2 w-full mt-2 md:mt-3">
-
-                                <x-forminput label=" Subjects taken" name="inter_subjects"
-                                    type="text" wire:model="inter_subjects" />
-
-                            </div>
-                            {{-- </div>
-                                        <div class="flex flex-col md:flex-row mt-5"> --}}
-                            <div class="md:w-1/2 w-full mt-2 md:mt-3">
-
-                                <x-forminput label="Education Institute" name="inter_institution"
-                                    type="text" wire:model="inter_institution" />
-
-                            </div>
-                            <div class="md:w-1/2 w-full mt-2 md:mt-3">
-
-                                <x-forminput label="Marks Achived " name="inter_marks"
-                                    type="text" wire:model="inter_marks" />
-
-                            </div>
-                            <div class="md:w-1/2 w-full mt-2 md:mt-3">
-
-                                <x-forminput label="Hall ticket Number" name="inter_hallticket"
-                                    type="text" wire:model="inter_hallticket" />
-
-                            </div>
-
-
-                            {{-- </div> --}}
-
-
-
                         </div>
-
-
-
-                    </div>
-                    <hr class="my-12">
-                    <div class="flex justify-between">
-                        <div class=""><button wire:click="backonepage" type="button"
-                                class=" inline-block rounded bg-blue-500 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#14a44d] transition duration-150 ease-in-out hover:bg-success-600 hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:bg-success-600 focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:outline-none focus:ring-0 active:bg-success-700 active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(20,164,77,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)]">
-                                Previous
-                            </button></div>
-                        <div class="flex">
-                            <button wire:click="educationvalidate" type="button"
-                                class="mx-4 inline-block rounded bg-green-500 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#14a44d] transition duration-150 ease-in-out hover:bg-success-600 hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:bg-success-600 focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:outline-none focus:ring-0 active:bg-success-700 active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(20,164,77,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)]">
-                                Next
-                            </button>
-                            <button wire:click="educationreset" type="button"
-                                class="inline-block rounded bg-red-500 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#14a44d] transition duration-150 ease-in-out hover:bg-success-600 hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:bg-success-600 focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:outline-none focus:ring-0 active:bg-success-700 active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(20,164,77,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)]">
-                                Reset
-                            </button>
-                        </div>
-
                     </div>
                 </div>
+                <hr class="my-12">
+                <div class="flex flex-col md:flex-row">
+                    <div class="md:w-1/5 w-full flex-col me-8">
+                        <h3 class="{{ $sideheadstyle }}">10th Class Details
+                        </h3>
+                        <p class="{{ $mainsubstyle }}">please enter the 10 class details accurately</p>
+                    </div>
+                    <div class="md:w-4/5 w-full  flex flex-wrap  mt-2 md:mt-3">
 
+                        <div class="md:w-1/2 w-full mt-2 md:mt-3">
+
+                            <x-forminput label="Subjects " name="tenth_subjects" type="text"
+                                wire:model="tenth_subjects" />
+
+                        </div>
+                        {{-- </div>
+                                        <div class="flex flex-col md:flex-row mt-5"> --}}
+                        <div class="md:w-1/2 w-full mt-2 md:mt-3">
+
+                            <x-forminput label="Institute" name="tenth_institution" type="text"
+                                wire:model="tenth_institution" />
+
+                        </div>
+                        <div class="md:w-1/2 w-full mt-2 md:mt-3">
+
+                            <x-forminput label="Marks Achived " name="tenth_marks" type="text"
+                                wire:model="tenth_marks" />
+
+                        </div>
+                        <div class="md:w-1/2 w-full mt-2 md:mt-3">
+
+                            <x-forminput label="Hall ticket Number" name="tenth_hallticket" type="text"
+                                wire:model="tenth_hallticket" />
+
+                        </div>
+                    </div>
+                </div>
+                <hr class="my-12">
+                <div class="flex flex-col md:flex-row">
+                    <div class="md:w-1/5 w-full flex-col me-8">
+                        <h3 class="{{ $sideheadstyle }}">Intermediate or 11 and 12th class details
+                        </h3>
+                        <p class="{{ $mainsubstyle }}">please provide the
+                            intermediate educational or 11tha and 12th class details</p>
+                    </div>
+                    <div class="md:w-4/5 w-full  flex flex-wrap  mt-2 md:mt-3">
+
+
+                        <div class="md:w-1/2 w-full mt-2 md:mt-3">
+
+                            <x-forminput label=" Subjects taken" name="inter_subjects" type="text"
+                                wire:model="inter_subjects" />
+
+                        </div>
+                        {{-- </div>
+                                        <div class="flex flex-col md:flex-row mt-5"> --}}
+                        <div class="md:w-1/2 w-full mt-2 md:mt-3">
+
+                            <x-forminput label="Education Institute" name="inter_institution" type="text"
+                                wire:model="inter_institution" />
+
+                        </div>
+                        <div class="md:w-1/2 w-full mt-2 md:mt-3">
+
+                            <x-forminput label="Marks Achived " name="inter_marks" type="text"
+                                wire:model="inter_marks" />
+
+                        </div>
+                        <div class="md:w-1/2 w-full mt-2 md:mt-3">
+
+                            <x-forminput label="Hall ticket Number" name="inter_hallticket" type="text"
+                                wire:model="inter_hallticket" />
+
+                        </div>
+
+
+                        {{-- </div> --}}
+
+
+
+                    </div>
+
+
+
+                </div>
+                <hr class="my-12">
+                <div class="flex justify-between">
+                    <div class=""><button wire:click="backonepage" type="button"
+                            class=" inline-block rounded bg-blue-500 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#14a44d] transition duration-150 ease-in-out hover:bg-success-600 hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:bg-success-600 focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:outline-none focus:ring-0 active:bg-success-700 active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(20,164,77,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)]">
+                            Previous
+                        </button></div>
+                    <div class="flex">
+                        <button wire:click="educationvalidate" type="button"
+                            class="mx-4 inline-block rounded bg-green-500 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#14a44d] transition duration-150 ease-in-out hover:bg-success-600 hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:bg-success-600 focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:outline-none focus:ring-0 active:bg-success-700 active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(20,164,77,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)]">
+                            Next
+                        </button>
+                        <button wire:click="educationreset" type="button"
+                            class="inline-block rounded bg-red-500 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#14a44d] transition duration-150 ease-in-out hover:bg-success-600 hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:bg-success-600 focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:outline-none focus:ring-0 active:bg-success-700 active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(20,164,77,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)]">
+                            Reset
+                        </button>
+                    </div>
+
+                </div>
             </div>
+
+        </div>
         </div>
     @endif
     @if ($currentPage == 3)
@@ -623,8 +626,7 @@
                                 <input type="file" accept=".jpg,.png,.jpeg,.webp,.pdf" required name="photofile"
                                     wire:model="photofile"
                                     class="rounded-md bg-white px-2.5 py-1.5  w-5/6 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-                            @error("photofile")
-
+                                @error('photofile')
                                     <div class="text-red-800 text-sm">
                                         {{ $message }} </div>
                                 @enderror
@@ -637,7 +639,7 @@
                                 <input type="file" accept=".jpg,.png,.jpeg,.webp,.pdf" required name="feesfile"
                                     wire:model="feesfile"
                                     class="rounded-md bg-white px-2.5 py-1.5  w-5/6 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-                                @error("feesfile")
+                                @error('feesfile')
                                     <div class="text-red-800 text-sm">
                                         {{ $message }} </div>
                                 @enderror
@@ -647,8 +649,8 @@
                                 <input type="file" accept=".jpg,.png,.jpeg,.webp,.pdf" required name="marksfile"
                                     wire:model="marksfile"
                                     class="rounded-md bg-white px-2.5 py-1.5  w-5/6 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-                                @error("marksfile")
-                                 <div class="text-red-800 text-sm">
+                                @error('marksfile')
+                                    <div class="text-red-800 text-sm">
                                         {{ $message }} </div>
                                 @enderror
                             </div>
@@ -657,17 +659,17 @@
                                 <input type="file" accept=".jpg,.png,.jpeg,.webp,.pdf" required name="adhaarfile"
                                     wire:model="adhaarfile"
                                     class="rounded-md bg-white px-2.5 py-1.5  w-5/6 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-                               @error("adhaarfile")
+                                @error('adhaarfile')
                                     <div class="text-red-800 text-sm">
                                         {{ $message }} </div>
                                 @enderror
                             </div>
                             <div class="md:w-1/2 w-full mt-2 md:mt-3">
                                 <label class="{{ $formlabelstyle }}">Bank Account Passbook photo</label>
-                                <input type="file" accept=".jpg,.png,.jpeg,.webp,.pdf" required name="passbookfile"
-                                    wire:model="passbookfile"
+                                <input type="file" accept=".jpg,.png,.jpeg,.webp,.pdf" required
+                                    name="passbookfile" wire:model="passbookfile"
                                     class="rounded-md bg-white px-2.5 py-1.5  w-5/6 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-                               @error("passbookfile")
+                                @error('passbookfile')
                                     <div class="text-red-800 text-sm">
                                         {{ $message }} </div>
                                 @enderror
@@ -702,6 +704,8 @@
         </div>
     @endif
     @if ($currentPage == 5)
+        {{-- @dd($districts) --}}
+
         <div id="section5" class="flex  rounded-xl  shadow-xl   bg-white py-4 mx-5 my-6 flex-col">
             <div class="mx-6 my-6">
                 <div class="">
@@ -721,53 +725,56 @@
                             <div class="md:w-1/3 w-full mt-2 md:mt-3">
                                 <label class="{{ $formlabelstyle }}">Select State</label>
 
-                                <select name="state_admin_id" id="state_admin_id" class="{{ $forminputstyle }}"
-                                    wire:model="state_admin_id">
-
+                                <select class="{{ $forminputstyle }}" wire:model.live="selectedState">
+                                    {{-- @dd($states) --}}
+                                    <option disabled>Select State</option>
                                     @foreach ($states as $state)
-                                        <option wire:key="{{ $state->id }}" value="{{ $state->id }}">
+                                        <option  value="{{ $state->id }}">
                                             {{ $state->name }}
                                         </option>
                                     @endforeach
                                 </select>
-                                @error("state_admin_id")
-                                <div class="text-red-800 text-sm">
-                                    {{ $message }} </div>
-                            @enderror
+                                @error('selectedState')
+                                    <div class="text-red-800 text-sm">
+                                        {{ $message }} </div>
+                                @enderror
                             </div>
                             <div class="md:w-1/3 w-full mt-2 md:mt-3">
                                 <label class="{{ $formlabelstyle }}">Select District</label>
-
-                                <select name="district_id" id="s" class="{{ $forminputstyle }}"
-                                    wire:model="district_id">
-
-                                    @foreach ($districts as $district)
-                                        <option wire:key="{{ $district->id }}" value="{{ $district->id }}">
-                                            {{ $district->name }}
-                                        </option>
-                                    @endforeach
+                                @if (!is_null($selectedState))
+                                    <select class="{{ $forminputstyle }}" wire:model.live="selectedDistrict">
+                                        <option disabled>Select District</option>
+                                        @foreach ($districts as $district)
+                                            <option  value="{{ $district->id }}">
+                                                {{ $district->name }}
+                                            </option>
+                                        @endforeach
+                                        {{-- @endif --}}
+                                @endif
                                 </select>
-                                @error("district_id")
-                                <div class="text-red-800 text-sm">
-                                    {{ $message }} </div>
-                            @enderror
+                                @error('selectedDistrict')
+                                    <div class="text-red-800 text-sm">
+                                        {{ $message }} </div>
+                                @enderror
                             </div>
                             <div class="md:w-1/3 w-full mt-2 md:mt-3">
                                 <label class="{{ $formlabelstyle }}">Select Unit office</label>
 
-                                <select name="unit_admin_id" id="unit_admin_id" class="{{ $forminputstyle }}"
-                                    wire:model="unit_admin_id">
+                                @if (!is_null($selectedDistrict))
+                                    <select class="{{ $forminputstyle }}" wire:model.live="unit_admin_id">
+                                        <option disabled>Select nearest office</option>
+                                        @foreach ($units as $unit)
+                                            <option value="{{ $unit->id }}">
+                                                {{ $unit->name }}
+                                            </option>
+                                        @endforeach
 
-                                    @foreach ($units as $unit)
-                                        <option wire:key="{{ $unit->id }}" value="{{ $unit->id }}">
-                                            {{ $unit->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                @error("unit_admin_id")
-                                <div class="text-red-800 text-sm">
-                                    {{ $message }} </div>
-                            @enderror
+                                    </select>
+                                @endif
+                                @error('unit_admin_id')
+                                    <div class="text-red-800 text-sm">
+                                        {{ $message }} </div>
+                                @enderror
                             </div>
                             {{-- </div> --}}
 
