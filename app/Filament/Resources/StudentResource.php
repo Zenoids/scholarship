@@ -47,6 +47,17 @@ class StudentResource extends Resource
      Tables\Columns\TextColumn::make('gender'),
      Tables\Columns\TextColumn::make('religion'),
      Tables\Columns\TextColumn::make('orphan_disability'),
+     Tables\Columns\TextColumn::make('addresses.house_number'),
+     Tables\Columns\TextColumn::make('addresses.tahsil'),
+     Tables\Columns\TextColumn::make('addresses.district'),
+     Tables\Columns\TextColumn::make('addresses.state'),
+     Tables\Columns\TextColumn::make('addresses.pincode'),
+     Tables\Columns\TextColumn::make('addresses.village_area'),
+     Tables\Columns\TextColumn::make('incomes.ac_number'),
+     Tables\Columns\TextColumn::make('incomes.name_ac_holder'),
+     Tables\Columns\TextColumn::make('incomes.ifsc'),
+     Tables\Columns\ImageColumn::make('uploads.adhaar_file_path')->label('adhaar'),
+     Tables\Columns\ImageColumn::make('uploads.passbook_file_path')->label('passbook'),
 
 
 

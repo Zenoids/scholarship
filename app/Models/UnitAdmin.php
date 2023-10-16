@@ -17,6 +17,9 @@ class UnitAdmin extends Model
         return $this->hasMany(Student::class);
     }
     public function districts(){
-        return $this->belongsTo(District::class);
+        return $this->belongsTo(District::class,'district_id');
+    }
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }

@@ -21,9 +21,9 @@ protected function getHeaderActions(): array
     return [
         // Action::make('edit')
         //     ->url(route('posts.edit', ['post' => $this->post])),
-        Action::make('delete')
-            ->requiresConfirmation()
-            ->action(fn () => $this->course->delete()),
+            // Action::make('delete')
+            //     ->requiresConfirmation()
+            //     ->action(fn () => $this->course->delete()),
     ];
 
 }
