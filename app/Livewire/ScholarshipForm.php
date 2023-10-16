@@ -378,8 +378,10 @@ class ScholarshipForm extends Component
         ]);
 
         // dd('success');
+        session()->flash('success', 'Your application has been submitted successfully! We will review it and get back to you soon.');
+
         $this->redirect(
-            '/'
+            '/thank-you'
         );
 
     }

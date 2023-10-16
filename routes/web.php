@@ -30,6 +30,9 @@ Route::view('profile', 'profile')
 
 Route::get('/apply', ScholarshipForm::class)->middleware(['auth']);
 
+Route::get('/thank-you', function(){
+    return view('thankyou');
+});
 //         $student = Student::where('user_id', auth()->user()->id)->first();
 
 // dd(empty($student));

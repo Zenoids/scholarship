@@ -41,4 +41,3 @@ class CourseTableSeeder extends Seeder
 
     }
 }
-
