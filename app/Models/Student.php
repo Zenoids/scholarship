@@ -47,6 +47,9 @@ class Student extends Model
     public function amounts(){
         return $this->hasOne(ApprovalAmount::class);
     }
+    // public function course(){
+    //     return $this->hasOne(Course::class);
+    // }
 
     public function user(){
         return $this->belongsTo(User::class);

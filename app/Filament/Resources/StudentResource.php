@@ -9,11 +9,15 @@ use Filament\Forms;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Infolists\Components\ImageEntry;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\HtmlString;
 
 class StudentResource extends Resource
 {
@@ -21,13 +25,96 @@ class StudentResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    public static function infolist(Infolist $infolist): Infolist
+{
+    return $infolist
+        ->schema([
+        //   TextEntry::make('name'),
+          TextEntry::make('user_id'),
+          TextEntry::make('user.email')->label('Email'),
+          TextEntry::make('first_name'),
+          TextEntry::make('last_name'),
+          TextEntry::make('fathers_name'),
+          TextEntry::make('adhaar'),
+          TextEntry::make('mobile'),
+          TextEntry::make('d_o_b')->label('Date of Birth'),
+          TextEntry::make('gender'),
+          TextEntry::make('religion'),
+          TextEntry::make('orphan_disability'),
+          TextEntry::make('addresses.house_number')->label('House Number'),
+          TextEntry::make('addresses.tahsil')->label('Tahsil'),
+          TextEntry::make('addresses.district')->label('District'),
+          TextEntry::make('addresses.state')->label('State'),
+          TextEntry::make('addresses.pincode')->label('Pincode'),
+          TextEntry::make('addresses.village_area')->label('Village/Area'),
+          TextEntry::make('incomes.ac_number')->label('Account Number'),
+          TextEntry::make('incomes.name_ac_holder')->label('Name of Bank A/C holder'),
+          TextEntry::make('incomes.ifsc')->label('IFSC Code'),
+           TextEntry::make('offices.state_admin_id')->label('JIH State'),
+           TextEntry::make('offices.unit_admin_id')->label('JIH Unit'),
+           TextEntry::make('educations.course_id')->label('Course Name'),
+           TextEntry::make('educations.course_year')->label('Course Year'),
+           TextEntry::make('educations.branch_name')->label('Branch Name'),
+           TextEntry::make('educations.course_period')->label('Course Period'),
+           TextEntry::make('educations.rank_entrance')->label('Entrance Rank'),
+           TextEntry::make('educations.institute_name')->label('Institute Name'),
+           TextEntry::make('educations.institute_locality')->label('Institute Locality'),
+           TextEntry::make('educations.institute_district')->label('Institute District'),
+           TextEntry::make('educations.institute_state')->label('Institute State'),
+
+
+           TextEntry::make('previous.previous_course_name')->label('Previous Course Name'),
+           TextEntry::make('previous.previous_course_subjects')->label('Previous Course Subjects'),
+           TextEntry::make('previous.previous_hallticket')->label('Previous Hallticket Number'),
+           TextEntry::make('previous.previous_course_institution')->label('Previous Course Institution'),
+           TextEntry::make('previous.previous_course_marks')->label('Marks Secured in Last course'),
+           TextEntry::make('previous.tenth_subjects')->label('Tenth Subjects'),
+           TextEntry::make('previous.tenth_hallticket')->label('Tenth Hallticket'),
+           TextEntry::make('previous.tenth_institution')->label('Tenth Institute'),
+           TextEntry::make('previous.tenth_marks')->label('Marks secured tenth'),
+           TextEntry::make('previous.inter_subjects')->label('Intermediate Subjects '),
+           TextEntry::make('previous.inter_hallticket')->label('Intermediate Hallticket Number'),
+           TextEntry::make('previous.inter_institution')->label('Intermediate Institution'),
+           TextEntry::make('previous.inter_marks')->label('Marks secured Intermediate'),
+          TextEntry::make('uploads.fees_file_path')->label('Course Fees link')->prefix('https://scholarship.jih.org.in/storage/')->columnSpanFull(),
+          TextEntry::make('uploads.adhaar_file_path')->label('Adhaar Card link')->prefix('https://scholarship.jih.org.in/storage/')->columnSpanFull(),
+          TextEntry::make('uploads.marks_file_path')->label('Previous MarksCard link')->prefix('https://scholarship.jih.org.in/storage/')->columnSpanFull(),
+          TextEntry::make('uploads.passbook_file_path')->label('Bank Passbook link')->prefix('https://scholarship.jih.org.in/storage/')->columnSpanFull(),
+          ImageEntry::make('uploads.fees_file_path')->label('Course Fees')->columnSpanFull()->size(500),
+          ImageEntry::make('uploads.adhaar_file_path')->label('Adhaar Card')->columnSpanFull()->size(500),
+          ImageEntry::make('uploads.marks_file_path')->label('Marks')->columnSpanFull()->size(500),
+          ImageEntry::make('uploads.passbook_file_path')->label('Bank Passbook')->columnSpanFull()->size(500),
+                // ->columnSpanFull(),
+        ]);
+
+}
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 // Forms\Components\Select::make('approval_status')->relationship('approvals','approval_status'),
                 // RichEditor::make('approval_status')->relationship('approvals','comment'),
-                // TextInput::make('approval_amounts')->relationship('amounts','amount'),
+                // TextInput::make('user_id'),
+                // TextInput::make('user.email')->label('Email'),
+                // TextInput::make('first_name'),
+                // TextInput::make('last_name'),
+                // TextInput::make('fathers_name'),
+                // TextInput::make('adhaar'),
+                // TextInput::make('mobile'),
+                // TextInput::make('d_o_b')->label('Date of Birth'),
+                // TextInput::make('gender'),
+                // TextInput::make('religion'),
+                // TextInput::make('orphan_disability'),
+                // TextInput::make('addresses.house_number')->label('House Number'),
+                // TextInput::make('addresses.tahsil')->label('Tahsil'),
+                // TextInput::make('addresses.district')->label('District'),
+                // TextInput::make('addresses.state')->label('State'),
+                // TextInput::make('addresses.pincode')->label('Pincode'),
+                // TextInput::make('addresses.village_area')->label('Village/Area'),
+                // TextInput::make('incomes.ac_number')->label('Account Number'),
+                // TextInput::make('incomes.name_ac_holder')->label('Name of Bank A/C holder'),
+                // TextInput::make('incomes.ifsc')->label('IFSC Code'),
                 // RichEditor::make('approval_amounts')->relationship('amounts','comment'),
             ]);
     }
@@ -128,7 +215,8 @@ class StudentResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                // Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
