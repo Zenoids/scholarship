@@ -10,6 +10,7 @@ use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Infolists\Components\ImageEntry;
+use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
@@ -30,6 +31,11 @@ class StudentResource extends Resource
     return $infolist
         ->schema([
         //   TextEntry::make('name'),
+        Section::make('Applicant Details')
+
+        ->description('Applicant Personal Details')
+        ->schema([
+
           TextEntry::make('user_id'),
           TextEntry::make('user.email')->label('Email'),
           TextEntry::make('first_name'),
@@ -41,6 +47,13 @@ class StudentResource extends Resource
           TextEntry::make('gender'),
           TextEntry::make('religion'),
           TextEntry::make('orphan_disability'),
+        ]) ->columns(2)      ->collapsed(),
+
+          Section::make('Address Details')
+
+        ->description('Applicant Address Details')
+        ->schema([
+
           TextEntry::make('addresses.house_number')->label('House Number'),
           TextEntry::make('addresses.tahsil')->label('Tahsil'),
           TextEntry::make('addresses.district')->label('District'),
@@ -52,6 +65,12 @@ class StudentResource extends Resource
           TextEntry::make('incomes.ifsc')->label('IFSC Code'),
            TextEntry::make('offices.state_admin_id')->label('JIH State'),
            TextEntry::make('offices.unit_admin_id')->label('JIH Unit'),
+        ])->columns(2)     ->collapsed(),
+
+        Section::make('Course Details')
+
+        ->description('Current Course Pursuing Details')
+        ->schema([
            TextEntry::make('educations.course_id')->label('Course Name'),
            TextEntry::make('educations.course_year')->label('Course Year'),
            TextEntry::make('educations.branch_name')->label('Branch Name'),
@@ -61,7 +80,12 @@ class StudentResource extends Resource
            TextEntry::make('educations.institute_locality')->label('Institute Locality'),
            TextEntry::make('educations.institute_district')->label('Institute District'),
            TextEntry::make('educations.institute_state')->label('Institute State'),
+        ])->columns(2)     ->collapsed(),
 
+        Section::make('Previous Course Details')
+
+        ->description('previous Courses Details including 10th, intermediate')
+        ->schema([
 
            TextEntry::make('previous.previous_course_name')->label('Previous Course Name'),
            TextEntry::make('previous.previous_course_subjects')->label('Previous Course Subjects'),
@@ -76,15 +100,27 @@ class StudentResource extends Resource
            TextEntry::make('previous.inter_hallticket')->label('Intermediate Hallticket Number'),
            TextEntry::make('previous.inter_institution')->label('Intermediate Institution'),
            TextEntry::make('previous.inter_marks')->label('Marks secured Intermediate'),
+        ])->columns(2)     ->collapsed(),
+           Section::make('Uploads')
+
+           ->description('Search with the link to see full screen or zoom')
+           ->schema([
+
           TextEntry::make('uploads.fees_file_path')->label('Course Fees link')->formatStateUsing(fn ($state) => asset('storage/' . $state))->columnSpanFull(),
           TextEntry::make('uploads.adhaar_file_path')->label('Adhaar Card link')->formatStateUsing(fn ($state) => asset('storage/' . $state))->columnSpanFull(),
           TextEntry::make('uploads.marks_file_path')->label('Previous MarksCard link')->formatStateUsing(fn ($state) => asset('storage/' . $state))->columnSpanFull(),
           TextEntry::make('uploads.passbook_file_path')->label('Bank Passbook link')->formatStateUsing(fn ($state) => asset('storage/' . $state))->columnSpanFull(),
+        ])   ->collapsed(),
+        Section::make('Uploads images')
+
+        ->description('pdfs are not visible here only images, for pdfs or zoomed images kindly see above section')
+        ->schema([
           ImageEntry::make('uploads.fees_file_path')->label('Course Fees')->columnSpanFull()->size(500),
           ImageEntry::make('uploads.adhaar_file_path')->label('Adhaar Card')->columnSpanFull()->size(500),
           ImageEntry::make('uploads.marks_file_path')->label('Marks')->columnSpanFull()->size(500),
           ImageEntry::make('uploads.passbook_file_path')->label('Bank Passbook')->columnSpanFull()->size(500),
                 // ->columnSpanFull(),
+            ])->collapsed(),
         ]);
 
 }
