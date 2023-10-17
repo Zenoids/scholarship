@@ -273,22 +273,22 @@ class ScholarshipForm extends Component
         $marks_file_path = null;
         $passbook_file_path = null;
         if ($this->photofile) {
-            $image_file_path = $this->photofile->store('public/photos');
+            $image_file_path = $this->photofile->store('photos', 'public');
         }
 
         if ($this->adhaarfile) {
-            $adhaar_file_path = $this->adhaarfile->store('public/adhaar');
+            $adhaar_file_path = $this->adhaarfile->store('adhaar','public');
         }
 
         if ($this->feesfile) {
-            $fees_file_path = $this->feesfile->store('public/fees');
+            $fees_file_path = $this->feesfile->store('fees','public');
         }
 
         if ($this->marksfile) {
-            $marks_file_path = $this->marksfile->store('public/marks');
+            $marks_file_path = $this->marksfile->store('marks','public');
         }
         if ($this->passbookfile) {
-            $passbook_file_path = $this->passbookfile->store('public/passbook');
+            $passbook_file_path = $this->passbookfile->store('passbook','public');
         }
 
 
