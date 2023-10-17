@@ -166,6 +166,7 @@ class ScholarshipForm extends Component
             'expense_bearer_monthly_income' => 'required',
             'name_ac_holder' => 'required',
             'ac_number' => 'required|min:3',
+            'confirm_ac_number' => 'required|same:ac_number',
             'bank_name' => 'required|min:2',
             'ac_branch' => 'required',
             'ifsc' => 'required',
