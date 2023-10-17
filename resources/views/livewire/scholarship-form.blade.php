@@ -14,6 +14,9 @@
     <div class="bg-[#F2F4F7]">
         <div class="flex w-full pt-5">
             <div class="md:flex fixed md:w-2/12 md:ms-32 my-5 flex-col hidden ">
+                @if (!$hasRegistered)
+
+
 
                 <a
                     class="block text-lg font-medium leading-6  border-l-2 py-2 px-2 border-gray-300  @if ($currentPage == 1) text-indigo-950 @else text-gray-400 @endif hover:border-indigo-950 ">
@@ -32,13 +35,16 @@
                 <a
                     class="block text-lg font-medium leading-6  border-l-2 py-2 px-2 border-gray-300  @if ($currentPage == 5) text-indigo-950 @else text-gray-400 @endif hover:border-indigo-950">
                     Nearest JIH Details</a>
-
+@endunless
             </div>
             <form class="flex md:ms-[20%] md:w-8/12 w-full flex-col" enctype="multipart/form-data"
                 wire:submit="finalsubmit">
+                @if (!$hasRegistered)
+
                 @if ($currentPage == 1)
                     <div id="section1" class="flex  rounded-xl  shadow-xl   bg-white py-4 mx-5 my-6 flex-col">
-                        <div class="mx-6 my-6">
+
+                       <div class="mx-6 my-6">
                             <div class="">
                                 <p class="{{ $mainheadingstyle }}">Personal Details</p>
                                 <p class="{{ $mainsubstyle }}">Please enter your Personal
@@ -801,6 +807,20 @@
 
             </div>
         </div>
+    @endif
+    @else
+    <div id="section1" class="flex  rounded-xl  shadow-xl   bg-white py-4 mx-5 my-6 flex-col">
+
+        <div class="mx-6 my-6">
+             <div class="">
+                 <p class="{{ $mainheadingstyle }}">You have already registered</p>
+                 <p class="{{ $mainsubstyle }}">We will get back to you after we review your application, if you want to fill another form , please logout from this profile by clicking your name at right corner and either register a new user or  login with new user who has applied yet</p>
+
+
+
+
+             </div>
+             <hr class="my-12">
     @endif
 
 

@@ -10,6 +10,7 @@ use App\Models\Student;
 use App\Models\StudentAddress;
 use App\Models\Unit;
 use App\Models\UnitAdmin;
+use Illuminate\Support\Facades\Auth;
 use Livewire\WithFileUploads;
 use Livewire\Component;
 use Livewire\Attributes\Rule;
@@ -94,6 +95,7 @@ class ScholarshipForm extends Component
 
     #[Rule('required|file|mimes:jpg,jpeg,png,webp,pdf|max:2048')]
     public $passbookfile;
+
 
     //     public function mount()
 // {
@@ -384,10 +386,15 @@ class ScholarshipForm extends Component
 
 
     public function render()
+
     {
+        // dd(Auth::user()->students);
+        $user = auth()->user();
+
+        $hasRegistered=Student::where('user_id', $user->id)->exists();
         $courses = Course::all();
 
-        return view('livewire.scholarship-form', ['courses' => $courses]);
+        return view('livewire.scholarship-form', ['courses' => $courses, 'hasRegistered'=>$hasRegistered]);
     }
 
     public function updatedSelectedState($state)
