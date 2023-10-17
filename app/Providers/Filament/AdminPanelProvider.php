@@ -27,6 +27,8 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->favicon(asset('favicon.png'))
+
             ->colors([
                 'primary' => Color::Violet,
             ])
@@ -53,6 +55,8 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ]);
+            ])
+            // ->getBrandName(asset('jihlogo.svg'))
+            ;
     }
 }
