@@ -60,11 +60,11 @@ class StudentResource extends Resource
                 //  Tables\Columns\ImageColumn::make('uploads.image_file_path')->label('passbook'),
                 //  Tables\Columns\ImageColumn::make('uploads.image_file_path')->label('passbook'),
                 //  Tables\Columns\ImageColumn::make('uploads.image_file_path')->label('passbook'),
-                                 Tables\Columns\ImageColumn::make('uploads.image_file_path'),
-                 Tables\Columns\ImageColumn::make('uploads.fees_file_path'),
-                 Tables\Columns\ImageColumn::make('uploads.adhaar_file_path'),
-                 Tables\Columns\ImageColumn::make('uploads.marks_file_path'),
-                 Tables\Columns\ImageColumn::make('uploads.passbook_file_path'),
+                                 Tables\Columns\ImageColumn::make('uploads.image_file_path')->label('Image'),
+                 Tables\Columns\ImageColumn::make('uploads.fees_file_path')->label('Course Fees'),
+                 Tables\Columns\ImageColumn::make('uploads.adhaar_file_path')->label('Adhaar Card'),
+                 Tables\Columns\ImageColumn::make('uploads.marks_file_path')->label('Marks'),
+                 Tables\Columns\ImageColumn::make('uploads.passbook_file_path')->label('Bank Passbook'),
 
 
 
