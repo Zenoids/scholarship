@@ -57,7 +57,14 @@ class StudentResource extends Resource
                 Tables\Columns\TextColumn::make('incomes.name_ac_holder')->label('Name of Bank A/C holder'),
                 Tables\Columns\TextColumn::make('incomes.ifsc')->label('IFSC Code'),
                 //  Tables\Columns\ImageColumn::make('uploads.adhaar_file_path')->label('adhaar'),
-                //  Tables\Columns\ImageColumn::make('uploads.passbook_file_path')->label('passbook'),
+                //  Tables\Columns\ImageColumn::make('uploads.image_file_path')->label('passbook'),
+                //  Tables\Columns\ImageColumn::make('uploads.image_file_path')->label('passbook'),
+                //  Tables\Columns\ImageColumn::make('uploads.image_file_path')->label('passbook'),
+                                 Tables\Columns\ImageColumn::make('uploads.image_file_path'),
+                 Tables\Columns\ImageColumn::make('uploads.fees_file_path'),
+                 Tables\Columns\ImageColumn::make('uploads.adhaar_file_path'),
+                 Tables\Columns\ImageColumn::make('uploads.marks_file_path'),
+                 Tables\Columns\ImageColumn::make('uploads.passbook_file_path'),
 
 
 
