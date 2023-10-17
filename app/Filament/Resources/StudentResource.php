@@ -15,6 +15,8 @@ use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Filters\Filter;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -63,7 +65,7 @@ class StudentResource extends Resource
           TextEntry::make('incomes.ac_number')->label('Account Number'),
           TextEntry::make('incomes.name_ac_holder')->label('Name of Bank A/C holder'),
           TextEntry::make('incomes.ifsc')->label('IFSC Code'),
-           TextEntry::make('offices.state_admin_id')->label('JIH State'),
+           TextEntry::make('offices.state_admin_id')->label('JIH State') ,
            TextEntry::make('offices.unit_admin_id')->label('JIH Unit'),
         ])->columns(2)     ->collapsed(),
 
@@ -170,24 +172,36 @@ class StudentResource extends Resource
                 Tables\Columns\TextColumn::make('gender'),
                 Tables\Columns\TextColumn::make('religion'),
                 Tables\Columns\TextColumn::make('orphan_disability'),
-                Tables\Columns\TextColumn::make('addresses.house_number')->label('House Number'),
-                Tables\Columns\TextColumn::make('addresses.tahsil')->label('Tahsil'),
+                // Tables\Columns\TextColumn::make('addresses.house_number')->label('House Number'),
+                // Tables\Columns\TextColumn::make('addresses.tahsil')->label('Tahsil'),
                 Tables\Columns\TextColumn::make('addresses.district')->label('District'),
                 Tables\Columns\TextColumn::make('addresses.state')->label('State'),
                 Tables\Columns\TextColumn::make('addresses.pincode')->label('Pincode'),
                 Tables\Columns\TextColumn::make('addresses.village_area')->label('Village/Area'),
-                Tables\Columns\TextColumn::make('incomes.ac_number')->label('Account Number'),
-                Tables\Columns\TextColumn::make('incomes.name_ac_holder')->label('Name of Bank A/C holder'),
-                Tables\Columns\TextColumn::make('incomes.ifsc')->label('IFSC Code'),
+                Tables\Columns\TextColumn::make('offices.state_admin_id')->label('JIH State'),
+                Tables\Columns\TextColumn::make('offices.unit_admin_id')->label('JIH Unit'),
+                Tables\Columns\TextColumn::make('educations.course_id')->label('Course Name'),
+                // Tables\Columns\TextColumn::make('educations.course_year')->label('Course Year'),
+                Tables\Columns\TextColumn::make('educations.branch_name')->label('Branch Name'),
+                // Tables\Columns\TextColumn::make('educations.course_period')->label('Course Period'),
+                // Tables\Columns\TextColumn::make('educations.course_id')->label('Course Name'),
+                // Tables\Columns\TextColumn::make('educations.course_year')->label('Course Year'),
+                // Tables\Columns\TextColumn::make('educations.branch_name')->label('Branch Name'),
+                Tables\Columns\TextColumn::make('educations.rank_entrance')->label('Entrance Rank'),
+                Tables\Columns\TextColumn::make('educations.institute_name')->label('Institute Name'),
+
+                // Tables\Columns\TextColumn::make('incomes.ac_number')->label('Account Number'),
+                // Tables\Columns\TextColumn::make('incomes.name_ac_holder')->label('Name of Bank A/C holder'),
+                // Tables\Columns\TextColumn::make('incomes.ifsc')->label('IFSC Code'),
                 //  Tables\Columns\ImageColumn::make('uploads.adhaar_file_path')->label('adhaar'),
                 //  Tables\Columns\ImageColumn::make('uploads.image_file_path')->label('passbook'),
                 //  Tables\Columns\ImageColumn::make('uploads.image_file_path')->label('passbook'),
                 //  Tables\Columns\ImageColumn::make('uploads.image_file_path')->label('passbook'),
-                                 Tables\Columns\ImageColumn::make('uploads.image_file_path')->label('Image'),
-                 Tables\Columns\ImageColumn::make('uploads.fees_file_path')->label('Course Fees'),
+                 Tables\Columns\ImageColumn::make('uploads.image_file_path')->label('Image'),
+                //  Tables\Columns\ImageColumn::make('uploads.fees_file_path')->label('Course Fees'),
                  Tables\Columns\ImageColumn::make('uploads.adhaar_file_path')->label('Adhaar Card'),
-                 Tables\Columns\ImageColumn::make('uploads.marks_file_path')->label('Marks'),
-                 Tables\Columns\ImageColumn::make('uploads.passbook_file_path')->label('Bank Passbook'),
+                //  Tables\Columns\ImageColumn::make('uploads.marks_file_path')->label('Marks'),
+                //  Tables\Columns\ImageColumn::make('uploads.passbook_file_path')->label('Bank Passbook'),
 
 
 
@@ -248,7 +262,13 @@ class StudentResource extends Resource
 
             ])
             ->filters([
-                //
+    //             SelectFilter::make('Units')
+    // ->relationship('units', 'name')
+    // ->searchable(),
+    //             SelectFilter::make('states')
+    // ->relationship('states', 'name')
+    // ->searchable()
+
             ])
             ->actions([
                 // Tables\Actions\EditAction::make(),
@@ -275,8 +295,8 @@ class StudentResource extends Resource
     {
         return [
             'index' => Pages\ListStudents::route('/'),
-            'create' => Pages\CreateStudent::route('/create'),
-            'edit' => Pages\EditStudent::route('/{record}/edit'),
+            // 'create' => Pages\CreateStudent::route('/create'),
+            // 'edit' => Pages\EditStudent::route('/{record}/edit'),
         ];
     }
 }
