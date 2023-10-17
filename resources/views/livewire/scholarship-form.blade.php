@@ -13,7 +13,7 @@
 
     <div class="bg-[#F2F4F7]">
         <div class="flex w-full pt-5">
-            <div class="flex fixed md:w-2/12 md:ms-32 my-5 flex-col">
+            <div class="md:flex fixed md:w-2/12 md:ms-32 my-5 flex-col hidden ">
 
                 <a
                     class="block text-lg font-medium leading-6  border-l-2 py-2 px-2 border-gray-300  @if ($currentPage == 1) text-indigo-950 @else text-gray-400 @endif hover:border-indigo-950 ">
