@@ -27,6 +27,14 @@ protected function getHeaderActions(): array
     ];
 
 }
+public function mount(): void
+{
+    abort_unless(auth()->user()->role=='SuperAdmin'||auth()->user()->role=='MarkazAdmin', 403);
+}
+public static function shouldRegisterNavigation(): bool
+{
+    return auth()->user()->role=='MarkazAdmin'||auth()->user()->role=='SuperAdmin';
+}
 public function form(Form $form): Form
 {
     return $form

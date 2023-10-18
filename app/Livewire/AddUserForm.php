@@ -81,7 +81,7 @@ Action::make('delete')
                     ->options([
                         'Unit' => 'Unit',
                         'State' => 'State',
-                        'MazkazAdmin' => 'MazkazAdmin',
+                        'MarkazAdmin' => 'MarkazAdmin',
                         'SuperAdmin' => 'SuperAdmin'
                     ])->required(),
                     TextInput::make('number')->tel(),
