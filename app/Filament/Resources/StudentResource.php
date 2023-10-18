@@ -201,13 +201,13 @@ class StudentResource extends Resource
                     // dd($stateID);
 
                  return StateAdmin::where('id',$stateID)->pluck('name')->first();
-             }),
+             })->searchable(),
                 Tables\Columns\TextColumn::make('offices')->label('JIH Unit')->getStateUsing(function (Student $record): string {
                     $unitId=$record->offices->unit_admin_id;
                  //    dd($unitId);
 
                  return UnitAdmin::where('id',$unitId)->pluck('name')->first();
-             }),
+             })->searchable(),
                 Tables\Columns\TextColumn::make('Course Name')->searchable() ->getStateUsing(function (Student $record): string {
                     // dd($record);
                     $courseId=$record->educations->course_id;
