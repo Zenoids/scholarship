@@ -196,24 +196,32 @@ class StudentResource extends Resource
                 Tables\Columns\TextColumn::make('addresses.state')->label('State')->searchable(),
                 // Tables\Columns\TextColumn::make('addresses.pincode')->label('Pincode'),
                 // Tables\Columns\TextColumn::make('addresses.village_area')->label('Village/Area'),
-                Tables\Columns\TextColumn::make('offices.state_admin_id')->label('JIH State')->searchable()->getStateUsing(function (Student $record): string {
+                Tables\Columns\TextColumn::make('offices.state_admin_id')->label('JIH State')->getStateUsing(function (Student $record): string {
                     $stateID=$record->offices->state_admin_id;
                     // dd($stateID);
 
                  return StateAdmin::where('id',$stateID)->pluck('name')->first();
-             })->searchable(),
+             }),
                 Tables\Columns\TextColumn::make('offices')->label('JIH Unit')->getStateUsing(function (Student $record): string {
                     $unitId=$record->offices->unit_admin_id;
                  //    dd($unitId);
 
                  return UnitAdmin::where('id',$unitId)->pluck('name')->first();
-             })->searchable(),
-                Tables\Columns\TextColumn::make('Course Name')->searchable() ->getStateUsing(function (Student $record): string {
+             }),
+                Tables\Columns\TextColumn::make('Course Name')->getStateUsing(function (Student $record): string {
                     // dd($record);
                     $courseId=$record->educations->course_id;
 
                     return Course::where('id',$courseId)->pluck('name')->first();
-                }),
+                })
+                // ->getSearchResultsUsing(function (string $search): array {
+                //     return Course::query()
+                //         ->where(function (Builder $builder) use ($search) {
+                //             $searchString = "%$search%";
+                //             $builder->where('name', 'like', $searchString);
+                //        });
+                //     })
+                    ,
                 // Tables\Columns\TextColumn::make('educations.course_year')->label('Course Year'),
                 // Tables\Columns\TextColumn::make('educations.branch_name')->label('Branch Name'),
                 // Tables\Columns\TextColumn::make('educations.course_period')->label('Course Period'),
