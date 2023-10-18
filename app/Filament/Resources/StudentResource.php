@@ -161,7 +161,7 @@ class StudentResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('user_id'),
+                // Tables\Columns\TextColumn::make('user_id'),
                 Tables\Columns\TextColumn::make('user.email')->label('Email'),
                 // Tables\Columns\TextColumn::make('first_name'),
                 // Tables\Columns\TextColumn::make('last_name'),
@@ -175,14 +175,14 @@ class StudentResource extends Resource
                 // Tables\Columns\TextColumn::make('addresses.house_number')->label('House Number'),
                 // Tables\Columns\TextColumn::make('addresses.tahsil')->label('Tahsil'),
                 // Tables\Columns\TextColumn::make('addresses.district')->label('District'),
-                Tables\Columns\TextColumn::make('addresses.state')->label('State'),
+                Tables\Columns\TextColumn::make('addresses.state')->label('State')->searchable(),
                 // Tables\Columns\TextColumn::make('addresses.pincode')->label('Pincode'),
                 // Tables\Columns\TextColumn::make('addresses.village_area')->label('Village/Area'),
-                Tables\Columns\TextColumn::make('offices.state_admin_id')->label('JIH State'),
+                Tables\Columns\TextColumn::make('offices.state_admin_id')->label('JIH State')->searchable(),
                 Tables\Columns\TextColumn::make('offices.unit_admin_id')->label('JIH Unit'),
-                Tables\Columns\TextColumn::make('educations.course_id')->label('Course Name'),
+                Tables\Columns\TextColumn::make('educations.course_id')->label('Course Name')->searchable(),
                 // Tables\Columns\TextColumn::make('educations.course_year')->label('Course Year'),
-                Tables\Columns\TextColumn::make('educations.branch_name')->label('Branch Name'),
+                // Tables\Columns\TextColumn::make('educations.branch_name')->label('Branch Name'),
                 // Tables\Columns\TextColumn::make('educations.course_period')->label('Course Period'),
                 // Tables\Columns\TextColumn::make('educations.course_id')->label('Course Name'),
                 // Tables\Columns\TextColumn::make('educations.course_year')->label('Course Year'),
