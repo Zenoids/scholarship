@@ -4,7 +4,10 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\StudentResource\Pages;
 use App\Filament\Resources\StudentResource\RelationManagers;
+use App\Models\Course;
+use App\Models\StateAdmin;
 use App\Models\Student;
+use App\Models\UnitAdmin;
 use Filament\Forms;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
@@ -65,15 +68,30 @@ class StudentResource extends Resource
           TextEntry::make('incomes.ac_number')->label('Account Number'),
           TextEntry::make('incomes.name_ac_holder')->label('Name of Bank A/C holder'),
           TextEntry::make('incomes.ifsc')->label('IFSC Code'),
-           TextEntry::make('offices.state_admin_id')->label('JIH State') ,
-           TextEntry::make('offices.unit_admin_id')->label('JIH Unit'),
+           TextEntry::make('offices.state_admin_id')->label('JIH State')->getStateUsing(function (Student $record): string {
+            $stateID=$record->offices->state_admin_id;
+            // dd($stateID);
+
+         return StateAdmin::where('id',$stateID)->pluck('name')->first();
+     }),
+           TextEntry::make('JIHUnit')->label('JIH Unit')->getStateUsing(function (Student $record): string {
+               $unitId=$record->offices->unit_admin_id;
+            //    dd($unitId);
+
+            return UnitAdmin::where('id',$unitId)->pluck('name')->first();
+        }),
         ])->columns(2)     ->collapsed(),
 
         Section::make('Course Details')
 
         ->description('Current Course Pursuing Details')
         ->schema([
-           TextEntry::make('educations.course_id')->label('Course Name'),
+           TextEntry::make('Course Name')->getStateUsing(function (Student $record): string {
+            // dd($record);
+            $courseId=$record->educations->course_id;
+
+            return Course::where('id',$courseId)->pluck('name')->first();
+        }),
            TextEntry::make('educations.course_year')->label('Course Year'),
            TextEntry::make('educations.branch_name')->label('Branch Name'),
            TextEntry::make('educations.course_period')->label('Course Period'),
@@ -178,9 +196,24 @@ class StudentResource extends Resource
                 Tables\Columns\TextColumn::make('addresses.state')->label('State')->searchable(),
                 // Tables\Columns\TextColumn::make('addresses.pincode')->label('Pincode'),
                 // Tables\Columns\TextColumn::make('addresses.village_area')->label('Village/Area'),
-                Tables\Columns\TextColumn::make('offices.state_admin_id')->label('JIH State')->searchable(),
-                Tables\Columns\TextColumn::make('offices.unit_admin_id')->label('JIH Unit'),
-                Tables\Columns\TextColumn::make('educations.course_id')->label('Course Name')->searchable(),
+                Tables\Columns\TextColumn::make('offices.state_admin_id')->label('JIH State')->searchable()->getStateUsing(function (Student $record): string {
+                    $stateID=$record->offices->state_admin_id;
+                    // dd($stateID);
+
+                 return StateAdmin::where('id',$stateID)->pluck('name')->first();
+             }),
+                Tables\Columns\TextColumn::make('offices')->label('JIH Unit')->getStateUsing(function (Student $record): string {
+                    $unitId=$record->offices->unit_admin_id;
+                 //    dd($unitId);
+
+                 return UnitAdmin::where('id',$unitId)->pluck('name')->first();
+             }),
+                Tables\Columns\TextColumn::make('Course Name')->searchable() ->getStateUsing(function (Student $record): string {
+                    // dd($record);
+                    $courseId=$record->educations->course_id;
+
+                    return Course::where('id',$courseId)->pluck('name')->first();
+                }),
                 // Tables\Columns\TextColumn::make('educations.course_year')->label('Course Year'),
                 // Tables\Columns\TextColumn::make('educations.branch_name')->label('Branch Name'),
                 // Tables\Columns\TextColumn::make('educations.course_period')->label('Course Period'),
