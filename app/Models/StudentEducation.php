@@ -23,7 +23,7 @@ class StudentEducation extends Model
     public function students(){
         return $this->belongsTo(Student::class);
     }
-    public function courses(){
-        return $this->hasOne(Course::class);
+    public function course(){
+        return $this->belongsTo(Course::class);
     }
 }

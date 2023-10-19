@@ -22,4 +22,7 @@ class UnitAdmin extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+    public function offices(){
+        return $this->hasOne(Office::class);
+    }
 }

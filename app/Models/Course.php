@@ -10,6 +10,6 @@ class Course extends Model
     protected $fillable = ['name'];
     use HasFactory;
     public function studenteducation(){
-        return $this->belongsTo(StudentEducation::class);
+        return $this->hasOne(StudentEducation::class);
     }
 }

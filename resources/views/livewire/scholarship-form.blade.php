@@ -763,14 +763,35 @@
                                         {{ $message }} </div>
                                 @enderror
                             </div>
+                            {{-- <div class="md:w-1/3 w-full mt-2 md:mt-3">
+                                <label class="{{ $formlabelstyle }}">Select Unit office</label>
+                                @if (!is_null($selectedDistrict))
+                                    <select class="{{ $forminputstyle }}" wire:model.live="unit_admin_id">
+                                        {{-- <option disabled> Select nearest office</option>
+                                        @foreach ($units as $district)
+                                            <option  value="{{ $district->id }}">
+                                                {{ $district->name }}
+                                            </option>
+                                        @endforeach
+                                        {{-- @endif
+                                @endif
+                                </select>
+                                @error('unit_admin_id')
+                                    <div class="text-red-800 text-sm">
+                                        {{ $message }} </div>
+                                @enderror
+                            </div> --}}
                             <div class="md:w-1/3 w-full mt-2 md:mt-3">
                                 <label class="{{ $formlabelstyle }}">Select Unit office</label>
 
                                 @if (!is_null($selectedDistrict))
-                                    <select class="{{ $forminputstyle }}" wire:model.live="unit_admin_id">
-                                        <option disabled>Select nearest office</option>
+                                    <select class="{{ $forminputstyle }}" wire:model.live='unit_admin_id'>
+                                        {{-- <option disabled>Select nearest office</option> --}}
+                                        <option value=""> Select nearest office</option>
+
+
                                         @foreach ($units as $unit)
-                                            <option value="{{ $unit->id }}">
+                                            <option value="{{ $unit->id }}" >
                                                 {{ $unit->name }}
                                             </option>
                                         @endforeach
@@ -782,7 +803,7 @@
                                         {{ $message }} </div>
                                 @enderror
                             </div>
-                            {{-- </div> --}}
+                            {{-- </div>--}}
 
                         </div>
                     </div>

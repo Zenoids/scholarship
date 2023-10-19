@@ -70,11 +70,12 @@ class ScholarshipForm extends Component
     $fathers_monthly_income,
     $expense_bearer,
     $expense_bearer_monthly_income,
-    $unit_admin_id,
     $district_id,
     $state_admin_id;
+    public $unit_admin_id;
     public $selectedState = null;
     public $selectedDistrict = null;
+    public $selectedUnit = null;
     public $states;
     public $districts;
     public $units;
@@ -260,10 +261,11 @@ class ScholarshipForm extends Component
     public function finalsubmit()
     {
 
-
+            // dd($this->selectedDistrict);
+            // dd($this->unit_admin_id);
         $this->validate([
             'selectedState' => 'required',
-            'selectedDistrict' => 'required',
+            // 'selectedDistrict' => 'required',
             'unit_admin_id' => 'required',
         ]);
 
@@ -318,7 +320,7 @@ class ScholarshipForm extends Component
             'village_area' => $this->village_area,
         ]);
 
-        $student->offices()->create([
+        $student->office()->create([
             'state_admin_id' => $this->selectedState,
             'district_id' => $this->selectedDistrict,
             'unit_admin_id' => $this->unit_admin_id,
@@ -414,4 +416,14 @@ class ScholarshipForm extends Component
             $this->units = UnitAdmin::where('district_id', $district)->get();
         }
     }
+    // public function updatedSelectedUnit($unit)
+    // {
+    //     dd($unit);
+    //     dd($this->selectedUnit);
+
+    //     // $this->selectedUnit = null;
+    //     // if (!is_null($unit)) {
+    //     //     $this->units = UnitAdmin::where('district_id', $district)->get();
+    //     // }
+    // }
 }

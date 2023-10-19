@@ -16,4 +16,10 @@ class Office extends Model
     public function students(){
         return $this->belongsTo(Student::class);
     }
+    public function stateAdmin(){
+        return $this->belongsTo(StateAdmin::class);
+    }
+    public function unitAdmin(){
+        return $this->belongsTo(UnitAdmin::class);
+    }
 }
