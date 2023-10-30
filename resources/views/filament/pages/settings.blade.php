@@ -1,4 +1,6 @@
 <x-filament-panels::page>
+
+    <livewire:add-district1 />
     <livewire:add-course-form />
     <livewire:add-user-form />
     <livewire:add-state />

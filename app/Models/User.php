@@ -47,7 +47,7 @@ class User extends Authenticatable implements FilamentUser
         'password' => 'hashed',
     ];
     public function stateadmins(){
-        return $this->hasMany(StateAdmin::class);
+        return $this->hasOne(StateAdmin::class);
     }
     public function students(){
         return $this->hasMany(Student::class);

@@ -31,6 +31,36 @@ class StudentResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    public static function getEloquentQuery(): Builder
+    {
+               $user = auth()->user(); // Get the authenticated user
+
+        if ($user && $user->role == "State") {
+            $stateID = $user->stateadmins->id;
+        //     // $stateID=auth()->user()->stateAdmin->state_id;
+
+        return parent::getEloquentQuery()->whereHas('office', function ($query) use ($stateID) {
+            $query->where('state_admin_id', $stateID);
+        });
+                }
+        //
+        if($user && $user->role=="Unit"){
+            $CID=$user->unitadmins
+            ->where('user_id',$user->id)
+            ->first()->id
+            ;
+            // dd($CID);
+            return parent::getEloquentQuery()->whereHas('office', function ($query) use ($CID) {
+                $query->where('unit_admin_id', $CID);
+            });
+        }
+        if(($user && $user->role=="SuperAdmin")||($user && $user->role=="MarkazAdmin"))
+        {
+        return parent::getEloquentQuery();
+        }
+
+    }
+
     public static function infolist(Infolist $infolist): Infolist
 {
     return $infolist
@@ -333,7 +363,7 @@ class StudentResource extends Resource
                 // ]),
             ])
             ->emptyStateActions([
-                Tables\Actions\CreateAction::make(),
+                // Tables\Actions\CreateAction::make(),
             ]);
     }
 
