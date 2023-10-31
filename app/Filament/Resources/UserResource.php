@@ -35,7 +35,7 @@ class UserResource extends Resource
                 TextInput::make('name')
                     ->required(),
                 TextInput::make('email')
-                    ->required()->unique('users', 'email'),
+                    ->required(),
                 TextInput::make('password')
                     ->password()
                     ->required(),
@@ -95,10 +95,10 @@ class UserResource extends Resource
     }
     public function mount(): void
     {
-        abort_unless(((new User())->isSuperAdmin())|| ((new User())->isStateAdmin()) || ((new User())->isMarkazAdmin()), 403);
+        abort_unless(((new User())->isSuperAdmin()) || ((new User())->isMarkazAdmin()), 403);
     }
     public static function shouldRegisterNavigation(): bool
     {
-        return ((new User())->isSuperAdmin())|| ((new User())->isStateAdmin()) || ((new User())->isMarkazAdmin());
+        return ((new User())->isSuperAdmin()) || ((new User())->isMarkazAdmin());
     }
 }
