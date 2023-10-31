@@ -62,4 +62,20 @@ class User extends Authenticatable implements FilamentUser
         return in_array($this->role, $allowedRoles);
 
     }
+
+    public function isSuperAdmin():bool{
+        return auth()->user()->role === 'SuperAdmin';
+    }
+    public function isMarkazAdmin():bool{
+        return auth()->user()->role === 'MarkazAdmin';
+    }
+    public function isStudent():bool{
+        return auth()->user()->role === 'Student';
+    }
+    public function isStateAdmin():bool{
+        return auth()->user()->role === 'State';
+    }
+    public function isUnitAdmin():bool{
+        return auth()->user()->role === 'Unit';
+    }
 }

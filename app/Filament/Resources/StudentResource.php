@@ -8,6 +8,7 @@ use App\Models\Course;
 use App\Models\StateAdmin;
 use App\Models\Student;
 use App\Models\UnitAdmin;
+use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
@@ -35,7 +36,7 @@ class StudentResource extends Resource
     {
                $user = auth()->user(); // Get the authenticated user
 
-        if ($user && $user->role == "State") {
+        if ((new User())->isStateAdmin()) {
             $stateID = $user->stateadmins->id;
         //     // $stateID=auth()->user()->stateAdmin->state_id;
 
@@ -44,7 +45,7 @@ class StudentResource extends Resource
         });
                 }
         //
-        if($user && $user->role=="Unit"){
+        if((new User())->isUnitAdmin()){
             $CID=$user->unitadmins
             ->where('user_id',$user->id)
             ->first()->id
@@ -54,7 +55,8 @@ class StudentResource extends Resource
                 $query->where('unit_admin_id', $CID);
             });
         }
-        if(($user && $user->role=="SuperAdmin")||($user && $user->role=="MarkazAdmin"))
+        if(((new User())->isSuperAdmin())||((new User())->isMarkazAdmin()))
+        // if(($user && $user->role=="SuperAdmin")||($user && $user->role=="MarkazAdmin"))
         {
         return parent::getEloquentQuery();
         }
@@ -355,7 +357,7 @@ class StudentResource extends Resource
             ])
             ->actions([
                 // Tables\Actions\EditAction::make(),
-                Tables\Actions\ViewAction::make(),
+                Tables\Actions\ViewAction::make()->label(false),
             ])
             ->bulkActions([
                 // Tables\Actions\BulkActionGroup::make([

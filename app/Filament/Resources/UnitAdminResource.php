@@ -81,16 +81,16 @@ class UnitAdminResource extends Resource
     {
         return [
             'index' => Pages\ListUnitAdmins::route('/'),
-            'create' => Pages\CreateUnitAdmin::route('/create'),
-            'edit' => Pages\EditUnitAdmin::route('/{record}/edit'),
+            // 'create' => Pages\CreateUnitAdmin::route('/create'),
+            // 'edit' => Pages\EditUnitAdmin::route('/{record}/edit'),
         ];
     }
     public function mount(): void
     {
-        abort_unless(auth()->user()->role == 'SuperAdmin' || auth()->user()->role == 'MarkazAdmin', 403);
+        abort_unless(((new User())->isSuperAdmin()) || ((new User())->isMarkazAdmin()), 403);
     }
     public static function shouldRegisterNavigation(): bool
     {
-        return auth()->user()->role == 'MarkazAdmin' || auth()->user()->role == 'SuperAdmin';
+        return ((new User())->isSuperAdmin()) || ((new User())->isMarkazAdmin());
     }
 }

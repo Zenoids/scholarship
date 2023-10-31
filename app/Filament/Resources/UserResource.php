@@ -33,21 +33,19 @@ class UserResource extends Resource
             ->schema([
 
                 TextInput::make('name')
-                ->required()
-                ,
+                    ->required(),
                 TextInput::make('email')
-                ->required()->unique('users', 'email'),
+                    ->required()->unique('users', 'email'),
                 TextInput::make('password')
-                ->password()
-                ->required()
-                ,
+                    ->password()
+                    ->required(),
                 Select::make('role')
-                ->options([
-                    'Unit' => 'Unit',
-                    'State' => 'State',
-                    'MarkazAdmin' => 'MarkazAdmin',
-                    'SuperAdmin' => 'SuperAdmin'
-                ])->required(),
+                    ->options([
+                        'Unit' => 'Unit',
+                        'State' => 'State',
+                        'MarkazAdmin' => 'MarkazAdmin',
+                        'SuperAdmin' => 'SuperAdmin'
+                    ])->required(),
                 TextInput::make('number')->tel(),
 
             ]);
@@ -91,16 +89,16 @@ class UserResource extends Resource
     {
         return [
             'index' => Pages\ListUsers::route('/'),
-            'create' => Pages\CreateUser::route('/create'),
-            'edit' => Pages\EditUser::route('/{record}/edit'),
+            // 'create' => Pages\CreateUser::route('/create'),
+            // 'edit' => Pages\EditUser::route('/{record}/edit'),
         ];
     }
     public function mount(): void
-{
-    abort_unless(auth()->user()->role=='SuperAdmin'||auth()->user()->role=='MarkazAdmin', 403);
-}
-public static function shouldRegisterNavigation(): bool
-{
-    return auth()->user()->role=='MarkazAdmin'||auth()->user()->role=='SuperAdmin';
-}
+    {
+        abort_unless(((new User())->isSuperAdmin()) || ((new User())->isMarkazAdmin()), 403);
+    }
+    public static function shouldRegisterNavigation(): bool
+    {
+        return ((new User())->isSuperAdmin()) || ((new User())->isMarkazAdmin());
+    }
 }
