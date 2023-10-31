@@ -10,7 +10,7 @@ class StatesChart extends ChartWidget
 {
     protected static ?string $heading = 'State wise Applications recieved';
     protected static ?int $sort=3;
-    // protected  array|string|int $columnSpan=1;
+    protected  array|string|int $columnSpan='full';
 
     protected function getData(): array
     {
