@@ -2,6 +2,7 @@
 
 namespace App\Filament\Widgets;
 
+use App\Models\Office;
 use App\Models\StateAdmin;
 use App\Models\Student;
 use App\Models\UnitAdmin;
@@ -16,29 +17,30 @@ class UnitsChart extends ChartWidget
 
     protected function getData(): array
     {
-        $statesData = Student::with('office')
-        ->get()
-        ->pluck('office.unit_admin_id')
-        ->map(function ($stateAdminId) {
-            return $stateAdminId ? UnitAdmin::find($stateAdminId)->name : 'Unknown';
+        $stateAdminId = auth()->user()->id; // Replace with the actual state admin ID you want to retrieve data for
+    // Retrieve units associated with the specified state admin
+    $unitsData = Office::where('state_admin_id', $stateAdminId)
+        ->pluck('unit_admin_id')
+        ->map(function ($unitAdminId) {
+            return $unitAdminId ? UnitAdmin::find($unitAdminId)->name : 'Unknown';
         })
-        ->groupBy(function ($stateAdminId) {
-            return $stateAdminId ?: 'Unknown'; // Grouping by state_admin_id or Unknown if null
+        ->groupBy(function ($unitAdminId) {
+            return $unitAdminId ?: 'Unknown'; // Grouping by unit_admin_id or Unknown if null
         })
-        ->map(function ($students) {
-            return $students->count();
+        ->map(function ($units) {
+            return $units->count();
         });
 
-    $stateApplications = $statesData->toArray();
+    $unitApplications = $unitsData->toArray();
 
     return [
         'datasets' => [
             [
                 'label' => 'Applications received',
-                'data' => array_values($stateApplications),
+                'data' => array_values($unitApplications),
             ],
         ],
-        'labels' => array_keys($stateApplications),
+        'labels' => array_keys($unitApplications),
     ];
     }
 
