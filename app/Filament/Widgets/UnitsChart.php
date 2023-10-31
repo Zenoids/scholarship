@@ -4,22 +4,23 @@ namespace App\Filament\Widgets;
 
 use App\Models\StateAdmin;
 use App\Models\Student;
+use App\Models\UnitAdmin;
 use App\Models\User;
 use Filament\Widgets\ChartWidget;
 
-class StatesChart extends ChartWidget
+class UnitsChart extends ChartWidget
 {
-    protected static ?string $heading = 'State wise Applications recieved';
+    protected static ?string $heading = 'Applications per Unit';
+
     protected static ?int $sort=3;
-    protected  array|string|int $columnSpan='full';
 
     protected function getData(): array
     {
         $statesData = Student::with('office')
         ->get()
-        ->pluck('office.state_admin_id')
+        ->pluck('office.unit_admin_id')
         ->map(function ($stateAdminId) {
-            return $stateAdminId ? StateAdmin::find($stateAdminId)->name : 'Unknown';
+            return $stateAdminId ? UnitAdmin::find($stateAdminId)->name : 'Unknown';
         })
         ->groupBy(function ($stateAdminId) {
             return $stateAdminId ?: 'Unknown'; // Grouping by state_admin_id or Unknown if null
@@ -46,13 +47,9 @@ class StatesChart extends ChartWidget
         return 'bar';
     }
 
-    // private function getStudentsPerState():array
-    // {
-
-    // }
     public static function canView(): bool
     {
-        if ((new User())->isMarkazAdmin() || (new User())->isSuperAdmin()) {
+        if ((new User())->isStateAdmin()) {
             return true;
         } else {
             return false;
