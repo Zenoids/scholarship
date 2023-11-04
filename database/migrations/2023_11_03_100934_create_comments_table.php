@@ -11,19 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('approvals', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("user_id")->constrained()->cascadeOnDelete();
-            $table->foreignId("student_id")->constrained()->cascadeOnDelete();
-            $table->enum('approval_status',['pending','approved','rejected'])->default('pending');
-            $table->text('approval_comment');
-            $table->string('amount')->nullable();
+            $table->text('comment');
+            $table->foreignId('student_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('office_id')->nullable();
+            $table->foreignId('approval_id')->nullable();
             $table->enum('role',['Unit','State','MarkazAdmin','SuperAdmin']);
-
+            $table->enum('action',['transfer','approval']);
             $table->timestamps();
         });
-
-
     }
 
     /**
@@ -31,7 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('approvals');
-
+        Schema::dropIfExists('comments');
     }
 };

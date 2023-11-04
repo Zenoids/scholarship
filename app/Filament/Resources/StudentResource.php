@@ -4,25 +4,38 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\StudentResource\Pages;
 use App\Filament\Resources\StudentResource\RelationManagers;
+use App\Models\Approval;
+use App\Models\Comment;
 use App\Models\Course;
+use App\Models\Office;
 use App\Models\StateAdmin;
 use App\Models\Student;
 use App\Models\UnitAdmin;
 use App\Models\User;
+use Filament\Actions\Action as ActionsAction;
 use Filament\Forms;
+use Filament\Forms\Components\Actions\Action as ComponentsActionsAction;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Forms\Get;
 use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
+use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\Action as TablesActionsAction;
+use Filament\Tables\Actions\Modal\Actions\Action;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\HtmlString;
 
@@ -100,36 +113,14 @@ class StudentResource extends Resource
           TextEntry::make('incomes.ac_number')->label('Account Number'),
           TextEntry::make('incomes.name_ac_holder')->label('Name of Bank A/C holder'),
           TextEntry::make('incomes.ifsc')->label('IFSC Code'),
-           TextEntry::make('office.stateAdmin.name')->label('JIH State')
-    //        ->getStateUsing(function (Student $record): string {
-    //         $stateID=$record->offices->state_admin_id;
-    //         // dd($stateID);
-
-    //      return StateAdmin::where('id',$stateID)->pluck('name')->first();
-    //  })
-     ,
-           TextEntry::make('office.unitAdmin.name')->label('JIH Unit')
-        //    ->getStateUsing(function (Student $record): string {
-        //        $unitId=$record->offices->unit_admin_id;
-        //     //    dd($unitId);
-
-        //     return UnitAdmin::where('id',$unitId)->pluck('name')->first();
-        // })
-        ,
+           TextEntry::make('office.stateAdmin.name')->label('JIH State'),
+           TextEntry::make('office.unitAdmin.name')->label('JIH Unit'),
         ])->columns(2)     ->collapsed(),
 
         Section::make('Course Details')
-
         ->description('Current Course Pursuing Details')
         ->schema([
-           TextEntry::make('educations.course.name')
-        //    ->getStateUsing(function (Student $record): string {
-        //     // dd($record);
-        //     $courseId=$record->educations->course_id;
-
-        //     return Course::where('id',$courseId)->pluck('name')->first();
-        // })
-        ,
+           TextEntry::make('educations.course.name'),
            TextEntry::make('educations.course_year')->label('Course Year'),
            TextEntry::make('educations.branch_name')->label('Branch Name'),
            TextEntry::make('educations.course_period')->label('Course Period'),
@@ -179,6 +170,58 @@ class StudentResource extends Resource
           ImageEntry::make('uploads.passbook_file_path')->label('Bank Passbook')->columnSpanFull()->size(500),
                 // ->columnSpanFull(),
             ])->collapsed(),
+
+            Section::make('Approval Comments')
+
+            ->description('Find the comments by approveers')
+            ->schema([
+            //   TextEntry::make('approvals.approval_comment')->label('Comments')->columnSpanFull(),
+              TextEntry::make('approvals.approval_comment')->label('Unit Comments')->columnSpanFull()
+              ->state(function (Model $record): string {
+                $comment='no comments yet';
+                foreach ($record->approvals as $approval) {
+                    if ($approval->role === 'Unit') {
+                        $comment = $approval->approval_comment;
+                        // break;
+                    }
+                }
+                return $comment;
+            }),
+              TextEntry::make('approvals.approval_comment')->label(' State Comments')->columnSpanFull()
+              ->state(function (Model $record): string {
+                $comment='no comment';
+                foreach ($record->approvals as $approval) {
+                    if ($approval->role === 'State') {
+                        $comment = $approval->approval_comment;
+                        // break;
+                    }
+                }
+                return $comment;
+            }),
+              TextEntry::make('approvals.approval_comment')->label(' Markaz Comments')->columnSpanFull()
+              ->state(function (Model $record): string {
+                $comment='no comment';
+                foreach ($record->approvals as $approval) {
+                    if ($approval->role === 'MarkazAdmin') {
+                        $comment = $approval->approval_comment;
+                        // break;
+                    }
+                }
+                return $comment;
+            }),
+              TextEntry::make('approvals.approval_comment')->label(' SuperAdmin Comments')->columnSpanFull()
+              ->state(function (Model $record): string {
+                $comment='no comment';
+                foreach ($record->approvals as $approval) {
+                    if ($approval->role === 'SuperAdmin') {
+                        $comment = $approval->approval_comment;
+                        // break;
+                    }
+                }
+                return $comment;
+            }),
+                    // ->columnSpanFull(),
+                ])->collapsed(),
         ]);
 
 }
@@ -187,177 +230,164 @@ class StudentResource extends Resource
     {
         return $form
             ->schema([
-                // Forms\Components\Select::make('approval_status')->relationship('approvals','approval_status'),
-                // RichEditor::make('approval_status')->relationship('approvals','comment'),
-                // TextInput::make('user_id'),
-                // TextInput::make('user.email')->label('Email'),
-                // TextInput::make('first_name'),
-                // TextInput::make('last_name'),
-                // TextInput::make('fathers_name'),
-                // TextInput::make('adhaar'),
-                // TextInput::make('mobile'),
-                // TextInput::make('d_o_b')->label('Date of Birth'),
-                // TextInput::make('gender'),
-                // TextInput::make('religion'),
-                // TextInput::make('orphan_disability'),
-                // TextInput::make('addresses.house_number')->label('House Number'),
-                // TextInput::make('addresses.tahsil')->label('Tahsil'),
-                // TextInput::make('addresses.district')->label('District'),
-                // TextInput::make('addresses.state')->label('State'),
-                // TextInput::make('addresses.pincode')->label('Pincode'),
-                // TextInput::make('addresses.village_area')->label('Village/Area'),
-                // TextInput::make('incomes.ac_number')->label('Account Number'),
-                // TextInput::make('incomes.name_ac_holder')->label('Name of Bank A/C holder'),
-                // TextInput::make('incomes.ifsc')->label('IFSC Code'),
-                // RichEditor::make('approval_amounts')->relationship('amounts','comment'),
-            ]);
+                      ]);
     }
 
     public static function table(Table $table): Table
     {
+        $user = auth()->user();
+
         return $table
             ->columns([
-                // Tables\Columns\TextColumn::make('user_id'),
                 Tables\Columns\TextColumn::make('user.email')->label('Email'),
-                // Tables\Columns\TextColumn::make('first_name'),
-                // Tables\Columns\TextColumn::make('last_name'),
-                // Tables\Columns\TextColumn::make('fathers_name'),
-                // Tables\Columns\TextColumn::make('adhaar'),
                 Tables\Columns\TextColumn::make('mobile'),
-                // Tables\Columns\TextColumn::make('d_o_b')->label('Date of Birth'),
-                // Tables\Columns\TextColumn::make('gender'),
-                // Tables\Columns\TextColumn::make('religion'),
-                // Tables\Columns\TextColumn::make('orphan_disability'),
-                // Tables\Columns\TextColumn::make('addresses.house_number')->label('House Number'),
-                // Tables\Columns\TextColumn::make('addresses.tahsil')->label('Tahsil'),
-                // Tables\Columns\TextColumn::make('addresses.district')->label('District'),
                 Tables\Columns\TextColumn::make('addresses.state')->label('State')->searchable(),
-                // Tables\Columns\TextColumn::make('addresses.pincode')->label('Pincode'),
-                // Tables\Columns\TextColumn::make('addresses.village_area')->label('Village/Area'),
-                Tables\Columns\TextColumn::make('office.stateAdmin.name')->label('JIH State')->searchable()
-            //     ->getStateUsing(function (Student $record): string {
-            //         $stateID=$record->offices->state_admin_id;
-            //         // dd($stateID);
-
-            //      return StateAdmin::where('id',$stateID)->pluck('name')->first();
-            //  })
-             ,
-                Tables\Columns\TextColumn::make('office.unitAdmin.name')->label('JIH Unit')->searchable()
-                // ->getStateUsing(function (Student $record): string {
-                //     $unitId=$record->offices->unit_admin_id;
-                //  //    dd($unitId);
-
-                //  return UnitAdmin::where('id',$unitId)->pluck('name')->first();
-            //  })
-             ,
+                Tables\Columns\TextColumn::make('office.stateAdmin.name')->label('JIH State')->searchable(),
+                Tables\Columns\TextColumn::make('office.unitAdmin.name')->label('JIH Unit')->searchable(),
                 Tables\Columns\TextColumn::make('educations.course.name')->label('Course Name')->searchable(),
-                // ->getStateUsing(function (Student $record): string {
-                //     // dd($record);
-                //     $courseId=$record->educations->course_id;
-
-                //     return Course::where('id',$courseId)->pluck('name')->first();
-                // })
-
-                // ->getSearchResultsUsing(function (string $search): array {
-                //     return Course::query()
-                //         ->where(function (Builder $builder) use ($search) {
-                //             $searchString = "%$search%";
-                //             $builder->where('name', 'like', $searchString);
-                //        });
-                //     })
-
-                // Tables\Columns\TextColumn::make('educations.course_year')->label('Course Year'),
-                // Tables\Columns\TextColumn::make('educations.branch_name')->label('Branch Name'),
-                // Tables\Columns\TextColumn::make('educations.course_period')->label('Course Period'),
-                // Tables\Columns\TextColumn::make('educations.course_id')->label('Course Name'),
-                // Tables\Columns\TextColumn::make('educations.course_year')->label('Course Year'),
-                // Tables\Columns\TextColumn::make('educations.branch_name')->label('Branch Name'),
-                // Tables\Columns\TextColumn::make('educations.rank_entrance')->label('Entrance Rank'),
-                // Tables\Columns\TextColumn::make('educations.institute_name')->label('Institute Name'),
-
-                // Tables\Columns\TextColumn::make('incomes.ac_number')->label('Account Number'),
-                // Tables\Columns\TextColumn::make('incomes.name_ac_holder')->label('Name of Bank A/C holder'),
-                // Tables\Columns\TextColumn::make('incomes.ifsc')->label('IFSC Code'),
-                //  Tables\Columns\ImageColumn::make('uploads.adhaar_file_path')->label('adhaar'),
-                //  Tables\Columns\ImageColumn::make('uploads.image_file_path')->label('passbook'),
-                //  Tables\Columns\ImageColumn::make('uploads.image_file_path')->label('passbook'),
-                //  Tables\Columns\ImageColumn::make('uploads.image_file_path')->label('passbook'),
-                //  Tables\Columns\ImageColumn::make('uploads.image_file_path')->label('Image'),
-                //  Tables\Columns\ImageColumn::make('uploads.fees_file_path')->label('Course Fees'),
-                //  Tables\Columns\ImageColumn::make('uploads.adhaar_file_path')->label('Adhaar Card'),
-                //  Tables\Columns\ImageColumn::make('uploads.marks_file_path')->label('Marks'),
-                //  Tables\Columns\ImageColumn::make('uploads.passbook_file_path')->label('Bank Passbook'),
-
-
-
-                //  Tables\Columns\TextColumn::make('house_number')->relationship('addresses','student_addresses'),
-                //  Tables\Columns\TextColumn::make('house_type'),
-                //  Tables\Columns\TextColumn::make('district'),
-                //  Tables\Columns\TextColumn::make('tahsil'),
-                //  Tables\Columns\TextColumn::make('state'),
-                //  Tables\Columns\TextColumn::make('pincode'),
-                //  Tables\Columns\TextColumn::make('village_area'),
-
-                //  Tables\Columns\TextColumn::make('state_admin_id'),
-                //  Tables\Columns\TextColumn::make('unit_admin_id'),
-
-                //  Tables\Columns\TextColumn::make('course_id'),
-                //  Tables\Columns\TextColumn::make('course_year'),
-                //  Tables\Columns\TextColumn::make('branch_name'),
-                //  Tables\Columns\TextColumn::make('course_period'),
-                //  Tables\Columns\TextColumn::make('rank_entrance'),
-                //  Tables\Columns\TextColumn::make('institute_name'),
-                //  Tables\Columns\TextColumn::make('institute_locality'),
-                //  Tables\Columns\TextColumn::make('institute_district'),
-                //  Tables\Columns\TextColumn::make('institute_state'),
-
-
-                //  Tables\Columns\TextColumn::make('previous_course_name'),
-                //  Tables\Columns\TextColumn::make('previous_course_subjects'),
-                //  Tables\Columns\TextColumn::make('previous_hallticket'),
-                //  Tables\Columns\TextColumn::make('previous_course_institution'),
-                //  Tables\Columns\TextColumn::make('previous_course_marks'),
-                //  Tables\Columns\TextColumn::make('tenth_subjects'),
-                //  Tables\Columns\TextColumn::make('tenth_hallticket'),
-                //  Tables\Columns\TextColumn::make('tenth_institution'),
-                //  Tables\Columns\TextColumn::make('tenth_marks'),
-                //  Tables\Columns\TextColumn::make('inter_subjects'),
-                //  Tables\Columns\TextColumn::make('inter_hallticket'),
-                //  Tables\Columns\TextColumn::make('inter_institution'),
-                //  Tables\Columns\TextColumn::make('inter_marks'),
-
-
-
-                //  Tables\Columns\TextColumn::make('name_ac_holder'),
-                //  Tables\Columns\TextColumn::make('ac_number'),
-                //  Tables\Columns\TextColumn::make('bank_name'),
-                //  Tables\Columns\TextColumn::make('ac_branch'),
-                //  Tables\Columns\TextColumn::make('ifsc'),
-                //  Tables\Columns\TextColumn::make('fathers_monthly_income'),
-                //  Tables\Columns\TextColumn::make('fathers_occupation'),
-                //  Tables\Columns\TextColumn::make('expense_bearer'),
-                //  Tables\Columns\TextColumn::make('expense_bearer_monthly_income'),
-
-                //  Tables\Columns\TextColumn::make('image_file_path'),
-                //  Tables\Columns\TextColumn::make('fees_file_path'),
-                //  Tables\Columns\TextColumn::make('adhaar_file_path'),
-                //  Tables\Columns\TextColumn::make('marks_file_path'),
-                //  Tables\Columns\TextColumn::make('passbook_file_path'),
-
-
+                Tables\Columns\TextColumn::make('Unit_status')->label('Unit Status')
+                    ->state(function (Model $record): string {
+                        $status = 'pending';
+                        foreach ($record->approvals as $approval) {
+                            if ($approval->role === 'Unit') {
+                                $status = $approval->approval_status;
+                                // If you only need the first matching approval status, you can break the loop here
+                                break;
+                            }
+                        }
+                        return $status;
+                    })->color(fn (string $state): string => match ($state) {
+                    'pending' => 'gray',
+                    'approved' => 'success',
+                    'rejected' => 'danger',
+                }),
+                Tables\Columns\TextColumn::make('State_status')->label('State Status')
+                ->state(function (Model $record): string {
+                    $status = 'pending';
+        foreach ($record->approvals as $approval) {
+            if ($approval->role === 'State') {
+                $status = $approval->approval_status;
+                // If you only need the first matching approval status, you can break the loop here
+                break;
+            }
+        }
+        return $status;
+                })->color(fn (string $state): string => match ($state) {
+                'pending' => 'gray',
+                'approved' => 'success',
+                'rejected' => 'danger',
+            }),
+                Tables\Columns\TextColumn::make('Markaz_status')->label('Markaz Status')
+                ->state(function (Model $record): string {
+                    $status = 'pending';
+        foreach ($record->approvals as $approval) {
+            if ($approval->role === 'MarkazAdmin') {
+                $status = $approval->approval_status;
+                // If you only need the first matching approval status, you can break the loop here
+                break;
+            }
+        }
+        return $status;
+                })->color(fn (string $state): string => match ($state) {
+                'pending' => 'gray',
+                'approved' => 'success',
+                'rejected' => 'danger',
+            }),
+                Tables\Columns\TextColumn::make('SuperAdmin_status')->label('SuperADmin Status')
+                ->state(function (Model $record): string {
+                    $status = 'pending';
+        foreach ($record->approvals as $approval) {
+            if ($approval->role === 'SuperAdmin') {
+                $status = $approval->approval_status;
+                // If you only need the first matching approval status, you can break the loop here
+                break;
+            }
+        }
+        return $status;
+                })->color(fn (string $state): string => match ($state) {
+                'pending' => 'gray',
+                'approved' => 'success',
+                'rejected' => 'danger',
+            }),
             ])
             ->filters([
-    //             SelectFilter::make('Units')
-    // ->relationship('units', 'name')
-    // ->searchable(),
-    //             SelectFilter::make('states')
-    // ->relationship('states', 'name')
-    // ->searchable()
-
             ])
             ->actions([
-                // Tables\Actions\EditAction::make(),
                 Tables\Actions\ViewAction::make()->label(false),
+                Tables\Actions\Action::make('Approve Student')->label(false)->icon('heroicon-o-hand-thumb-up')
+                    ->form([
+                        Select::make('approval_status')
+                        ->options([
+                            'pending'=> 'pending',
+                            'approved' =>'approved',
+                            'rejected' =>'rejected'
+                        ]) ->live()->required(),
+                        TextInput::make('amount')->hidden(fn (Get $get) => $get('approval_status') !== 'approved')->numeric(),
+                            Textarea::make('approval_comment')->required(),
+
+                        // Repeater::make('comments')->schema([
+                        //     Textarea::make('comment')->required(),
+                        //     TextInput::make('user_id')->required()->hidden()->default($user->id),
+                        //     TextInput::make('role')->required()->hidden()->default($user->role),
+                        //     TextInput::make('action')->required()->hidden()->default('approval'),
+                        //                                  ])
+                        ])
+                    ->action(function (array $data, Student $record): void {
+                        // dd($data);
+
+                        $userID=auth()->user();
+                        $existingApproval = $record->approvals()->where('user_id', $userID->id)->first();
+                        $actionData = [
+                            'student_id' => $record->id,
+                            'user_id' => $userID->id,
+                            'role' => $userID->role,
+                            'approval_status' => $data['approval_status'],
+                            'approval_comment' => $data['approval_comment'],
+                        ];
+
+                        // Check if 'amount' exists in the $data array
+                        if (isset($data['amount'])) {
+                            // If 'amount' is present in $data, assign it to the $actionData array
+                            $actionData['amount'] = $data['amount'];
+                        } else {
+                            // If 'amount' is not present in $data, leave it empty or assign a default value
+                            $actionData['amount'] = ''; // You can assign an empty string or a default value as needed
+                        }
+                        if ($existingApproval) {
+                            // If an existing approval is found, update the existing record
+                            $existingApproval->update([
+                                'approval_status' => $data['approval_status'],
+                                'approval_comment' => $data['approval_comment'],
+                                // Update other fields as needed
+                            ]);
+                        }
+                        else{
+                            $approval = $record->approvals()->create($actionData);
+                        }
+
+
+
+                        // foreach ($data['comments'] as $comment) {
+                        //     $newComment = new Comment([
+                        //         'student_id' => $record->id,
+                        //         'comment' => $comment['comment'],
+                        //         'user_id' => $comment['user_id'],
+                        //         'role' => $comment['role'],
+                        //         'action' => $comment['action'],
+                        //     ]);
+
+                        //     $approval->comments()->save($newComment);
+                        // }
+
+                        // Save the changes
+                        $record->save();
+                        Notification::make()
+                        ->title('Status Updated')
+                        ->success()
+                        ->send();
+                    })
+
+
             ])
             ->bulkActions([
                 // Tables\Actions\BulkActionGroup::make([
@@ -365,7 +395,6 @@ class StudentResource extends Resource
                 // ]),
             ])
             ->emptyStateActions([
-                // Tables\Actions\CreateAction::make(),
             ]);
     }
 

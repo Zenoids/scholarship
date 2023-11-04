@@ -11,9 +11,10 @@ class Office extends Model
         'student_id',
         'state_admin_id',
         'unit_admin_id',
+
     ];
     use HasFactory;
-    public function students(){
+    public function student(){
         return $this->belongsTo(Student::class);
     }
     public function stateAdmin(){
@@ -21,5 +22,9 @@ class Office extends Model
     }
     public function unitAdmin(){
         return $this->belongsTo(UnitAdmin::class);
+    }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }

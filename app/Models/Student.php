@@ -42,7 +42,7 @@ class Student extends Model
         return $this->hasOne(StudentUploads::class);
     }
     public function approvals(){
-        return $this->hasOne(Approval::class);
+        return $this->hasMany(Approval::class);
     }
     public function amounts(){
         return $this->hasOne(ApprovalAmount::class);
@@ -58,4 +58,7 @@ class Student extends Model
         return $this->hasOne(Office::class);
     }
     //
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
 }

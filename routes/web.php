@@ -2,6 +2,7 @@
 
 use App\Livewire\ScholarshipForm;
 use App\Livewire\Terms;
+use App\Livewire\TransferForm;
 use App\Models\Student;
 use Illuminate\Support\Facades\Route;
 
@@ -37,5 +38,6 @@ Route::get('/thank-you', function(){
 
 // dd(empty($student));
 Route::get('/terms', Terms::class)->name('terms');
+Route::get('/transfer-student/{id}/edit', TransferForm::class)->name('transfer.student');
 
 require __DIR__.'/auth.php';

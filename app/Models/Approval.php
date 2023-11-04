@@ -8,10 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Approval extends Model
 {
     protected $fillable = [
-        'comment',
+
         'approval_status',
+        'approval_comment',
         'student_id',
         'user_id',
+        'amount',
+        'role',
     ];
     use HasFactory;
     public function students(){
@@ -22,6 +25,9 @@ class Approval extends Model
     }
     public function units(){
         return $this->belongsTo(UnitAdmin::class);
+    }
+    public function comments(){
+        return $this->hasMany(Comment::class);
     }
     public function markaz(){
         return $this->belongsTo(User::class)->where('role', 'MarkazAdmin');
