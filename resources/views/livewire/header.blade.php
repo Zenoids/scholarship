@@ -2,8 +2,8 @@
 
     <div class="bg-[#4A51A3]">
         <div            class=" container mx-auto md:h-8  w-full flex md:flex-row flex-col font-semibold justify-between items-center text-lg   text-white">
-            <div class="">Email: scholarship@jih.org</div>
-            <div class="">Tel:+91 7001333502</div>
+            <div class="">Email: scholarship@jih.org.in</div>
+            <div class="">Tel: +91 7001333502</div>
         </div>
     </div>
     <div class="bg-white">
