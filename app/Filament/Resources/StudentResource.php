@@ -239,8 +239,8 @@ class StudentResource extends Resource
 
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('user.email')->label('Email'),
-                Tables\Columns\TextColumn::make('mobile'),
+                Tables\Columns\TextColumn::make('user.email')->label('Email')->searchable(),
+                Tables\Columns\TextColumn::make('mobile')->searchable(),
                 Tables\Columns\TextColumn::make('addresses.state')->label('State')->searchable(),
                 Tables\Columns\TextColumn::make('office.stateAdmin.name')->label('JIH State')->searchable(),
                 Tables\Columns\TextColumn::make('office.unitAdmin.name')->label('JIH Unit')->searchable(),
