@@ -733,7 +733,7 @@
 
                                 <select class="{{ $forminputstyle }}" wire:model.live="selectedState">
                                     {{-- @dd($states) --}}
-                                    <option disabled>Select State</option>
+                                    <option value="">Select State</option>
                                     @foreach ($states as $state)
                                         <option  value="{{ $state->id }}">
                                             {{ $state->name }}
@@ -749,7 +749,7 @@
                                 <label class="{{ $formlabelstyle }}">Select District</label>
                                 @if (!is_null($selectedState))
                                     <select class="{{ $forminputstyle }}" wire:model.live="selectedDistrict">
-                                        <option disabled>Select District</option>
+                                        <option value="">Select District</option>
                                         @foreach ($districts as $district)
                                             <option  value="{{ $district->id }}">
                                                 {{ $district->name }}
