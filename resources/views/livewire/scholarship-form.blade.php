@@ -239,6 +239,7 @@
 
                                 <select name="course_id" id="course_id" class="{{ $forminputstyle }}"
                                     wire:model="course_id">
+                                    <option  value="">Select a Course</option>
                                     @foreach ($courses as $course)
                                         <option wire:key="{{ $course->id }}" value="{{ $course->id }}">
                                             {{ $course->name }}</option>
