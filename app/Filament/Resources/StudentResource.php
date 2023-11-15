@@ -172,7 +172,7 @@ class StudentResource extends Resource
            ->description('Search with the link to see full screen or zoom')
            ->schema([
 
-          TextEntry::make('uploads.image_file_path')->label('Course Fees link')->formatStateUsing(fn ($state) => asset('storage/' . $state))->columnSpanFull(),
+          TextEntry::make('uploads.image_file_path')->label('student Photo')->formatStateUsing(fn ($state) => asset('storage/' . $state))->columnSpanFull(),
           TextEntry::make('uploads.fees_file_path')->label('Course Fees link')->formatStateUsing(fn ($state) => asset('storage/' . $state))->columnSpanFull(),
           TextEntry::make('uploads.adhaar_file_path')->label('Adhaar Card link')->formatStateUsing(fn ($state) => asset('storage/' . $state))->columnSpanFull(),
           TextEntry::make('uploads.marks_file_path')->label('Previous MarksCard link')->formatStateUsing(fn ($state) => asset('storage/' . $state))->columnSpanFull(),
@@ -182,7 +182,7 @@ class StudentResource extends Resource
 
         ->description('pdfs are not visible here only images, for pdfs or zoomed images kindly see above section')
         ->schema([
-          ImageEntry::make('uploads.image_file_path')->label('Course Fees')->columnSpanFull()->size(500),
+          ImageEntry::make('uploads.image_file_path')->label('student photo')->columnSpanFull()->size(500),
           ImageEntry::make('uploads.fees_file_path')->label('Course Fees')->columnSpanFull()->size(500),
           ImageEntry::make('uploads.adhaar_file_path')->label('Adhaar Card')->columnSpanFull()->size(500),
           ImageEntry::make('uploads.marks_file_path')->label('Marks')->columnSpanFull()->size(500),
