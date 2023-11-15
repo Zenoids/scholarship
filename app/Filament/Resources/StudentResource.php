@@ -150,6 +150,23 @@ class StudentResource extends Resource
            TextEntry::make('previous.inter_institution')->label('Intermediate Institution'),
            TextEntry::make('previous.inter_marks')->label('Marks secured Intermediate'),
         ])->columns(2)     ->collapsed(),
+        Section::make('Bank & income Details')
+
+        ->description('Student Bank and Houshold income details')
+        ->schema([
+
+
+           TextEntry::make('incomes.name_ac_holder')->label('Name of account holder'),
+           TextEntry::make('incomes.bank_name')->label('Name of Bank'),
+           TextEntry::make('incomes.ac_branch')->label('Bank account branch'),
+           TextEntry::make('incomes.ac_number')->label('Bank Account Number'),
+           TextEntry::make('incomes.ifsc')->label('IFSC Code '),
+           TextEntry::make('incomes.fathers_occupation')->label('Fathers occupation'),
+           TextEntry::make('incomes.fathers_monthly_income')->label('Fathers monthly income'),
+           TextEntry::make('incomes.expense_bearer')->label('Expense Bearer'),
+           TextEntry::make('incomes.expense_bearer_monthly_income')->label('Expense bearer monthly income'),
+
+        ])->columns(2)     ->collapsed(),
            Section::make('Uploads')
 
            ->description('Search with the link to see full screen or zoom')
@@ -241,6 +258,8 @@ class StudentResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('user.email')->label('Email')->searchable(),
                 Tables\Columns\TextColumn::make('mobile')->searchable(),
+                Tables\Columns\TextColumn::make('first_name')->searchable(),
+                Tables\Columns\TextColumn::make('last_name')->searchable(),
                 Tables\Columns\TextColumn::make('addresses.state')->label('State')->searchable(),
                 Tables\Columns\TextColumn::make('office.stateAdmin.name')->label('JIH State')->searchable(),
                 Tables\Columns\TextColumn::make('office.unitAdmin.name')->label('JIH Unit')->searchable(),
