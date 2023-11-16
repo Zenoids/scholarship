@@ -206,9 +206,10 @@ class StudentResource extends Resource
                 }
                 return $comment;
             }),
+
               TextEntry::make('approvals.approval_comment')->label(' State Comments')->columnSpanFull()
               ->state(function (Model $record): string {
-                $comment='no comment';
+                $comment='no comment yet';
                 foreach ($record->approvals as $approval) {
                     if ($approval->role === 'State') {
                         $comment = $approval->approval_comment;
@@ -217,9 +218,10 @@ class StudentResource extends Resource
                 }
                 return $comment;
             }),
+
               TextEntry::make('approvals.approval_comment')->label(' Markaz Comments')->columnSpanFull()
               ->state(function (Model $record): string {
-                $comment='no comment';
+                $comment='no comment yet';
                 foreach ($record->approvals as $approval) {
                     if ($approval->role === 'MarkazAdmin') {
                         $comment = $approval->approval_comment;
@@ -228,19 +230,59 @@ class StudentResource extends Resource
                 }
                 return $comment;
             }),
-              TextEntry::make('approvals.approval_comment')->label(' SuperAdmin Comments')->columnSpanFull()
-              ->state(function (Model $record): string {
-                $comment='no comment';
-                foreach ($record->approvals as $approval) {
-                    if ($approval->role === 'SuperAdmin') {
-                        $comment = $approval->approval_comment;
-                        // break;
-                    }
-                }
-                return $comment;
-            }),
+
+            //   TextEntry::make('approvals.approval_comment')->label(' SuperAdmin Comments')->columnSpanFull()
+            //   ->state(function (Model $record): string {
+            //     $comment='no comment';
+            //     foreach ($record->approvals as $approval) {
+            //         if ($approval->role === 'SuperAdmin') {
+            //             $comment = $approval->approval_comment;
+            //             // break;
+            //         }
+            //     }
+            //     return $comment;
+            // }),
                     // ->columnSpanFull(),
                 ])->collapsed(),
+                Section::make('Approval ammount')
+
+                ->description('Find the approval amount for student by muqaam , state and markaz')
+                ->schema([
+                    TextEntry::make('approvals.amount')->label('Unit approved amount')->columnSpanFull()
+                    ->state(function (Model $record): string {
+                      $amount='No amount approved';
+                      foreach ($record->approvals as $approval) {
+                          if ($approval->role === 'Unit'&& $approval->amount>0) {
+                              $amount = $approval->amount;
+                              // break;
+                            }
+                      }
+                      return $amount;
+                  }),
+                  TextEntry::make('approvals.amount')->label('State approved amount')->columnSpanFull()
+                  ->state(function (Model $record): string {
+                    $amount='No amount approved';
+                    foreach ($record->approvals as $approval) {
+                        if ($approval->role === 'State'&& $approval->amount>0) {
+                            $amount = $approval->amount;
+                            // break;
+                        }
+                    }
+                    return $amount;
+                }),
+                TextEntry::make('approvals.amount')->label('Markaz approved amount')->columnSpanFull()
+                ->state(function (Model $record): string {
+                  $amount='No amount approved';
+                  foreach ($record->approvals as $approval) {
+                      if ($approval->role === 'MarkazAdmin'&& $approval->amount>0) {
+                          $amount = $approval->amount;
+                          // break;
+                      }
+                  }
+                  return $amount;
+              }),
+                    ])->collapsed(),
+
         ]);
 
 }
@@ -313,22 +355,22 @@ class StudentResource extends Resource
                 'approved' => 'success',
                 'rejected' => 'danger',
             }),
-                Tables\Columns\TextColumn::make('SuperAdmin_status')->label('SuperADmin Status')
-                ->state(function (Model $record): string {
-                    $status = 'pending';
-        foreach ($record->approvals as $approval) {
-            if ($approval->role === 'SuperAdmin') {
-                $status = $approval->approval_status;
-                // If you only need the first matching approval status, you can break the loop here
-                break;
-            }
-        }
-        return $status;
-                })->color(fn (string $state): string => match ($state) {
-                'pending' => 'gray',
-                'approved' => 'success',
-                'rejected' => 'danger',
-            }),
+        //         Tables\Columns\TextColumn::make('SuperAdmin_status')->label('SuperADmin Status')
+        //         ->state(function (Model $record): string {
+        //             $status = 'pending';
+        // foreach ($record->approvals as $approval) {
+        //     if ($approval->role === 'SuperAdmin') {
+        //         $status = $approval->approval_status;
+        //         // If you only need the first matching approval status, you can break the loop here
+        //         break;
+        //     }
+        // }
+        // return $status;
+        //         })->color(fn (string $state): string => match ($state) {
+        //         'pending' => 'gray',
+        //         'approved' => 'success',
+        //         'rejected' => 'danger',
+        //     }),
             ])
             ->filters([
             ])
@@ -352,62 +394,111 @@ class StudentResource extends Resource
                         //     TextInput::make('action')->required()->hidden()->default('approval'),
                         //                                  ])
                         ])
-                    ->action(function (array $data, Student $record): void {
-                        // dd($data);
+            //         ->action(function (array $data, Student $record): void {
+            //             // dd($data);
 
-                        $userID=auth()->user();
-                        $existingApproval = $record->approvals()->where('user_id', $userID->id)->first();
-                        $actionData = [
-                            'student_id' => $record->id,
-                            'user_id' => $userID->id,
-                            'role' => $userID->role,
-                            'approval_status' => $data['approval_status'],
-                            'approval_comment' => $data['approval_comment'],
-                        ];
+            //             $userID=auth()->user();
+            //             $existingApproval = $record->approvals()->where('user_id', $userID->id)->first();
+            //             $actionData = [
+            //                 'student_id' => $record->id,
+            //                 'user_id' => $userID->id,
+            //                 'role' => $userID->role,
+            //                 'approval_status' => $data['approval_status'],
+            //                 'approval_comment' => $data['approval_comment'],
+            //             ];
 
-                        // Check if 'amount' exists in the $data array
-                        if (isset($data['amount'])) {
-                            // If 'amount' is present in $data, assign it to the $actionData array
-                            $actionData['amount'] = $data['amount'];
-                        } else {
-                            // If 'amount' is not present in $data, leave it empty or assign a default value
-                            $actionData['amount'] = ''; // You can assign an empty string or a default value as needed
-                        }
-                        if ($existingApproval) {
-                            // If an existing approval is found, update the existing record
-                            $existingApproval->update([
-                                'approval_status' => $data['approval_status'],
-                                'approval_comment' => $data['approval_comment'],
-                                // Update other fields as needed
-                            ]);
-                        }
-                        else{
-                            $approval = $record->approvals()->create($actionData);
-                        }
-
-
-
-                        // foreach ($data['comments'] as $comment) {
-                        //     $newComment = new Comment([
-                        //         'student_id' => $record->id,
-                        //         'comment' => $comment['comment'],
-                        //         'user_id' => $comment['user_id'],
-                        //         'role' => $comment['role'],
-                        //         'action' => $comment['action'],
-                        //     ]);
-
-                        //     $approval->comments()->save($newComment);
-                        // }
-
-                        // Save the changes
-                        $record->save();
-                        Notification::make()
-                        ->title('Status Updated')
-                        ->success()
-                        ->send();
-                    })
+            //             // Check if 'amount' exists in the $data array
+            //             if (isset($data['amount'])) {
+            //                 // If 'amount' is present in $data, assign it to the $actionData array
+            //                 $actionData['amount'] = $data['amount'];
+            //             } else {
+            //                 // If 'amount' is not present in $data, leave it empty or assign a default value
+            //                 $actionData['amount'] = ''; // You can assign an empty string or a default value as needed
+            //             }
+            //             if ($existingApproval) {
+            //                 // If an existing approval is found, update the existing record
+            //                 $existingApproval->update([
+            //                     'approval_status' => $data['approval_status'],
+            //                     'approval_comment' => $data['approval_comment'],
+            //                     // Update other fields as needed
+            //                 ]);
+            //                 if (isset($data['amount'])) {
+            //                     // If 'amount' is present in $data, assign it to the $actionData array
+            //                     $existingApproval['amount'] = $data['amount'];
+            //                 } else {
+            //                     // If 'amount' is not present in $data, leave it empty or assign a default value
+            //                     $existingApproval['amount'] = ''; // You can assign an empty string or a default value as needed
+            //                 }
+            //             }
+            //             else{
+            //                 $approval = $record->approvals()->create($actionData);
+            //             }
 
 
+
+            //             // foreach ($data['comments'] as $comment) {
+            //             //     $newComment = new Comment([
+            //             //         'student_id' => $record->id,
+            //             //         'comment' => $comment['comment'],
+            //             //         'user_id' => $comment['user_id'],
+            //             //         'role' => $comment['role'],
+            //             //         'action' => $comment['action'],
+            //             //     ]);
+
+            //             //     $approval->comments()->save($newComment);
+            //             // }
+
+            //             // Save the changes
+            //             $record->save();
+            //             Notification::make()
+            //             ->title('Status Updated')
+            //             ->success()
+            //             ->send();
+            //         })
+
+
+            //
+            ->action(function (array $data, Student $record): void {
+                $userID = auth()->user();
+
+                // Find existing approval for the user
+                $existingApproval = $record->approvals()->where('user_id', $userID->id)->first();
+
+                // Prepare data for approval
+                $actionData = [
+                    'student_id' => $record->id,
+                    'user_id' => $userID->id,
+                    'role' => $userID->role,
+                    'approval_status' => $data['approval_status'],
+                    'approval_comment' => $data['approval_comment'],
+                ];
+
+                // Check if 'amount' exists in the $data array
+                if (isset($data['amount'])) {
+                    // If 'amount' is present in $data, assign it to the $actionData array
+                    $actionData['amount'] = $data['amount'];
+                } else {
+                    // If 'amount' is not present in $data, leave it empty or assign a default value
+                    $actionData['amount'] = null; // You can assign null or a default value as needed
+                }
+
+                // If an existing approval is found, update the existing record
+                if ($existingApproval) {
+                    $existingApproval->update($actionData);
+                } else {
+                    // If no existing approval, create a new one
+                    $approval = $record->approvals()->create($actionData);
+                }
+
+                // Save the changes
+                $record->save();
+
+                // You may want to check if $existingApproval or $approval exists before sending notifications
+                Notification::make()
+                    ->title('Status Updated')
+                    ->success()
+                    ->send();
+            })
             ])
             ->bulkActions([
                 // Tables\Actions\BulkActionGroup::make([
