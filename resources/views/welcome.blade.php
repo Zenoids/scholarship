@@ -37,16 +37,20 @@
     {{-- <livewire:hero-carousel /> --}}
     <div class="owl-carousel w-full  bg-[#4A51A3] h-screen">
         <div class="relative bg-center  bg-no-repeat flex flex-col justify-center items-center h-screen bg-cover"
-            style="background-image: url({{ asset('light.jpg') }})">
+            {{-- style="background-image: url({{ asset('light.jpg') }})"> --}}
+            style="background-image: url({{ asset('masjid.jpg') }})">
             <div class="absolute inset-0   bg-black opacity-50"></div>
             <h2 class="text-4xl text-center text-white font-bold relative mx-5 z-10">JIH SCHOLARSHIP PORTAL</h2>
-            <p class="text-4xl text-white text-center font-bold relative mx-5 z-10">Now Open for fresh Applications 2023</p>
-           <a href="/terms"> <button class="text-4xl text-[#4A51A3] font-bold mx-5 relative z-10 rounded-xl p-4  mt-5 bg-white"> Apply Now</button></a>
+            {{-- <p class="text-4xl text-white text-center font-bold relative mx-5 z-10">Now Open for fresh Applications 2023</p> --}}
+            <p class="text-4xl text-white text-center font-bold relative mx-5 z-10">Applications for 2023 are closed for now!</p>
+           {{-- <a href="/terms"> <button class="text-4xl text-[#4A51A3] font-bold mx-5 relative z-10 rounded-xl p-4  mt-5 bg-white"> Apply Now</button></a> --}}
         </div>
         <div class="relative bg-center  bg-no-repeat flex justify-center items-center h-screen bg-cover"
-            style="background-image: url({{ asset('masjid.jpg') }})">
+            {{-- style="background-image: url({{ asset('masjid.jpg') }})"> --}}
+            style="background-image: url({{ asset('light.jpg') }})">
             <div class="absolute inset-0 bg-black opacity-50"></div>
-            <h2 class="text-4xl text-white font-bold mx-5 text-center relative z-10">For All Eligible UG and PG students</h2>
+            {{-- <h2 class="text-4xl text-white font-bold mx-5 text-center relative z-10">For All Eligible UG and PG students</h2> --}}
+            <h2 class="text-4xl text-white font-bold mx-5 text-center relative z-10">The applications of students who applied for 2023 are under review,<br> once reviewed applicants will be notified or contacted on registered mail or phone </h2>
         </div>
 
 

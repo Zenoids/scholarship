@@ -28,8 +28,13 @@ Route::view('profile', 'profile')
     ->name('profile');
 
 
+//add logic to either use here or there.
+// Route::get('/apply', ScholarshipForm::class)->middleware(['auth']);
+Route::view('/apply','closed');
 
-Route::get('/apply', ScholarshipForm::class)->middleware(['auth']);
+// function(){
+//     return ('closed');
+// });
 
 Route::get('/thank-you', function(){
     return view('thankyou');
@@ -37,7 +42,9 @@ Route::get('/thank-you', function(){
 //         $student = Student::where('user_id', auth()->user()->id)->first();
 
 // dd(empty($student));
-Route::get('/terms', Terms::class)->name('terms');
-Route::get('/transfer-student/{id}/edit', TransferForm::class)->name('transfer.student');
+// Route::get('/terms', Terms::class)->name('terms');
+Route::view('/terms', 'closed');
+
+// Route::get('/transfer-student/{id}/edit', TransferForm::class)->name('transfer.student');
 
 require __DIR__.'/auth.php';
