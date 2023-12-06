@@ -12,7 +12,6 @@ use App\Models\StateAdmin;
 use App\Models\Student;
 use App\Models\UnitAdmin;
 use App\Models\User;
-use Barryvdh\DomPDF\Facade\Pdf;
 use Filament\Actions\Action as ActionsAction;
 use Filament\Forms;
 use Filament\Forms\Components\Actions\Action as ComponentsActionsAction;
@@ -38,7 +37,6 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\HtmlString;
 
 class StudentResource extends Resource
@@ -500,18 +498,7 @@ class StudentResource extends Resource
                     ->title('Status Updated')
                     ->success()
                     ->send();
-            }),
-            Tables\Actions\Action::make('pdf')
-            ->label('PDF')
-            ->color('success')
-            // ->icon('heroicon-arrow-down-tray')
-            ->action(function (Model $record) {
-                return response()->streamDownload(function () use ($record) {
-                    echo Pdf::loadHtml(
-                        Blade::render('exports.onestudent', ['record' => $record])
-                    )->stream();
-                }, $record->first_name . '.pdf');
-            }),
+            })
             ])
             ->bulkActions([
                 // Tables\Actions\BulkActionGroup::make([

@@ -1,13 +1,10 @@
 <?php
 
-use App\Http\Controllers\ExportController;
 use App\Livewire\ScholarshipForm;
 use App\Livewire\Terms;
 use App\Livewire\TransferForm;
 use App\Models\Student;
-use BaconQrCode\Encoder\QrCode;
 use Illuminate\Support\Facades\Route;
-use SimpleSoftwareIO\QrCode\Facades\QrCode as FacadesQrCode;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +18,6 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode as FacadesQrCode;
 */
 
 Route::view('/', 'welcome');
-
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
@@ -52,5 +48,3 @@ Route::view('/terms', 'closed');
 // Route::get('/transfer-student/{id}/edit', TransferForm::class)->name('transfer.student');
 
 require __DIR__.'/auth.php';
-
-Route::get('/export-pdf/{applicantid}',[ExportController::class,'exportSinglePdf'])->name('generate-pdf.single');
