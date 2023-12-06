@@ -71,7 +71,7 @@
 <hr>
 
 <h2> Uploads</h2>
-<img src="{!!$record->embedData(QrCode::format('png')->generate('Embed me into an e-mail!'), 'QrCode.png', 'image/png')!!}">
+{{-- <img src="{!!$record->embedData(QrCode::format('png')->generate('Embed me into an e-mail!'), 'QrCode.png', 'image/png')!!}">
 
 
 <img src="data:image/png;base64, {{ base64_encode(QrCode::format('png')->size(100)->generate('Make me into an QrCode!')) }} ">
@@ -83,4 +83,15 @@
 <div>adhaar_file_path: {{ QrCode::generate($record->uploads->adhaar_file_path)}}</div>
 <div>marks_file_path: {{ QrCode::generate($record->uploads->marks_file_path)}}</div>
 <div>passbook_file_path: {{ QrCode::generate($record->uploads->passbook_file_path)}}</div>
+
+<img src="{!!$record->embedData(QrCode::format('png')->generate('Embed me into an e-mail!'), 'QrCode.png', 'image/png')!!}"> --}}
+
+
+
+
+<div>Image: {{ $record->uploads->image_file_path}}</div>
+<div>fees_file_path: {{ $record->uploads->fees_file_path}}</div>
+<div>adhaar_file_path: {{ $record->uploads->adhaar_file_path}}</div>
+<div>marks_file_path: {{ $record->uploads->marks_file_path}}</div>
+<div>passbook_file_path: {{ $record->uploads->passbook_file_path}}</div>
 <hr>
