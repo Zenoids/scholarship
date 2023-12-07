@@ -35,6 +35,7 @@ use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\HtmlString;
@@ -262,8 +263,8 @@ class StudentResource extends Resource
                 Tables\Columns\TextColumn::make('mobile')->searchable(),
                 Tables\Columns\TextColumn::make('user.email')->label('Email')->searchable(),
                 Tables\Columns\TextColumn::make('addresses.state')->label('State')->searchable(),
-                Tables\Columns\TextColumn::make('office.stateAdmin.name')->label('JIH State')->searchable(),
-                Tables\Columns\TextColumn::make('office.unitAdmin.name')->label('JIH Unit')->searchable(),
+                Tables\Columns\TextColumn::make('office.stateAdmin.name')->label('JIH State')->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('office.unitAdmin.name')->label('JIH Unit')->searchable()->sortable(),
                 Tables\Columns\TextColumn::make('educations.course.name')->label('Course Name')->searchable(),
                 Tables\Columns\TextColumn::make('Unit_status')->label('Unit Status')
                     ->state(function (Model $record): string {
@@ -406,13 +407,27 @@ class StudentResource extends Resource
                         ->success()
                         ->send();
                     })
+,  Tables\Actions\Action::make('Download')
 
+->url(fn (Student $record): string => route('single.export', $record->id))->openUrlInNewTab()
+// ->url(fn (Volunteer $record): string => tap($record, fn($record) => dd($record))->route('exportSingleVolunteer', $record->id))
+
+,
 
             ])
             ->bulkActions([
                 // Tables\Actions\BulkActionGroup::make([
                 //     // Tables\Actions\DeleteBulkAction::make(),
                 // ]),
+                Tables\Actions\BulkAction::make('Download Selected')
+
+                ->action(function (Collection $records) {
+                    // Convert the array of IDs to a comma-separated string
+                    $idsString = implode(',', $records->pluck('id')->toArray());
+
+                    // Redirect to the select.export route with the string of IDs
+                    return redirect()->route('selected.export', ['ids' => $idsString]);
+                })
             ])
             ->emptyStateActions([
             ]);

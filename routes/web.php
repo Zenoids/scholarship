@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Livewire\ScholarshipForm;
 use App\Livewire\Terms;
 use App\Livewire\TransferForm;
@@ -35,6 +36,10 @@ Route::view('/apply','closed');
 // function(){
 //     return ('closed');
 // });
+
+Route::get('students/export/', [DashboardController::class, 'exportAll'])->name('all.export');
+Route::get('students/exportsingle/{id}', [DashboardController::class, 'exportSingle'])->name('single.export');
+Route::get('students/exportselected/{ids}', [DashboardController::class, 'exportSelected'])->name('selected.export');
 
 Route::get('/thank-you', function(){
     return view('thankyou');
