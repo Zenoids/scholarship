@@ -65,59 +65,59 @@
             <tr>
                 <td>{{$student->id}}</td>
                 <td>{{$student->user_id}}</td>
-                <td>{{$student->office->stateAdmin->name}}</td>
-                <td>{{$student->office->unitAdmin->name}}</td>
-                <td>{{$student->first_name}}</td>
-                <td>{{$student->last_name}}</td>
-                <td>{{$student->fathers_name}}</td>
-                <td>{{$student->d_o_b}}</td>
-                <td>{{$student->gender}}</td>
-                <td>{{$student->religion}}</td>
-                <td>{{$student->mobile}}</td>
-                <td>{{$student->adhaar}}</td>
-                <td>{{$student->orphan_disability}}</td>
-                <td>{{ $student->addresses->house_number}}</td>
-                <td>{{ $student->addresses->tahsil}}</td>
-                <td>{{ $student->addresses->district}}</td>
-                <td>{{ $student->addresses->state}}</td>
-                <td>{{ $student->addresses->pincode}}</td>
-                <td>{{ $student->addresses->village_area}}</td>
-                <td>{{ $student->educations->course->name}}</td>
-                <td>{{ $student->educations->course_year}}</td>
-                <td>{{ $student->educations->branch_name}}</td>
-                <td>{{ $student->educations->course_period}}</td>
-                <td>{{ $student->educations->rank_entrance}}</td>
-                <td>{{ $student->educations->institute_name}}</td>
-                <td>{{ $student->educations->institute_locality}}</td>
-                <td>{{ $student->educations->institute_district}}</td>
-                <td>{{ $student->educations->institute_state}}</td>
-                <td>{{ $student->previous->previous_course_name}}</td>
-                <td>{{ $student->previous->previous_course_subjects}}</td>
-                <td>{{ $student->previous->previous_hallticket}}</td>
-                <td>{{ $student->previous->previous_course_institution}}</td>
-                <td>{{ $student->previous->previous_course_marks}}</td>
-                <td>{{ $student->previous->tenth_subjects}}</td>
-                <td>{{ $student->previous->tenth_hallticket}}</td>
-                <td>{{ $student->previous->tenth_institution}}</td>
-                <td>{{ $student->previous->tenth_marks}}</td>
-                <td>{{ $student->previous->inter_subjects}}</td>
-                <td>{{ $student->previous->inter_hallticket}}</td>
-                <td>{{ $student->previous->inter_institution}}</td>
-                <td>{{ $student->previous->inter_marks}}</td>
-                <td>{{ $student->incomes->name_ac_holder}}</td>
-                <td>{{ $student->incomes->bank_name}}</td>
-                <td>{{ $student->incomes->ac_branch}}</td>
-                <td>{{ $student->incomes->ac_number}}</td>
-                <td>{{ $student->incomes->ifsc}}</td>
-                <td>{{ $student->incomes->fathers_occupation}}</td>
-                <td>{{ $student->incomes->fathers_monthly_income}}</td>
-                <td>{{ $student->incomes->expense_bearer}}</td>
-                <td>{{ $student->incomes->expense_bearer_monthly_income}}</td>
-                {{-- <td>{{ $student->uploads->image_file_path}}</td>
-                <td>{{ $student->uploads->fees_file_path}}</td>
-                <td>{{ $student->uploads->adhaar_file_path}}</td>
-                <td>{{ $student->uploads->marks_file_path}}</td>
-                <td>{{ $student->uploads->passbook_file_path}}</td> --}}
+                <td>{{$student->office->stateAdmin->name??""}}</td>
+                <td>{{$student->office->unitAdmin->name??""}}</td>
+                <td>{{$student->first_name??""}}</td>
+                <td>{{$student->last_name??""}}</td>
+                <td>{{$student->fathers_name??""}}</td>
+                <td>{{$student->d_o_b??""}}</td>
+                <td>{{$student->gender??""}}</td>
+                <td>{{$student->religion??""}}</td>
+                <td>{{$student->mobile??""}}</td>
+                <td>{{$student->adhaar??""}}</td>
+                <td>{{$student->orphan_disability??""}}</td>
+                <td>{{ $student->addresses->house_number??""}}</td>
+                <td>{{ $student->addresses->tahsil??""}}</td>
+                <td>{{ $student->addresses->district??""}}</td>
+                <td>{{ $student->addresses->state??""}}</td>
+                <td>{{ $student->addresses->pincode??""}}</td>
+                <td>{{ $student->addresses->village_area??""}}</td>
+                <td>{{ $student->educations->course->name??""}}</td>
+                <td>{{ $student->educations->course_year??""}}</td>
+                <td>{{ $student->educations->branch_name??""}}</td>
+                <td>{{ $student->educations->course_period??""}}</td>
+                <td>{{ $student->educations->rank_entrance??""}}</td>
+                <td>{{ $student->educations->institute_name??""}}</td>
+                <td>{{ $student->educations->institute_locality??""}}</td>
+                <td>{{ $student->educations->institute_district??""}}</td>
+                <td>{{ $student->educations->institute_state??""}}</td>
+                <td>{{ $student->previous->previous_course_name??""}}</td>
+                <td>{{ $student->previous->previous_course_subjects??""}}</td>
+                <td>{{ $student->previous->previous_hallticket??""}}</td>
+                <td>{{ $student->previous->previous_course_institution??""}}</td>
+                <td>{{ $student->previous->previous_course_marks??""}}</td>
+                <td>{{ $student->previous->tenth_subjects??""}}</td>
+                <td>{{ $student->previous->tenth_hallticket??""}}</td>
+                <td>{{ $student->previous->tenth_institution??""}}</td>
+                <td>{{ $student->previous->tenth_marks??""}}</td>
+                <td>{{ $student->previous->inter_subjects??""}}</td>
+                <td>{{ $student->previous->inter_hallticket??""}}</td>
+                <td>{{ $student->previous->inter_institution??""}}</td>
+                <td>{{ $student->previous->inter_marks??""}}</td>
+                <td>{{ $student->incomes->name_ac_holder??""}}</td>
+                <td>{{ $student->incomes->bank_name??""}}</td>
+                <td>{{ $student->incomes->ac_branch??""}}</td>
+                <td>{{ $student->incomes->ac_number??""}}</td>
+                <td>{{ $student->incomes->ifsc??""}}</td>
+                <td>{{ $student->incomes->fathers_occupation??""}}</td>
+                <td>{{ $student->incomes->fathers_monthly_income??""}}</td>
+                <td>{{ $student->incomes->expense_bearer??""}}</td>
+                <td>{{ $student->incomes->expense_bearer_monthly_income??""}}</td>
+                {{-- <td>{{ $student->uploads->image_file_path??""}}</td>
+                <td>{{ $student->uploads->fees_file_path??""}}</td>
+                <td>{{ $student->uploads->adhaar_file_path??""}}</td>
+                <td>{{ $student->uploads->marks_file_path??""}}</td>
+                <td>{{ $student->uploads->passbook_file_path}}</??""td> --}}
                 <td><a class="btn btn-outline-info" href="{{ asset('storage/' . $student->uploads->image_file_path) }}">View File</a></td>
                 <td><a class="btn btn-outline-info" href="{{ asset('storage/' . $student->uploads->fees_file_path) }}">View File</a></td>
                 <td><a class="btn btn-outline-info" href="{{ asset('storage/' . $student->uploads->adhaar_file_path) }}">View File</a></td>
