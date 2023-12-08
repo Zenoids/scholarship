@@ -118,11 +118,12 @@
                 <td>{{ $student->uploads->adhaar_file_path??""}}</td>
                 <td>{{ $student->uploads->marks_file_path??""}}</td>
                 <td>{{ $student->uploads->passbook_file_path}}</??""td> --}}
-                <td><a class="btn btn-outline-info" href="{{ asset('storage/' . $student->uploads->image_file_path) }}">View File</a></td>
-                <td><a class="btn btn-outline-info" href="{{ asset('storage/' . $student->uploads->fees_file_path) }}">View File</a></td>
-                <td><a class="btn btn-outline-info" href="{{ asset('storage/' . $student->uploads->adhaar_file_path) }}">View File</a></td>
-                <td><a class="btn btn-outline-info" href="{{ asset('storage/' . $student->uploads->marks_file_path) }}">View File</a></td>
-                <td><a class="btn btn-outline-info" href="{{ asset('storage/' . $student->uploads->passbook_file_path) }}">View File</a></td>
+                    <td><a class="btn btn-outline-info" href="{{ asset('storage/' . ($student->uploads->image_file_path ?? '#')) }}">View File</a></td>
+                    <td><a class="btn btn-outline-info" href="{{ asset('storage/' . ($student->uploads->fees_file_path ?? '#')) }}">View File</a></td>
+                    <td><a class="btn btn-outline-info" href="{{ asset('storage/' . ($student->uploads->adhaar_file_path ?? '#')) }}">View File</a></td>
+                    <td><a class="btn btn-outline-info" href="{{ asset('storage/' . ($student->uploads->marks_file_path ?? '#')) }}">View File</a></td>
+                    <td><a class="btn btn-outline-info" href="{{ asset('storage/' . ($student->uploads->passbook_file_path ?? '#')) }}">View File</a></td>
+
             </tr>
         @endforeach
     </tbody>
