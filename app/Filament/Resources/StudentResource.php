@@ -12,6 +12,7 @@ use App\Models\StateAdmin;
 use App\Models\Student;
 use App\Models\UnitAdmin;
 use App\Models\User;
+use App\Models\Verify;
 use Filament\Actions\Action as ActionsAction;
 use Filament\Forms;
 use Filament\Forms\Components\Actions\Action as ComponentsActionsAction;
@@ -196,6 +197,18 @@ class StudentResource extends Resource
             ->description('Find the comments by approveers')
             ->schema([
             //   TextEntry::make('approvals.approval_comment')->label('Comments')->columnSpanFull(),
+              TextEntry::make('verify.comment')->label('Verification Comments')->columnSpanFull()
+            //   ->state(function (Model $record): string {
+            //     $comment='no comments yet';
+            //     // foreach ($record->approvals as $approval) {
+            //     //     if ($approval->role === 'MarkazAdmin') {
+            //     //         $comment = $approval->approval_comment;
+            //     //         // break;
+            //     //     }
+            //     // }
+            //     return $comment;
+            // }),
+                        ,
               TextEntry::make('approvals.approval_comment')->label('Unit Comments')->columnSpanFull()
               ->state(function (Model $record): string {
                 $comment='no comments yet';
@@ -266,6 +279,25 @@ class StudentResource extends Resource
                 Tables\Columns\TextColumn::make('office.stateAdmin.name')->label('JIH State')->searchable()->sortable(),
                 Tables\Columns\TextColumn::make('office.unitAdmin.name')->label('JIH Unit')->searchable()->sortable(),
                 Tables\Columns\TextColumn::make('educations.course.name')->label('Course Name')->searchable(),
+                Tables\Columns\TextColumn::make('verify.status')->label('Verification Status')
+                    // ->state(function (Model $record): string {
+                    //     $status = 'Pending';
+                    //     // dd($record->verify);
+                    //     // foreach ($record->approvals as $approval) {
+                    //     //     if ($approval->role === 'MarkazAdmin') {
+                    //     //         $status = $approval->approval_status;
+                    //     //         // If you only need the first matching approval status, you can break the loop here
+                    //     //         break;
+                    //     //     }
+                    //     // }
+                    //     return $status;
+                    // })
+                    ->color(fn (string $state): string => match ($state) {
+                    'Pending' => 'gray',
+                    'Approved' => 'success',
+                    'Rejected' => 'danger',
+                }),
+                // if ($record->verify->status === 'Approved'){}
                 Tables\Columns\TextColumn::make('Unit_status')->label('Unit Status')
                     ->state(function (Model $record): string {
                         $status = 'pending';
@@ -333,9 +365,83 @@ class StudentResource extends Resource
             ])
             ->filters([
                 // SelectFilter::make('office')->relationship('office','state_admin_id')->options(StateAdmin::all()->pluck('name','id'))
+                // SelectFilter::make('verified')->relationship('verify','status')->options(Verify::all()->pluck('id','status'))
+                // Filter::make('verify.status')
             ])
             ->actions([
                 Tables\Actions\ViewAction::make()->label(false),
+                Tables\Actions\Action::make('verify')->label('Verify student')
+                    ->form([
+                        Select::make('status')
+                        ->options([
+                            'Pending'=> 'Pending',
+                            'Approved' =>'Approved',
+                            'Rejected' =>'Rejected'
+                        ]) ->live()->required(),
+
+                            Textarea::make('comment')->required(),
+
+                        // Repeater::make('comments')->schema([
+                        //     Textarea::make('comment')->required(),
+                        //     TextInput::make('user_id')->required()->hidden()->default($user->id),
+                        //     TextInput::make('role')->required()->hidden()->default($user->role),
+                        //     TextInput::make('action')->required()->hidden()->default('approval'),
+                        //                                  ])
+                        ])
+                    ->action(function (array $data, Student $record): void {
+                        // dd($data);
+
+                        $userID=auth()->user();
+                        $existingApproval = $record->verify()->where('user_id', $userID->id)->first();
+                        $actionData = [
+                            'student_id' => $record->id,
+                            'user_id' => $userID->id,
+                            // 'role' => $userID->role,
+                            'status' => $data['status'],
+                            'comment' => $data['comment'],
+                        ];
+
+                        // Check if 'amount' exists in the $data array
+                        // if (isset($data['amount'])) {
+                        //     // If 'amount' is present in $data, assign it to the $actionData array
+                        //     $actionData['amount'] = $data['amount'];
+                        // } else {
+                        //     // If 'amount' is not present in $data, leave it empty or assign a default value
+                        //     $actionData['amount'] = ''; // You can assign an empty string or a default value as needed
+                        // }
+                        if ($existingApproval) {
+                            // If an existing approval is found, update the existing record
+                            $existingApproval->update([
+                                'status' => $data['status'],
+                                'comment' => $data['comment'],
+                                // Update other fields as needed
+                            ]);
+                        }
+                        else{
+                            $approval = $record->verify()->create($actionData);
+                        }
+
+
+
+                        // foreach ($data['comments'] as $comment) {
+                        //     $newComment = new Comment([
+                        //         'student_id' => $record->id,
+                        //         'comment' => $comment['comment'],
+                        //         'user_id' => $comment['user_id'],
+                        //         'role' => $comment['role'],
+                        //         'action' => $comment['action'],
+                        //     ]);
+
+                        //     $approval->comments()->save($newComment);
+                        // }
+
+                        // Save the changes
+                        $record->save();
+                        Notification::make()
+                        ->title('Status Updated')
+                        ->success()
+                        ->send();
+                    }),
                 Tables\Actions\Action::make('Approve Student')->label(false)->icon('heroicon-o-hand-thumb-up')
                     ->form([
                         Select::make('approval_status')

@@ -54,6 +54,9 @@ class Student extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+    public function verify(){
+        return $this->hasOne(Verify::class);
+    }
     public function office(){
         return $this->hasOne(Office::class);
     }
