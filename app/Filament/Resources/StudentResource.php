@@ -280,24 +280,16 @@ class StudentResource extends Resource
                 Tables\Columns\TextColumn::make('office.unitAdmin.name')->label('JIH Unit')->searchable()->sortable(),
                 Tables\Columns\TextColumn::make('educations.course.name')->label('Course Name')->searchable(),
                 Tables\Columns\TextColumn::make('verify.status')->label('Verification Status')
-                    // ->state(function (Model $record): string {
-                    //     $status = 'Pending';
-                    //     // dd($record->verify);
-                    //     // foreach ($record->approvals as $approval) {
-                    //     //     if ($approval->role === 'MarkazAdmin') {
-                    //     //         $status = $approval->approval_status;
-                    //     //         // If you only need the first matching approval status, you can break the loop here
-                    //     //         break;
-                    //     //     }
-                    //     // }
-                    //     return $status;
-                    // })
+
                     ->color(fn (string $state): string => match ($state) {
                     'Pending' => 'gray',
                     'Approved' => 'success',
                     'Rejected' => 'danger',
                 }),
-                // if ($record->verify->status === 'Approved'){}
+                Tables\Columns\TextColumn::make('verify.user.name')->label('Verified by')
+
+
+            ,
                 Tables\Columns\TextColumn::make('Unit_status')->label('Unit Status')
                     ->state(function (Model $record): string {
                         $status = 'pending';
@@ -374,7 +366,10 @@ class StudentResource extends Resource
                             $subquery->where('status', 'Approved');
                         });
                     }
-                )
+                ),
+                // SelectFilter::make('office')->options(StateAdmin::all()->pluck('name','id')),
+
+
 
             ])
             ->actions([
@@ -451,7 +446,7 @@ class StudentResource extends Resource
                         ->success()
                         ->send();
                     }),
-                Tables\Actions\Action::make('Approve Student')->label(false)->icon('heroicon-o-hand-thumb-up')
+                Tables\Actions\Action::make('Approve Student')->color('success')
                     ->form([
                         Select::make('approval_status')
                         ->options([
@@ -523,7 +518,7 @@ class StudentResource extends Resource
                         ->success()
                         ->send();
                     })
-,  Tables\Actions\Action::make('Download')
+,  Tables\Actions\Action::make('Download')->icon('heroicon-o-arrow-down-tray')->label(false)
 
 ->url(fn (Student $record): string => route('single.export', $record->id))->openUrlInNewTab()
 // ->url(fn (Volunteer $record): string => tap($record, fn($record) => dd($record))->route('exportSingleVolunteer', $record->id))
