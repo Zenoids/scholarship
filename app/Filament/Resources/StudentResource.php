@@ -367,6 +367,15 @@ class StudentResource extends Resource
                 // SelectFilter::make('office')->relationship('office','state_admin_id')->options(StateAdmin::all()->pluck('name','id'))
                 // SelectFilter::make('verified')->relationship('verify','status')->options(Verify::all()->pluck('id','status'))
                 // Filter::make('verify.status')
+                // SelectFilter::make('Verified')->relationship('verify','status')
+                Filter::make("Verified")->query(
+                    function (Builder $query) : Builder {
+                        return $query->whereHas('verify', function ($subquery) {
+                            $subquery->where('status', 'Approved');
+                        });
+                    }
+                )
+
             ])
             ->actions([
                 Tables\Actions\ViewAction::make()->label(false),
