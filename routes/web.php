@@ -36,10 +36,14 @@ Route::view('/apply','closed');
 // function(){
 //     return ('closed');
 // });
-
+//excel
 Route::get('students/export/', [DashboardController::class, 'exportAll'])->name('all.export');
 Route::get('students/exportsingle/{id}', [DashboardController::class, 'exportSingle'])->name('single.export');
 Route::get('students/exportselected/{ids}', [DashboardController::class, 'exportSelected'])->name('selected.export');
+//pdf
+Route::get('students/export/pdf', [DashboardController::class, 'exportAllPdf'])->name('allpdf.export');
+Route::get('students/exportsingle/pdf/{id}', [DashboardController::class, 'exportSinglePdf'])->name('singlepdf.export');
+Route::get('students/exportselected/pdf/{ids}', [DashboardController::class, 'exportSelectedPdf'])->name('selectedpdf.export');
 
 Route::get('/thank-you', function(){
     return view('thankyou');
