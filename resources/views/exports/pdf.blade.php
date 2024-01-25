@@ -192,6 +192,7 @@ body, h1, h2, p {
         <ul class="list-group list-group-flush">
             <x-pdf-list key="Student id" :value="$student->id" />
             <x-pdf-list key="user id" :value="$student->user_id" />
+            <x-pdf-list key="Email" :value="$student->user->email" />
             <x-pdf-list key="JIH Stat" :value="$student->office->stateAdmin->name ?? '-'" />
             <x-pdf-list key="JIH Un" :value="$student->office->unitAdmin->name ?? '-'" />
             <x-pdf-list key="First Name" :value="$student->first_name ?? '-'" />
