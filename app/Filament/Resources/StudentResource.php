@@ -524,13 +524,16 @@ class StudentResource extends Resource
 // ->url(fn (Volunteer $record): string => tap($record, fn($record) => dd($record))->route('exportSingleVolunteer', $record->id))
 
 ,
+  Tables\Actions\Action::make('Download PDF')->icon('heroicon-o-document')->label("PDF")->url(fn (Student $record): string => route('singlepdf.export', $record->id))->openUrlInNewTab()
+
+
 
             ])
             ->bulkActions([
                 // Tables\Actions\BulkActionGroup::make([
                 //     // Tables\Actions\DeleteBulkAction::make(),
                 // ]),
-                Tables\Actions\BulkAction::make('Download Selected')
+                Tables\Actions\BulkAction::make('Download Excel')
 
                 ->action(function (Collection $records) {
                     // Convert the array of IDs to a comma-separated string
@@ -538,7 +541,17 @@ class StudentResource extends Resource
 
                     // Redirect to the select.export route with the string of IDs
                     return redirect()->route('selected.export', ['ids' => $idsString]);
-                })
+                }),
+                Tables\Actions\BulkAction::make('Download pdf')
+
+                ->action(function (Collection $records) {
+                    // Convert the array of IDs to a comma-separated string
+                    $idsString = implode(',', $records->pluck('id')->toArray());
+
+                    // Redirect to the select.export route with the string of IDs
+                    return redirect()->route('selectedpdf.export', ['ids' => $idsString]);
+                }),
+
             ])
             ->emptyStateActions([
             ]);
