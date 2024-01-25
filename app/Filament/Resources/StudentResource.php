@@ -541,7 +541,7 @@ class StudentResource extends Resource
 
                     // Redirect to the select.export route with the string of IDs
                     return redirect()->route('selected.export', ['ids' => $idsString]);
-                }),
+                })->openUrlInNewTab(),
                 Tables\Actions\BulkAction::make('Download pdf')
 
                 ->action(function (Collection $records) {
@@ -550,7 +550,7 @@ class StudentResource extends Resource
 
                     // Redirect to the select.export route with the string of IDs
                     return redirect()->route('selectedpdf.export', ['ids' => $idsString]);
-                }),
+                })->openUrlInNewTab(),
 
             ])
             ->emptyStateActions([
