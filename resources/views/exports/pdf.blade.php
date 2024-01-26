@@ -40,7 +40,7 @@
 
             <div class="row">
 
-                <div class="col-xs-6">
+                <div class="col-xs-4">
                     <h4>Personal Details</h4>
                     <ul class="list-group">
 
@@ -87,7 +87,7 @@
                     </ul>
 
                 </div>
-                <div class="col-xs-6 ">
+                <div class="col-xs-8 ">
                     <h4>Education Details</h4>
                     <ul class="list-group">
                         <x-pdf-list key="Course Name" :value="$student->educations->course->name ?? '-'" />
