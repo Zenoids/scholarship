@@ -5,11 +5,10 @@
 <div class="col-2"> {{$key}} </div><div class="col-10"> {{$value}}</div> --}}
 
 
-<li class="list-group-item-text" >
-    <span class="text-left">{{$key}}:</span>
+<li class="list-group-item" >
+    <span class="">{{$key}}:</span>
 
-    <span class="text-right"><b>
+    <span class="">
         {{$value}}
-        </b>
     </span>
 </li>
