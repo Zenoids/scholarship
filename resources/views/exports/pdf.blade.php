@@ -183,7 +183,7 @@ body {
                         </div>
                     </div>
                 </div>
-
+</div>
                 <div class="row">
                     <div class="">
                         <div class="qr-code-container">
