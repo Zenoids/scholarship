@@ -142,17 +142,17 @@
             <x-pdf-list key="Passbook File" :value="asset('storage/' . ($student->uploads->passbook_file_path ?? '#'))" /> --}}
 
                 <div class="row">
-                    <div class="col-md-4"><div class="">
+                    <div class="col-xs-4"><div class="">
                         <div>Image Uploaded
                         </div>
 
                             <img width="200px" src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(256)->generate(asset('storage/'.($student->uploads->image_file_path ?? '#')))) !!} ">
                     </div></div>
-                    <div class="col-md-4"><div class="">
+                    <div class="col-xs-4"><div class="">
                         <div class="">Fees File</div>
                         <img width="200px" src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(256)->generate(asset('storage/'.($student->uploads->fees_file_path ?? '#')))) !!} ">
                     </div></div>
-                    <div class="col-md-4"><div class="">
+                    <div class="col-xs-4"><div class="">
                         <div class="">Adhaar File</div>
                         <img width="200px" src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(256)->generate(asset('storage/'.($student->uploads->adhaar_file_path ?? '#')))) !!} ">
                     </div>
@@ -161,11 +161,11 @@
 
 
                   <div class="row">
-                    <div class="col-md-4"><div class="">
+                    <div class="col-xs-4"><div class="">
                         <div class="">Marks File</div>
                         <img width="200px" src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(256)->generate(asset('storage/'.($student->uploads->marks_file_path ?? '#')))) !!} ">
                     </div></div>
-                    <div class="col-md-4"><div class="">
+                    <div class="col-xs-4"><div class="">
                         <div class="">Passbook File</div>
                         <img width="200px" src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(256)->generate(asset('storage/'.($student->uploads->passbook_file_path ?? '#')))) !!} ">
                     </div></div>
