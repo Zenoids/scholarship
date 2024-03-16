@@ -158,7 +158,7 @@ body {
             <x-pdf-list key="Marks File" :value="asset('storage/' . ($student->uploads->marks_file_path ?? '#'))" />
             <x-pdf-list key="Passbook File" :value="asset('storage/' . ($student->uploads->passbook_file_path ?? '#'))" /> --}}
                 <div class="row">
-                    <div class="col-xs-4">
+                    <div class="">
                         <div class="qr-code-container">
                             <div class="qr-code-label">Image Uploaded</div>
                             <img width="200px" src="data:image/png;base64, {!! base64_encode(
@@ -166,7 +166,7 @@ body {
                             ) !!} ">
                         </div>
                     </div>
-                    <div class="col-xs-4">
+                    <div class="">
                         <div class="qr-code-container">
                             <div class="qr-code-label">Fees File</div>
                             <img width="200px" src="data:image/png;base64, {!! base64_encode(
@@ -174,7 +174,7 @@ body {
                             ) !!} ">
                         </div>
                     </div>
-                    <div class="col-xs-4">
+                    <div class="">
                         <div class="qr-code-container">
                             <div class="qr-code-label">Adhaar File</div>
                             <img width="200px" src="data:image/png;base64, {!! base64_encode(
@@ -185,7 +185,7 @@ body {
                 </div>
 
                 <div class="row">
-                    <div class="col-xs-4">
+                    <div class="">
                         <div class="qr-code-container">
                             <div class="qr-code-label">Marks File</div>
                             <img width="200px" src="data:image/png;base64, {!! base64_encode(
@@ -193,7 +193,7 @@ body {
                             ) !!} ">
                         </div>
                     </div>
-                    <div class="col-xs-4">
+                    <div class="">
                         <div class="qr-code-container">
                             <div class="qr-code-label">Passbook File</div>
                             <img width="200px" src="data:image/png;base64, {!! base64_encode(
