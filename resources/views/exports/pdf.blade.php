@@ -14,30 +14,13 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <style>
-        .page-break {
-            page-break-after: always;
-        }
-
-        hr {
-            display: block;
-            height: 1px;
-            background: transparent;
-            width: 100%;
-            border: none;
-            border-top: solid 1px #aaa;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-        }
         .qr-code-container {
     margin-bottom: 20px;
     border: 1px solid #ccc;
     padding: 10px;
     text-align: center;
     float: left;
-    width: calc(33.33% - 20px);
+    width: calc(33.33% - 20px); /* Adjust width to fit three QR codes in a row */
     box-sizing: border-box;
 }
 
@@ -46,12 +29,22 @@
     margin-bottom: 10px;
 }
 
-.col-xs-4 {
-    width: 33.33%;
-    float: left;
-    box-sizing: border-box;
-    padding-left: 10px;
-    padding-right: 10px;
+.page-break {
+    page-break-after: always;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    background: transparent;
+    width: 100%;
+    border: none;
+    border-top: solid 1px #aaa;
+}
+
+body {
+    margin: 0;
+    padding: 0;
 }
 
     </style>
