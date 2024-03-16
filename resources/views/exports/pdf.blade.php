@@ -144,29 +144,29 @@
     <div>Image Uploaded
     </div>
 
-        <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(256)->generate(asset('storage/'.($student->uploads->image_file_path ?? '#')))) !!} ">
+        <img width="200px" src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(256)->generate(asset('storage/'.($student->uploads->image_file_path ?? '#')))) !!} ">
 </div>
 
 
 <div class="">
     <div class="">Fees File</div>
-    <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(256)->generate(asset('storage/'.($student->uploads->fees_file_path ?? '#')))) !!} ">
+    <img width="200px" src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(256)->generate(asset('storage/'.($student->uploads->fees_file_path ?? '#')))) !!} ">
 </div>
 
                 {{-- {!! QrCode::size(256)->generate( asset('storage/' . ($student->uploads->fees_file_path ?? '#')) ) !!} --}}
 
 <div class="">
     <div class="">Adhaar File</div>
-    <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(256)->generate(asset('storage/'.($student->uploads->adhaar_file_path ?? '#')))) !!} ">
+    <img width="200px" src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(256)->generate(asset('storage/'.($student->uploads->adhaar_file_path ?? '#')))) !!} ">
 </div>
 
 <div class="">
     <div class="">Marks File</div>
-    <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(256)->generate(asset('storage/'.($student->uploads->marks_file_path ?? '#')))) !!} ">
+    <img width="200px" src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(256)->generate(asset('storage/'.($student->uploads->marks_file_path ?? '#')))) !!} ">
 </div>
 <div class="">
     <div class="">Passbook File</div>
-    <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(256)->generate(asset('storage/'.($student->uploads->passbook_file_path ?? '#')))) !!} ">
+    <img width="200px" src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(256)->generate(asset('storage/'.($student->uploads->passbook_file_path ?? '#')))) !!} ">
 </div>
 
 
