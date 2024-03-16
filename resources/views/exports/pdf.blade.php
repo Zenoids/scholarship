@@ -157,7 +157,7 @@
 
             <hr>
             <h4>Student Uploads</h4>
-            <ul class="list-group">
+
                 {{-- <x-pdf-list key="Image Uploaded" :value="asset('storage/' . ($student->uploads->image_file_path ?? '#'))" />
             <x-pdf-list key="Fees File" :value="asset('storage/' . ($student->uploads->fees_file_path ?? '#'))" />
             <x-pdf-list key="Adhaar File" :value="asset('storage/' . ($student->uploads->adhaar_file_path ?? '#'))" />
@@ -213,7 +213,7 @@
 
 
 
-            </ul>
+
             <hr>
             <h4>Verification Status</h4>
             <ul class="list-group list-group-flush">
