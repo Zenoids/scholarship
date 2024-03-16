@@ -23,6 +23,15 @@
     width: calc(20% - 20px); /* Adjust width to fit five QR codes in a row */
     box-sizing: border-box;
 }
+        .qr-code-container2 {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    float: left;
+    width: calc(20% - 20px); /* Adjust width to fit five QR codes in a row */
+    box-sizing: border-box;
+}
 
 .qr-code-label {
     font-weight: bold;
@@ -186,7 +195,7 @@ body {
 </div>
                 <div class="row">
                     <div class="">
-                        <div class="qr-code-container">
+                        <div class="qr-code-container2">
                             <div class="qr-code-label">Marks File</div>
                             <img width="200px" src="data:image/png;base64, {!! base64_encode(
                                 QrCode::format('png')->size(256)->generate(asset('storage/' . ($student->uploads->marks_file_path ?? '#'))),
@@ -194,7 +203,7 @@ body {
                         </div>
                     </div>
                     <div class="">
-                        <div class="qr-code-container">
+                        <div class="qr-code-container2">
                             <div class="qr-code-label">Passbook File</div>
                             <img width="200px" src="data:image/png;base64, {!! base64_encode(
                                 QrCode::format('png')->size(256)->generate(asset('storage/' . ($student->uploads->passbook_file_path ?? '#'))),
