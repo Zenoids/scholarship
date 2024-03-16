@@ -32,6 +32,11 @@
     width: calc(20% - 20px); /* Adjust width to fit five QR codes in a row */
     box-sizing: border-box;
 }
+.clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
 
 .qr-code-label {
     font-weight: bold;
@@ -166,7 +171,7 @@ body {
             <x-pdf-list key="Adhaar File" :value="asset('storage/' . ($student->uploads->adhaar_file_path ?? '#'))" />
             <x-pdf-list key="Marks File" :value="asset('storage/' . ($student->uploads->marks_file_path ?? '#'))" />
             <x-pdf-list key="Passbook File" :value="asset('storage/' . ($student->uploads->passbook_file_path ?? '#'))" /> --}}
-                <div class="row">
+                <div class="clearfix">
                     <div class="">
                         <div class="qr-code-container">
                             <div class="qr-code-label">Image Uploaded</div>
@@ -193,7 +198,7 @@ body {
                     </div>
                 </div>
 </div>
-                <div class="row">
+                <div class="clearfix">
                     <div class="">
                         <div class="qr-code-container2">
                             <div class="qr-code-label">Marks File</div>
