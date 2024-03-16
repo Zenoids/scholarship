@@ -20,7 +20,7 @@
     padding: 10px;
     text-align: center;
     float: left;
-    width: calc(33.33% - 20px); /* Adjust width to fit three QR codes in a row */
+    width: calc(20% - 20px); /* Adjust width to fit five QR codes in a row */
     box-sizing: border-box;
 }
 
@@ -46,6 +46,7 @@ body {
     margin: 0;
     padding: 0;
 }
+
 
     </style>
 </head>
@@ -182,7 +183,7 @@ body {
                         </div>
                     </div>
                 </div>
-<br>
+
                 <div class="row">
                     <div class="col-xs-4">
                         <div class="qr-code-container">
