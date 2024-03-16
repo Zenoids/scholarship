@@ -31,6 +31,29 @@
             margin: 0;
             padding: 0;
         }
+        .qr-code-container {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    float: left;
+    width: calc(33.33% - 20px);
+    box-sizing: border-box;
+}
+
+.qr-code-label {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.col-xs-4 {
+    width: 33.33%;
+    float: left;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
     </style>
 </head>
 
@@ -140,56 +163,52 @@
             <x-pdf-list key="Adhaar File" :value="asset('storage/' . ($student->uploads->adhaar_file_path ?? '#'))" />
             <x-pdf-list key="Marks File" :value="asset('storage/' . ($student->uploads->marks_file_path ?? '#'))" />
             <x-pdf-list key="Passbook File" :value="asset('storage/' . ($student->uploads->passbook_file_path ?? '#'))" /> --}}
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="qr-code-container">
+                            <div class="qr-code-label">Image Uploaded</div>
+                            <img width="200px" src="data:image/png;base64, {!! base64_encode(
+                                QrCode::format('png')->size(256)->generate(asset('storage/' . ($student->uploads->image_file_path ?? '#'))),
+                            ) !!} ">
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="qr-code-container">
+                            <div class="qr-code-label">Fees File</div>
+                            <img width="200px" src="data:image/png;base64, {!! base64_encode(
+                                QrCode::format('png')->size(256)->generate(asset('storage/' . ($student->uploads->fees_file_path ?? '#'))),
+                            ) !!} ">
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="qr-code-container">
+                            <div class="qr-code-label">Adhaar File</div>
+                            <img width="200px" src="data:image/png;base64, {!! base64_encode(
+                                QrCode::format('png')->size(256)->generate(asset('storage/' . ($student->uploads->adhaar_file_path ?? '#'))),
+                            ) !!} ">
+                        </div>
+                    </div>
+                </div>
 
-
-<div class="row">
-    <div class="col-xs-4">
-        <div class="">
-            <div>Image Uploaded</div>
-            <img width="200px" src="data:image/png;base64, {!! base64_encode(
-                QrCode::format('png')->size(256)->generate(asset('storage/' . ($student->uploads->image_file_path ?? '#'))),
-            ) !!} ">
-        </div>
-    </div>
-    <div class="col-xs-4">
-        <div class="">
-            <div class="">Fees File</div>
-            <img width="200px" src="data:image/png;base64, {!! base64_encode(
-                QrCode::format('png')->size(256)->generate(asset('storage/' . ($student->uploads->fees_file_path ?? '#'))),
-            ) !!} ">
-        </div>
-    </div>
-    <div class="col-xs-4">
-        <div class="">
-            <div class="">Adhaar File</div>
-            <img width="200px" src="data:image/png;base64, {!! base64_encode(
-                QrCode::format('png')->size(256)->generate(asset('storage/' . ($student->uploads->adhaar_file_path ?? '#'))),
-            ) !!} ">
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-xs-4">
-        <div class="">
-            <div class="">Marks File</div>
-            <img width="200px" src="data:image/png;base64, {!! base64_encode(
-                QrCode::format('png')->size(256)->generate(asset('storage/' . ($student->uploads->marks_file_path ?? '#'))),
-            ) !!} ">
-        </div>
-    </div>
-    <div class="col-xs-4">
-        <div class="">
-            <div class="">Passbook File</div>
-            <img width="200px" src="data:image/png;base64, {!! base64_encode(
-                QrCode::format('png')->size(256)->generate(asset('storage/' . ($student->uploads->passbook_file_path ?? '#'))),
-            ) !!} ">
-        </div>
-    </div>
-</div>
-
-
-                {{-- {!! QrCode::size(256)->generate( asset('storage/' . ($student->uploads->fees_file_path ?? '#')) ) !!} --}}
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="qr-code-container">
+                            <div class="qr-code-label">Marks File</div>
+                            <img width="200px" src="data:image/png;base64, {!! base64_encode(
+                                QrCode::format('png')->size(256)->generate(asset('storage/' . ($student->uploads->marks_file_path ?? '#'))),
+                            ) !!} ">
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="qr-code-container">
+                            <div class="qr-code-label">Passbook File</div>
+                            <img width="200px" src="data:image/png;base64, {!! base64_encode(
+                                QrCode::format('png')->size(256)->generate(asset('storage/' . ($student->uploads->passbook_file_path ?? '#'))),
+                            ) !!} ">
+                        </div>
+                    </div>
+                </div>
+                                {{-- {!! QrCode::size(256)->generate( asset('storage/' . ($student->uploads->fees_file_path ?? '#')) ) !!} --}}
 
 
 
