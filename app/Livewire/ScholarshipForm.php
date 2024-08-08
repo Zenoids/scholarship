@@ -153,7 +153,7 @@ class ScholarshipForm extends Component
             'previous_hallticket' => 'required',
             'previous_course_subjects' => 'required',
             'previous_course_institution' => 'required|min:3',
-            'previous_course_marks' => 'required',
+            'previous_course_marks' => 'required|max:2',
         ]);
 
 

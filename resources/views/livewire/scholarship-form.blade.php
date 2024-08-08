@@ -359,8 +359,8 @@
                             </div>
                             <div class="md:w-1/2 w-full mt-2 md:mt-3">
 
-                                <x-forminput label="Marks Achived Previously" name="previous_course_marks"
-                                    type="text" wire:model="previous_course_marks" />
+                                <x-forminput label="% Marks Achived Previously" name="previous_course_marks"
+                                    type="number" wire:model="previous_course_marks" max="99" min="1"/>
 
                             </div>
                             <div class="md:w-1/2 w-full mt-2 md:mt-3">
@@ -397,8 +397,11 @@
                         </div>
                         <div class="md:w-1/2 w-full mt-2 md:mt-3">
 
-                            <x-forminput label="Marks Achived " name="tenth_marks" type="text"
+                            <x-forminput label="% Marks Achived " name="tenth_marks" type="number"  max="99" min="1"
                                 wire:model="tenth_marks" />
+
+
+
 
                         </div>
                         <div class="md:w-1/2 w-full mt-2 md:mt-3">
@@ -436,7 +439,7 @@
                         </div>
                         <div class="md:w-1/2 w-full mt-2 md:mt-3">
 
-                            <x-forminput label="Marks Achived " name="inter_marks" type="text"
+                            <x-forminput label="% Marks Achived " name="inter_marks" type="number" max="99" min="1"
                                 wire:model="inter_marks" />
 
                         </div>
