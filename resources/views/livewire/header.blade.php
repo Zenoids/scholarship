@@ -12,8 +12,11 @@
             <div class="menu  md:flex hidden          md:flex-row flex-col justify-evenly text-xl font-bold ">
                 <a href="/" class="mx-5">Home</a>
                 {{-- <a href="#" class="mx-5">About</a> --}}
-                {{-- <a href="/terms" class="mx-5">Apply</a> --}}
-                {{-- <a href="/login" class="mx-5">Login</a> --}}
+               @if (App\Models\Scholarship::latest()->first()->status==true)
+
+               <a href="/terms" class="mx-5">Apply</a>
+               <a href="/login" class="mx-5">Login</a>
+               @endif
                 {{-- <a href="#" class="mx-5">Contact</a> --}}
 
             </div>
