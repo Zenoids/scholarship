@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Course;
 use App\Models\District;
+use App\Models\Scholarship;
 use App\Models\State;
 use App\Models\StateAdmin;
 use App\Models\Student;
@@ -306,6 +307,7 @@ class ScholarshipForm extends Component
             'gender' => $this->gender,
             'religion' => $this->religion,
             'orphan_disability' => $this->orphan_disability,
+            'scholarship_id'=>Scholarship::latest()->first()->id
 
         ]);
 

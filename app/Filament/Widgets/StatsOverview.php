@@ -22,7 +22,7 @@ class StatsOverview extends BaseWidget
     {
         return [
 
-            Stat::make('Students Registered',StudentResource::getEloquentQuery()->count())->description('with in your scope')
+            Stat::make('Students Registered',StudentResource::getEloquentQuery()->count())->description('Latest applications received with in your scope')
         ];
 
     }

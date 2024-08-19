@@ -8,9 +8,9 @@ use App\Models\Student;
 use App\Models\User;
 use Filament\Widgets\ChartWidget;
 
-class StatesChart extends ChartWidget
+class LatestStatesChart extends ChartWidget
 {
-    protected static ?string $heading = 'State wise All Applications recieved till now';
+    protected static ?string $heading = 'State wise Latest-Applications recieved';
     protected static ?int $sort=3;
     protected  array|string|int $columnSpan='full';
 
@@ -18,7 +18,7 @@ class StatesChart extends ChartWidget
     {
         $statesData = Student::with('office')
         ->get()
-        // ->where('student_id', Scholarship::latest()->first()->id)
+        ->where('scholarship_id', Scholarship::latest()->first()->id)
         ->pluck('office.state_admin_id')
         ->map(function ($stateAdminId) {
             return $stateAdminId ? StateAdmin::find($stateAdminId)->name : 'Unknown';

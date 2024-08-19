@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\ScholarshipResource\Pages;
 use App\Filament\Resources\ScholarshipResource\RelationManagers;
 use App\Models\Scholarship;
+use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -92,5 +93,14 @@ class ScholarshipResource extends Resource
             'create' => Pages\CreateScholarship::route('/create'),
             'edit' => Pages\EditScholarship::route('/{record}/edit'),
         ];
+    }
+
+    public function mount(): void
+    {
+        abort_unless(((new User())->isSuperAdmin()) || ((new User())->isMarkazAdmin()), 403);
+    }
+    public static function shouldRegisterNavigation(): bool
+    {
+        return ((new User())->isSuperAdmin()) || ((new User())->isMarkazAdmin());
     }
 }

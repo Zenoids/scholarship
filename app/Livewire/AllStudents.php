@@ -1,94 +1,46 @@
 <?php
 
-namespace App\Filament\Resources;
-
-use App\Filament\Resources\StudentResource\Pages;
-use App\Filament\Resources\StudentResource\RelationManagers;
-use App\Models\Approval;
-use App\Models\Comment;
-use App\Models\Course;
+namespace App\Livewire;
 use App\Models\Office;
-use App\Models\StateAdmin;
-use App\Models\Student;
 use App\Models\Scholarship;
+use App\Models\StateAdmin;
+use Filament\Notifications\Notification;
+use Filament\Tables\Filters\Filter;
+use Filament\Tables\Filters\SelectFilter;
+use Illuminate\Database\Eloquent\Collection;
+use Filament\Forms\Get;
+
+use App\Models\Student;
 use App\Models\UnitAdmin;
 use App\Models\User;
-use App\Models\Verify;
-use Filament\Actions\Action as ActionsAction;
-use Filament\Forms;
-use Filament\Forms\Components\Actions\Action as ComponentsActionsAction;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Components\Repeater;
-use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Form;
-use Filament\Forms\Get;
+use Filament\Forms\Concerns\InteractsWithForms;
+use Filament\Forms\Contracts\HasForms;
+use Filament\Infolists\Concerns\InteractsWithInfolists;
+use Filament\Tables;
+use Filament\Tables\Actions\Action;
+use Filament\Tables\Concerns\InteractsWithTable;
+use Filament\Tables\Contracts\HasTable;
+use Filament\Tables\Table;
 use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
-use Filament\Infolists\Infolist;
-use Filament\Notifications\Notification;
-use Filament\Resources\Resource;
-use Filament\Tables;
-use Filament\Tables\Actions\Action as TablesActionsAction;
-use Filament\Tables\Actions\Modal\Actions\Action;
-use Filament\Tables\Filters\Filter;
-use Filament\Tables\Filters\SelectFilter;
-use Filament\Tables\Table;
+use Filament\Infolists\Infolist;use Livewire\Component;
+use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Illuminate\Support\HtmlString;
 
-class StudentResource extends Resource
+class AllStudents extends Component implements HasForms, HasTable,HasActions
 {
-    protected static ?string $model = Student::class;
+    use InteractsWithForms;
+    use InteractsWithActions;
+    use InteractsWithTable;
+    use InteractsWithInfolists;
 
-
-    protected static ?string $navigationIcon = 'heroicon-o-academic-cap';
-
-    public static function getEloquentQuery(): Builder
-    {
-               $user = auth()->user(); // Get the authenticated user
-               $latestScholarshipId=Scholarship::latest()->first()->id;
-
-            //    dd($latestScholarshipId);
-
-        if ((new User())->isStateAdmin()) {
-            $stateID = $user->stateadmins->id;
-        //     // $stateID=auth()->user()->stateAdmin->state_id;
-
-        return parent::getEloquentQuery()->where('scholarship_id',  $latestScholarshipId)->whereHas('office', function ($query) use ($stateID) {
-            $query->where('state_admin_id', $stateID);
-        });
-                }
-        //
-        if((new User())->isUnitAdmin()){
-            $CID=$user->unitadmins
-            ->where('user_id',$user->id)
-            ->first()->id
-            ;
-            return parent::getEloquentQuery()->where('scholarship_id',  $latestScholarshipId)->whereHas('office', function ($query) use ($CID) {
-                $query->where('unit_admin_id', $CID);
-            });
-        }
-        if(((new User())->isSuperAdmin())||((new User())->isMarkazAdmin()))
-        // if(($user && $user->role=="SuperAdmin")||($user && $user->role=="MarkazAdmin"))
-    // dd($query);
-        {
-            // dd($latestScholarshipId->id);
-            // dd(parent::getEloquentQuery()->where('scholarship_id', $latestScholarshipId));
-
-        return parent::getEloquentQuery()->where('scholarship_id',  $latestScholarshipId);
-        }
-
-    }
-    public static function getNavigationLabel(): string
-{
-    return 'Latest applications';
-}
 
     public static function infolist(Infolist $infolist): Infolist
 {
@@ -223,7 +175,7 @@ class StudentResource extends Resource
             // }),
                         ,
               TextEntry::make('approvals.approval_comment')->label('Unit Comments')->columnSpanFull()
-              ->state(function (Model $record): string {
+              ->state(function (Student $record): string {
                 $comment='no comments yet';
                 foreach ($record->approvals as $approval) {
                     if ($approval->role === 'Unit') {
@@ -234,7 +186,7 @@ class StudentResource extends Resource
                 return $comment;
             }),
               TextEntry::make('approvals.approval_comment')->label(' State Comments')->columnSpanFull()
-              ->state(function (Model $record): string {
+              ->state(function (Student $record): string {
                 $comment='no comment';
                 foreach ($record->approvals as $approval) {
                     if ($approval->role === 'State') {
@@ -245,7 +197,7 @@ class StudentResource extends Resource
                 return $comment;
             }),
               TextEntry::make('approvals.approval_comment')->label(' Markaz Comments')->columnSpanFull()
-              ->state(function (Model $record): string {
+              ->state(function (Student $record): string {
                 $comment='no comment';
                 foreach ($record->approvals as $approval) {
                     if ($approval->role === 'MarkazAdmin') {
@@ -256,7 +208,7 @@ class StudentResource extends Resource
                 return $comment;
             }),
               TextEntry::make('approvals.approval_comment')->label(' SuperAdmin Comments')->columnSpanFull()
-              ->state(function (Model $record): string {
+              ->state(function (Student $record): string {
                 $comment='no comment';
                 foreach ($record->approvals as $approval) {
                     if ($approval->role === 'SuperAdmin') {
@@ -272,18 +224,30 @@ class StudentResource extends Resource
 
 }
 
-    public static function form(Form $form): Form
-    {
-        return $form
-            ->schema([
-                      ]);
-    }
+
 
     public static function table(Table $table): Table
     {
         $user = auth()->user();
+              // Start the query for the Student model
+        $query = Student::query();
 
+        if ($user->isStateAdmin()) {
+            $stateID = $user->stateadmins->id;
+            $query->whereHas('office', function ($query) use ($stateID) {
+                $query->where('state_admin_id', $stateID);
+            });
+        } elseif ($user->isUnitAdmin()) {
+            $CID = $user->unitadmins->where('user_id', $user->id)->first()->id;
+            $query->whereHas('office', function ($query) use ($CID) {
+                $query->where('unit_admin_id', $CID);
+            });
+        } elseif ($user->isSuperAdmin() || $user->isMarkazAdmin()) {
+            // No additional conditions needed for SuperAdmin or MarkazAdmin
+            // The query already includes filtering by scholarship_id
+        }
         return $table
+        ->query( $query)
             ->columns([
                 Tables\Columns\TextColumn::make('user.name')->label('Name')->searchable(),
                 Tables\Columns\TextColumn::make('mobile')->searchable(),
@@ -304,7 +268,7 @@ class StudentResource extends Resource
 
             ,
                 Tables\Columns\TextColumn::make('Unit_status')->label('Unit Status')
-                    ->state(function (Model $record): string {
+                    ->state(function (Student $record): string {
                         $status = 'pending';
                         foreach ($record->approvals as $approval) {
                             if ($approval->role === 'Unit') {
@@ -320,7 +284,7 @@ class StudentResource extends Resource
                     'rejected' => 'danger',
                 }),
                 Tables\Columns\TextColumn::make('State_status')->label('State Status')
-                ->state(function (Model $record): string {
+                ->state(function (Student $record): string {
                     $status = 'pending';
         foreach ($record->approvals as $approval) {
             if ($approval->role === 'State') {
@@ -336,7 +300,7 @@ class StudentResource extends Resource
                 'rejected' => 'danger',
             }),
                 Tables\Columns\TextColumn::make('Markaz_status')->label('Markaz Status')
-                ->state(function (Model $record): string {
+                ->state(function (Student $record): string {
                     $status = 'pending';
         foreach ($record->approvals as $approval) {
             if ($approval->role === 'MarkazAdmin') {
@@ -352,7 +316,7 @@ class StudentResource extends Resource
                 'rejected' => 'danger',
             }),
                 Tables\Columns\TextColumn::make('SuperAdmin_status')->label('SuperADmin Status')
-                ->state(function (Model $record): string {
+                ->state(function (Student $record): string {
                     $status = 'pending';
         foreach ($record->approvals as $approval) {
             if ($approval->role === 'SuperAdmin') {
@@ -380,6 +344,12 @@ class StudentResource extends Resource
                         });
                     }
                 ),
+
+                SelectFilter::make('scholarship')
+                ->label('Select Scholarship')
+                ->relationship('scholarship', 'name') // Assuming the Scholarship model has a 'name' field
+                ->options(Scholarship::all()->pluck('name', 'id'))
+                ->searchable(), // Makes the
                 // SelectFilter::make('office')->options(StateAdmin::all()->pluck('name','id')),
 
 
@@ -566,23 +536,9 @@ class StudentResource extends Resource
                 })->openUrlInNewTab(),
 
             ])
+            // ->recordAction(Tables\Actions\ViewAction::class)
+
             ->emptyStateActions([
             ]);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
-
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListStudents::route('/'),
-            // 'create' => Pages\CreateStudent::route('/create'),
-            // 'edit' => Pages\EditStudent::route('/{record}/edit'),
-        ];
     }
 }

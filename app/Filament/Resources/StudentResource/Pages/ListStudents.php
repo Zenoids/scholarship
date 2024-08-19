@@ -10,6 +10,11 @@ class ListStudents extends ListRecords
 {
     protected static string $resource = StudentResource::class;
 
+    protected ?string $heading = 'latest scholarship applications';
+    // protected static ?string $navigationLabel = 'Latest Applications';
+
+
+
     protected function getHeaderActions(): array
     {
         return [

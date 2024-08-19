@@ -13,7 +13,7 @@ class AllAppsOverview extends BaseWidget
     {
         return [
             //
-            Stat::make('Total Students Registered',Student::count())
+            Stat::make('Total Applications Received',Student::count())
         ];
     }
     public static function canView(): bool
