@@ -50,8 +50,7 @@
 
 
                                     <div class="flex  flex-col w-full">
-                                        <h1 class="text-center text-2xl font-semibold">UG/ PG Scholarship Program:
-                                            2023-24
+                                        <h1 class="text-center text-2xl font-semibold">{{App\Models\Scholarship::latest()->first()->name}}
                                         </h1>
 
                                     </div>
