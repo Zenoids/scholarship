@@ -18,6 +18,7 @@ class Student extends Model
         'mobile',
         'adhaar',
         'orphan_disability',
+        'scholarship_id',
             ];
     use HasFactory;
     public function units(){
@@ -53,6 +54,9 @@ class Student extends Model
 
     public function user(){
         return $this->belongsTo(User::class);
+    }
+    public function scholarship(){
+        return $this->belongsTo(Scholarship::class);
     }
     public function verify(){
         return $this->hasOne(Verify::class);
