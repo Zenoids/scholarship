@@ -375,7 +375,8 @@ class StudentResource extends Resource
                 // SelectFilter::make('Verified')->relationship('verify','status')
                 Filter::make("Verified")->query(
                     function (Builder $query) : Builder {
-                        return $query->where('scholarship_id',Scholarship::latest()->first()->id)->whereHas('verify', function ($subquery) {
+                        $latestScholarship = Scholarship::latest()->first()->id;
+                        return $query->where('scholarship_id',$latestScholarship)->whereHas('verify', function ($subquery) {
                             $subquery->where('status', 'Approved');
                         });
                     }
