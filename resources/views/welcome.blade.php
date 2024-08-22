@@ -46,7 +46,7 @@
             <a href="/terms"> <button class="text-4xl text-[#4A51A3] font-bold mx-5 relative z-10 rounded-xl p-4  mt-5 bg-white"> Apply Now</button></a>
 
             @else
-            <p class="text-4xl text-white text-center font-bold relative mx-5 z-10">Applications for 2023 are closed for now!</p>
+            <p class="text-4xl text-white text-center font-bold relative mx-5 z-10">Applications for {{App\Models\Scholarship::latest()->first()->name}} are closed for now!</p>
 
             @endif
         </div>
