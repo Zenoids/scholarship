@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Comment;
 use App\Models\Office;
+use App\Models\Scholarship;
 use App\Models\StateAdmin;
 use App\Models\Student;
 use App\Models\UnitAdmin;
@@ -35,9 +36,14 @@ class StudentOfficeList extends Component implements HasForms, HasTable,HasActio
 
     public function table(Table $table): Table
     {
+        $latestScholarship = Scholarship::latest()->first()->id;
+
+        // dd();
         $user=auth()->user();
         return $table
-            ->query(Office::query())
+            ->query(Office::query()->whereHas('student', function (Builder $query) use ($latestScholarship) {
+                $query->where('scholarship_id', $latestScholarship);
+            }))
             ->columns([
                 //
                 Tables\Columns\TextColumn::make('student.user.name')->label('Student Name')

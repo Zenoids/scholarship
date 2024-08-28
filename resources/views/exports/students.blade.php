@@ -3,6 +3,7 @@
         <tr>
             <th>Student id: </th>
             <th>user id: </th>
+            <th>Scholarship: </th>
             <th>JIH State </th>
             <th>JIH Unit</th>
             <th>First Name: </th>
@@ -65,6 +66,7 @@
             <tr>
                 <td>{{$student->id}}</td>
                 <td>{{$student->user_id}}</td>
+                <td>{{$student->scholarship->name??""}}</td>
                 <td>{{$student->office->stateAdmin->name??""}}</td>
                 <td>{{$student->office->unitAdmin->name??""}}</td>
                 <td>{{$student->first_name??""}}</td>

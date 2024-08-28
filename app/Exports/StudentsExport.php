@@ -34,7 +34,7 @@ class StudentsExport implements FromView
         // dd($query->with('state', 'parliament_seat', 'assembly_constituency')->get());
         return view('exports.students', [
             // 'students' => $query->with('state', 'parliament_seat', 'assembly_constituency')->get()
-            'students' => $query->with(['units','states','addresses','incomes','educations','previous','uploads','user','verify','office','comments'])->get()
+            'students' => $query->with(['units','states','addresses','incomes','educations','previous','uploads','user','verify','office','comments', 'scholarship'])->get()
             // 'volunteers' => $query->with('state_id', 'seat_id', 'constituency_id')->get()
         ]);
     }

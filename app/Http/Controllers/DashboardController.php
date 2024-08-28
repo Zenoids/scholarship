@@ -48,14 +48,14 @@ class DashboardController extends Controller
 
         //     // 'volunteers' => $query->with('state_id', 'seat_id', 'constituency_id')->get()
         // ]);
-        $pdf = Pdf::loadView('exports.pdf', ['students' => $query->with(['units','states','addresses','incomes','educations','previous','uploads','user','verify','office','comments'])->get()]);
+        $pdf = Pdf::loadView('exports.pdf', ['students' => $query->with(['units','states','addresses','incomes','educations','previous','uploads','user','verify','office','comments','scholarship'])->get()]);
         return $pdf->download('allStudents.pdf');
 
     }
     public function exportSinglePdf($studentid){
         $query = Student::query();
         $query->where('id', $studentid);
-        $pdf = Pdf::loadView('exports.pdf', ['students' => $query->with(['units','states','addresses','incomes','educations','previous','uploads','user','verify','office','comments'])->get()]);
+        $pdf = Pdf::loadView('exports.pdf', ['students' => $query->with(['units','states','addresses','incomes','educations','previous','uploads','user','verify','office','comments','scholarship'])->get()]);
         return $pdf->download('student'.$studentid.'.pdf');
     }
     public function exportSelectedPdf($ids){
@@ -69,7 +69,7 @@ class DashboardController extends Controller
             abort(404); // or handle the situation when no records are found
         }
 
-        $pdf = Pdf::loadView('exports.pdf', ['students' => $query->with(['units','states','addresses','incomes','educations','previous','uploads','user','verify','office','comments'])->get()]);
+        $pdf = Pdf::loadView('exports.pdf', ['students' => $query->with(['units','states','addresses','incomes','educations','previous','uploads','user','verify','office','comments','scholarship'])->get()]);
         return $pdf->download('selected_students.pdf');
 
     }

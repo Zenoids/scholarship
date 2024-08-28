@@ -87,6 +87,7 @@ body {
 
 
                 <x-pdf-list key="APPLICATION id" :value="$student->id" />
+                <x-pdf-list key="Scholarship" :value="$student->scholarship->name??'-'" />
                 <x-pdf-list key="User id" :value="$student->user_id" />
                 <x-pdf-list key="JIH State" :value="$student->office->stateAdmin->name ?? '-'" />
                 <x-pdf-list key="JIH Unit" :value="$student->office->unitAdmin->name ?? '-'" />
