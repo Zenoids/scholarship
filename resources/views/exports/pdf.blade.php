@@ -68,7 +68,7 @@ body {
 <body>
     @foreach ($students as $key => $student)
         <h1 class="text-center">JIH Scholarship</h1>
-        <h2 class="">Applicant:{{ $student->first_name . $student->last_name }} </h2>
+        <h2 class="">Applicant:{{ $student->first_name ." ". $student->last_name }} </h2>
         <div class="row">
             {{-- <div class=" container-fluid">
             <div class="row">
