@@ -16,6 +16,8 @@ class LatestUnitsChart extends ChartWidget
 
     protected static ?int $sort=3;
 
+    protected  array|string|int $columnSpan='full';
+
     protected function getData(): array
     {
 
