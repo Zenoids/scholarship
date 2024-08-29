@@ -12,5 +12,13 @@ class TransferStudent extends Page
 
     protected static string $view = 'filament.pages.transfer-student';
 
+    public static function shouldRegisterNavigation(): bool
+    {
+        return ((new User())->isSuperAdmin()) || ((new User())->isMarkazAdmin());
+    }
 
+    public function mount(): void
+    {
+        abort_unless(((new User())->isSuperAdmin()) || ((new User())->isMarkazAdmin()), 403);
+    }
 }

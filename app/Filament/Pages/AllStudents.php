@@ -14,7 +14,15 @@ class AllStudents extends Page
 
     protected static ?int $navigationSort= 6;
 
+    public static function shouldRegisterNavigation(): bool
+    {
+        return ((new User())->isSuperAdmin()) || ((new User())->isMarkazAdmin());
+    }
 
+    public function mount(): void
+    {
+        abort_unless(((new User())->isSuperAdmin()) || ((new User())->isMarkazAdmin()), 403);
+    }
 
 
 }
