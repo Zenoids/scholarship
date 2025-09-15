@@ -86,51 +86,27 @@ class ScholarshipForm extends Component
 
     public $currentPage = 1;
 
-    // #[Rule('required|file|mimes:jpg,jpeg,png,webp,pdf|max:2048')]
+    #[Rule('required|file|mimes:jpg,jpeg,png,webp,pdf|max:2048')]
     public $photofile;
 
-    // #[Rule('required|file|mimes:jpg,jpeg,png,webp,pdf|max:2048')]
+    #[Rule('required|file|mimes:jpg,jpeg,png,webp,pdf|max:2048')]
     public $feesfile;
 
-    // #[Rule('required|file|mimes:jpg,jpeg,png,webp,pdf|max:2048')]
+    #[Rule('required|file|mimes:jpg,jpeg,png,webp,pdf|max:2048')]
     public $marksfile;
 
-    // #[Rule('required|file|mimes:jpg,jpeg,png,webp,pdf|max:2048')]
+    #[Rule('required|file|mimes:jpg,jpeg,png,webp,pdf|max:2048')]
     public $adhaarfile;
 
-    // #[Rule('required|file|mimes:jpg,jpeg,png,webp,pdf|max:2048')]
+    #[Rule('required|file|mimes:jpg,jpeg,png,webp,pdf|max:2048')]
     public $passbookfile;
 
-    // #[Rule('required|file|mimes:jpg,jpeg,png,webp,pdf|max:2048')]
+    #[Rule('required|file|mimes:jpg,jpeg,png,webp,pdf|max:2048')]
     public $renewfeesfile;
 
-    // #[Rule('required|file|mimes:jpg,jpeg,png,webp,pdf|max:2048')]
+    #[Rule('required|file|mimes:jpg,jpeg,png,webp,pdf|max:2048')]
     public $renewmarksfile;
 
-    // keep a base reusable rule
-    private const FILE_RULE = 'required|file|mimes:jpg,jpeg,png,webp,pdf|max:2048';
-
-    public function rules()
-    {
-        if ($this->currentPage === 4) {
-            return [
-                'photofile'    => self::FILE_RULE,
-                'feesfile'     => self::FILE_RULE,
-                'marksfile'    => self::FILE_RULE,
-                'adhaarfile'   => self::FILE_RULE,
-                'passbookfile' => self::FILE_RULE,
-            ];
-        }
-
-        if ($this->currentPage === 6) {
-            return [
-                'renewfeesfile'  => self::FILE_RULE,
-                'renewmarksfile' => self::FILE_RULE,
-            ];
-        }
-
-        return []; // no file rules otherwise
-    }
 
     //     public function mount()
     // {
@@ -143,10 +119,10 @@ class ScholarshipForm extends Component
         $this->states = StateAdmin::all();
         $this->districts = collect();
         $this->units = collect();
-        // if (session()->has('selected_year')) {
-        //     // If it exists, set the course_year property.
-        //     $this->current_year = session('selected_year');
-        // }
+        if (session()->has('selected_year')) {
+            // If it exists, set the course_year property.
+            $this->current_year = session('selected_year');
+        }
         // dd($this->states);
     }
 
@@ -525,7 +501,9 @@ class ScholarshipForm extends Component
         );
     }
 
+
     public function render()
+
     {
         // dd(Auth::user()->students);
         $user = auth()->user();

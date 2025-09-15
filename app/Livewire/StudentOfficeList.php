@@ -26,7 +26,7 @@ use Livewire\Component;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 
-class StudentOfficeList extends Component implements HasForms, HasTable,HasActions
+class StudentOfficeList extends Component implements HasForms, HasTable, HasActions
 {
     use InteractsWithForms;
     use InteractsWithActions;
@@ -39,7 +39,7 @@ class StudentOfficeList extends Component implements HasForms, HasTable,HasActio
         $latestScholarship = Scholarship::latest()->first()->id;
 
         // dd();
-        $user=auth()->user();
+        $user = auth()->user();
         return $table
             ->query(Office::query()->whereHas('student', function (Builder $query) use ($latestScholarship) {
                 $query->where('scholarship_id', $latestScholarship);
@@ -47,13 +47,13 @@ class StudentOfficeList extends Component implements HasForms, HasTable,HasActio
             ->columns([
                 //
                 Tables\Columns\TextColumn::make('student.user.name')->label('Student Name')
-                ->sortable()->searchable(),
-           Tables\Columns\TextColumn::make('unitAdmin.name')->label('Unit')
-                ->sortable()->searchable(),
-            Tables\Columns\TextColumn::make('stateAdmin.name')->label('State')
-                ->sortable()->searchable(),
-            Tables\Columns\TextColumn::make('comments.comment')->label('Transfer Comments')
-                ->sortable(),
+                    ->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('unitAdmin.name')->label('Unit')
+                    ->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('stateAdmin.name')->label('State')
+                    ->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('comments.comment')->label('Transfer Comments')
+                    ->sortable(),
             ])
             ->filters([
                 //
@@ -61,39 +61,35 @@ class StudentOfficeList extends Component implements HasForms, HasTable,HasActio
             ->actions([
                 //
                 Action::make('Transfer')
-    //
-                        ->fillForm(fn (Office $record): array => [
-                            'student_id' => $record->student_id,
-                            'state_admin_id' => $record->state_admin_id,
-                            'unit_admin_id' => $record->unit_admin_id,
+                    //
+                    ->fillForm(fn(Office $record): array => [
+                        'student_id' => $record->student_id,
+                        'state_admin_id' => $record->state_admin_id,
+                        'unit_admin_id' => $record->unit_admin_id,
 
-                        ])
+                    ])
                     ->form([
 
                         Select::make('student_id')
-                        ->relationship('student','first_name')
-                        ->label('Student First Name')
-                         ->disabled()
-                        ->dehydrated()
-
-                            ,
+                            ->relationship('student', 'first_name')
+                            ->label('Student First Name')
+                            ->disabled()
+                            ->dehydrated(),
                         Select::make('student_id')
-                        ->relationship('student','last_name')
-                        ->label('Student Last Name')
-                         ->disabled()
-                        ->dehydrated()
-
-                            ,
+                            ->relationship('student', 'last_name')
+                            ->label('Student Last Name')
+                            ->disabled()
+                            ->dehydrated(),
                         Select::make('stateAdmin')
-                        ->label('State')
-                        ->relationship('StateAdmin','name')
-                        ->searchable()
-                                ->required(),
+                            ->label('State')
+                            ->relationship('StateAdmin', 'name')
+                            ->searchable()
+                            ->required(),
 
                         Select::make('unitAdmin')->label('Unit')
-                        ->relationship('unitAdmin','name')->searchable()
-                        ->searchable()
-                        ->required() ->helperText('Please make sure this Unit belongs to State selected.'),
+                            ->relationship('unitAdmin', 'name')->searchable()
+                            ->searchable()
+                            ->required()->helperText('Please make sure this Unit belongs to State selected.'),
                         Repeater::make('comments')->schema([
                             Textarea::make('comment')->required(),
                             // TextInput::make('student_id')->required()->hidden()->default($user->id),
@@ -135,7 +131,8 @@ class StudentOfficeList extends Component implements HasForms, HasTable,HasActio
     {
         return view('livewire.student-office-list');
     }
-    public function saveData(array $data, Office $record): void {
+    public function saveData(array $data, Office $record): void
+    {
         // Process and save the incoming data
         // For example, assuming 'student_id', 'state_admin_id', 'unit_admin_id' are columns in the 'office' table:
 

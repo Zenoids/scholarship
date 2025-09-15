@@ -32,13 +32,32 @@
             </div>
         </div>
     </div> --}}
-    <div class="bg-[#4A51A3]">
+    {{-- <div class="bg-[#4A51A3]">
         <div class="container flex font-semibold text-lg mx-auto h-8 justify-between text-white text-center">
-            <div class="">Copyright @2023
+            <div class="">Copyright <?php echo date('Y'); ?>
+            </div>
+            <div class=""><a href="mailto:scholarship@jih.org.in">Email: scholarship@jih.org.in</a>
             </div>
             <div class="">Powered By: <a>JIH IT Department</a>
             </div>
 
         </div>
+    </div> --}}
+    <div class="bg-[#4A51A3]">
+        <div
+            class="container flex items-center font-semibold text-lg mx-auto h-8 justify-between text-white text-center px-4">
+            <div>
+                Copyright &copy; 2025
+            </div>
+            <div>
+                <a href="mailto:scholarship@jih.org.in" class="hover:underline">
+                    Email: scholarship@jih.org.in
+                </a>
+            </div>
+            <div>
+                Powered By: <a href="#" class="hover:underline">JIH IT Department</a>
+            </div>
+        </div>
     </div>
+
 </footer>

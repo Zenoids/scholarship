@@ -14,9 +14,9 @@ class LatestUnitsChart extends ChartWidget
 {
     protected static ?string $heading = 'Latest Applications per Unit';
 
-    protected static ?int $sort=3;
+    protected static ?int $sort = 3;
 
-    protected  array|string|int $columnSpan='full';
+    protected  array|string|int $columnSpan = 'full';
 
     protected function getData(): array
     {
@@ -25,44 +25,34 @@ class LatestUnitsChart extends ChartWidget
         $stateAdminId = auth()->user()->id; // Replace with the actual state admin ID you want to retrieve data for
 
         $unitsData = Student::with('office')
-        ->get()
-        ->where('scholarship_id', Scholarship::latest()->first()->id)
-        // ->pluck('office.state_admin_id')
-      ->where('office.state_admin_id', $stateAdminId)
-        ->pluck('office.unit_admin_id')
-        ->map(function ($unitAdminId) {
-            return $unitAdminId ? UnitAdmin::find($unitAdminId)->name : 'Unknown';
-        })
-        ->groupBy(function ($unitAdminId) {
-            return $unitAdminId ?: 'Unknown'; // Grouping by unit_admin_id or Unknown if null
-        })
-        ->map(function ($units) {
+            ->get()
+            ->where('scholarship_id', Scholarship::latest()->first()->id)
+            // ->pluck('office.state_admin_id')
+            ->where('office.state_admin_id', $stateAdminId)
+            ->pluck('office.unit_admin_id')
+            ->map(function ($unitAdminId) {
+                return $unitAdminId ? UnitAdmin::find($unitAdminId)->name : 'Unknown';
+            })
+            ->groupBy(function ($unitAdminId) {
+                return $unitAdminId ?: 'Unknown'; // Grouping by unit_admin_id or Unknown if null
+            })
+            ->map(function ($units) {
 
-            return $units->count();
+                return $units->count();
+            });
 
-        });
+        $unitApplications = $unitsData->toArray();
 
-    $unitApplications = $unitsData->toArray();
-
-
-
-
-
-
-
-
-    // Retrieve units associated with the specified state admin
-
-
-    return [
-        'datasets' => [
-            [
-                'label' => 'Applications received',
-                'data' => array_values($unitApplications),
+        // Retrieve units associated with the specified state admin
+        return [
+            'datasets' => [
+                [
+                    'label' => 'Applications received',
+                    'data' => array_values($unitApplications),
+                ],
             ],
-        ],
-        'labels' => array_keys($unitApplications),
-    ];
+            'labels' => array_keys($unitApplications),
+        ];
     }
 
     protected function getType(): string

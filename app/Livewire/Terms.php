@@ -18,36 +18,39 @@ class Terms extends Component
 
     public string $password = '';
 
+    // public $selectedYear = null;
+    public $year;
+
     public $currentPage = 1;
     public string $password_confirmation = '';
 
     public function register(): void
     {
-
         $validated = $this->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $validated['password'] = Hash::make($validated['password']);
 
         event(new Registered($user = User::create($validated)));
-
+        $this->dispatch('registration-complete', ['year' => $this->year]);
+        session()->flash('selected_year', $this->year);
         auth()->login($user);
 
         $this->redirect(
             '/apply'
         );
     }
-    public function proceed():void
+    public function proceed(): void
     {
         // $this->currentPage++;
         $this->redirect(
             '/apply'
         );
     }
-    public function registrationpage():void
+    public function registrationpage(): void
     {
         $this->currentPage++;
         // $this->redirect(

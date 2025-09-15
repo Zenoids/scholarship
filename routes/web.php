@@ -8,6 +8,7 @@ use App\Models\Scholarship;
 use App\Models\Student;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

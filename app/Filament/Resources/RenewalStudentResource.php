@@ -1,49 +1,90 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Filament\Resources;
 
-use App\Models\Office;
-use App\Models\Scholarship;
-use App\Models\StateAdmin;
-use Filament\Notifications\Notification;
+use App\Filament\Resources\RenewalStudentResource\Pages;
+use App\Filament\Resources\RenewalStudentResource\RelationManagers;
+// use App\Models\RenewalStudent;
+use Filament\Forms;
+use Filament\Forms\Form;
+use Filament\Forms\Get;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
-use Illuminate\Database\Eloquent\Collection;
-use Filament\Forms\Get;
-
-use App\Models\Student;
-use App\Models\UnitAdmin;
-use App\Models\User;
-use Filament\Actions\Concerns\InteractsWithActions;
-use Filament\Actions\Contracts\HasActions;
-use Filament\Forms\Components\Repeater;
+use Filament\Resources\Resource;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Radio;
-use Filament\Forms\Concerns\InteractsWithForms;
-use Filament\Forms\Contracts\HasForms;
-use Filament\Infolists\Concerns\InteractsWithInfolists;
+use App\Models\Student;
+use App\Models\Scholarship;
+use App\Models\User;
 use Filament\Tables;
-use Filament\Tables\Actions\Action;
-use Filament\Tables\Concerns\InteractsWithTable;
-use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Table;
-use Filament\Infolists\Components\ImageEntry;
-use Filament\Infolists\Components\Section;
-use Filament\Infolists\Components\TextEntry;
-use Filament\Infolists\Infolist;
-use Livewire\Component;
-use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Notifications\Notification;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
+use Filament\Navigation\NavigationGroup;
+use Filament\Navigation\NavigationItem;
+use Filament\Infolists\Components\ImageEntry;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Components\Section;
+use Filament\Infolists\Infolist;
+use Filament\Infolists\Components\RepeatableEntry;
 
-class AllStudents extends Component implements HasForms, HasTable, HasActions
+class RenewalStudentResource extends Resource
 {
-    use InteractsWithForms;
-    use InteractsWithActions;
-    use InteractsWithTable;
-    use InteractsWithInfolists;
+    protected static ?string $model = Student::class;
 
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Applications';
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Renewal applications';
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        $user = auth()->user(); // Get the authenticated user
+        $latestScholarshipId = Scholarship::latest()->first()->id;
+
+        //    dd($latestScholarshipId);
+
+        if ((new User())->isStateAdmin()) {
+            $stateID = $user->stateadmins->id;
+            //     // $stateID=auth()->user()->stateAdmin->state_id;
+
+            return parent::getEloquentQuery()->where('renewal', true)->where('scholarship_id', $latestScholarshipId)->whereHas('office', function ($query) use ($stateID) {
+                $query->where('state_admin_id', $stateID);
+            });
+        }
+        //
+        if ((new User())->isUnitAdmin()) {
+            $CID = $user->unitadmins
+                ->where('user_id', $user->id)
+                ->first()->id;
+            return parent::getEloquentQuery()->where('renewal', true)->where('scholarship_id', $latestScholarshipId)->whereHas('office', function ($query) use ($CID) {
+                $query->where('unit_admin_id', $CID);
+            });
+        }
+        if (((new User())->isSuperAdmin()) || ((new User())->isMarkazAdmin()))
+        // if(($user && $user->role=="SuperAdmin")||($user && $user->role=="MarkazAdmin"))
+        // dd($query);
+        {
+            // dd($latestScholarshipId->id);
+            // dd(parent::getEloquentQuery()->where('scholarship_id', $latestScholarshipId));
+
+            return parent::getEloquentQuery()
+                // ->where('scholarship_id',  $latestScholarshipId)
+                ->where('renewal', true);
+        }
+    }
 
     public static function infolist(Infolist $infolist): Infolist
     {
@@ -101,11 +142,62 @@ class AllStudents extends Component implements HasForms, HasTable, HasActions
                         TextEntry::make('educations.institute_state')->label('Institute State'),
                     ])->columns(2)->collapsed(),
 
-                Section::make('Previous Course Details')
+                Section::make('Renewd Course Details')
+                    ->description('Current Course Pursuing Details')
+                    ->schema([
+                        TextEntry::make('latest_course_name')
+                            ->label('Course Name')
+                            ->state(fn($record) => optional($record->educations()->get()->sortByDesc('created_at')->first()?->course)->name),
 
+                        TextEntry::make('latest_course_year')
+                            ->label('Course Year')
+                            ->state(fn($record) => optional($record->educations()->get()->sortByDesc('created_at')->first())->course_year),
+
+                        TextEntry::make('latest_branch_name')
+                            ->label('Branch Name')
+                            ->state(fn($record) => optional($record->educations()->get()->sortByDesc('created_at')->first())->branch_name),
+
+                        TextEntry::make('latest_course_period')
+                            ->label('Course Period')
+                            ->state(fn($record) => optional($record->educations()->get()->sortByDesc('created_at')->first())->course_period),
+
+                        TextEntry::make('latest_rank_entrance')
+                            ->label('Entrance Rank')
+                            ->state(fn($record) => optional($record->educations()->get()->sortByDesc('created_at')->first())->rank_entrance),
+
+                        TextEntry::make('latest_institute_name')
+                            ->label('Institute Name')
+                            ->state(fn($record) => optional($record->educations()->get()->sortByDesc('created_at')->first())->institute_name),
+
+                        TextEntry::make('latest_institute_locality')
+                            ->label('Institute Locality')
+                            ->state(fn($record) => optional($record->educations()->get()->sortByDesc('created_at')->first())->institute_locality),
+
+                        TextEntry::make('latest_institute_district')
+                            ->label('Institute District')
+                            ->state(fn($record) => optional($record->educations()->get()->sortByDesc('created_at')->first())->institute_district),
+
+                        TextEntry::make('latest_institute_state')
+                            ->label('Institute State')
+                            ->state(fn($record) => optional($record->educations()->get()->sortByDesc('created_at')->first())->institute_state),
+                        TextEntry::make('latest_renew_fees_file')
+                            ->label('Renew Fees File')
+                            ->state(fn($record) => optional($record->renewuploads()->latest('created_at')->first())->renewfeesfile)
+                            ->formatStateUsing(fn($state) => $state ? asset('storage/' . $state) : 'Not uploaded')
+                            ->columnSpanFull(),
+
+                        TextEntry::make('latest_renew_marks_file')
+                            ->label('Renew Marks File')
+                            ->state(fn($record) => optional($record->renewuploads()->latest('created_at')->first())->renewmarksfile)
+                            ->formatStateUsing(fn($state) => $state ? asset('storage/' . $state) : 'Not uploaded')
+                            ->columnSpanFull(),
+                    ])
+                    ->columns(2)
+                    ->collapsed(),
+
+                Section::make('Previous Course Details')
                     ->description('previous Courses Details including 10th, intermediate')
                     ->schema([
-
                         TextEntry::make('previous.previous_course_name')->label('Previous Course Name'),
                         TextEntry::make('previous.previous_course_subjects')->label('Previous Course Subjects'),
                         TextEntry::make('previous.previous_hallticket')->label('Previous Hallticket Number'),
@@ -120,12 +212,10 @@ class AllStudents extends Component implements HasForms, HasTable, HasActions
                         TextEntry::make('previous.inter_institution')->label('Intermediate Institution'),
                         TextEntry::make('previous.inter_marks')->label('Marks secured Intermediate'),
                     ])->columns(2)->collapsed(),
-                Section::make('Bank & income Details')
 
+                Section::make('Bank & income Details')
                     ->description('Student Bank and Houshold income details')
                     ->schema([
-
-
                         TextEntry::make('incomes.name_ac_holder')->label('Name of account holder'),
                         TextEntry::make('incomes.bank_name')->label('Name of Bank'),
                         TextEntry::make('incomes.ac_branch')->label('Bank account branch'),
@@ -137,6 +227,7 @@ class AllStudents extends Component implements HasForms, HasTable, HasActions
                         TextEntry::make('incomes.expense_bearer_monthly_income')->label('Expense bearer monthly income'),
 
                     ])->columns(2)->collapsed(),
+
                 Section::make('Uploads')
 
                     ->description('Search with the link to see full screen or zoom')
@@ -149,10 +240,9 @@ class AllStudents extends Component implements HasForms, HasTable, HasActions
                         TextEntry::make('uploads.passbook_file_path')->label('Bank Passbook link')->formatStateUsing(fn($state) => asset('storage/' . $state))->columnSpanFull(),
                     ])->collapsed(),
                 Section::make('Uploads images')
-
                     ->description('pdfs are not visible here only images, for pdfs or zoomed images kindly see above section')
                     ->schema([
-                        ImageEntry::make('uploads.image_file_path')->label('student photo')->formatStateUsing(fn($state) => asset('storage/' . $state))->columnSpanFull()->size(500),
+                        ImageEntry::make('uploads.image_file_path')->label('student photo')->columnSpanFull()->size(500),
                         ImageEntry::make('uploads.fees_file_path')->label('Course Fees')->columnSpanFull()->size(500),
                         ImageEntry::make('uploads.adhaar_file_path')->label('Adhaar Card')->columnSpanFull()->size(500),
                         ImageEntry::make('uploads.marks_file_path')->label('Marks')->columnSpanFull()->size(500),
@@ -178,7 +268,7 @@ class AllStudents extends Component implements HasForms, HasTable, HasActions
                         // }),
                         ,
                         TextEntry::make('approvals.approval_comment')->label('Unit Comments')->columnSpanFull()
-                            ->state(function (Student $record): string {
+                            ->state(function (Model $record): string {
                                 $comment = 'no comments yet';
                                 foreach ($record->approvals as $approval) {
                                     if ($approval->role === 'Unit') {
@@ -189,7 +279,7 @@ class AllStudents extends Component implements HasForms, HasTable, HasActions
                                 return $comment;
                             }),
                         TextEntry::make('approvals.approval_comment')->label(' State Comments')->columnSpanFull()
-                            ->state(function (Student $record): string {
+                            ->state(function (Model $record): string {
                                 $comment = 'no comment';
                                 foreach ($record->approvals as $approval) {
                                     if ($approval->role === 'State') {
@@ -200,7 +290,7 @@ class AllStudents extends Component implements HasForms, HasTable, HasActions
                                 return $comment;
                             }),
                         TextEntry::make('approvals.approval_comment')->label(' Markaz Comments')->columnSpanFull()
-                            ->state(function (Student $record): string {
+                            ->state(function (Model $record): string {
                                 $comment = 'no comment';
                                 foreach ($record->approvals as $approval) {
                                     if ($approval->role === 'MarkazAdmin') {
@@ -211,7 +301,7 @@ class AllStudents extends Component implements HasForms, HasTable, HasActions
                                 return $comment;
                             }),
                         TextEntry::make('approvals.approval_comment')->label(' SuperAdmin Comments')->columnSpanFull()
-                            ->state(function (Student $record): string {
+                            ->state(function (Model $record): string {
                                 $comment = 'no comment';
                                 foreach ($record->approvals as $approval) {
                                     if ($approval->role === 'SuperAdmin') {
@@ -226,30 +316,18 @@ class AllStudents extends Component implements HasForms, HasTable, HasActions
             ]);
     }
 
-
-
+    public static function form(Form $form): Form
+    {
+        return $form
+            ->schema([
+                //
+            ]);
+    }
     public static function table(Table $table): Table
     {
         $user = auth()->user();
-        // Start the query for the Student model
-        $query = Student::query();
 
-        if ($user->isStateAdmin()) {
-            $stateID = $user->stateadmins->id;
-            $query->whereHas('office', function ($query) use ($stateID) {
-                $query->where('state_admin_id', $stateID);
-            });
-        } elseif ($user->isUnitAdmin()) {
-            $CID = $user->unitadmins->where('user_id', $user->id)->first()->id;
-            $query->whereHas('office', function ($query) use ($CID) {
-                $query->where('unit_admin_id', $CID);
-            });
-        } elseif ($user->isSuperAdmin() || $user->isMarkazAdmin()) {
-            // No additional conditions needed for SuperAdmin or MarkazAdmin
-            // The query already includes filtering by scholarship_id
-        }
         return $table
-            ->query($query)
             ->columns([
                 Tables\Columns\TextColumn::make('user.name')->label('Name')->searchable(),
                 Tables\Columns\TextColumn::make('mobile')->searchable(),
@@ -259,17 +337,17 @@ class AllStudents extends Component implements HasForms, HasTable, HasActions
                 Tables\Columns\TextColumn::make('office.unitAdmin.name')->label('JIH Unit')->searchable()->sortable()->toggleable(),
                 Tables\Columns\TextColumn::make('educations.course.name')->label('Course Name')->searchable()->toggleable(),
                 // Tables\Columns\CheckboxColumn::make('renewal')
-                // ->label('Renewal Status'),
+                //     ->label('Renewal Status'),
                 Tables\Columns\TextColumn::make('verify.status')->label('Verification Status')
 
                     ->color(fn(string $state): string => match ($state) {
                         'Pending' => 'gray',
                         'Approved' => 'success',
                         'Rejected' => 'danger',
-                    })->toggleable(),
-                Tables\Columns\TextColumn::make('verify.user.name')->label('Verified by')->toggleable(),
+                    }),
+                Tables\Columns\TextColumn::make('verify.user.name')->label('Verified by'),
                 Tables\Columns\TextColumn::make('Unit_status')->label('Unit Status')
-                    ->state(function (Student $record): string {
+                    ->state(function (Model $record): string {
                         $status = 'pending';
                         foreach ($record->approvals as $approval) {
                             if ($approval->role === 'Unit') {
@@ -283,9 +361,9 @@ class AllStudents extends Component implements HasForms, HasTable, HasActions
                         'pending' => 'gray',
                         'approved' => 'success',
                         'rejected' => 'danger',
-                    })->toggleable(),
+                    }),
                 Tables\Columns\TextColumn::make('State_status')->label('State Status')
-                    ->state(function (Student $record): string {
+                    ->state(function (Model $record): string {
                         $status = 'pending';
                         foreach ($record->approvals as $approval) {
                             if ($approval->role === 'State') {
@@ -299,9 +377,9 @@ class AllStudents extends Component implements HasForms, HasTable, HasActions
                         'pending' => 'gray',
                         'approved' => 'success',
                         'rejected' => 'danger',
-                    })->toggleable(),
+                    }),
                 Tables\Columns\TextColumn::make('Markaz_status')->label('Markaz Status')
-                    ->state(function (Student $record): string {
+                    ->state(function (Model $record): string {
                         $status = 'pending';
                         foreach ($record->approvals as $approval) {
                             if ($approval->role === 'MarkazAdmin') {
@@ -315,9 +393,9 @@ class AllStudents extends Component implements HasForms, HasTable, HasActions
                         'pending' => 'gray',
                         'approved' => 'success',
                         'rejected' => 'danger',
-                    })->toggleable(),
+                    }),
                 Tables\Columns\TextColumn::make('SuperAdmin_status')->label('SuperADmin Status')
-                    ->state(function (Student $record): string {
+                    ->state(function (Model $record): string {
                         $status = 'pending';
                         foreach ($record->approvals as $approval) {
                             if ($approval->role === 'SuperAdmin') {
@@ -331,7 +409,7 @@ class AllStudents extends Component implements HasForms, HasTable, HasActions
                         'pending' => 'gray',
                         'approved' => 'success',
                         'rejected' => 'danger',
-                    })->toggleable(),
+                    }),
             ])
             ->filters([
                 // SelectFilter::make('office')->relationship('office','state_admin_id')->options(StateAdmin::all()->pluck('name','id'))
@@ -340,6 +418,7 @@ class AllStudents extends Component implements HasForms, HasTable, HasActions
                 // SelectFilter::make('Verified')->relationship('verify','status')
                 Filter::make("Verified")->query(
                     function (Builder $query): Builder {
+                        // $latestScholarship = Scholarship::latest()->first()->id;
                         return $query->whereHas('verify', function ($subquery) {
                             $subquery->where('status', 'Approved');
                         });
@@ -351,239 +430,15 @@ class AllStudents extends Component implements HasForms, HasTable, HasActions
                     ->relationship('scholarship', 'name') // Assuming the Scholarship model has a 'name' field
                     ->options(Scholarship::all()->pluck('name', 'id'))
                     ->searchable(), // Makes the
+                
                 // SelectFilter::make('office')->options(StateAdmin::all()->pluck('name','id')),
 
 
 
             ])
-            // ->actions([
-            //     Tables\Actions\ViewAction::make()->label(false),
-            //     Tables\Actions\Action::make('verify')->label('Verify student')
-            //         ->form([
-            //             Select::make('status')
-            //                 ->options([
-            //                     'Pending' => 'Pending',
-            //                     'Approved' => 'Approved',
-            //                     'Rejected' => 'Rejected'
-            //                 ])->live()->required(),
-
-            //             Textarea::make('comment')->required(),
-
-            //             // Repeater::make('comments')->schema([
-            //             //     Textarea::make('comment')->required(),
-            //             //     TextInput::make('user_id')->required()->hidden()->default($user->id),
-            //             //     TextInput::make('role')->required()->hidden()->default($user->role),
-            //             //     TextInput::make('action')->required()->hidden()->default('approval'),
-            //             //                                  ])
-            //         ])
-            //         ->action(function (array $data, Student $record): void {
-            //             // dd($data);
-
-            //             $userID = auth()->user();
-            //             $existingApproval = $record->verify()->where('user_id', $userID->id)->first();
-            //             $actionData = [
-            //                 'student_id' => $record->id,
-            //                 'user_id' => $userID->id,
-            //                 // 'role' => $userID->role,
-            //                 'status' => $data['status'],
-            //                 'comment' => $data['comment'],
-            //             ];
-
-            //             // Check if 'amount' exists in the $data array
-            //             // if (isset($data['amount'])) {
-            //             //     // If 'amount' is present in $data, assign it to the $actionData array
-            //             //     $actionData['amount'] = $data['amount'];
-            //             // } else {
-            //             //     // If 'amount' is not present in $data, leave it empty or assign a default value
-            //             //     $actionData['amount'] = ''; // You can assign an empty string or a default value as needed
-            //             // }
-            //             if ($existingApproval) {
-            //                 // If an existing approval is found, update the existing record
-            //                 $existingApproval->update([
-            //                     'status' => $data['status'],
-            //                     'comment' => $data['comment'],
-            //                     // Update other fields as needed
-            //                 ]);
-            //             } else {
-            //                 $approval = $record->verify()->create($actionData);
-            //             }
-
-
-
-            //             // foreach ($data['comments'] as $comment) {
-            //             //     $newComment = new Comment([
-            //             //         'student_id' => $record->id,
-            //             //         'comment' => $comment['comment'],
-            //             //         'user_id' => $comment['user_id'],
-            //             //         'role' => $comment['role'],
-            //             //         'action' => $comment['action'],
-            //             //     ]);
-
-            //             //     $approval->comments()->save($newComment);
-            //             // }
-
-            //             // Save the changes
-            //             $record->save();
-            //             Notification::make()
-            //                 ->title('Status Updated')
-            //                 ->success()
-            //                 ->send();
-            //         }),
-            //     Tables\Actions\Action::make('Approve Student')->color('success')
-            //         ->form([
-            //             Select::make('approval_status')
-            //                 ->options([
-            //                     'pending' => 'pending',
-            //                     'approved' => 'approved',
-            //                     'rejected' => 'rejected'
-            //                 ])->live()->required(),
-            //             TextInput::make('amount')->hidden(fn(Get $get) => $get('approval_status') !== 'approved')->numeric(),
-            //             Textarea::make('approval_comment')->required(),
-
-            //             // Repeater::make('comments')->schema([
-            //             //     Textarea::make('comment')->required(),
-            //             //     TextInput::make('user_id')->required()->hidden()->default($user->id),
-            //             //     TextInput::make('role')->required()->hidden()->default($user->role),
-            //             //     TextInput::make('action')->required()->hidden()->default('approval'),
-            //             //                                  ])
-            //         ])
-            //         ->action(function (array $data, Student $record): void {
-            //             // dd($data);
-
-            //             $userID = auth()->user();
-            //             $existingApproval = $record->approvals()->where('user_id', $userID->id)->first();
-            //             $actionData = [
-            //                 'student_id' => $record->id,
-            //                 'user_id' => $userID->id,
-            //                 'role' => $userID->role,
-            //                 'approval_status' => $data['approval_status'],
-            //                 'approval_comment' => $data['approval_comment'],
-            //             ];
-
-            //             // Check if 'amount' exists in the $data array
-            //             if (isset($data['amount'])) {
-            //                 // If 'amount' is present in $data, assign it to the $actionData array
-            //                 $actionData['amount'] = $data['amount'];
-            //             } else {
-            //                 // If 'amount' is not present in $data, leave it empty or assign a default value
-            //                 $actionData['amount'] = ''; // You can assign an empty string or a default value as needed
-            //             }
-            //             if ($existingApproval) {
-            //                 // If an existing approval is found, update the existing record
-            //                 $existingApproval->update([
-            //                     'approval_status' => $data['approval_status'],
-            //                     'approval_comment' => $data['approval_comment'],
-            //                     // Update other fields as needed
-            //                 ]);
-            //             } else {
-            //                 $approval = $record->approvals()->create($actionData);
-            //             }
-
-
-
-            //             // foreach ($data['comments'] as $comment) {
-            //             //     $newComment = new Comment([
-            //             //         'student_id' => $record->id,
-            //             //         'comment' => $comment['comment'],
-            //             //         'user_id' => $comment['user_id'],
-            //             //         'role' => $comment['role'],
-            //             //         'action' => $comment['action'],
-            //             //     ]);
-
-            //             //     $approval->comments()->save($newComment);
-            //             // }
-
-            //             // Save the changes
-            //             $record->save();
-            //             Notification::make()
-            //                 ->title('Status Updated')
-            //                 ->success()
-            //                 ->send();
-            //         }),
-            //     Tables\Actions\Action::make('Download')->icon('heroicon-o-arrow-down-tray')->label(false)
-
-            //         ->url(fn(Student $record): string => route('single.export', $record->id))->openUrlInNewTab()
-            //     // ->url(fn (Volunteer $record): string => tap($record, fn($record) => dd($record))->route('exportSingleVolunteer', $record->id))
-
-            //     ,
-            //     Tables\Actions\Action::make('Download PDF')->icon('heroicon-o-document')->label("PDF")->url(fn(Student $record): string => route('singlepdf.export', $record->id))->openUrlInNewTab()
-
-
-
-            // ])
             ->actions([
                 Tables\Actions\ViewAction::make()->label(false),
-                // Tables\Actions\Action::make('verify')->label('Verify student')
-                //     ->form([
-                //         Select::make('status')
-                //             ->options([
-                //                 'Pending' => 'Pending',
-                //                 'Approved' => 'Approved',
-                //                 'Rejected' => 'Rejected'
-                //             ])->live()->required(),
 
-                //         Textarea::make('comment')->required(),
-
-                //         // Repeater::make('comments')->schema([
-                //         //     Textarea::make('comment')->required(),
-                //         //     TextInput::make('user_id')->required()->hidden()->default($user->id),
-                //         //     TextInput::make('role')->required()->hidden()->default($user->role),
-                //         //     TextInput::make('action')->required()->hidden()->default('approval'),
-                //         //                                  ])
-                //     ])
-                //     ->action(function (array $data, Student $record): void {
-                //         // dd($data);
-
-                //         $userID = auth()->user();
-                //         $existingApproval = $record->verify()->where('user_id', $userID->id)->first();
-                //         $actionData = [
-                //             'student_id' => $record->id,
-                //             'user_id' => $userID->id,
-                //             // 'role' => $userID->role,
-                //             'status' => $data['status'],
-                //             'comment' => $data['comment'],
-                //         ];
-
-                //         // Check if 'amount' exists in the $data array
-                //         // if (isset($data['amount'])) {
-                //         //     // If 'amount' is present in $data, assign it to the $actionData array
-                //         //     $actionData['amount'] = $data['amount'];
-                //         // } else {
-                //         //     // If 'amount' is not present in $data, leave it empty or assign a default value
-                //         //     $actionData['amount'] = ''; // You can assign an empty string or a default value as needed
-                //         // }
-                //         if ($existingApproval) {
-                //             // If an existing approval is found, update the existing record
-                //             $existingApproval->update([
-                //                 'status' => $data['status'],
-                //                 'comment' => $data['comment'],
-                //                 // Update other fields as needed
-                //             ]);
-                //         } else {
-                //             $approval = $record->verify()->create($actionData);
-                //         }
-
-
-
-                //         // foreach ($data['comments'] as $comment) {
-                //         //     $newComment = new Comment([
-                //         //         'student_id' => $record->id,
-                //         //         'comment' => $comment['comment'],
-                //         //         'user_id' => $comment['user_id'],
-                //         //         'role' => $comment['role'],
-                //         //         'action' => $comment['action'],
-                //         //     ]);
-
-                //         //     $approval->comments()->save($newComment);
-                //         // }
-
-                //         // Save the changes
-                //         $record->save();
-                //         Notification::make()
-                //             ->title('Status Updated')
-                //             ->success()
-                //             ->send();
-                //     }),
                 Tables\Actions\Action::make('renew')
                     ->icon('heroicon-o-arrow-path') // Set the icon for the button in the list view
                     ->tooltip('Approve or Reject Renewal') // Optional: Show tooltip with text when hovering over the icon
@@ -822,8 +677,22 @@ class AllStudents extends Component implements HasForms, HasTable, HasActions
                     })->openUrlInNewTab(),
 
             ])
-            // ->recordAction(Tables\Actions\ViewAction::class)
-
             ->emptyStateActions([]);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            //
+        ];
+    }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => Pages\ListRenewalStudents::route('/'),
+            // 'create' => Pages\CreateRenewalStudent::route('/create'),
+            // 'edit' => Pages\EditRenewalStudent::route('/{record}/edit'),
+        ];
     }
 }
